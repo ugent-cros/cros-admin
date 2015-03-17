@@ -2,32 +2,62 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ember Starter Kit</title>
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <title>CROS</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/theme.css">
+
 </head>
-<body>
+<body class="main page">
   <script type="text/x-handlebars">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <a class="brand" href="#">Bloggr</a>
-            <ul class="nav">
-                <li><a href="#">Posts</a></li>
-                <li><a>About</a></li>
-            </ul>
-        </div>
-    </div>
+      <div class="navbar navbar-default" id="navbar">
+          <a class="navbar-brand" href="#">CROS</a>
+          <ul class="nav navbar-nav pull-right">
+              <li><i class="glyphicon glyphicon-user" id="toggle"></i></li>
+              <li class="dropdown user"><strong>Eveline Hoogstoel</strong></li>
+          </ul>
+      </div>
 
-      {{outlet}}
-  </script>
+      <div id="wrapper">
+          <section id="sidebar">
+              <i class="glyphicon glyphicon-align-justify icon-large" id="toggle"></i>
+              <ul id="dock">
+                  <li class="active launcher">
+                      {{#link-to 'dashboard'}}Dashboard{{/link-to}}
+                  </li>
+                  <li class="launcher">
+                      {{#link-to 'drones'}}Drones{{/link-to}}
+                  </li>
+                  <li class="launcher">
+                      {{#link-to 'assignments'}}Assignments{{/link-to}}
+                  </li>
+                  <li class="launcher">
+                      {{#link-to 'basestations'}}Basestations{{/link-to}}
+                  </li>
+                  <li class="launcher">
+                      {{#link-to 'users'}}Users{{/link-to}}
+                  </li>
+              </ul>
+          </section>
 
-  <script type="text/x-handlebars" id="about">
-      <div class="about">
-          <p>This is a test</p>
+          <!--Toolbar-->
+          <section id="tools">
+
+          </section>
+
+          <!--Content-->>
+          <section id="content">
+              {{outlet}}
+          </section>
       </div>
   </script>
 
+  <script type="text/x-handlebars" id="dashboard">
+      <p>This is a test</p>
+  </script>
+
+  <script src="js/bootstrap.min.js"></script>
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/ember-template-compiler-1.10.0.js"></script>
   <script src="js/libs/ember-1.10.0.debug.js"></script>
