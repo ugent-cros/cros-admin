@@ -7,3 +7,10 @@ App.Router.map(function(){
     this.resource('basestations');
     this.resource('users');
 });
+
+$(document).ready(function() {
+    $('ul#dock li').click(function() {
+        $('li.active').removeClass('active');
+        $(this).addClass('active');
+    });
+});
