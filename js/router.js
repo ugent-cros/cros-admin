@@ -1,15 +1,16 @@
 App.Router.map(function(){
-    this.resource('dashboard');
-    this.resource('drones');
-	this.resource('drone', { path: '/drones/:drone_id' });
-    this.resource('assignments');
-    this.resource('basestations');
-    this.resource('users');
-    this.resource('login');
+	this.resource('App', { 'path' : '/' }, function() {
+		this.resource('dashboard');
+		this.resource('drones');
+		this.resource('drone', { path: '/drones/:drone_id' });
+		this.resource('assignments');
+		this.resource('basestations');
+		this.resource('users');
+	});
+	this.resource('login');
 });
 
 App.BaseRoute = Ember.Route.extend({
-
     beforeModel: function() {
         if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
             this.customAdapter.find("home");
@@ -44,4 +45,8 @@ App.DroneRoute = App.AuthRoute.extend({
     }
 });
 
-App.LoginRoute = App.BaseRoute.extend({});
+App.LoginRoute = App.BaseRoute.extend({
+	renderTemplate : function() {
+		this.render('login', {into: ''});
+	}
+});
