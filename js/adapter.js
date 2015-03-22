@@ -52,10 +52,33 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		});
 	},
 	
+	progressTracker: function(XMLHttpRequest)
+	{
+		NProgress.start();
+	
+		//Upload progress
+		XMLHttpRequest.upload.addEventListener("progress", function(evt){
+			if (evt.lengthComputable) {  
+				NProgress.set(evt.loaded / (evt.total * 2));
+			}
+		}, false); 
+		
+		//Download progress
+		XMLHttpRequest.addEventListener("progress", function(evt){
+			if (evt.lengthComputable) {  
+				NProgress.set(evt.loaded / (evt.total * 2) + 0.5);
+			}
+		}, false); 
+	},
+	
+	stopProgress: function() {
+		NProgress.done();
+	},
+	
     find : function(store, id, record) {
         var self = this;
 		if (store === "home") {
-            this.ajax(this.host, 'GET', {async : false}).then(function(data) {
+            this.ajax(this.host, 'GET', {async : false, beforeSend : self.progressTracker, success: self.stopProgress }).then(function(data) {
                 self.linkLibrary = data[store];
             });
         } else {
@@ -63,7 +86,8 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			if (id) {
 				path += self.delimiter + id;
 			}
-            return this.ajax( this.host + this.linkLibrary[path], 'GET').then(function(data) {
+			var url = this.host + this.linkLibrary[path];
+            return this.ajax( url, 'GET', {beforeSend : self.progressTracker, success: self.stopProgress }).then(function(data) {
 				self.processLinks(data[store], path);
                 return data[store];
             });
@@ -71,7 +95,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     },
     
     post : function(store, postData) {
-		return this.ajax(this.host + this.linkLibrary[store], 'POST', {data: postData});
+		return this.ajax(this.host + this.linkLibrary[store], 'POST', {data: postData, beforeSend : self.progressTracker, success: self.stopProgress});
 	}
     
 });
