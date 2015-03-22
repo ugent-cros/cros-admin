@@ -15,8 +15,22 @@
       <div class="navbar navbar-default" id="navbar">
           <a class="navbar-brand" href="#">CROS</a>
           <ul class="nav navbar-nav pull-right">
-              <li><i class="fa fa-user" id="toggle"></i></li>
-              <li class="dropdown user"><strong>Eveline Hoogstoel</strong></li>
+              <li class='dropdown user'>
+                  <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                      <i class="fa fa-user" id="toggle"></i>
+                      <strong>Eveline Hoogstoel</strong> <!--todo get logged in user-->
+                      <b class='caret'></b>
+                  </a>
+                  <ul class='dropdown-menu'>
+                      <li>
+                          <a href='#'>Edit Profile</a>
+                      </li>
+                      <li class='divider'></li>
+                      <li>
+                          <a href="#">Sign out</a>
+                      </li>
+                  </ul>
+              </li>
           </ul>
       </div>
 
@@ -24,7 +38,7 @@
           <section id="sidebar">
               <i class="glyphicon glyphicon-align-justify icon-large" id="toggle"></i>
               <ul id="dock">
-                  <li class="active launcher">
+                  <li class="active launcher"><!--todo change active on click-->
                       <i class="fa fa-tachometer"></i>
                       {{#link-to 'dashboard'}}Dashboard{{/link-to}}
                   </li>
