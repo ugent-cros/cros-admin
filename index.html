@@ -12,7 +12,7 @@
 
 </head>
 <body class="main page">
-    <script type="text/x-handlebars">
+    <script type="text/x-handlebars" id="App">
       <div class="navbar navbar-default" id="navbar">
           <a class="navbar-brand" href="#">CROS</a>
           <ul class="nav navbar-nav pull-right">
@@ -25,26 +25,26 @@
           <section id="sidebar">
               <i class="glyphicon glyphicon-align-justify icon-large" id="toggle"></i>
               <ul id="dock">
-                  <li class="active launcher">
-                      <i class="fa fa-tachometer"></i>
-                      {{#link-to 'dashboard'}}Dashboard{{/link-to}}
-                  </li>
-                  <li class="launcher">
+				  {{#link-to 'dashboard' tagName="li" href=false class="launcher"}}
+						<i class="fa fa-tachometer"></i>
+						{{#link-to 'dashboard'}}Dashboard{{/link-to}}
+                  {{/link-to}}
+                  {{#link-to 'drones' tagName="li" href=false class="launcher"}}
                       <i class="fa fa-dot-circle-o"></i>
                       {{#link-to 'drones'}}Drones{{/link-to}}
-                  </li>
-                  <li class="launcher">
+                  {{/link-to}}
+                  {{#link-to 'assignments' tagName="li" href=false class="launcher"}}
                       <i class="fa fa-file-text-o"></i>
                       {{#link-to 'assignments'}}Assignments{{/link-to}}
-                  </li>
-                  <li class="launcher">
+                  {{/link-to}}
+                  {{#link-to 'basestations' tagName="li" href=false class="launcher"}}
                       <i class="fa fa-home"></i>
                       {{#link-to 'basestations'}}Basestations{{/link-to}}
-                  </li>
-                  <li class="launcher">
+                  {{/link-to}}
+                  {{#link-to 'users' tagName="li" href=false class="launcher"}}
                       <i class="fa fa-user"></i>
                       {{#link-to 'users'}}Users{{/link-to}}
-                  </li>
+                  {{/link-to}}
               </ul>
           </section>
 
@@ -78,47 +78,49 @@
     </script>
 
     <script type="text/x-handlebars" id="login">
-      <div class='wrapper'>
-      <div class='row'>
-        <div class='col-lg-12'>
-          <div class='brand text-center'>
-            <h1>
-              <div class='logo-icon'>
-                <i class='icon-beer'></i>
-              </div>
-            </h1>
-          </div>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-lg-12'>
-          <form>
-            <fieldset class='text-center'>
-              <legend>Login to your account</legend>
-              <div class='form-group'>
-				{{ emailError }}
-				{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
-              </div>
-              <div class='form-group'>
-				{{ passwordError }}
-				{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
-              </div>
-              <div class='text-center'>
-                <!--<div class='checkbox'>
-                  <label>
-                    <input type='checkbox'>
-                    Remember me on this computer
-                  </label>
-                </div>-->
-                <button class="btn btn-default" {{ action 'login' }}>Sign in</button>
-                <br>
-                <!--<a href="forgot_password.html">Forgot password?</a>-->
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </div>
+		<div class='login'>
+			<div class='wrapper'>
+			  <div class='row'>
+				<div class='col-lg-12'>
+				  <div class='brand text-center'>
+					<h1>
+					  <div class='logo-icon'>
+						<i class='icon-beer'></i>
+					  </div>
+					</h1>
+				  </div>
+				</div>
+			  </div>
+			  <div class='row'>
+				<div class='col-lg-12'>
+				  <form>
+					<fieldset class='text-center'>
+					  <legend>Login to your account</legend>
+					  <div class='form-group'>
+						{{ emailError }}
+						{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
+					  </div>
+					  <div class='form-group'>
+						{{ passwordError }}
+						{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
+					  </div>
+					  <div class='text-center'>
+						<div class='checkbox'>
+						  <label>
+							<input type='checkbox'>
+							Remember me on this computer
+						  </label>
+						</div>
+						<button class="btn btn-default" {{ action 'login' }}>Sign in</button>
+						<br>
+						<a href="forgot_password.html">Forgot password?</a>
+					  </div>
+					</fieldset>
+				  </form>
+				</div>
+			  </div>
+			</div>
+		</div>
   </script>
   
   
