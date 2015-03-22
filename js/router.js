@@ -1,6 +1,7 @@
 App.Router.map(function(){
     this.resource('dashboard');
     this.resource('drones');
+	this.resource('drone', { path: '/drones/:drone_id' });
     this.resource('assignments');
     this.resource('basestations');
     this.resource('users');
@@ -29,7 +30,16 @@ App.DashboardRoute = App.AuthRoute.extend({});
 
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('drones');
+        return this.customAdapter.find('drone').then(function(data){
+			return data.resource;
+		});
+    }
+});
+
+App.DroneRoute = App.AuthRoute.extend({
+    model: function(params) {
+		console.log("blsefijesmfij");
+        return this.customAdapter.find('drone', params.drone_id);
     }
 });
 

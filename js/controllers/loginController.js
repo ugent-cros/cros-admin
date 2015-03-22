@@ -26,11 +26,6 @@ App.LoginController = Ember.Controller.extend({
 					console.log("failed");
 				}
 			});
-			/*if (result.success) {
-				
-			} else {
-				
-			}*/
 		}
     }
         
