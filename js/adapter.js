@@ -52,23 +52,27 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		});
 	},
 	
-	progressTracker: function(XMLHttpRequest)
+	progressTracker: function()
 	{
-		NProgress.start();
+		var xhr = new window.XMLHttpRequest();
 	
 		//Upload progress
-		XMLHttpRequest.upload.addEventListener("progress", function(evt){
+		xhr.upload.addEventListener("progress", function(evt){
 			if (evt.lengthComputable) {  
 				NProgress.set(evt.loaded / (evt.total * 2));
 			}
 		}, false); 
 		
 		//Download progress
-		XMLHttpRequest.addEventListener("progress", function(evt){
+		xhr.addEventListener("progress", function(evt){
 			if (evt.lengthComputable) {  
 				NProgress.set(evt.loaded / (evt.total * 2) + 0.5);
 			}
 		}, false); 
+		
+		NProgress.start();
+		
+		return xhr;
 	},
 	
 	stopProgress: function() {
@@ -78,8 +82,9 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     find : function(store, id, record) {
         var self = this;
 		if (store === "home") {
-            this.ajax(this.host, 'GET', {async : false, beforeSend : self.progressTracker, success: self.stopProgress }).then(function(data) {
+            this.ajax(this.host, 'GET', {async : false, xhr : self.progressTracker }).then(function(data) {
                 self.linkLibrary = data[store];
+				self.stopProgress();
             });
         } else {
 			var path = store
@@ -87,15 +92,20 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 				path += self.delimiter + id;
 			}
 			var url = this.host + this.linkLibrary[path];
-            return this.ajax( url, 'GET', {beforeSend : self.progressTracker, success: self.stopProgress }).then(function(data) {
+            return this.ajax( url, 'GET', {xhr : self.progressTracker }).then(function(data) {
 				self.processLinks(data[store], path);
+				self.stopProgress();
                 return data[store];
             });
         }        
     },
     
     post : function(store, postData) {
-		return this.ajax(this.host + this.linkLibrary[store], 'POST', {data: postData, beforeSend : self.progressTracker, success: self.stopProgress});
+		var self = this;
+		return this.ajax(this.host + this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
+			self.stopProgress();
+			return data;
+		});
 	}
     
 });
