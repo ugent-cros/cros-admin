@@ -9,6 +9,7 @@ App.Router.map(function(){
 });
 
 App.BaseRoute = Ember.Route.extend({
+
     beforeModel: function() {
         if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
             this.customAdapter.find("home");
