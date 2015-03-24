@@ -76,15 +76,14 @@
 		</script>
 
 		<script type="text/x-handlebars" id="drone">
-			{{#my-popup title='Settings' ok='save' close='removeModal' link='drones'}}
+			{{#popup-window title=model.name link='drones'}}
 				<div class="row">
-					<div class="col-md-4"><label>Drone:</label> {{model.name}}</div>
-					<div class="col-md-4"><label>Battery status:</label> {{battery}}</div>
+					<div class="col-md-4"><label>Battery status:</label> <div class='battery'><div class='batteryStatus'></div></div></div>
 				</div>
 				<div class="row">
 					<div class="col-md-4"><label>Address:</label> {{model.address}}</div>
 				</div>
-			{{/my-popup}}
+			{{/popup-window}}
 		</script>
 
 		<script type="text/x-handlebars" id="login">
@@ -134,7 +133,7 @@
 			</div>
 		</script>
 
-		<script type="text/x-handlebars" data-template-name="components/my-popup">
+		<script type="text/x-handlebars" data-template-name="components/popup-window">
 			<div class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
