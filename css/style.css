@@ -2,3 +2,12 @@
 .ember-application {
     margin: 20px;
 }
+
+.errorNotification {
+	background : #E75353;
+}
+
+#tools {
+	padding: 15px;
+	vertical-align: middle;
+}

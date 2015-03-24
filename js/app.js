@@ -18,6 +18,22 @@ EmberENV = {
 	}
 };
 
+App.AppController = Ember.Controller.extend({
+	
+	notification : "",
+	notificationIsError : false,
+
+	init : function() {
+		var self = this;
+		App.currentSocketManager.register("notifications", function(data) {
+			self.set('notification', data);
+			self.set('notificationIsError', !self.notificationIsError);
+		});
+	}
+  
+});
+
+
 $(function() {
 	$('[data-toggle="popover"]').popover();
 });
