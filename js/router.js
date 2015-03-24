@@ -52,10 +52,7 @@ App.DronesRoute = App.AuthRoute.extend({
 
 App.DroneRoute = App.AuthRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('drone', params.drone_id).then(function(data) {
-			console.log(data);
-			return data;
-		});
+        return this.customAdapter.find('drone', params.drone_id);
     }
 });
 

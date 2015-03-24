@@ -145,7 +145,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		return $.ajax(hash);
 	},
 	
-    find : function(store, id, record) {
+    find : function(store, id, action, params) {
         var self = this;
 		if (store === "home") {
             this.ajax(this.host, 'GET', {async : false, xhr : self.progressTracker }).then(function(data) {
@@ -153,10 +153,11 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 				self.stopProgress();
             });
         } else {
-			var urlPromise = this.resolveLink(store,id,record);
+			var urlPromise = this.resolveLink(store,id,action);
 			var urlObj;
             return urlPromise.pipe(function(obj) {
-				urlObj = obj
+				urlObj = obj;
+				urlObj.url += "?" + $.param(params);
 				return self.ajax(self.host + urlObj.url, 'GET');
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
