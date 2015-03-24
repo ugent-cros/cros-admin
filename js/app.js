@@ -1,28 +1,28 @@
-App = Ember.Application.create();
+window.App = Ember.Application.create();
 
-App.Router.map(function(){
-    this.resource('dashboard');
-    this.resource('drones');
-    this.resource('assignments');
-    this.resource('basestations');
-    this.resource('users');
+App.initializer({
+    name: "customAdapter",
+
+    initialize: function (container, application) {
+        application.register("my:manager", application.CustomAdapter);
+        application.inject("controller", "customAdapter", "my:manager");
+        application.inject("route", "customAdapter", "my:manager");
+		application.inject("socketmanager", "customAdapter", "my:manager");
+    }
 });
 
-$(document).ready(function() {
-    $('ul#dock li').click(function() {
-        $('li.active').removeClass('active');
-        $(this).addClass('active');
-    });
+EmberENV = {
+    FEATURES: {
+        'ember-htmlbars': true
+    }
+};
+
+$(function() {
+    $('[data-toggle="popover"]').popover();
 });
 
 App.MyTableComponent = Ember.Component.extend({
     columns: ['test', '#']
-});
-
-App.DronesRoute = Ember.Route.extend({
-    model: function(){
-        return drones
-    }
 });
 
 App.DronesController = Ember.ObjectController.extend({
@@ -38,3 +38,5 @@ var drones = [{
     name: "AR drone 2",
     status: 'In flight'
 }]
+
+
