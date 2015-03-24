@@ -9,3 +9,10 @@ App.initializer({
         application.inject("route", "customAdapter", "my:manager");
     }
 });
+
+
+EmberENV = {
+	FEATURES: {
+		'ember-htmlbars': true
+	}
+};

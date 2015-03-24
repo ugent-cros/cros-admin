@@ -4,7 +4,6 @@ App.Router.map(function(){
 		this.resource('drones');
 		this.resource('drone', { path: '/drones/:drone_id' });
 		this.resource('assignments');
-		this.resource('assignment', { path: 'assignments/:assignment_id' });
 		this.resource('basestations');
 		this.resource('users');
 	});
@@ -16,7 +15,19 @@ App.BaseRoute = Ember.Route.extend({
         if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
             this.customAdapter.find("home");
         }
-    }
+    },
+	
+	setupController: function (controller, model) {
+		this._super(controller, model);
+		
+		NProgress.done();
+	},
+	
+	actions: {
+		loading : function(transition, originRoute) {
+			NProgress.start();
+		},
+	}
 });
 
 App.AuthRoute = App.BaseRoute.extend({
@@ -51,16 +62,17 @@ App.PopupRoute = App.AuthRoute.extend({
 
 App.DroneRoute = App.PopupRoute.extend({
     model: function(params) {
-		console.log(this.customAdapter.find('drone', params.drone_id));
-        return this.customAdapter.find('drone', params.drone_id);
+        return this.customAdapter.find('drone', params.drone_id).then(function(data) {
+			return data;
+		});
     },
 	renderTemplate: function() {
 		this._super('drone', 'drones');
 	}
 });
 
-App.AssignmentsRoute = Ember.Route.extend({
-  model: function() {
-	  return 'oke';
-  }
+App.LoginRoute = App.BaseRoute.extend({
+	renderTemplate : function() {
+		this.render('login', {into: ''});
+	}
 });
