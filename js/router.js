@@ -15,7 +15,19 @@ App.BaseRoute = Ember.Route.extend({
         if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
             this.customAdapter.find("home");
         }
-    }
+    },
+	
+	setupController: function (controller, model) {
+		this._super(controller, model);
+		
+		NProgress.done();
+	},
+	
+	actions: {
+		loading : function(transition, originRoute) {
+			NProgress.start();
+		},
+	}
 });
 
 App.AuthRoute = App.BaseRoute.extend({
@@ -40,8 +52,10 @@ App.DronesRoute = App.AuthRoute.extend({
 
 App.DroneRoute = App.AuthRoute.extend({
     model: function(params) {
-		console.log("blsefijesmfij");
-        return this.customAdapter.find('drone', params.drone_id);
+        return this.customAdapter.find('drone', params.drone_id).then(function(data) {
+			console.log(data);
+			return data;
+		});
     }
 });
 
