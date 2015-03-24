@@ -77,6 +77,49 @@
       <p>This is a test</p>
   </script>
 
+  <script type="text/x-handlebars" id="drones">
+      {{#my-table columns=columns data=model params=params}}
+          {{#each item in model}}
+          <tr>
+              <td>{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.status}}</td>
+              <td class='action'>
+                  <a class='btn btn-info' href='#'>
+                      <i class="fa fa-pencil"></i>
+                  </a>
+                  <a class='btn btn-danger' href='#'>
+                      <i class="fa fa-trash-o"></i>
+                  </a>
+              </td>
+          </tr>
+          {{/each}}
+      {{/my-table}}
+  </script>
+
+  <!---------------------------------Tables--------------------------------->
+  <script type="text/x-handlebars" id="components/my-table">
+      <div class="panel panel-default grid">
+          <div class="panel-heading">
+
+          </div>
+          <div class="panel-body filters">
+
+          </div>
+          <table class="table">
+              <thead>
+              <tr>
+                  {{#each column in columns}}
+                  <th>{{column}}</th>
+                  {{/each}}
+              </tr>
+              </thead>
+              {{yield}}
+          </table>
+      </div>
+  </script>
+
+
   <script src="js/bootstrap.min.js"></script>
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/ember-template-compiler-1.10.0.js"></script>
