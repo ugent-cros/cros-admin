@@ -9248,7 +9248,7 @@ define("ember-data/system/relationships/ext",
         });
 
         return map;
-      }).cacheable(false).readOnly(),
+      }).volatile().readOnly(),
 
       /**
         A hash containing lists of the model's relationships, grouped
@@ -9344,7 +9344,7 @@ define("ember-data/system/relationships/ext",
         });
 
         return types;
-      }).cacheable(false).readOnly(),
+      }).volatile().readOnly(),
 
       /**
         A map whose keys are the relationships of a model and whose values are
@@ -9390,7 +9390,7 @@ define("ember-data/system/relationships/ext",
         });
 
         return map;
-      }).cacheable(false).readOnly(),
+      }).volatile().readOnly(),
 
       /**
         A map whose keys are the fields of the model and whose values are strings

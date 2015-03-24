@@ -50,10 +50,23 @@ App.DronesRoute = App.AuthRoute.extend({
     }
 });
 
-App.DroneRoute = App.AuthRoute.extend({
+App.PopupRoute = App.AuthRoute.extend({	
+	renderTemplate: function(resource, resources) {
+		this.render(resources);
+		this.render(resource, {
+			into: 'App',
+			outlet: 'modal'
+		});
+	}
+});
+
+App.DroneRoute = App.PopupRoute.extend({
     model: function(params) {
         return this.customAdapter.find('drone', params.drone_id);
-    }
+    },
+	renderTemplate: function() {
+		this._super('drone', 'drones');
+	}
 });
 
 App.LoginRoute = App.BaseRoute.extend({

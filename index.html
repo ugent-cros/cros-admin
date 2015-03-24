@@ -1,143 +1,170 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>CROS</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel='stylesheet' href='css/nprogress.css'/>
-
-</head>
-<body class="main page">
-    <script type="text/x-handlebars" id="App">
-      <div class="navbar navbar-default" id="navbar">
-          <a class="navbar-brand" href="#">CROS</a>
-          <ul class="nav navbar-nav pull-right">
-              <li><i class="fa fa-user" id="toggle"></i></li>
-              <li class="dropdown user"><strong>Eveline Hoogstoel</strong></li>
-          </ul>
-      </div>
-
-      <div id="wrapper">
-          <section id="sidebar">
-              <i class="glyphicon glyphicon-align-justify icon-large" id="toggle"></i>
-              <ul id="dock">
-				  {{#link-to 'dashboard' tagName="li" href=false class="launcher"}}
-						<i class="fa fa-tachometer"></i>
-						{{#link-to 'dashboard'}}Dashboard{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'drones' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-dot-circle-o"></i>
-                      {{#link-to 'drones'}}Drones{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'assignments' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-file-text-o"></i>
-                      {{#link-to 'assignments'}}Assignments{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'basestations' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-home"></i>
-                      {{#link-to 'basestations'}}Basestations{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'users' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-user"></i>
-                      {{#link-to 'users'}}Users{{/link-to}}
-                  {{/link-to}}
-              </ul>
-          </section>
-
-          <!--Toolbar-->
-          <section id="tools">
-
-          </section>
-
-          <!--Content-->>
-          <section id="content">
-              {{outlet}}
-          </section>
-      </div>
-    </script>
-  
-
-    <script type="text/x-handlebars" id="dashboard">
-        <p>This is a test</p>
-    </script>
-
-    <script type="text/x-handlebars" id="drones">
-        {{#each drone in model }}
-			<p> {{ drone.id }} : {{ drone.name }}
-			 {{#link-to 'drone' drone.id}}link {{/link-to}}
-			</p>
-		{{/each}}
-    </script>
-	
-	<script type="text/x-handlebars" id="drone">
-		<p> {{ model.id }} : {{ model.name }} </p>
-    </script>
-
-    <script type="text/x-handlebars" id="login">
-		<div class='login'>
-			<div class='wrapper'>
-			  <div class='row'>
-				<div class='col-lg-12'>
-				  <div class='brand text-center'>
-					<h1>
-					  <div class='logo-icon'>
-						<i class='icon-beer'></i>
-					  </div>
-					</h1>
-				  </div>
-				</div>
-			  </div>
-			  <div class='row'>
-				<div class='col-lg-12'>
-				  <form>
-					<fieldset class='text-center'>
-					  <legend>Login to your account</legend>
-					  <div class='form-group'>
-						{{ emailError }}
-						{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
-					  </div>
-					  <div class='form-group'>
-						{{ passwordError }}
-						{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
-					  </div>
-					  <div class='text-center'>
-						<div class='checkbox'>
-						  <label>
-							<input type='checkbox'>
-							Remember me on this computer
-						  </label>
-						</div>
-						<button class="btn btn-default" {{ action 'login' }}>Sign in</button>
-						<br>
-						<a href="forgot_password.html">Forgot password?</a>
-					  </div>
-					</fieldset>
-				  </form>
-				</div>
-			  </div>
+	<head>
+		<meta charset="utf-8">
+		<title>CROS</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel='stylesheet' href='css/nprogress.css'/>
+	</head>
+	<body class="main page">
+		<script type="text/x-handlebars" id="App">
+			<div class="navbar navbar-default" id="navbar">
+				<a class="navbar-brand" href="#">CROS</a>
+				<ul class="nav navbar-nav pull-right">
+					<li><i class="fa fa-user" id="toggle"></i></li>
+					<li class="dropdown user"><strong>Eveline Hoogstoel</strong></li>
+				</ul>
 			</div>
-		</div>
-  </script>
-  
-  
-  <script src="js/libs/jquery-1.10.2.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.cookie.js"></script>
-  <script src="js/libs/ember-template-compiler-1.10.0.js"></script>
-  <script src="js/libs/ember-1.10.0.debug.js"></script>
-  <script src="js/libs/ember-data.js"></script>
-  <script src='js/nprogress.js'></script>
-  
-  <script src="js/app.js"></script>
-  <script src="js/adapter.js"></script>
-  <script src="js/router.js"></script>
-  <script src="js/models/drone.js"></script>
-  <script src="js/controllers/loginController.js"></script>
-  <script src="js/controllers/droneController.js"></script>
-  
-</body>
+
+			<div id="wrapper">
+				<section id="sidebar">
+					<i class="glyphicon glyphicon-align-justify icon-large" id="toggle"></i>
+					<ul id="dock">
+						{{#link-to 'dashboard' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-tachometer"></i>
+							{{#link-to 'dashboard'}}Dashboard{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'drones' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-dot-circle-o"></i>
+							{{#link-to 'drones'}}Drones{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'assignments' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-file-text-o"></i>
+							{{#link-to 'assignments'}}Assignments{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'basestations' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-home"></i>
+							{{#link-to 'basestations'}}Basestations{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'users' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-user"></i>
+							{{#link-to 'users'}}Users{{/link-to}}
+						{{/link-to}}
+					</ul>
+				</section>
+
+				<!--Toolbar-->
+				<section id="tools">
+
+				</section>
+
+				<!--Content-->>
+				<section id="content">
+					{{outlet}}
+					{{outlet 'modal'}}
+				</section>
+			</div>
+		</script>
+
+
+		<script type="text/x-handlebars" id="dashboard">
+			<p>This is a test</p>
+		</script>
+
+		<script type="text/x-handlebars" id="drones">
+			{{#if model}}
+				{{#each drone in model }}
+					<p> {{ drone.id }} : {{ drone.name }}
+						{{#link-to 'drone' drone.id}}link {{/link-to}}
+					</p>
+				{{/each}}
+			{{/if}}
+		</script>
+
+		<script type="text/x-handlebars" id="drone">
+			{{#my-popup title='Settings' ok='save' close='removeModal' link='drones'}}
+				<div class="row">
+					<div class="col-md-4"><label>Drone:</label> {{model.name}}</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4"><label>Address:</label> {{model.address}}</div>
+				</div>
+			{{/my-popup}}
+		</script>
+
+		<script type="text/x-handlebars" id="login">
+			<div class='login'>
+				<div class='wrapper'>
+					<div class='row'>
+						<div class='col-lg-12'>
+							<div class='brand text-center'>
+								<h1>
+									<div class='logo-icon'>
+										<i class='icon-beer'></i>
+									</div>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-lg-12'>
+							<form>
+								<fieldset class='text-center'>
+									<legend>Login to your account</legend>
+									<div class='form-group'>
+										{{ emailError }}
+										{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
+									</div>
+									<div class='form-group'>
+										{{ passwordError }}
+										{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
+									</div>
+									<div class='text-center'>
+										<div class='checkbox'>
+											<label>
+												<input type='checkbox'>
+												Remember me on this computer
+											</label>
+										</div>
+										<button class="btn btn-default" {{ action 'login' }}>Sign in</button>
+										<br>
+										<a href="forgot_password.html">Forgot password?</a>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<script type="text/x-handlebars" data-template-name="components/my-popup">
+			<div class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							{{#link-to link class='close'}}&times;{{/link-to}}
+							<h4 class="modal-title">{{title}}</h4>
+						</div>
+						<div class="modal-body">
+							{{yield}}
+						</div>
+						<div class="modal-footer">
+							{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<script src="js/libs/jquery-1.10.2.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/libs/ember-template-compiler-1.10.0.js"></script>
+		<script src="js/libs/ember-1.10.0.debug.js"></script>
+		<script src="js/libs/ember-data.js"></script>
+		<script src='js/nprogress.js'></script>
+
+		<script src="js/app.js"></script>
+		<script src="js/adapter.js"></script>
+		<script src="js/router.js"></script>
+		<script src="js/models/drone.js"></script>
+		<script src="js/controllers/loginController.js"></script>
+		<script src="js/controllers/droneController.js"></script>
+		<script src="js/components/popup.js"></script>
+	</body>
 </html>
