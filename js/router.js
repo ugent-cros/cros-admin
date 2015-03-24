@@ -15,6 +15,10 @@ App.BaseRoute = Ember.Route.extend({
         if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
             this.customAdapter.find("home");
         }
+		
+		if (!App.currentSocketManager) {
+			App.currentSocketManager = App.SocketManager.create({ url : this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"] });
+		}
     },
 	
 	setupController: function (controller, model) {
@@ -61,6 +65,7 @@ App.PopupRoute = App.AuthRoute.extend({
 });
 
 App.DroneRoute = App.PopupRoute.extend({
+
     model: function(params) {
         return this.customAdapter.find('drone', params.drone_id);
     },

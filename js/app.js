@@ -7,6 +7,7 @@ App.initializer({
         application.register("my:manager", application.CustomAdapter);
         application.inject("controller", "customAdapter", "my:manager");
         application.inject("route", "customAdapter", "my:manager");
+		application.inject("socketmanager", "customAdapter", "my:manager");
     }
 });
 
@@ -16,3 +17,7 @@ EmberENV = {
 		'ember-htmlbars': true
 	}
 };
+
+$(function() {
+	$('[data-toggle="popover"]').popover();
+});

@@ -79,6 +79,7 @@
 			{{#my-popup title='Settings' ok='save' close='removeModal' link='drones'}}
 				<div class="row">
 					<div class="col-md-4"><label>Drone:</label> {{model.name}}</div>
+					<div class="col-md-4"><label>Battery status:</label> {{battery}}</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4"><label>Address:</label> {{model.address}}</div>
@@ -122,7 +123,8 @@
 										</div>
 										<button class="btn btn-default" {{ action 'login' }}>Sign in</button>
 										<br>
-										<a href="forgot_password.html">Forgot password?</a>
+											<a href="javascript:;">Forgot password?</a>
+											<a href="javascript:;" data-toggle="popover" title="register" data-content="Contact your system administrator to add new accounts">Register</a>
 									</div>
 								</fieldset>
 							</form>
@@ -161,6 +163,7 @@
 
 		<script src="js/app.js"></script>
 		<script src="js/adapter.js"></script>
+		<script src="js/socketmanager.js"></script>
 		<script src="js/router.js"></script>
 		<script src="js/models/drone.js"></script>
 		<script src="js/controllers/loginController.js"></script>
