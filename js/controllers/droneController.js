@@ -1,6 +1,7 @@
 App.DroneController = Ember.Controller.extend({
   
 	battery : "N/A",
+	altitude : -1,
   
 	init : function() {
 	},
@@ -14,6 +15,10 @@ App.DroneController = Ember.Controller.extend({
 				$('.batteryStatus').css('background-color', '#F00');
 			else
 				$('.batteryStatus').css('background-color', '#0A0');
+		});
+		
+		App.currentSocketManager.register("altitudeChanged", id, function(data) {
+			self.set("altitude", data.altitude);
 		});
 	}
   
