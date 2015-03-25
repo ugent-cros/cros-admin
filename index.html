@@ -76,7 +76,7 @@
 
 
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model params=params}}
+            {{#my-table columns=columns data=model}}
                 {{#each item in model}}
                     <tr>
                         <td>{{item.id}}</td>
@@ -95,27 +95,6 @@
             {{/my-table}}
         </script>
 
-        <!---------------------------------Tables--------------------------------->
-        <script type="text/x-handlebars" id="components/my-table">
-            <div class="panel panel-default grid">
-                <div class="panel-heading">
-
-                </div>
-                <div class="panel-body filters">
-
-                </div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        {{#each column in columns}}
-                            <th>{{column}}</th>
-                        {{/each}}
-                    </tr>
-                    </thead>
-                    {{yield}}
-                </table>
-            </div>
-        </script>
 		<script type="text/x-handlebars" id="drone">
 			{{#my-popup title='Settings' ok='save' close='removeModal' link='drones'}}
 				<div class="row">
@@ -127,6 +106,67 @@
 				</div>
 			{{/my-popup}}
 		</script>
+
+        <script type="text/x-handlebars" id="assignments">
+            {{#my-table columns=columns data=model}}
+            {{#each item in model}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.priority}}</td>
+                <td>{{item.creator.email}}</td>
+                <td>{{item.assignedDrone}}</td>
+                <td class='action'>
+                    <a class='btn btn-info' href='#'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class='btn btn-danger' href='#'>
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/my-table}}
+        </script>
+
+        <script type="text/x-handlebars" id="basestations">
+            {{#my-table columns=columns data=model}}
+            {{#each item in model}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td class='action'>
+                    <a class='btn btn-info' href='#'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class='btn btn-danger' href='#'>
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/my-table}}
+        </script>
+
+        <script type="text/x-handlebars" id="users">
+            {{#my-table columns=columns data=model}}
+            {{#each item in model}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.firstName}} {{item.lastName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.role}}</td>
+                <td class='action'>
+                    <a class='btn btn-info' href='#'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class='btn btn-danger' href='#'>
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/my-table}}
+        </script>
 
 		<script type="text/x-handlebars" id="login">
 			<div class='login'>
@@ -175,6 +215,29 @@
 			</div>
 		</script>
 
+
+        <!---------------------------------Templates--------------------------------->
+        <script type="text/x-handlebars" id="components/my-table">
+            <div class="panel panel-default grid">
+                <div class="panel-heading">
+
+                </div>
+                <div class="panel-body filters">
+
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        {{#each column in columns}}
+                        <th>{{column}}</th>
+                        {{/each}}
+                    </tr>
+                    </thead>
+                    {{yield}}
+                </table>
+            </div>
+        </script>
+
 		<script type="text/x-handlebars" data-template-name="components/my-popup">
 			<div class="modal fade">
 				<div class="modal-dialog">
@@ -209,6 +272,10 @@
 		<script src="js/models/drone.js"></script>
 		<script src="js/controllers/loginController.js"></script>
 		<script src="js/controllers/droneController.js"></script>
+        <script src="js/controllers/dronesController.js"></script>
+        <script src="js/controllers/assignmentsController.js"></script>
+        <script src="js/controllers/basestationsController.js"></script>
+        <script src="js/controllers/usersController.js"></script>
 		<script src="js/components/popup.js"></script>
 	</body>
 </html>

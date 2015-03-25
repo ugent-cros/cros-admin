@@ -64,6 +64,24 @@ App.AssignmentsRoute = App.AuthRoute.extend({
     }
 });
 
+App.BasestationsRoute = App.AuthRoute.extend({
+    model: function() {
+        return this.customAdapter.find('basestation').then(function(data){
+            console.log(data.resource);
+            return data.resource;
+        });
+    }
+});
+
+App.UsersRoute = App.AuthRoute.extend({
+    model: function() {
+        return this.customAdapter.find('user').then(function(data){
+            console.log(data.resource);
+            return data.resource;
+        });
+    }
+});
+
 App.PopupRoute = App.AuthRoute.extend({	
 	renderTemplate: function(resource, resources) {
 		this.render(resources);

@@ -1,7 +1,7 @@
 /**
  * Created by Eveline on 25/03/2015.
  */
-App.DronesController = Ember.ObjectController.extend({
+App.DronesController = Ember.Controller.extend({
     columns : ['#','Name','Status','Actions'],
     getStatusClass: function(){
         if (status == 'AVAILABLE'){
