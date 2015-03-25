@@ -52,26 +52,32 @@ App.SocketManager = Ember.Object.extend({
 		console.log(event.data);
 		var jsonData = $.parseJSON(event.data);
 		if (self.listeners[jsonData.type]) {
-			$.each(self.listeners[jsonData.type], function(index, callback) {
+			var callbacks = self.listeners[jsonData.type][0] || [];
+			if (jsonData.id && self.listeners[jsonData.type][jsonData.id]) {
+				callbacks.pushObjects(self.listeners[jsonData.type][jsonData.id]);
+			}
+			
+			$.each(callbacks, function(index, callback) {
 				callback(jsonData.value);
 			});
 		}
 	},
 	
 	register : function(type, id, callback) {
-		a = this.listeners[type] || [];
-		a.push(callback);
-		this.listeners[type] = a;
-		/*var a = this.listeners[type] || [];
-		if (id) {
-			a = a[id] || [];
-			a.push(callback);
-			this.listeners[type][id] = a;
+		if (!id) {
+			id = 0;
+		}
+		
+		var typeCallbacks = this.listeners[type];
+		if (typeCallbacks) {
+			var idCallbacks = typeCallbacks[id] || [];
+			idCallbacks.push(callback);
+			typeCallbacks[id] = idCallbacks;
 		} else {
-			a = this.listeners[type] || [];
-			a.push(callback);
-			this.listeners[type] = a;
-		}*/
+			typeCallbacks = [];
+			typeCallbacks[id] = [callback];
+		}
+		this.listeners[type] = typeCallbacks;
 	}
 
 });
