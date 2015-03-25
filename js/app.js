@@ -11,11 +11,10 @@ App.initializer({
     }
 });
 
-
 EmberENV = {
-	FEATURES: {
-		'ember-htmlbars': true
-	}
+    FEATURES: {
+        'ember-htmlbars': true
+    }
 };
 
 App.AppController = Ember.Controller.extend({
@@ -36,5 +35,5 @@ App.AppController = Ember.Controller.extend({
 
 
 $(function() {
-	$('[data-toggle="popover"]').popover();
+    $('[data-toggle="popover"]').popover();
 });

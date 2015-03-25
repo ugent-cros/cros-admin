@@ -1,4 +1,4 @@
-App.MyPopupComponent = Ember.Component.extend({
+App.PopupWindowComponent = Ember.Component.extend({
   /*actions: {
     ok: function() {
       this.$('.modal').modal('hide');

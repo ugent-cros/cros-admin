@@ -4,8 +4,11 @@ App.Router.map(function(){
 		this.resource('drones');
 		this.resource('drone', { path: '/drones/:drone_id' });
 		this.resource('assignments');
+		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
+		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
+		this.resource('user', { path: '/users/:user_id' });
 	});
 	this.resource('login');
 });
@@ -49,13 +52,42 @@ App.DashboardRoute = App.AuthRoute.extend({});
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
         return this.customAdapter.find('drone').then(function(data){
+            console.log(data.resource);
 			return data.resource;
 		});
     }
 });
 
-App.PopupRoute = App.AuthRoute.extend({	
+App.AssignmentsRoute = App.AuthRoute.extend({
+    model: function() {
+        return this.customAdapter.find('assignment').then(function(data){
+            console.log(data.resource);
+            return data.resource;
+        });
+    }
+});
+
+App.BasestationsRoute = App.AuthRoute.extend({
+    model: function() {
+        return this.customAdapter.find('basestation').then(function(data){
+            console.log(data.resource);
+            return data.resource;
+        });
+    }
+});
+
+App.UsersRoute = App.AuthRoute.extend({
+    model: function() {
+        return this.customAdapter.find('user').then(function(data){
+            console.log(data.resource);
+            return data.resource;
+        });
+    }
+});
+
+App.PopupRoute = App.AuthRoute.extend({
 	renderTemplate: function(resource, resources) {
+		this.set('resources', resources);
 		this.render(resources);
 		this.render(resource, {
 			into: 'App',
@@ -65,12 +97,38 @@ App.PopupRoute = App.AuthRoute.extend({
 });
 
 App.DroneRoute = App.PopupRoute.extend({
-
     model: function(params) {
         return this.customAdapter.find('drone', params.drone_id);
     },
 	renderTemplate: function() {
 		this._super('drone', 'drones');
+	}
+});
+
+App.AssignmentRoute = App.PopupRoute.extend({
+    model: function(params) {
+        return this.customAdapter.find('assignment', params.assignment_id);
+    },
+	renderTemplate: function() {
+		this._super('assignment', 'assignments');
+	}
+});
+
+App.BasestationRoute = App.PopupRoute.extend({
+    model: function(params) {
+        return this.customAdapter.find('basestation', params.basestation_id);
+    },
+	renderTemplate: function() {
+		this._super('basestation', 'basestations');
+	}
+});
+
+App.UserRoute = App.PopupRoute.extend({
+    model: function(params) {
+        return this.customAdapter.find('user', params.user_id);
+    },
+	renderTemplate: function() {
+		this._super('user', 'users');
 	}
 });
 
