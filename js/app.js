@@ -21,13 +21,14 @@ EmberENV = {
 App.AppController = Ember.Controller.extend({
 	
 	notification : "",
-	notificationIsError : false,
+	notificationIsError : function() {
+		return this.get('notification') !== "";
+	}.property('notification'),
 
 	init : function() {
 		var self = this;
-		App.currentSocketManager.register("notifications", function(data) {
+		App.currentSocketManager.register("notification",null, function(data) {
 			self.set('notification', data);
-			self.set('notificationIsError', !self.notificationIsError);
 		});
 	}
   

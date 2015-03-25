@@ -33,7 +33,7 @@ App.SocketManager = Ember.Object.extend({
 		var timer;
 		
 		s.onClose = function() {
-			self.onMessage({data:'{"type": "notifications","value": "lost connection with server. Trying to reconnect..."}'},self);
+			self.onMessage({data:'{"type": "notification","value": "lost connection with server. Trying to reconnect..."}'},self);
 		
 			clearInterval(timer);
 			var url = self.get('url');
@@ -49,6 +49,7 @@ App.SocketManager = Ember.Object.extend({
 	},
 	
 	onMessage : function(event, self) {
+		console.log(event.data);
 		var jsonData = $.parseJSON(event.data);
 		if (self.listeners[jsonData.type]) {
 			$.each(self.listeners[jsonData.type], function(index, callback) {
@@ -57,10 +58,20 @@ App.SocketManager = Ember.Object.extend({
 		}
 	},
 	
-	register : function(type, callback) {
-		var a = this.listeners[type] || [];
+	register : function(type, id, callback) {
+		a = this.listeners[type] || [];
 		a.push(callback);
 		this.listeners[type] = a;
+		/*var a = this.listeners[type] || [];
+		if (id) {
+			a = a[id] || [];
+			a.push(callback);
+			this.listeners[type][id] = a;
+		} else {
+			a = this.listeners[type] || [];
+			a.push(callback);
+			this.listeners[type] = a;
+		}*/
 	}
 
 });
