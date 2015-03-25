@@ -51,6 +51,10 @@ App.AppRoute = App.AuthRoute.extend({});
 
 App.DashboardRoute = App.AuthRoute.extend({});
 
+App.DashboardController = Ember.Controller.extend({
+	v : false
+});
+
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
         return this.customAdapter.find('drone').then(function(data){

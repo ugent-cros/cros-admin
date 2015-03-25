@@ -29,6 +29,13 @@ App.AppController = Ember.Controller.extend({
 		App.currentSocketManager.register("notification",null, function(data) {
 			self.set('notification', data.message);
 		});
+	},
+  
+	actions: {
+		dismiss : function() {
+			this.set('notification', "");
+		}
+	
 	}
   
 });

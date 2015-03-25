@@ -50,6 +50,9 @@
 				<!--Toolbar-->
 				<section id="tools" style="height:51px;" {{bind-attr class="notificationIsError:errorNotification"}}>
 					{{notification}}    
+					{{#if notificationIsError}}
+						<button type="button" class="close" aria-label="Close" {{action 'dismiss'}}><span aria-hidden="true">&times;</span></button>
+					{{/if}}
 				</section>
 
 				<!--Content-->>

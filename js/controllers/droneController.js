@@ -18,7 +18,7 @@ App.DroneController = Ember.Controller.extend({
 		});
 		
 		App.currentSocketManager.register("altitudeChanged", id, function(data) {
-			self.set("altitude", data.altitude);
+			self.set("altitude", data.altitude.toFixed(2));
 		});
 	}
   

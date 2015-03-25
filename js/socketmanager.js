@@ -33,7 +33,7 @@ App.SocketManager = Ember.Object.extend({
 		var timer;
 		
 		s.onClose = function() {
-			self.onMessage({data:'{"type": "notification","value": "lost connection with server. Trying to reconnect..."}'},self);
+			self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
 		
 			clearInterval(timer);
 			var url = self.get('url');
