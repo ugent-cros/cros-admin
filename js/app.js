@@ -11,13 +11,12 @@ App.initializer({
     }
 });
 
-
 EmberENV = {
-	FEATURES: {
-		'ember-htmlbars': true
-	}
+    FEATURES: {
+        'ember-htmlbars': true
+    }
 };
 
 $(function() {
-	$('[data-toggle="popover"]').popover();
+    $('[data-toggle="popover"]').popover();
 });
