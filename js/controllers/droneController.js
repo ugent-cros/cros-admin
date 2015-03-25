@@ -4,9 +4,9 @@ App.DroneController = Ember.Controller.extend({
   
 	init : function() {
 		var self = this;
-		App.currentSocketManager.register("batteryPercentageChanged", function(data) {
+		/*App.currentSocketManager.register("batteryPercentageChanged", function(data) {
 			self.set('battery', data.percent);
-		});
+		});*/
 	}
   
 });
