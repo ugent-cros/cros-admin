@@ -49,8 +49,18 @@ App.DashboardRoute = App.AuthRoute.extend({});
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
         return this.customAdapter.find('drone').then(function(data){
+            console.log(data.resource);
 			return data.resource;
 		});
+    }
+});
+
+App.AssignmentsRoute = App.AuthRoute.extend({
+    model: function() {
+        return this.customAdapter.find('assignment').then(function(data){
+            console.log(data.resource);
+            return data.resource;
+        });
     }
 });
 
