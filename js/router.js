@@ -47,6 +47,8 @@ App.AuthRoute = App.BaseRoute.extend({
     }
 });
 
+App.AppRoute = App.AuthRoute.extend({});
+
 App.DashboardRoute = App.AuthRoute.extend({});
 
 App.DronesRoute = App.AuthRoute.extend({
