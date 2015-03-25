@@ -102,6 +102,11 @@ App.DroneRoute = App.PopupRoute.extend({
     model: function(params) {
         return this.customAdapter.find('drone', params.drone_id);
     },
+	
+	setupController: function(controller, model) {
+		controller.initRegistration(model.id);
+    },
+	
 	renderTemplate: function() {
 		this._super('drone', 'drones');
 	}
