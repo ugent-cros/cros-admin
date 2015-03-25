@@ -20,23 +20,3 @@ EmberENV = {
 $(function() {
     $('[data-toggle="popover"]').popover();
 });
-
-App.MyTableComponent = Ember.Component.extend({
-    columns: ['test', '#']
-});
-
-App.DronesController = Ember.ObjectController.extend({
-    columns : ['#','Name','Status','Actions']
-});
-
-var drones = [{
-    id: '1',
-    name: "bebop",
-    status: 'Available'
-}, {
-    id: '2',
-    name: "AR drone 2",
-    status: 'In flight'
-}]
-
-
