@@ -150,7 +150,6 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		if (store === "home") {
             this.ajax(this.host, 'GET', {async : false, xhr : self.progressTracker }).then(function(data) {
                 self.linkLibrary = data[store];
-				self.stopProgress();
             });
         } else {
 			var urlPromise = this.resolveLink(store,id,action);
@@ -161,7 +160,6 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 				return self.ajax(self.host + urlObj.url, 'GET');
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
-				self.stopProgress();
 				return data[store];
 			});
         }        
@@ -170,9 +168,24 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     post : function(store, postData) {
 		var self = this;
 		return this.ajax(this.host + this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
-			self.stopProgress();
+			return data;
+		});
+	},
+    
+	edit : function(store, id, editData) {
+		var self = this;
+		var url = this.host + this.linkLibrary[store + self.delimiter + id];
+		return this.ajax(url, 'PUT', {data: postData, xhr : self.progressTracker}).then(function(data) {
+			return data;
+		});
+	},
+	
+	remove : function(store, id) {
+		var self = this;
+		var url = this.host + this.linkLibrary[store + self.delimiter + id];
+		return this.ajax(url, 'DELETE', { xhr : self.progressTracker}).then(function(data) {
 			return data;
 		});
 	}
-    
+	
 });
