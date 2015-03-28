@@ -64,19 +64,8 @@
 			<p>This is a test</p>
 		</script>
 
-		<!--<script type="text/x-handlebars" id="drones">
-			{{#if model}}
-				{{#each drone in model }}
-					<p> {{ drone.id }} : {{ drone.name }}
-						{{#link-to 'drone' drone.id}}link {{/link-to}}
-					</p>
-				{{/each}}
-			{{/if}}
-		</script>-->
-
-
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model}}
+            {{#my-table columns=columns data=model length=40}}
                 {{#each item in model}}
                     <tr>
                         <td>{{item.id}}</td>
@@ -235,6 +224,30 @@
                     </thead>
                     {{yield}}
                 </table>
+                {{#if hasPages}}
+                    <div class="panel-footer">
+                        <ul class="pagination pagination-sm">
+                            {{#if prevPage}}
+                            <li><a href="#" {{action "selectPage" prevPage}}>&laquo;</a></li>
+                            {{else}}
+                            <li class="disabled"><a>&laquo;</a></li>
+                            {{/if}}
+
+                            {{#each pages itemController="page"}}
+                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
+                            {{/each}}
+
+                            {{#if nextPage}}
+                            <li><a href="#" {{action "selectPage" nextPage}}>&raquo;</a></li>
+                            {{else}}
+                            <li class="disabled"><a>&raquo;</a></li>
+                            {{/if}}
+                        </ul>
+                        <div class="pull-right">
+                            Showing {{begin}} to {{end}} of {{length}} entries
+                        </div>
+                    </div>
+                {{/if}}
             </div>
         </script>
 
@@ -276,6 +289,7 @@
         <script src="js/controllers/assignmentsController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
         <script src="js/controllers/usersController.js"></script>
+        <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
 	</body>
 </html>
