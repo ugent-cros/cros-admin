@@ -7,5 +7,13 @@ App.DronesController = Ember.Controller.extend({
         if (status == 'AVAILABLE'){
             return 'label-success'
         }
-    }.property(status)
+    }.property(status),
+
+    actions: {
+        delete: function (id) {
+            console.log("deleting: " + id);
+            this.customAdapter.remove("drones", id);
+            //TODO: refresh page or refresh table
+        }
+    }
 });
