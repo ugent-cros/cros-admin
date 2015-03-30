@@ -6,9 +6,7 @@ App.AppController = Ember.Controller.extend({
 
     actions : {
         logout: function(){
-            App.Auth = null;
-            $.removeCookie('authToken', {path:'/'})
-            this.transitionToRoute('login');
+            App.AuthManager.logout();
         }
     }
 

@@ -41,7 +41,7 @@ App.AuthRoute = App.BaseRoute.extend({
     beforeModel: function() {
         this._super();
         
-        if (this.customAdapter.token().authToken == "") {
+        if (!App.AuthManager.isLoggedIn) {
             this.transitionTo('login');
         }
     }
