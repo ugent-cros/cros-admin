@@ -28,11 +28,10 @@
                                 <a href="javascript:;">Info</a>
                             </li>
                             <li>
-                                <a href="#">Log out</a>
+                                <a href="javascript:;" {{action 'logout' }}>Log out</a>
                             </li>
                         </ul>
                     </li>
-					<li></li>
 				</ul>
 			</div>
 			<div id="wrapper">
@@ -392,7 +391,8 @@
 		<script src="js/socketmanager.js"></script>
 		<script src="js/router.js"></script>
 		<script src="js/models/drone.js"></script>
-		<script src="js/controllers/loginController.js"></script>
+        <script src="js/controllers/appController.js"></script>
+        <script src="js/controllers/loginController.js"></script>
 		<script src="js/controllers/droneController.js"></script>
         <script src="js/controllers/dronesController.js"></script>
         <script src="js/controllers/assignmentsController.js"></script>

@@ -13,7 +13,7 @@ App.LoginController = Ember.Controller.extend({
 			result.then(function(data) {
 				$.cookie("authToken", data.authToken);
 				App.Auth = Ember.Object.create({
-                    authToken : data.authToken,
+                    authToken : data.authToken
                 });
 				
 				self.transitionToRoute('dashboard'); // TODO: redirect to correct route
