@@ -7,6 +7,9 @@ App.PopupWindowComponent = Ember.Component.extend({
   },*/
 	show: function() {
 		this.$('.modal').modal('show');
+		this.$('.modal').on('hide.bs.modal', function(e) {
+			$('#closeModal').click();
+		});
 	}.on('didInsertElement'),
 	hide: function() {
 		this.$('.modal').modal('hide');

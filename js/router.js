@@ -58,7 +58,6 @@ App.DashboardController = Ember.Controller.extend({
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
         return this.customAdapter.find('drone').then(function(data){
-            console.log(data.resource);
 			return data.resource;
 		});
     }
@@ -67,7 +66,6 @@ App.DronesRoute = App.AuthRoute.extend({
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
         return this.customAdapter.find('assignment').then(function(data){
-            console.log(data.resource);
             return data.resource;
         });
     }
@@ -76,7 +74,6 @@ App.AssignmentsRoute = App.AuthRoute.extend({
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
         return this.customAdapter.find('basestation').then(function(data){
-            console.log(data.resource);
             return data.resource;
         });
     }
@@ -85,7 +82,6 @@ App.BasestationsRoute = App.AuthRoute.extend({
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
         return this.customAdapter.find('user').then(function(data){
-            console.log(data.resource);
             return data.resource;
         });
     }
@@ -93,7 +89,6 @@ App.UsersRoute = App.AuthRoute.extend({
 
 App.PopupRoute = App.AuthRoute.extend({
 	renderTemplate: function(resource, resources) {
-		this.set('resources', resources);
 		this.render(resources);
 		this.render(resource, {
 			into: 'App',
