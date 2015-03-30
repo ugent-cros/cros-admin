@@ -165,7 +165,9 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 				self.processLinks(data[store], urlObj.key);
 				self.stopProgress();
 				return data[store];
-			});
+			}, function() {
+                return
+            });
         }        
     },
     
