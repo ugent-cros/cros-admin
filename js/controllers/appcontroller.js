@@ -7,6 +7,7 @@ App.AppController = Ember.Controller.extend({
     actions : {
         logout: function(){
             App.AuthManager.logout();
+            this.transitionToRoute('login');
         }
     }
 

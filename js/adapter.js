@@ -7,7 +7,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     
     headers: function() {
         return {
-            "X-AUTH-TOKEN" : App.AuthManager.token().authToken
+            "X-AUTH-TOKEN" : App.AuthManager.token()
         };
     }.property().volatile(),
 

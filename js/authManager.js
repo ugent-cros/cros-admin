@@ -10,25 +10,24 @@ var AuthManagerClass = Ember.Object.extend({
 
     cookieName : "authToken",
     redirectUrl : "dashboard", // TODO: change to actual route
+    authToken : null,
 
-    isLoggedIn : false,
+    isLoggedIn : function() {
+        return this.token() != null;
+    }.property("authToken"),
 
     logout: function(){
-        App.Auth = null;
-        $.removeCookie(self.cookieName, {path:'/'});
-        this.isLoggedIn = false;
-        this.transitionToRoute('login');
+        this.set("authToken", null);
+        $.removeCookie(this.get("cookieName"), {path:'/'});
     },
 
     login : function(self, email, password) {
         var result = self.customAdapter.post("login", { "emailAddress" : email, "password" : password });
-        var temp = this.cookieName;
+        var temp = this.get("cookieName");
+        var self = this;
         return result.then(function(data) {
             $.cookie(temp, data.authToken);
-            App.Auth = Ember.Object.create({
-                authToken : data.authToken
-            });
-            this.isLoggedIn = true;
+            self.set("authToken", data.authToken);
 
             return true;
         }, function(data) {
@@ -44,19 +43,17 @@ var AuthManagerClass = Ember.Object.extend({
     },
 
     token : function() {
-        if (App.Auth == null) {
+        if (this.authToken == null) {
             var token = $.cookie(this.cookieName);
 
             if (token == null){
-                return { authToken: "" };
+                return null;
             } else {
-                App.Auth = Ember.Object.create({
-                    authToken : token
-                });
+                this.set("authToken", token);
             }
         }
 
-        return App.Auth;
+        return this.get("authToken");
     }
 
 });

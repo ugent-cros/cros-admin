@@ -8,6 +8,7 @@ App.LoginController = Ember.Controller.extend({
   
     actions : {
 		login : function() {
+
 			var result = App.AuthManager.login(this, this.get('emailInput'), this.get('passwordInput'));
             var self = this;
             result.then(function(success) {
