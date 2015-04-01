@@ -56,7 +56,7 @@ App.DronesRoute = App.AuthRoute.extend({
 
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('assignment').then(function(data){
+        return this.customAdapter.find('assignment', null, null, {pageSize : 2, page : 0}).then(function(data){
             return data.resource;
         });
     }
@@ -64,7 +64,7 @@ App.AssignmentsRoute = App.AuthRoute.extend({
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('basestation').then(function(data){
+        return this.customAdapter.find('basestation', null, null, {pageSize : 2, page : 0}).then(function(data){
             return data.resource;
         });
     }
@@ -72,7 +72,7 @@ App.BasestationsRoute = App.AuthRoute.extend({
 
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('user').then(function(data){
+        return this.customAdapter.find('user', null, null, {pageSize : 2, page : 0}).then(function(data){
             return data.resource;
         });
     }

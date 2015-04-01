@@ -72,12 +72,14 @@
                         <td>{{item.name}}</td>
                         <td>{{item.status}}</td>
                         <td class='action'>
-                            <a class='btn btn-info' href='#'>
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                                <i class="fa fa-trash-o"></i>
-                            </a>
+                            <div class="btn-group">
+                                <a class='btn btn-info' href='#'>
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 {{/each}}
@@ -97,7 +99,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
-            {{#my-table columns=columns data=model}}
+            {{#my-table columns=columns data=model length=totalElements action="getPage"}}
             {{#each item in model}}
             <tr>
                 <td>{{item.id}}</td>
@@ -105,12 +107,14 @@
                 <td>{{item.creator.email}}</td>
                 <td>{{item.assignedDrone}}</td>
                 <td class='action'>
-                    <a class='btn btn-info' href='#'>
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class='btn btn-danger' href='#'>
+                    <div class="btn-group">
+                        <a class='btn btn-info' href='#'>
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
                         <i class="fa fa-trash-o"></i>
-                    </a>
+                        </a>
+                    </div>
                 </td>
             </tr>
             {{/each}}
@@ -118,18 +122,20 @@
         </script>
 
         <script type="text/x-handlebars" id="basestations">
-            {{#my-table columns=columns data=model}}
+            {{#my-table columns=columns data=model length=totalElements action="getPage"}}
             {{#each item in model}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td class='action'>
-                    <a class='btn btn-info' href='#'>
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class='btn btn-danger' href='#'>
+                    <div class="btn-group">
+                        <a class='btn btn-info' href='#'>
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
                         <i class="fa fa-trash-o"></i>
-                    </a>
+                        </a>
+                    </div>
                 </td>
             </tr>
             {{/each}}
@@ -137,7 +143,7 @@
         </script>
 
         <script type="text/x-handlebars" id="users">
-            {{#my-table columns=columns data=model}}
+            {{#my-table columns=columns data=model length=totalElements action="getPage"}}
             {{#each item in model}}
             <tr>
                 <td>{{item.id}}</td>
@@ -145,12 +151,14 @@
                 <td>{{item.email}}</td>
                 <td>{{item.role}}</td>
                 <td class='action'>
-                    <a class='btn btn-info' href='#'>
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class='btn btn-danger' href='#'>
+                    <div class="btn-group">
+                        <a class='btn btn-info' href='#'>
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
                         <i class="fa fa-trash-o"></i>
-                    </a>
+                        </a>
+                    </div>
                 </td>
             </tr>
             {{/each}}
