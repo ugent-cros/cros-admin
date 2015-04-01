@@ -9,6 +9,13 @@ App.DronesController = Ember.Controller.extend({
         }
     }.property(status),
 
+    totalElements: function(){
+        return this.customAdapter.find('drone', null, "total").then(function(data) {
+            console.log(data);
+            return data.resource;
+        });
+    }.property(),
+
     actions: {
         delete: function (id) {
             this.customAdapter.remove("drone", id);
