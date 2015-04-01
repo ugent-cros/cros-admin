@@ -72,8 +72,18 @@ App.MyTableComponent = Ember.Component.extend({
     actions: {
         selectPage: function (number) {
             var self = this;
+            var search = document.getElementById("searchbox").value;
             this.set('page', number);
-            this.sendAction('action', this.get('page'), this.get('perPage'));
+            this.sendAction('action', search, this.get('page'), this.get('perPage'));
+        },
+
+        search: function(string){
+            var self = this;
+            //reset page to 1
+            this.set('page', 1);
+            //send search
+            this.sendAction('action', string, this.get('page'), this.get('perPage'));
+            //todo: get new total + if 0
         }
     }
 });

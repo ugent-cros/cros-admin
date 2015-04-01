@@ -65,7 +65,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model length=totalElements action="getPage"}}
+            {{#my-table columns=columns data=model length=totalElements action="getPage" searchaction="search"}}
                 {{#each item in model}}
                     <tr>
                         <td>{{item.id}}</td>
@@ -220,7 +220,18 @@
 
                 </div>
                 <div class="panel-body filters">
-
+                    <div class="row">
+                        <div class="col-md-3 pull-right">
+                            <div class="input-group">
+                                {{input class="form-control" id="searchbox" valueBinding='keyword' type="text" placeholder="Search..." action='search'}}
+                                <span class="input-group-btn">
+                                    <button class="btn" type="button" {{action 'search' keyword}}>
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <table class="table">
                     <thead>
@@ -236,17 +247,17 @@
                     <div class="panel-footer">
                         <ul class="pagination pagination-sm">
                             {{#if prevPage}}
-                            <li><a href="#" {{action "selectPage" prevPage}}>&laquo;</a></li>
+                            <li><a href="#" {{action "selectPage" prevPage keyword}}>&laquo;</a></li>
                             {{else}}
                             <li class="disabled"><a>&laquo;</a></li>
                             {{/if}}
 
                             {{#each pages itemController="page"}}
-                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
+                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number keyword}}>{{number}}</a></li>
                             {{/each}}
 
                             {{#if nextPage}}
-                            <li><a href="#" {{action "selectPage" nextPage}}>&raquo;</a></li>
+                            <li><a href="#" {{action "selectPage" nextPage keyword}}>&raquo;</a></li>
                             {{else}}
                             <li class="disabled"><a>&raquo;</a></li>
                             {{/if}}

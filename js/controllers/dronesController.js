@@ -30,9 +30,10 @@ App.DronesController = Ember.Controller.extend({
             this.customAdapter.remove("drone", id);
         },
 
-        getPage: function (page, perPage){
+        getPage: function (search, page, perPage){
+            console.log(search);
             var self = this;
-            this.customAdapter.find('drone', null, null, {pageSize : perPage, page : (page-1)}).then(function(data){
+            this.customAdapter.find('drone', null, null, {name: search, pageSize : perPage, page : (page-1)}).then(function(data){
                 self.set('model',data.resource);
                 return data.resource;
             });
