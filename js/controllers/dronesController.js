@@ -9,17 +9,23 @@ App.DronesController = Ember.Controller.extend({
         }
     }.property(status),
 
-    totalElements: function(){
-        return this.customAdapter.find('drone', null, "total").then(function(data) {
-            console.log(data);
-            return data.resource;
+    privateTotalElements: 0,
+
+    totalElements: function() {
+        this.fetchTotalElements();
+        return this.get("privateTotalElements");
+    }.property('privateTotalElements'),
+
+    fetchTotalElements: function() {
+        var self = this;
+        this.customAdapter.find("drone", null, "total").then(function(data){
+            self.set("privateTotalElements", data.total);
         });
-    }.property(),
+    },
 
     actions: {
         delete: function (id) {
             this.customAdapter.remove("drone", id);
-            //TODO: refresh page or refresh table
         },
 
         getPage: function (page, perPage){

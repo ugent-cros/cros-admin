@@ -1,14 +1,18 @@
 App.MyTableComponent = Ember.Component.extend({
 
     page: 1,
-    perPage: 1, //todo debug =1
+    perPage: 2, //todo debug =1
 
     begin: function(){
-        return ((this.get('page') - 1) * this.get('perPage'));
+        return ((this.get('page') - 1) * this.get('perPage'))+1;
     }.property('page', 'perPage'),
 
     end: function(){
-        return ((this.get('page') * this.get('perPage'))-1);
+        var max = ((this.get('page') * this.get('perPage'))-1)+1;
+        if(max > this.get('length')){
+            return this.get('length');
+        }
+        return max;
     }.property('page', 'perPage'),
 
     //calculate totalpages
@@ -31,7 +35,7 @@ App.MyTableComponent = Ember.Component.extend({
 
     //are there pages?
     hasPages: (function() {
-        return this.get('totalPages') > this.get('perPage');
+        return this.get('totalPages') > 1;
     }).property('totalPages'),
 
     //function to get the previous page
