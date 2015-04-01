@@ -65,7 +65,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model length=40}}
+            {{#my-table columns=columns data=model length=4 action="getPage"}}
                 {{#each item in model}}
                     <tr>
                         <td>{{item.id}}</td>

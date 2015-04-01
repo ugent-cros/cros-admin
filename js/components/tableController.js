@@ -1,7 +1,7 @@
 App.MyTableComponent = Ember.Component.extend({
 
     page: 1,
-    perPage: 10,
+    perPage: 1, //todo debug =1
 
     begin: function(){
         return ((this.get('page') - 1) * this.get('perPage'));
@@ -31,7 +31,7 @@ App.MyTableComponent = Ember.Component.extend({
 
     //are there pages?
     hasPages: (function() {
-        return this.get('totalPages') > 1;
+        return this.get('totalPages') > this.get('perPage');
     }).property('totalPages'),
 
     //function to get the previous page
@@ -67,9 +67,9 @@ App.MyTableComponent = Ember.Component.extend({
 
     actions: {
         selectPage: function (number) {
+            var self = this;
             this.set('page', number);
-            console.log(number);
-            //todo call to rest
+            this.sendAction('action', this.get('page'), this.get('perPage'));
         }
     }
 });

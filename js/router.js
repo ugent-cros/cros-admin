@@ -48,7 +48,7 @@ App.DashboardRoute = App.AuthRoute.extend({});
 
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('drone').then(function(data){
+        return this.customAdapter.find('drone', null, null, {pageSize : 1, page : 0}).then(function(data){ //todo: debug = 1
 			return data.resource;
 		});
     }

@@ -11,9 +11,16 @@ App.DronesController = Ember.Controller.extend({
 
     actions: {
         delete: function (id) {
-            console.log("deleting: " + id);
-            this.customAdapter.remove("drones", id);
+            this.customAdapter.remove("drone", id);
             //TODO: refresh page or refresh table
+        },
+
+        getPage: function (page, perPage){
+            var self = this;
+            this.customAdapter.find('drone', null, null, {pageSize : perPage, page : (page-1)}).then(function(data){
+                self.set('model',data.resource);
+                return data.resource;
+            });
         }
     }
 });
