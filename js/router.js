@@ -68,13 +68,13 @@ App.AuthRoute = App.BaseRoute.extend({
     beforeModel: function() {
         this._super();
         
-        if (this.customAdapter.token().authToken == "") {
+        if (!App.AuthManager.get("isLoggedIn")) {
             this.transitionTo('login');
         }
     }
 });
 
-App.AppRoute = App.AuthRoute.extend({});
+App.AppRoute = App.BaseRoute.extend({});
 
 App.UnauthorisedRoute = App.BaseRoute.extend({});
 
