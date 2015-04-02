@@ -42,6 +42,19 @@ App.BaseRoute = Ember.Route.extend({
                 break;
         }
     },
+
+    fetch: function(params) {
+        var self = this;
+        var promise = this.customAdapter.find(params.store,params.id,params.action,params.options);
+        if (params.callback) {
+            return promise.then(params.callback).fail(function(jxhr) {
+                self.checkStatus(jxhr,self);
+            });
+        }
+        return promise.fail(function(jxhr) {
+            self.checkStatus(jxhr,self);
+        });
+    },
 	
 	actions: {
 		loading : function(transition, originRoute) {
@@ -73,45 +86,33 @@ App.DashboardController = Ember.Controller.extend({
 
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
-        var self = this;
-        return this.customAdapter.find('drone').then(function(data){
+        return this.fetch({store:'drone', callback: function(data) {
             return data.resource;
-		}).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        }});
     }
 });
 
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
-        var self = this;
-        return this.customAdapter.find('assignment').then(function(data){
+        return this.fetch({store:'assignment', callback: function(data) {
             return data.resource;
-        }).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        }});
     }
 });
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        var self = this;
-        return this.customAdapter.find('basestation').then(function(data){
+        return this.fetch({store:'basestation', callback: function(data) {
             return data.resource;
-        }).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        }});
     }
 });
 
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
-        var self = this;
-        return this.customAdapter.find('user').then(function(data){
+        return this.fetch({store:'user', callback: function(data) {
             return data.resource;
-        }).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        }});
     }
 });
 
@@ -127,10 +128,7 @@ App.PopupRoute = App.AuthRoute.extend({
 
 App.DroneRoute = App.PopupRoute.extend({
     model: function(params) {
-        var self = this;
-        return this.customAdapter.find('drone', params.drone_id).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        return this.fetch({store:'drone', id: params.drone_id });
     },
 	
 	setupController: function(controller, model) {
@@ -145,10 +143,7 @@ App.DroneRoute = App.PopupRoute.extend({
 
 App.AssignmentRoute = App.PopupRoute.extend({
     model: function(params) {
-        var self = this;
-        return this.customAdapter.find('assignment', params.assignment_id).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        return this.fetch({store:'assignment', id: params.assignment_id});
     },
 	renderTemplate: function() {
 		this._super('assignment', 'assignments');
@@ -157,10 +152,7 @@ App.AssignmentRoute = App.PopupRoute.extend({
 
 App.BasestationRoute = App.PopupRoute.extend({
     model: function(params) {
-        var self = this;
-        return this.customAdapter.find('basestation', params.basestation_id).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        return this.fetch({store:'basestation', id: params.basestation_id });
     },
 	renderTemplate: function() {
 		this._super('basestation', 'basestations');
@@ -169,10 +161,7 @@ App.BasestationRoute = App.PopupRoute.extend({
 
 App.UserRoute = App.PopupRoute.extend({
     model: function(params) {
-        var self = this;
-        return this.customAdapter.find('user', params.user_id).fail(function(jxhr) {
-            self.checkStatus(jxhr,self);
-        });
+        return this.fetch({store:'user', id: params.user_id });
     },
 	renderTemplate: function() {
 		this._super('user', 'users');
