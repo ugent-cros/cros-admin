@@ -2,38 +2,55 @@ App.SocketManager = Ember.Object.extend({
 
 	listeners : {},
 	socket : null,
+    connection : false,
+
 
 	init : function() {
 		this._super();
-		
-		var url = this.get('url');
-		this.connect(url.replace(/https?/, "ws"));
+
+        this.connect();
 	},
 	
-	connect : function(url) {
-		var self = this;
+	connect : function() {
+        if (this.get('connection'))
+            return;
 
-        this.set('socket', new WebSocket(url));
-        var s = this.get('socket');
-		s.onmessage = function(event) {
-			self.onMessage(event,self);
-		}
-		
-		var timer;
-		
-		s.onClose = function() {
-			self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
-		
-			clearInterval(timer);
-		}
-		
-		timer = setInterval(function() {
-			var s = self.get('socket');
-			if (s.readyState == 3 || s.readyState == 4) {
-				s.onClose();
-			}
-		}, 500);
-	},
+        var self = this;
+
+        var url = this.get('url');
+        url = url.replace(/https?/, "ws");
+
+        var s = new WebSocket(url);
+        this.set('socket', s);
+        this.set('connection', true);
+
+        var timer;
+
+        s.onClose = function() {
+            self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
+
+            clearInterval(timer);
+            self.set('connection', false);
+        };
+
+        if (s.readyState == 3 || s.readyState == 4) {
+            s.onClose(); // Close socket immediately if connection failed
+            return;
+        } else {
+            self.onMessage({data:'{"type": "notification","value": {"action" : "clear"}}'},self);
+        }
+
+        s.onmessage = function(event) {
+            self.onMessage(event,self);
+        };
+
+        timer = setInterval(function() {
+            var s = self.get('socket');
+            if (s.readyState == 3 || s.readyState == 4) {
+                s.onClose();
+            }
+        }, 500);
+    }.observes("connection"),
 	
 	onMessage : function(event, self) {
 		var jsonData = $.parseJSON(event.data);

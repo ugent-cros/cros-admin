@@ -14,7 +14,11 @@ App.AppController = Ember.Controller.extend({
 
         var self = this;
         App.currentSocketManager.register("notification",null, function(data) {
-            self.set('notification', data.message);
+            if (data.action === "clear") {
+                self.set('notification', "");
+            } else {
+                self.set('notification', data.message);
+            }
         });
     },
 
