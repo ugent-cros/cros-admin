@@ -19,10 +19,6 @@ App.BaseRoute = Ember.Route.extend({
         if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
             this.customAdapter.find("home");
         }
-		
-		if (!App.currentSocketManager) {
-			App.currentSocketManager = App.SocketManager.create({ url : this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"] });
-		}
     },
 	
 	setupController: function (controller, model) {
@@ -67,10 +63,16 @@ App.BaseRoute = Ember.Route.extend({
 App.AuthRoute = App.BaseRoute.extend({
     beforeModel: function() {
         this._super();
-        
+
         if (!App.AuthManager.get("isLoggedIn")) {
             this.transitionTo('login');
         }
+
+        if (!App.currentSocketManager) {
+            App.currentSocketManager = App.SocketManager.create({url: this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"]});
+        }
+
+        App.currentSocketManager.initConnection();
     }
 });
 

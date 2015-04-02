@@ -3,16 +3,21 @@ App.SocketManager = Ember.Object.extend({
 	listeners : {},
 	socket : null,
     connection : false,
+    reconnect : false,
+    timer : null,
 
 
 	init : function() {
 		this._super();
-
-        this.connect();
 	},
+
+    initConnection : function() {
+        this.set("reconnect", true);
+        this.connect();
+    },
 	
 	connect : function() {
-        if (this.get('connection'))
+        if (this.get('connection') || !this.get("reconnect"))
             return;
 
         var self = this;
@@ -24,12 +29,10 @@ App.SocketManager = Ember.Object.extend({
         this.set('socket', s);
         this.set('connection', true);
 
-        var timer;
-
         s.onClose = function() {
             self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
 
-            clearInterval(timer);
+            clearInterval(this.get('timer'));
             self.set('connection', false);
         };
 
@@ -44,13 +47,20 @@ App.SocketManager = Ember.Object.extend({
             self.onMessage(event,self);
         };
 
-        timer = setInterval(function() {
+        this.set('timer', setInterval(function() {
             var s = self.get('socket');
             if (s.readyState == 3 || s.readyState == 4) {
                 s.onClose();
             }
-        }, 500);
+        }, 500));
     }.observes("connection"),
+
+    disconnect : function() {
+        clearInterval(this.get('timer'));
+        this.get("socket").close();
+        this.set("reconnect", false);
+        this.set("connection", false);
+    },
 	
 	onMessage : function(event, self) {
 		var jsonData = $.parseJSON(event.data);
