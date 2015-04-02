@@ -1,5 +1,7 @@
 .errorNotification {
-	background : #E75353;
+	background : #F2DEDE;
+    color: #A94442;
+    border-bottom: solid 1px #EBCCD1;
 }
 
 .battery:after {

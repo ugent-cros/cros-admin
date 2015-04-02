@@ -138,7 +138,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
         } else {
 			var urlPromise = this.resolveLink(store,id,action);
 			var urlObj;
-            return urlPromise.pipe(function(obj) {
+            return urlPromise.then(function(obj) {
 				urlObj = obj;
 				if (params) {
 					urlObj.url += "?" + $.param(params);
@@ -147,9 +147,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
 				return data[store];
-			}, function() {
-                return; // TODO: do something clever
-            });
+			});
         }        
     },
     

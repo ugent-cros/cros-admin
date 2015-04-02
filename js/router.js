@@ -9,6 +9,7 @@ App.Router.map(function(){
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
 		this.resource('user', { path: '/users/:user_id' });
+        this.resource('unauthorised');
 	});
 	this.resource('login');
 });
@@ -29,10 +30,36 @@ App.BaseRoute = Ember.Route.extend({
 		
 		NProgress.done();
 	},
+
+    afterModel: function() {
+        NProgress.done();
+    },
+
+    checkStatus : function(response, self) {
+        switch (response.status) {
+            case 401 :
+                self.transitionTo("unauthorised");
+                break;
+        }
+    },
+
+    fetch: function(params) {
+        var self = this;
+        var promise = this.customAdapter.find(params.store,params.id,params.action,params.options);
+        if (params.callback) {
+            return promise.then(params.callback).fail(function(jxhr) {
+                self.checkStatus(jxhr,self);
+            });
+        }
+        return promise.fail(function(jxhr) {
+            self.checkStatus(jxhr,self);
+        });
+    },
 	
 	actions: {
 		loading : function(transition, originRoute) {
 			NProgress.start();
+            return true;
 		}
 	}
 });
@@ -49,6 +76,8 @@ App.AuthRoute = App.BaseRoute.extend({
 
 App.AppRoute = App.BaseRoute.extend({});
 
+App.UnauthorisedRoute = App.BaseRoute.extend({});
+
 App.DashboardRoute = App.AuthRoute.extend({});
 
 App.DashboardController = Ember.Controller.extend({
@@ -57,33 +86,33 @@ App.DashboardController = Ember.Controller.extend({
 
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('drone').then(function(data){
-			return data.resource;
-		});
+        return this.fetch({store:'drone', callback: function(data) {
+            return data.resource;
+        }});
     }
 });
 
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('assignment').then(function(data){
+        return this.fetch({store:'assignment', callback: function(data) {
             return data.resource;
-        });
+        }});
     }
 });
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('basestation').then(function(data){
+        return this.fetch({store:'basestation', callback: function(data) {
             return data.resource;
-        });
+        }});
     }
 });
 
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('user').then(function(data){
+        return this.fetch({store:'user', callback: function(data) {
             return data.resource;
-        });
+        }});
     }
 });
 
@@ -99,7 +128,7 @@ App.PopupRoute = App.AuthRoute.extend({
 
 App.DroneRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('drone', params.drone_id);
+        return this.fetch({store:'drone', id: params.drone_id });
     },
 	
 	setupController: function(controller, model) {
@@ -114,7 +143,7 @@ App.DroneRoute = App.PopupRoute.extend({
 
 App.AssignmentRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('assignment', params.assignment_id);
+        return this.fetch({store:'assignment', id: params.assignment_id});
     },
 	renderTemplate: function() {
 		this._super('assignment', 'assignments');
@@ -123,7 +152,7 @@ App.AssignmentRoute = App.PopupRoute.extend({
 
 App.BasestationRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('basestation', params.basestation_id);
+        return this.fetch({store:'basestation', id: params.basestation_id });
     },
 	renderTemplate: function() {
 		this._super('basestation', 'basestations');
@@ -132,7 +161,7 @@ App.BasestationRoute = App.PopupRoute.extend({
 
 App.UserRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('user', params.user_id);
+        return this.fetch({store:'user', id: params.user_id });
     },
 	renderTemplate: function() {
 		this._super('user', 'users');
