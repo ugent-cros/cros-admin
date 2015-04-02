@@ -5,25 +5,9 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	linksKey : "links",
 	delimiter : "-",
     
-    token : function() {
-        if (App.Auth == null) {
-            var token = $.cookie('authToken');
-
-            if (token == null){
-                return { authToken:"" };
-            } else {
-                App.Auth = Ember.Object.create({
-                    authToken : token,
-                });
-            }
-        }
-
-        return App.Auth;
-    },
-    
     headers: function() {
         return {
-            "X-AUTH-TOKEN" : this.token().authToken
+            "X-AUTH-TOKEN" : App.AuthManager.token()
         };
     }.property().volatile(),
 
@@ -165,7 +149,9 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 				self.processLinks(data[store], urlObj.key);
 				self.stopProgress();
 				return data[store];
-			});
+			}, function() {
+                return
+            });
         }        
     },
     
