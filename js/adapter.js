@@ -155,17 +155,17 @@ App.CustomAdapter = DS.RESTAdapter.extend({
         } else {
 			var urlPromise = this.resolveLink(store,id,action);
 			var urlObj;
-            return urlPromise.pipe(function(obj) {
+            return urlPromise.then(function(obj) {
 				urlObj = obj;
 				if (params) {
 					urlObj.url += "?" + $.param(params);
 				}
 				return self.ajax(self.host + urlObj.url, 'GET');
 			}).then(function(data) {
-				self.processLinks(data[store], urlObj.key);
-				self.stopProgress();
-				return data[store];
-			});
+                self.processLinks(data[store], urlObj.key);
+                self.stopProgress();
+                return data[store];
+            });
         }        
     },
     
