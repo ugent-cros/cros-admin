@@ -1,4 +1,4 @@
-App.MyPopupComponent = Ember.Component.extend({
+App.PopupWindowComponent = Ember.Component.extend({
   /*actions: {
     ok: function() {
       this.$('.modal').modal('hide');
@@ -7,6 +7,9 @@ App.MyPopupComponent = Ember.Component.extend({
   },*/
 	show: function() {
 		this.$('.modal').modal('show');
+		this.$('.modal').on('hide.bs.modal', function(e) {
+			$('#closeModal').click();
+		});
 	}.on('didInsertElement'),
 	hide: function() {
 		this.$('.modal').modal('hide');
