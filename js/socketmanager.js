@@ -12,20 +12,9 @@ App.SocketManager = Ember.Object.extend({
 	
 	connect : function(url) {
 		var self = this;
-	
-		var s = this.get('socket');
-		var attempts = 10;
-		while((!s || s.readyState == 2 || s.readyState == 3) && attempts > 0) {
-			try {
-				this.set('socket', new WebSocket(url));
-			} catch(err) {
-				console.log("connection with socket failed...  " + err);
-			}
-			s = this.get('socket');
-			setTimeout(null,500);
-			attempts--;
-		}
-		
+
+        this.set('socket', new WebSocket(url));
+        var s = this.get('socket');
 		s.onmessage = function(event) {
 			self.onMessage(event,self);
 		}
@@ -36,8 +25,6 @@ App.SocketManager = Ember.Object.extend({
 			self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
 		
 			clearInterval(timer);
-			var url = self.get('url');
-			self.connect(url.replace(/https?/, "ws"));
 		}
 		
 		timer = setInterval(function() {
