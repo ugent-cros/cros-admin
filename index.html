@@ -70,6 +70,13 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
+			<div class="row">
+				<div class="col-xs-12">
+					{{#link-to 'drones-add' class='btn btn-success pull-right'}}
+						Add drone
+					{{/link-to}}
+				</div>
+			</div>
             {{#my-table columns=columns data=model}}
                 {{#each item in model}}
                     <tr>
@@ -80,9 +87,9 @@
 							{{#link-to 'drone' item.id class='btn btn-success'}}
 								<i class="fa fa-search"></i>
 							{{/link-to}}
-                            <a class='btn btn-info' href='#'>
+							{{#link-to 'drone-edit' item.id class='btn btn-info'}}
                                 <i class="fa fa-pencil"></i>
-                            </a>
+							{{/link-to}}
                             <a class='btn btn-danger' href='#'>
                                 <i class="fa fa-trash-o"></i>
                             </a>
@@ -91,9 +98,53 @@
                 {{/each}}
             {{/my-table}}
         </script>
+		
+		<script type="text/x-handlebars" id="drones-add">
+			{{#popup-window title="Edit drone" link='drones' ok='save' saveButton=true}}
+				<form {{action 'ok' on='submit' target=view}}>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-8"><label>Name:</label></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">{{input class="form-control" value=name}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12"><label>Type:</label></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">{{input class="form-control" value=type}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Version:</label></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">{{input class="form-control" value=version}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Weight limitation:</label></div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">{{input class="form-control" value=weightLimitation}}</div>
+						</div>
+					</div>
+			</form>
+			{{/popup-window}}
+		</script>
+		
+		<script type="text/x-handlebars" id="drone-edit">
+			{{#popup-window title="Edit drone" link='drones' ok='save' saveButton=true}}
+				<form {{action 'ok' on='submit' target=view}}>
+					<div class="form-group">
+						<label>Name</label>
+						{{input class="form-control" value=model.name}}
+					</div>
+			</form>
+			{{/popup-window}}
+		</script>
 
 		<script type="text/x-handlebars" id="drone">
-			{{#popup-window title=model.name footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones'}}
+			{{#popup-window title=model.name footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="row">
@@ -153,7 +204,7 @@
         </script>
 		
 		<script type="text/x-handlebars" id="assignment">
-			{{#popup-window title=model.title link='assignments'}}
+			{{#popup-window title=model.title link='assignments' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="row">
@@ -207,7 +258,7 @@
         </script>
 		
 		<script type="text/x-handlebars" id="basestation">
-			{{#popup-window title=model.name link='basestations'}}
+			{{#popup-window title=model.name link='basestations' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-offset-1 col-xs-10">
 						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
@@ -241,7 +292,7 @@
         </script>
 		
 		<script type="text/x-handlebars" id="user">
-			{{#popup-window title="Profile" link='users'}}
+			{{#popup-window title="Profile" link='users' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="row">
@@ -349,7 +400,16 @@
 									{{{footer}}}	
 								</div>
 								<div class="col-xs-4 col-xs-offset-4">
+								{{#if saveButton}}
+									<div class="btn-group">
+										{{#link-to link class='btn btn-success'}}
+											<span {{action 'save'}}>Save</span>
+										{{/link-to}}
+										{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+									</div>
+								{{else}}
 									{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+								{{/if}}
 								</div>
 							</div>
 						</div>

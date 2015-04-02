@@ -21,5 +21,13 @@ App.DroneController = Ember.Controller.extend({
 			self.set("altitude", data.altitude.toFixed(2));
 		});
 	}
-  
+});
+
+App.DroneEditController = Ember.Controller.extend({
+	actions: {
+		save: function(){
+			console.log('Do some saving here!');
+			console.log(this.model);
+		}
+	}
 });

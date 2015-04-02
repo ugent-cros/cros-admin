@@ -9,3 +9,16 @@ App.DronesController = Ember.Controller.extend({
         }
     }.property(status)
 });
+
+App.DronesAddController = Ember.Controller.extend({
+	actions: {
+		save: function(){
+			var jsonObject = new Object();
+			jsonObject.name = this.name;
+			jsonObject.type = this.type;
+			jsonObject.version = this.version;
+			jsonObject.weightLimitation = this.weightLimitation;
+			console.log(JSON.stringify(jsonObject));
+		}
+	}
+});
