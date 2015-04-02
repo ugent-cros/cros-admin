@@ -17,7 +17,11 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			if(k === "self") {
 				self.linkLibrary[root] = v
 			} else {
-				self.linkLibrary[root + self.delimiter + k] = v;
+                if (root !== "") {
+                    self.linkLibrary[root + self.delimiter + k] = v;
+                } else {
+                    self.linkLibrary[k] = v;
+                }
 			}
 		});
 	},
@@ -55,10 +59,6 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		}, false); 
 		
 		return xhr;
-	},
-	
-	stopProgress: function() {
-		//NProgress.done();
 	},
 	
 	brol : function(urlObj, store) {
@@ -134,7 +134,6 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		if (store === "home") {
             this.ajax(this.host, 'GET', {async : false, xhr : self.progressTracker }).then(function(data) {
                 self.linkLibrary = data[store];
-				self.stopProgress();
             });
         } else {
 			var urlPromise = this.resolveLink(store,id,action);
@@ -147,10 +146,9 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 				return self.ajax(self.host + urlObj.url, 'GET');
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
-				self.stopProgress();
 				return data[store];
 			}, function() {
-                return
+                return; // TODO: do something clever
             });
         }        
     },
@@ -158,7 +156,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     post : function(store, postData) {
 		var self = this;
 		return this.ajax(this.host + this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
-			self.stopProgress();
+            self.processLinks(data, "");
 			return data;
 		});
 	}
