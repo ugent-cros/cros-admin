@@ -1,6 +1,16 @@
 App.MyMapComponent = Ember.Component.extend({
 	marker : null,
     map : null,
+    defaulIcon : L.icon({
+        iconUrl: 'img/marker-icon.png',
+        shadowUrl: 'img/marker-shadow.png',
+
+        iconSize:     [25, 41], // size of the icon
+        shadowSize:   [41, 41], // size of the shadow
+        iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+        shadowAnchor: [12, 41],  // the same for the shadow
+        popupAnchor:  [0, -41] // point from which the popup should open relative to the iconAnchor
+    }),
 
     updateMarker : function() {
         var loc = this.get('location');
@@ -23,18 +33,12 @@ App.MyMapComponent = Ember.Component.extend({
 
         this.set('map',map);
 
-        var customIcon = L.icon({
-            iconUrl: this.get('icon'),
-            shadowUrl: this.get('shadow'),
+        var i = this.get('icon');
+        if (!i) {
+            i = this.get('defaultIcon');
+        }
 
-            iconSize:     [25, 41], // size of the icon
-            shadowSize:   [41, 41], // size of the shadow
-            iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
-            shadowAnchor: [12, 41],  // the same for the shadow
-            popupAnchor:  [0, -41] // point from which the popup should open relative to the iconAnchor
-        });
-
-        var marker = L.marker(this.get('location'), {icon: customIcon}).addTo(map);
+        var marker = L.marker(this.get('location'), {icon: i}).addTo(map);
         marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
         this.set('marker',marker);
 

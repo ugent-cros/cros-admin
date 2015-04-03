@@ -120,7 +120,7 @@
 						</div>
 					</div>
 					<div class="col-xs-9">
-                        {{#my-map mapName="droneMap" location=location icon="img/marker-icon.png" shadow="img/marker-shadow.png"}}{{/my-map}}
+                        {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
 					</div>
 				</div>
 			{{/popup-window}}
@@ -208,7 +208,7 @@
 			{{#popup-window title=model.name link='basestations'}}
 				<div class="row">
 					<div class="col-xs-offset-1 col-xs-10">
-						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+						{{#basestation-map mapName="basestationMap" location=basestationLocation}}{{/basestation-map}}
 					</div>
 				</div>
 			{{/popup-window}}
@@ -364,9 +364,21 @@
 			</div>
 		</script>
 
-		<script type="text/x-handlebars" id="components/my-map">
-			<div {{bind-attr id=mapName}} style="height:500px;"></div>
-		</script>
+        <script type="text/x-handlebars" id="_map">
+            <div {{bind-attr id=mapName}} style="height:500px;"></div>
+        </script>
+
+        <script type="text/x-handlebars" id="components/my-map">
+            {{partial 'map'}}
+        </script>
+
+        <script type="text/x-handlebars" id="components/drone-map">
+            {{partial 'map'}}
+        </script>
+
+        <script type="text/x-handlebars" id="components/basestation-map">
+            {{partial 'map'}}
+        </script>
 
 		<script type="text/x-handlebars" id="components/time-graph">
 			<div {{bind-attr id=chartName}} class="epoch category10" style="width: 200px; height: 200px"></div>
@@ -413,10 +425,13 @@
 		<script src="js/controllers/droneController.js"></script>
         <script src="js/controllers/dronesController.js"></script>
         <script src="js/controllers/assignmentsController.js"></script>
+        <script src="js/controllers/basestationController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
         <script src="js/controllers/usersController.js"></script>
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
+        <script src="js/components/maps/DroneMap.js"></script>
+        <script src="js/components/maps/basestationMap.js"></script>
         <script src="js/components/userdisplay.js"></script>
 		<!-- script src="js/components/graph.js"></script -->
 	</body>
