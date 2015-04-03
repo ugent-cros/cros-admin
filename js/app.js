@@ -18,29 +18,6 @@ EmberENV = {
     }
 };
 
-App.AppController = Ember.Controller.extend({
-	
-	notification : "",
-	notificationIsError : function() {
-		return this.get('notification') !== "";
-	}.property('notification'),
-
-	init : function() {
-		var self = this;
-		App.currentSocketManager.register("notification",null, function(data) {
-			self.set('notification', data.message);
-		});
-	},
-  
-	actions: {
-		dismiss : function() {
-			this.set('notification', "");
-		}
-	
-	}
-  
-});
-
 
 $(function() {
     $('[data-toggle="popover"]').popover();

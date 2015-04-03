@@ -24,8 +24,8 @@ App.MyMapComponent = Ember.Component.extend({
         this.set('map',map);
 
         var customIcon = L.icon({
-            iconUrl: 'img/marker-icon.png',
-            shadowUrl: 'img/marker-shadow.png',
+            iconUrl: this.get('icon'),
+            shadowUrl: this.get('shadow'),
 
             iconSize:     [25, 41], // size of the icon
             shadowSize:   [41, 41], // size of the shadow
