@@ -25,7 +25,7 @@ App.SocketManager = Ember.Object.extend({
         var url = this.get('url');
         url = url.replace(/https?/, "ws");
 
-        var s = new WebSocket(url);
+        var s = new WebSocket(url + "?authToken=" + App.AuthManager.token());
         this.set('socket', s);
         this.set('connection', true);
 
