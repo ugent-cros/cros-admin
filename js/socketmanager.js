@@ -49,7 +49,7 @@ App.SocketManager = Ember.Object.extend({
 	},
 	
 	onMessage : function(event, self) {
-		console.log(event.data);
+		//console.log(event.data);
 		var jsonData = $.parseJSON(event.data);
 		if (self.listeners[jsonData.type]) {
 			var callbacks = self.listeners[jsonData.type][0] || [];
