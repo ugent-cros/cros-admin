@@ -18,7 +18,6 @@ EmberENV = {
 };
 
 App.AppController = Ember.Controller.extend({
-	
 	notification : "",
 	notificationIsError : function() {
 		return this.get('notification') !== "";

@@ -2,7 +2,7 @@ App.PopupWindowComponent = Ember.Component.extend({
 	closing: false,	
 	
 	actions: {
-		save: function() {
+		ok: function() {
 			this.sendAction('ok');
 		}
 	},

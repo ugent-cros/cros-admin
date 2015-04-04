@@ -6,6 +6,7 @@ App.Router.map(function(){
 		this.resource('drone', { path: '/drones/:drone_id' });
 		this.resource('drone-edit', { path: '/drones/:drone_id/edit' });
 		this.resource('assignments');
+		this.resource('assignments-add', { path: '/assignments/add' });
 		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
@@ -130,16 +131,6 @@ App.DroneRoute = App.PopupRoute.extend({
 App.DronesAddRoute = App.PopupRoute.extend({
 	renderTemplate: function() {
 		this._super('drones-add', 'drones');
-	}
-});
-
-App.DroneEditRoute = App.PopupRoute.extend({
-	model: function(params) {
-		return this.customAdapter.find('drone', params.drone_id);
-	},
-	
-	renderTemplate: function() {
-		this._super('drone-edit', 'drones');
 	}
 });
 
