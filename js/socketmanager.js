@@ -2,54 +2,67 @@ App.SocketManager = Ember.Object.extend({
 
 	listeners : {},
 	socket : null,
+    connection : false,
+    reconnect : false,
+    timer : null,
+
 
 	init : function() {
 		this._super();
-		
-		var url = this.get('url');
-		this.connect(url.replace(/https?/, "ws"));
 	},
+
+    initConnection : function() {
+        this.set("reconnect", true);
+        this.connect();
+    },
 	
-	connect : function(url) {
-		var self = this;
-	
-		var s = this.get('socket');
-		var attempts = 10;
-		while((!s || s.readyState == 2 || s.readyState == 3) && attempts > 0) {
-			try {
-				this.set('socket', new WebSocket(url));
-			} catch(err) {
-				console.log("connection with socket failed...  " + err);
-			}
-			s = this.get('socket');
-			setTimeout(null,500);
-			attempts--;
-		}
-		
-		s.onmessage = function(event) {
-			self.onMessage(event,self);
-		}
-		
-		var timer;
-		
-		s.onClose = function() {
-			self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
-		
-			clearInterval(timer);
-			var url = self.get('url');
-			self.connect(url.replace(/https?/, "ws"));
-		}
-		
-		timer = setInterval(function() {
-			var s = self.get('socket');
-			if (s.readyState == 3 || s.readyState == 4) {
-				s.onClose();
-			}
-		}, 500);
-	},
+	connect : function() {
+        if (this.get('connection') || !this.get("reconnect"))
+            return;
+
+        var self = this;
+
+        var url = this.get('url');
+        url = url.replace(/https?/, "ws");
+
+        var s = new WebSocket(url + "?authToken=" + App.AuthManager.token());
+        this.set('socket', s);
+        this.set('connection', true);
+
+        s.onClose = function() {
+            self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
+
+            clearInterval(this.get('timer'));
+            self.set('connection', false);
+        };
+
+        if (s.readyState == 3 || s.readyState == 4) {
+            s.onClose(); // Close socket immediately if connection failed
+            return;
+        } else {
+            self.onMessage({data:'{"type": "notification","value": {"action" : "clear"}}'},self);
+        }
+
+        s.onmessage = function(event) {
+            self.onMessage(event,self);
+        };
+
+        this.set('timer', setInterval(function() {
+            var s = self.get('socket');
+            if (s.readyState == 3 || s.readyState == 4) {
+                s.onClose();
+            }
+        }, 500));
+    }.observes("connection"),
+
+    disconnect : function() {
+        clearInterval(this.get('timer'));
+        this.get("socket").close();
+        this.set("reconnect", false);
+        this.set("connection", false);
+    },
 	
 	onMessage : function(event, self) {
-		console.log(event.data);
 		var jsonData = $.parseJSON(event.data);
 		if (self.listeners[jsonData.type]) {
 			var callbacks = self.listeners[jsonData.type][0] || [];
