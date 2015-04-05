@@ -19,14 +19,18 @@ App.DroneMapComponent = App.MyMapComponent.extend({
     didInsertElement : function(){
         this._super();
 
-        var polyline = L.polyline([], {color: 'blue'}).addTo(this.get('map'));
-        this.set('polyline', polyline);
+        var self = this;
+        $('.modal').on('shown.bs.modal', function (e) {
+            var polyline = L.polyline([], {color: 'blue'}).addTo(self.get('map'));
+            self.set('polyline', polyline);
+        });
     },
 
     updateMarker : function() {
         this._super();
 
-        this.get('polyline').addLatLng(this.get('location'));
-    }.observes('location')
+        if (this.get('polyline'))
+            this.get('polyline').addLatLng(this.get('location'));
+    }
 
 });

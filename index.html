@@ -151,7 +151,7 @@
         </script>
 		
 		<script type="text/x-handlebars" id="assignment">
-			{{#popup-window title=model.title link='assignments'}}
+			{{#popup-window title=model.title  size="60%" link='assignments'}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="row">
@@ -176,7 +176,7 @@
 						</div>
 					</div>
 					<div class="col-xs-6">
-						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+                        {{#assignment-map mapName="assignment" location=checkpointLocations}}{{/assignment-map}}
 					</div>
 				</div>
 			{{/popup-window}}
@@ -380,6 +380,10 @@
             {{partial 'map'}}
         </script>
 
+        <script type="text/x-handlebars" id="components/assignment-map">
+            {{partial 'map'}}
+        </script>
+
 		<script type="text/x-handlebars" id="components/time-graph">
 			<div {{bind-attr id=chartName}} class="epoch category10" style="width: 200px; height: 200px"></div>
 		</script>
@@ -424,6 +428,7 @@
         <script src="js/controllers/loginController.js"></script>
 		<script src="js/controllers/droneController.js"></script>
         <script src="js/controllers/dronesController.js"></script>
+        <script src="js/controllers/assignmentController.js"></script>
         <script src="js/controllers/assignmentsController.js"></script>
         <script src="js/controllers/basestationController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
@@ -432,6 +437,7 @@
 		<script src="js/components/map.js"></script>
         <script src="js/components/maps/DroneMap.js"></script>
         <script src="js/components/maps/basestationMap.js"></script>
+        <script src="js/components/maps/assignmentMap.js"></script>
         <script src="js/components/userdisplay.js"></script>
 		<!-- script src="js/components/graph.js"></script -->
 	</body>

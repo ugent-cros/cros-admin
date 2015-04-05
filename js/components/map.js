@@ -1,7 +1,7 @@
 App.MyMapComponent = Ember.Component.extend({
 	marker : null,
     map : null,
-    defaulIcon : L.icon({
+    defaultIcon : L.icon({
         iconUrl: 'img/marker-icon.png',
         shadowUrl: 'img/marker-shadow.png',
 
@@ -12,39 +12,116 @@ App.MyMapComponent = Ember.Component.extend({
         popupAnchor:  [0, -41] // point from which the popup should open relative to the iconAnchor
     }),
 
-    updateMarker : function() {
-        var loc = this.get('location');
-        this.get('marker').setLatLng(loc);
-    }.observes('location'),
-
-    updateMap : function() {
-        var loc = this.get('location');
-        this.get('map').setView(loc);
-    }.observes('location'),
-
-    didInsertElement : function(){
-        var self = this;
-        var map = L.map(self.mapName).setView(this.get('location'), 13);
-
-        L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery � <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 18
-        }).addTo(map);
-
-        this.set('map',map);
-
+    currentIcon : function() {
         var i = this.get('icon');
         if (!i) {
             i = this.get('defaultIcon');
         }
+        return i;
+    },
 
-        var marker = L.marker(this.get('location'), {icon: i}).addTo(map);
-        marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
-        this.set('marker',marker);
+    updateMarker : function() {
+        var loc = this.get('location');
+        var markers = this.get('marker');
+        if (!markers)
+            return;
 
-        // TODO: fix ugly hack
-        setTimeout(function() {
-           map.invalidateSize();
-        }, 500);
+        if (!loc) {
+            // remove existing markers
+            $.each(markers, function(index,data) {
+                this.get('map').removeLayer(data);
+            });
+            this.set('marker', []);
+        } else if(loc[0] instanceof Array) {
+            // multiple locations
+            if (markers.length < loc.length) {
+                $.each(markers, function(index,data) { // update location of allready existing markers
+                    data.setLatLng(loc[index]);
+                });
+                $.each(loc.slice(markers.length,loc.length), function(index,data) { // add new markers
+                    var marker = L.marker(data, {icon: this.currentIcon()}).addTo(this.get('map'));
+                    markers.push(marker);
+                });
+                this.set('marker', markers);
+            } else {
+                this.set('marker', markers.splice(0,markers.length-loc.length)); // only keep several markers
+                var map = this.get('map');
+                $.each(markers, function(index,data) { // remove other markers
+                    map.removeLayer(data);
+                });
+                $.each(this.get('marker'), function(index,data) { // update location of remaining markers
+                    data.setLatLng(loc[index]);
+                });
+            }
+        } else {
+            // only one location
+            if (markers.length < 1) {  // no markers
+                var marker = L.marker(loc, {icon: this.currentIcon()}).addTo(this.get('map'));
+                this.set('marker', [marker]);
+            } else { // multiple markers
+                this.set('marker', markers.splice(0,1)); // only keep the first marker
+                $.each(markers, function(index,data) {
+                    this.get('map').removeLayer(data);
+                });
+                this.get('marker')[0].setLatLng(loc);
+            }
+        }
+    },
+
+    updateMap : function() {
+        var loc = this.get('location');
+        var map = this.get('map');
+        if (map)
+            if (this.get('location')[0] instanceof Array)
+                this.get('map').fitBounds(loc, {padding:[50,50]});
+            else
+                this.get('map').setView(loc, 13);
+    },
+
+    didInsertElement : function(){
+        this._super();
+
+        var self = this;
+
+        $('.modal').on('shown.bs.modal', function (e) {
+
+            var map;
+            if (self.get('location')[0] instanceof Array)
+                map = L.map(self.mapName).fitBounds(self.get('location'), {padding:[50,50]});
+            else
+                map = L.map(self.mapName).setView(self.get('location'), 13);
+
+            L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery � <a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 18
+            }).addTo(map);
+
+            self.set('map',map);
+
+            var loc = self.get('location');
+            if (!loc) {
+                self.set('marker', []);
+            } else if (loc[0] instanceof Array) {
+                var markerArray = [];
+                var iconToUse = self.currentIcon();
+                $.each(loc, function() {
+                    var marker = L.marker(this, {icon: iconToUse}).addTo(map);
+                    markerArray.push(marker);
+                });
+                self.set('marker',markerArray);
+            } else {
+                var marker = L.marker(loc, {icon: self.currentIcon()}).addTo(map);
+                self.set('marker',[marker]);
+            }
+
+            self.addObserver('location',self,self.updateMarker);
+            self.addObserver('location',self,self.updateMap);
+            // TODO: fix ugly hack
+            /*setTimeout(function() {
+                map.invalidateSize();
+                self.updateMap();
+            }, 500);*/
+
+        })
     }
 });
