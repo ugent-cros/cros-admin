@@ -1,143 +1,419 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>CROS</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel='stylesheet' href='css/nprogress.css'/>
-
-</head>
-<body class="main page">
-    <script type="text/x-handlebars" id="App">
-      <div class="navbar navbar-default" id="navbar">
-          <a class="navbar-brand" href="#">CROS</a>
-          <ul class="nav navbar-nav pull-right">
-              <li><i class="fa fa-user" id="toggle"></i></li>
-              <li class="dropdown user"><strong>Eveline Hoogstoel</strong></li>
-          </ul>
-      </div>
-
-      <div id="wrapper">
-          <section id="sidebar">
-              <i class="glyphicon glyphicon-align-justify icon-large" id="toggle"></i>
-              <ul id="dock">
-				  {{#link-to 'dashboard' tagName="li" href=false class="launcher"}}
-						<i class="fa fa-tachometer"></i>
-						{{#link-to 'dashboard'}}Dashboard{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'drones' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-dot-circle-o"></i>
-                      {{#link-to 'drones'}}Drones{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'assignments' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-file-text-o"></i>
-                      {{#link-to 'assignments'}}Assignments{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'basestations' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-home"></i>
-                      {{#link-to 'basestations'}}Basestations{{/link-to}}
-                  {{/link-to}}
-                  {{#link-to 'users' tagName="li" href=false class="launcher"}}
-                      <i class="fa fa-user"></i>
-                      {{#link-to 'users'}}Users{{/link-to}}
-                  {{/link-to}}
-              </ul>
-          </section>
-
-          <!--Toolbar-->
-          <section id="tools">
-
-          </section>
-
-          <!--Content-->>
-          <section id="content">
-              {{outlet}}
-          </section>
-      </div>
-    </script>
-  
-
-    <script type="text/x-handlebars" id="dashboard">
-        <p>This is a test</p>
-    </script>
-
-    <script type="text/x-handlebars" id="drones">
-        {{#each drone in model }}
-			<p> {{ drone.id }} : {{ drone.name }}
-			 {{#link-to 'drone' drone.id}}link {{/link-to}}
-			</p>
-		{{/each}}
-    </script>
-	
-	<script type="text/x-handlebars" id="drone">
-		<p> {{ model.id }} : {{ model.name }} </p>
-    </script>
-
-    <script type="text/x-handlebars" id="login">
-		<div class='login'>
-			<div class='wrapper'>
-			  <div class='row'>
-				<div class='col-lg-12'>
-				  <div class='brand text-center'>
-					<h1>
-					  <div class='logo-icon'>
-						<i class='icon-beer'></i>
-					  </div>
-					</h1>
-				  </div>
-				</div>
-			  </div>
-			  <div class='row'>
-				<div class='col-lg-12'>
-				  <form>
-					<fieldset class='text-center'>
-					  <legend>Login to your account</legend>
-					  <div class='form-group'>
-						{{ emailError }}
-						{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
-					  </div>
-					  <div class='form-group'>
-						{{ passwordError }}
-						{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
-					  </div>
-					  <div class='text-center'>
-						<div class='checkbox'>
-						  <label>
-							<input type='checkbox'>
-							Remember me on this computer
-						  </label>
-						</div>
-						<button class="btn btn-default" {{ action 'login' }}>Sign in</button>
-						<br>
-						<a href="forgot_password.html">Forgot password?</a>
-					  </div>
-					</fieldset>
-				  </form>
-				</div>
-			  </div>
+	<head>
+		<meta charset="utf-8">
+		<title>CROS</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel='stylesheet' href='css/nprogress.css'/>
+		<!-- link rel="stylesheet" href="css/epoch.css"-->
+	</head>
+	<body class="main page">
+		<script type="text/x-handlebars" id="App">
+			<div class="navbar navbar-default" id="navbar">
+				<a class="navbar-brand" href="#">CROS</a>
+				{{#user-display action="logout"}}
+                {{/user-display}}
 			</div>
-		</div>
-  </script>
-  
-  
-  <script src="js/libs/jquery-1.10.2.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.cookie.js"></script>
-  <script src="js/libs/ember-template-compiler-1.10.0.js"></script>
-  <script src="js/libs/ember-1.10.0.debug.js"></script>
-  <script src="js/libs/ember-data.js"></script>
-  <script src='js/nprogress.js'></script>
-  
-  <script src="js/app.js"></script>
-  <script src="js/adapter.js"></script>
-  <script src="js/router.js"></script>
-  <script src="js/models/drone.js"></script>
-  <script src="js/controllers/loginController.js"></script>
-  <script src="js/controllers/droneController.js"></script>
-  
-</body>
+			<div id="wrapper">
+				<section id="sidebar">
+					<i class="glyphicon glyphicon-align-justify icon-large" id="toggle"></i>
+					<ul id="dock">
+						{{#link-to 'dashboard' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-tachometer"></i>
+							{{#link-to 'dashboard'}}Dashboard{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'drones' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-dot-circle-o"></i>
+							{{#link-to 'drones'}}Drones{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'assignments' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-file-text-o"></i>
+							{{#link-to 'assignments'}}Assignments{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'basestations' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-home"></i>
+							{{#link-to 'basestations'}}Basestations{{/link-to}}
+						{{/link-to}}
+						{{#link-to 'users' tagName="li" href=false class="launcher"}}
+							<i class="fa fa-user"></i>
+							{{#link-to 'users'}}Users{{/link-to}}
+						{{/link-to}}
+					</ul>
+				</section>
+
+				<!--Toolbar-->
+				<section id="tools" style="height:51px;" {{bind-attr class="notificationIsError:errorNotification"}}>
+					{{notification}}    
+					{{#if notificationIsError}}
+						<button type="button" class="close" aria-label="Close" {{action 'dismiss'}}><span aria-hidden="true">&times;</span></button>
+					{{/if}}
+				</section>
+
+				<!--Content-->>
+				<section id="content">
+					{{outlet}}
+					{{outlet 'modal'}}
+				</section>
+			</div>
+		</script>
+
+
+		<script type="text/x-handlebars" id="dashboard">
+			<p>This is a test</p>
+			{{#time-graph chartName="myChart"}}{{/time-graph}}
+		</script>
+
+        <script type="text/x-handlebars" id="drones">
+            {{#my-table columns=columns data=model}}
+                {{#each item in model}}
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.status}}</td>
+                        <td class='action'>
+							{{#link-to 'drone' item.id class='btn btn-success'}}
+								<i class="fa fa-search"></i>
+							{{/link-to}}
+                            <a class='btn btn-info' href='#'>
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <a class='btn btn-danger' href='#'>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {{/each}}
+            {{/my-table}}
+        </script>
+
+		<script type="text/x-handlebars" id="drone">
+			{{#popup-window title=model.name footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones'}}
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-8"><label>Address:</label></div>
+							<div class="col-xs-4">{{model.address}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Type:</label></div>
+							<div class="col-xs-4">{{model.droneType.type}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Version:</label></div>
+							<div class="col-xs-4">{{model.droneType.versionNumber}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Status:</label></div>
+							<div class="col-xs-4">{{model.status}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Weight limitation:</label></div>
+							<div class="col-xs-4">{{model.weightLimitation}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>altitude:</label></div>
+							<div class="col-xs-4">{{altitude}}</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
+				</div>
+			{{/popup-window}}
+		</script>
+
+        <script type="text/x-handlebars" id="assignments">
+            {{#my-table columns=columns data=model}}
+            {{#each item in model}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.priority}}</td>
+                <td>{{item.creator.email}}</td>
+                <td>{{item.assignedDrone}}</td>
+                <td class='action'>
+					{{#link-to 'assignment' item.id class='btn btn-success'}}
+						<i class="fa fa-search"></i>
+					{{/link-to}}
+                    <a class='btn btn-info' href='#'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class='btn btn-danger' href='#'>
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/my-table}}
+        </script>
+		
+		<script type="text/x-handlebars" id="assignment">
+			{{#popup-window title=model.title link='assignments'}}
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-8"><label>Creator:</label></div>
+							<div class="col-xs-4">{{#link-to 'user' model.creator.id}}{{model.creator.firstName}} {{model.creator.lastName}}{{/link-to}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Creator e-mail:</label></div>
+							<div class="col-xs-4">{{model.creator.email}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Assigned drone:</label></div>
+							<div class="col-xs-4">{{model.assignedDrone}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Priority:</label></div>
+							<div class="col-xs-4">{{model.priority}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Progress:</label></div>
+							<div class="col-xs-4">{{model.progress}}</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
+				</div>
+			{{/popup-window}}
+		</script>
+
+        <script type="text/x-handlebars" id="basestations">
+            {{#my-table columns=columns data=model}}
+            {{#each item in model}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td class='action'>
+					{{#link-to 'basestation' item.id class='btn btn-success'}}
+						<i class="fa fa-search"></i>
+					{{/link-to}}
+                    <a class='btn btn-info' href='#'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class='btn btn-danger' href='#'>
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/my-table}}
+        </script>
+		
+		<script type="text/x-handlebars" id="basestation">
+			{{#popup-window title=model.name link='basestations'}}
+				<div class="row">
+					<div class="col-xs-offset-1 col-xs-10">
+						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
+				</div>
+			{{/popup-window}}
+		</script>
+
+        <script type="text/x-handlebars" id="users">
+            {{#my-table columns=columns data=model}}
+            {{#each item in model}}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.firstName}} {{item.lastName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.role}}</td>
+                <td class='action'>
+					{{#link-to 'user' item.id class='btn btn-success'}}
+						<i class="fa fa-search"></i>
+					{{/link-to}}
+                    <a class='btn btn-info' href='#'>
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class='btn btn-danger' href='#'>
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/my-table}}
+        </script>
+		
+		<script type="text/x-handlebars" id="user">
+			{{#popup-window title="Profile" link='users'}}
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-8"><label>First name:</label></div>
+							<div class="col-xs-4">{{model.firstName}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Last name:</label></div>
+							<div class="col-xs-4">{{model.lastName}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>E-mail:</label></div>
+							<div class="col-xs-4">{{model.email}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Role:</label></div>
+							<div class="col-xs-4">{{model.role}}</div>
+						</div>
+					</div>
+					<div class="col-xs-offset-2 col-xs-3">
+						<img src="profile.png" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
+				</div>
+			{{/popup-window}}
+		</script>
+
+        <script type="text/x-handlebars" id="unauthorised">
+            <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                <p>You are unauthorised to view this page!</p>
+            </div>
+        </script>
+		
+		<script type="text/x-handlebars" id="login">
+			<div class='login'>
+				<div class='wrapper'>
+					<div class='row'>
+						<div class='col-lg-12'>
+							<div class='brand text-center'>
+								<h1>
+									<div class='logo-icon'>
+										<i class='icon-beer'></i>
+									</div>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class='row'>
+						<div class='col-lg-12'>
+							<form>
+								<fieldset class='text-center'>
+									<legend>Login to your account</legend>
+									<div class='form-group'>
+										{{ emailError }}
+										{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
+									</div>
+									<div class='form-group'>
+										{{ passwordError }}
+										{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
+									</div>
+									<div class='text-center'>
+										<div class='checkbox'>
+											<label>
+												<input type='checkbox'>
+												Remember me on this computer
+											</label>
+										</div>
+										<button class="btn btn-default" {{ action 'login' }}>Sign in</button>
+										<br>
+											<a href="javascript:;">Forgot password?</a>
+											<a href="javascript:;" data-toggle="popover" title="register" data-content="Contact your system administrator to add new accounts">Register</a>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</script>
+
+
+        <!---------------------------------Components--------------------------------->
+        <script type="text/x-handlebars" id="components/my-table">
+            <div class="panel panel-default grid">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        {{#each column in columns}}
+                        <th>{{column}}</th>
+                        {{/each}}
+                    </tr>
+                    </thead>
+                    {{yield}}
+                </table>
+            </div>
+        </script>
+
+		<script type="text/x-handlebars" data-template-name="components/popup-window">
+			<div class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							{{#link-to link id='closeModal' class='close'}}&times;{{/link-to}}
+							<h4 class="modal-title">{{title}}</h4>
+						</div>
+						<div class="modal-body">
+							{{yield}}
+						</div>
+						<div class="modal-footer">
+							<div class="row">
+								<div class="col-xs-4">
+									{{{footer}}}	
+								</div>
+								<div class="col-xs-4 col-xs-offset-4">
+									{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</script>
+		
+		<script type="text/x-handlebars" id="components/time-graph">
+			<div {{bind-attr id=chartName}} class="epoch category10" style="width: 200px; height: 200px"></div>
+		</script>
+
+        <script type="text/x-handlebars" id="components/user-display">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                        <i class="fa fa-user" id="toggle"></i>
+                        <i class="icon-envelope"></i>
+                        <strong>{{fullName}}</strong>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            {{#link-to "user" userId}}Info{{/link-to}}
+                        </li>
+                        <li>
+                            <a href="javascript:;" {{action 'logout' }}>Log out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </script>
+
+		<script src="js/libs/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/libs/ember-template-compiler-1.10.0.js"></script>
+		<script src="js/libs/ember-1.10.0.debug.js"></script>
+		<script src="js/libs/ember-data.js"></script>
+		<script src='js/nprogress.js'></script>
+		<!-- script src="js/libs/d3.min.js"></script -->
+		<!-- script src="js/libs/epoch.js"></script -->
+
+		<script src="js/app.js"></script>
+		<script src="js/adapter.js"></script>
+		<script src="js/socketmanager.js"></script>
+		<script src="js/router.js"></script>
+        <script src="js/authManager.js"></script>
+		<script src="js/models/drone.js"></script>
+        <script src="js/controllers/appController.js"></script>
+        <script src="js/controllers/loginController.js"></script>
+		<script src="js/controllers/droneController.js"></script>
+        <script src="js/controllers/dronesController.js"></script>
+        <script src="js/controllers/assignmentsController.js"></script>
+        <script src="js/controllers/basestationsController.js"></script>
+        <script src="js/controllers/usersController.js"></script>
+		<script src="js/components/popup.js"></script>
+        <script src="js/components/userdisplay.js"></script>
+		<!-- script src="js/components/graph.js"></script -->
+	</body>
 </html>
