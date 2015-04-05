@@ -57,32 +57,33 @@ App.DashboardController = Ember.Controller.extend({
 
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('drone', null, null, {pageSize : 2, page : 0}).then(function(data){ //todo: hardcoded pageSize
-			return data.resource;
+        var self = this;
+        return this.customAdapter.find('drone', null, null, {pageSize : 2, page : 0, total: true}).then(function(data){ //todo: hardcoded pageSize
+			return data;
 		});
     }
 });
 
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('assignment', null, null, {pageSize : 2, page : 0}).then(function(data){
-            return data.resource;
+        return this.customAdapter.find('assignment', null, null, {pageSize : 2, page : 0, total:true}).then(function(data){
+            return data;
         });
     }
 });
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('basestation', null, null, {pageSize : 2, page : 0}).then(function(data){
-            return data.resource;
+        return this.customAdapter.find('basestation', null, null, {pageSize : 2, page : 0, total:true}).then(function(data){
+            return data;
         });
     }
 });
 
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('user', null, null, {pageSize : 2, page : 0}).then(function(data){
-            return data.resource;
+        return this.customAdapter.find('user', null, null, {pageSize : 2, page : 0, total:true}).then(function(data){
+            return data;
         });
     }
 });

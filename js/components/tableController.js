@@ -1,7 +1,7 @@
 App.MyTableComponent = Ember.Component.extend({
 
     page: 1,
-    perPage: 2, //todo debug =1
+    perPage: 2, //todo debug value
 
     begin: function(){
         return ((this.get('page') - 1) * this.get('perPage'))+1;
@@ -83,7 +83,6 @@ App.MyTableComponent = Ember.Component.extend({
             this.set('page', 1);
             //send search
             this.sendAction('action', string, this.get('page'), this.get('perPage'));
-            //todo: get new total + if 0
         }
     }
 });

@@ -70,8 +70,8 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model length=totalElements action="getPage" searchaction="search"}}
-                {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchaction="search"}}
+                {{#each item in model.resource}}
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
@@ -131,8 +131,8 @@
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
-            {{#my-table columns=columns data=model length=totalElements action="getPage"}}
-            {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage"}}
+            {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.priority}}</td>
@@ -189,8 +189,8 @@
 		</script>
 
         <script type="text/x-handlebars" id="basestations">
-            {{#my-table columns=columns data=model length=totalElements action="getPage"}}
-            {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage"}}
+            {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
@@ -223,8 +223,8 @@
 		</script>
 
         <script type="text/x-handlebars" id="users">
-            {{#my-table columns=columns data=model length=totalElements action="getPage"}}
-            {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage"}}
+            {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.firstName}} {{item.lastName}}</td>

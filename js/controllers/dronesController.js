@@ -3,26 +3,6 @@
  */
 App.DronesController = Ember.Controller.extend({
     columns : ['#','Name','Status','Actions'],
-    getStatusClass: function(){
-        if (status == 'AVAILABLE'){
-            return 'label-success'
-        }
-    }.property(status),
-
-    //Paging
-    privateTotalElements: 0,
-
-    totalElements: function() {
-        this.fetchTotalElements();
-        return this.get("privateTotalElements");
-    }.property('privateTotalElements'),
-
-    fetchTotalElements: function() {
-        var self = this;
-        this.customAdapter.find("drone", null, "total").then(function(data){
-            self.set("privateTotalElements", data.total);
-        });
-    },
 
     //Actions
     actions: {
@@ -33,9 +13,9 @@ App.DronesController = Ember.Controller.extend({
         getPage: function (search, page, perPage){
             console.log(search);
             var self = this;
-            this.customAdapter.find('drone', null, null, {name: search, pageSize : perPage, page : (page-1)}).then(function(data){
-                self.set('model',data.resource);
-                return data.resource;
+            this.customAdapter.find('drone', null, null, {name: search, pageSize : perPage, page : (page-1), total: true}).then(function(data){
+                self.set('model',data);
+                return data;
             });
         }
     }
