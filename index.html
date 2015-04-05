@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="css/theme.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel='stylesheet' href='css/nprogress.css'/>
+		<!-- link rel="stylesheet" href="css/epoch.css"-->
 	</head>
 	<body class="main page">
 		<script type="text/x-handlebars" id="App">
@@ -47,8 +48,11 @@
 				</section>
 
 				<!--Toolbar-->
-				<section id="tools">
-
+				<section id="tools" style="height:51px;" {{bind-attr class="notificationIsError:errorNotification"}}>
+					{{notification}}    
+					{{#if notificationIsError}}
+						<button type="button" class="close" aria-label="Close" {{action 'dismiss'}}><span aria-hidden="true">&times;</span></button>
+					{{/if}}
 				</section>
 
 				<!--Content-->>
@@ -62,6 +66,7 @@
 
 		<script type="text/x-handlebars" id="dashboard">
 			<p>This is a test</p>
+			{{#time-graph chartName="myChart"}}{{/time-graph}}
 		</script>
 
         <script type="text/x-handlebars" id="drones">
@@ -73,6 +78,9 @@
                         <td>{{item.status}}</td>
                         <td class='action'>
                             <div class="btn-group">
+                                {{#link-to 'drone' item.id class='btn btn-success'}}
+                                    <i class="fa fa-search"></i>
+                                {{/link-to}}
                                 <a class='btn btn-info' href='#'>
                                     <i class="fa fa-pencil"></i>
                                 </a>
@@ -87,15 +95,39 @@
         </script>
 
 		<script type="text/x-handlebars" id="drone">
-			{{#my-popup title='Settings' ok='save' close='removeModal' link='drones'}}
+			{{#popup-window title=model.name footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones'}}
 				<div class="row">
-					<div class="col-md-4"><label>Drone:</label> {{model.name}}</div>
-					<div class="col-md-4"><label>Battery status:</label> {{battery}}</div>
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-8"><label>Address:</label></div>
+							<div class="col-xs-4">{{model.address}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Type:</label></div>
+							<div class="col-xs-4">{{model.droneType.type}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Version:</label></div>
+							<div class="col-xs-4">{{model.droneType.versionNumber}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Status:</label></div>
+							<div class="col-xs-4">{{model.status}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Weight limitation:</label></div>
+							<div class="col-xs-4">{{model.weightLimitation}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>altitude:</label></div>
+							<div class="col-xs-4">{{altitude}}</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4"><label>Address:</label> {{model.address}}</div>
-				</div>
-			{{/my-popup}}
+			{{/popup-window}}
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
@@ -108,11 +140,14 @@
                 <td>{{item.assignedDrone}}</td>
                 <td class='action'>
                     <div class="btn-group">
+                        {{#link-to 'assignment' item.id class='btn btn-success'}}
+                            <i class="fa fa-search"></i>
+                        {{/link-to}}
                         <a class='btn btn-info' href='#'>
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                        <i class="fa fa-trash-o"></i>
+                            <i class="fa fa-trash-o"></i>
                         </a>
                     </div>
                 </td>
@@ -120,6 +155,38 @@
             {{/each}}
             {{/my-table}}
         </script>
+		
+		<script type="text/x-handlebars" id="assignment">
+			{{#popup-window title=model.title link='assignments'}}
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-8"><label>Creator:</label></div>
+							<div class="col-xs-4">{{#link-to 'user' model.creator.id}}{{model.creator.firstName}} {{model.creator.lastName}}{{/link-to}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Creator e-mail:</label></div>
+							<div class="col-xs-4">{{model.creator.email}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Assigned drone:</label></div>
+							<div class="col-xs-4">{{model.assignedDrone}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Priority:</label></div>
+							<div class="col-xs-4">{{model.priority}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Progress:</label></div>
+							<div class="col-xs-4">{{model.progress}}</div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
+				</div>
+			{{/popup-window}}
+		</script>
 
         <script type="text/x-handlebars" id="basestations">
             {{#my-table columns=columns data=model length=totalElements action="getPage"}}
@@ -129,11 +196,14 @@
                 <td>{{item.name}}</td>
                 <td class='action'>
                     <div class="btn-group">
+                        {{#link-to 'basestation' item.id class='btn btn-success'}}
+                            <i class="fa fa-search"></i>
+                        {{/link-to}}
                         <a class='btn btn-info' href='#'>
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                        <i class="fa fa-trash-o"></i>
+                            <i class="fa fa-trash-o"></i>
                         </a>
                     </div>
                 </td>
@@ -141,6 +211,16 @@
             {{/each}}
             {{/my-table}}
         </script>
+		
+		<script type="text/x-handlebars" id="basestation">
+			{{#popup-window title=model.name link='basestations'}}
+				<div class="row">
+					<div class="col-xs-offset-1 col-xs-10">
+						<img src="leaflet-map02.jpg" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
+				</div>
+			{{/popup-window}}
+		</script>
 
         <script type="text/x-handlebars" id="users">
             {{#my-table columns=columns data=model length=totalElements action="getPage"}}
@@ -152,11 +232,14 @@
                 <td>{{item.role}}</td>
                 <td class='action'>
                     <div class="btn-group">
+                        {{#link-to 'user' item.id class='btn btn-success'}}
+                            <i class="fa fa-search"></i>
+                        {{/link-to}}
                         <a class='btn btn-info' href='#'>
                             <i class="fa fa-pencil"></i>
                         </a>
                         <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                        <i class="fa fa-trash-o"></i>
+                            <i class="fa fa-trash-o"></i>
                         </a>
                     </div>
                 </td>
@@ -164,7 +247,35 @@
             {{/each}}
             {{/my-table}}
         </script>
-
+		
+		<script type="text/x-handlebars" id="user">
+			{{#popup-window title="Profile" link='users'}}
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="row">
+							<div class="col-xs-8"><label>First name:</label></div>
+							<div class="col-xs-4">{{model.firstName}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Last name:</label></div>
+							<div class="col-xs-4">{{model.lastName}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>E-mail:</label></div>
+							<div class="col-xs-4">{{model.email}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Role:</label></div>
+							<div class="col-xs-4">{{model.role}}</div>
+						</div>
+					</div>
+					<div class="col-xs-offset-2 col-xs-3">
+						<img src="profile.png" class="img-rounded" alt="Cinque Terre" width="100%">
+					</div>
+				</div>
+			{{/popup-window}}
+		</script>	
+		
 		<script type="text/x-handlebars" id="login">
 			<div class='login'>
 				<div class='wrapper'>
@@ -213,7 +324,7 @@
 		</script>
 
 
-        <!---------------------------------Templates--------------------------------->
+        <!---------------------------------Components--------------------------------->
         <script type="text/x-handlebars" id="components/my-table">
             <div class="panel panel-default grid">
                 <div class="panel-heading">
@@ -270,32 +381,45 @@
             </div>
         </script>
 
-		<script type="text/x-handlebars" data-template-name="components/my-popup">
+		<script type="text/x-handlebars" data-template-name="components/popup-window">
 			<div class="modal fade">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							{{#link-to link class='close'}}&times;{{/link-to}}
+							{{#link-to link id='closeModal' class='close'}}&times;{{/link-to}}
 							<h4 class="modal-title">{{title}}</h4>
 						</div>
 						<div class="modal-body">
 							{{yield}}
 						</div>
 						<div class="modal-footer">
-							{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+							<div class="row">
+								<div class="col-xs-4">
+									{{{footer}}}	
+								</div>
+								<div class="col-xs-4 col-xs-offset-4">
+									{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</script>
+		
+		<script type="text/x-handlebars" id="components/time-graph">
+			<div {{bind-attr id=chartName}} class="epoch category10" style="width: 200px; height: 200px"></div>
+		</script>
 
-		<script src="js/libs/jquery-1.10.2.js"></script>
+		<script src="js/libs/jquery-2.1.3.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.cookie.js"></script>
 		<script src="js/libs/ember-template-compiler-1.10.0.js"></script>
 		<script src="js/libs/ember-1.10.0.debug.js"></script>
 		<script src="js/libs/ember-data.js"></script>
 		<script src='js/nprogress.js'></script>
+		<!-- script src="js/libs/d3.min.js"></script -->
+		<!-- script src="js/libs/epoch.js"></script -->
 
 		<script src="js/app.js"></script>
 		<script src="js/adapter.js"></script>
@@ -310,5 +434,6 @@
         <script src="js/controllers/usersController.js"></script>
         <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
+		<!-- script src="js/components/graph.js"></script -->
 	</body>
 </html>
