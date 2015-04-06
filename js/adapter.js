@@ -157,6 +157,22 @@ App.CustomAdapter = DS.RESTAdapter.extend({
             self.processLinks(data, "");
 			return data;
 		});
-	}
+	},
     
+	edit : function(store, id, editData) {
+		var self = this;
+		var url = this.host + this.linkLibrary[store + self.delimiter + id];
+		return this.ajax(url, 'PUT', {data: postData, xhr : self.progressTracker}).then(function(data) {
+			return data;
+		});
+	},
+	
+	remove : function(store, id) {
+		var self = this;
+		var url = this.host + this.linkLibrary[store + self.delimiter + id];
+		return this.ajax(url, 'DELETE', { xhr : self.progressTracker}).then(function(data) {
+			return data;
+		});
+	}
+	
 });
