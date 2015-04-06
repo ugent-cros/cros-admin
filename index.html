@@ -290,6 +290,13 @@
 		</script>
 
         <script type="text/x-handlebars" id="basestations">
+            <div class="row">
+                <div class="col-xs-12">
+                    {{#link-to 'basestations-add' class='btn btn-success pull-right'}}
+                    Create basestation
+                    {{/link-to}}
+                </div>
+            </div>
             {{#my-table columns=columns data=model}}
             {{#each item in model}}
             <tr>
@@ -309,6 +316,12 @@
             </tr>
             {{/each}}
             {{/my-table}}
+        </script>
+
+        <script type="text/x-handlebars" id="basestations-add">
+            {{#popup-window title="Create basestation" link='basestations' ok='save' saveButton=true}}
+                {{#basestation-add-map mapName="basestationAddMap"}}{{/basestation-add-map}}
+            {{/popup-window}}
         </script>
 		
 		<script type="text/x-handlebars" id="basestation">
@@ -494,6 +507,10 @@
             {{partial 'map'}}
         </script>
 
+        <script type="text/x-handlebars" id="components/basestation-add-map">
+            {{partial 'map'}}
+        </script>
+
         <script type="text/x-handlebars" id="components/assignment-map">
             {{partial 'map'}}
         </script>
@@ -551,6 +568,7 @@
 		<script src="js/components/map.js"></script>
         <script src="js/components/maps/DroneMap.js"></script>
         <script src="js/components/maps/basestationMap.js"></script>
+        <script src="js/components/maps/basestationAddMap.js"></script>
         <script src="js/components/maps/assignmentMap.js"></script>
         <script src="js/components/userdisplay.js"></script>
 		<!-- script src="js/components/graph.js"></script -->

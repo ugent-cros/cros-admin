@@ -9,6 +9,7 @@ App.Router.map(function(){
 		this.resource('assignments-add', { path: '/assignments/add' });
 		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
+        this.resource('basestations-add', { path: '/basestations/add' });
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
 		this.resource('user', { path: '/users/:user_id' });
@@ -169,7 +170,7 @@ App.AssignmentsAddRoute = App.PopupRoute.extend({
 		})
 	},
 	renderTemplate: function() {
-		this._super('assignments-add', 'assignments');
+		this._super('basestations-add', 'basestations');
 	}
 });
 
@@ -180,6 +181,18 @@ App.BasestationRoute = App.PopupRoute.extend({
 	renderTemplate: function() {
 		this._super('basestation', 'basestations');
 	}
+});
+
+App.BasestationsAddRoute = App.PopupRoute.extend({
+    setupController: function (controller, model) {
+        this._super(controller, model);
+        this.customAdapter.find('basestation').then(function(data){
+            controller.set('basestations', data.resource);
+        })
+    },
+    renderTemplate: function() {
+        this._super('basestations-add', 'basestations');
+    }
 });
 
 App.UserRoute = App.PopupRoute.extend({
