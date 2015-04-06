@@ -161,6 +161,18 @@ App.AssignmentRoute = App.PopupRoute.extend({
 	}
 });
 
+App.AssignmentsAddRoute = App.PopupRoute.extend({
+	setupController: function (controller, model) {
+		this._super(controller, model);
+		this.customAdapter.find('basestation').then(function(data){
+			controller.set('basestations', data.resource);
+		})
+	},
+	renderTemplate: function() {
+		this._super('assignments-add', 'assignments');
+	}
+});
+
 App.BasestationRoute = App.PopupRoute.extend({
     model: function(params) {
         return this.fetch({store:'basestation', id: params.basestation_id });

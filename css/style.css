@@ -40,3 +40,17 @@
 	padding: 15px;
 	vertical-align: middle;
 }
+
+.btn.btn-swap {
+	margin-bottom: 10px;
+}
+
+.well.route-well {
+	margin-bottom: 10px;
+}
+
+.basestation {
+	margin-top: -20px;
+	margin-bottom: 8px;
+	margin-right: -17px;
+}
