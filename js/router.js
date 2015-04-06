@@ -2,8 +2,11 @@ App.Router.map(function(){
 	this.resource('App', { 'path' : '/' }, function() {
 		this.resource('dashboard');
 		this.resource('drones');
+		this.resource('drones-add', { path: '/drones/add' });
 		this.resource('drone', { path: '/drones/:drone_id' });
+		this.resource('drone-edit', { path: '/drones/:drone_id/edit' });
 		this.resource('assignments');
+		this.resource('assignments-add', { path: '/assignments/add' });
 		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
@@ -143,12 +146,30 @@ App.DroneRoute = App.PopupRoute.extend({
 	}
 });
 
+App.DronesAddRoute = App.PopupRoute.extend({
+	renderTemplate: function() {
+		this._super('drones-add', 'drones');
+	}
+});
+
 App.AssignmentRoute = App.PopupRoute.extend({
     model: function(params) {
         return this.fetch({store:'assignment', id: params.assignment_id});
     },
 	renderTemplate: function() {
 		this._super('assignment', 'assignments');
+	}
+});
+
+App.AssignmentsAddRoute = App.PopupRoute.extend({
+	setupController: function (controller, model) {
+		this._super(controller, model);
+		this.customAdapter.find('basestation').then(function(data){
+			controller.set('basestations', data.resource);
+		})
+	},
+	renderTemplate: function() {
+		this._super('assignments-add', 'assignments');
 	}
 });
 

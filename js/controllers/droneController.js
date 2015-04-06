@@ -30,5 +30,13 @@ App.DroneController = Ember.Controller.extend({
             // todo: do something with gpsheight...?
         });
 	}
-  
+});
+
+App.DroneEditController = Ember.Controller.extend({
+	actions: {
+		save: function(){
+			console.log('Do some saving here!');
+			console.log(this.model);
+		}
+	}
 });

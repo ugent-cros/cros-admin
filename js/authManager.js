@@ -28,17 +28,6 @@ var AuthManagerClass = Ember.Object.extend({
         return result.then(function(data) {
             $.cookie(temp, data.authToken);
             self.set("authToken", data.authToken);
-
-            return true;
-        }, function(data) {
-            if (data.status == 401) {
-                self.set('emailError', "the password was incorrect");
-            } else {
-                self.set('emailError', data.responseJSON.emailAddress);
-                self.set('passwordError', data.responseJSON.password);
-                console.log("failed");
-            }
-            return false;
         });
     },
 

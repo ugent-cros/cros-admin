@@ -68,6 +68,13 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
+			<div class="row">
+				<div class="col-xs-12">
+					{{#link-to 'drones-add' class='btn btn-success pull-right'}}
+						Add drone
+					{{/link-to}}
+				</div>
+			</div>
             {{#my-table columns=columns data=model}}
                 {{#each item in model}}
                     <tr>
@@ -78,9 +85,9 @@
 							{{#link-to 'drone' item.id class='btn btn-success'}}
 								<i class="fa fa-search"></i>
 							{{/link-to}}
-                            <a class='btn btn-info' href='#'>
+							{{#link-to 'drone-edit' item.id class='btn btn-info'}}
                                 <i class="fa fa-pencil"></i>
-                            </a>
+							{{/link-to}}
                             <a class='btn btn-danger' href='#'>
                                 <i class="fa fa-trash-o"></i>
                             </a>
@@ -89,9 +96,59 @@
                 {{/each}}
             {{/my-table}}
         </script>
+		
+		<script type="text/x-handlebars" id="drones-add">
+			{{#popup-window title="Add drone" link='drones' ok='save' saveButton=true}}
+				<div class="row">
+					<div id="droneAddAlert" class="col-xs-12"></div>
+				</div>
+				<form {{action 'ok' on='submit' target=view}}>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-8"><label>Name:</label></div>
+						</div>
+						<div class="well">
+							<div class="row">
+								<div class="col-xs-12">{{input  placeholder="Name" class="form-control" value=name}}</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Address:</label></div>
+						</div>
+						<div class="well">
+							<div class="row">
+								<div class="col-xs-12">{{input  placeholder="Address" class="form-control" value=address}}</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12"><label>Type:</label></div>
+						</div>
+						<div class="well">
+							<div class="row">
+								<div class="col-sm-6">{{input placeholder="Type" class="form-control" value=type}}</div>
+								<div class="col-sm-6">{{input placeholder="Version number" class="form-control" value=versionNumber}}</div>
+							</div>
+						</div>
+						<label>
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Advanced</a>
+						</label>
+						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+							<div class="row">
+								<div class="col-xs-8"><label>Weight limitation:</label></div>
+							</div>
+							<div class="well">
+								<div class="row">
+									<div class="col-xs-12">{{input placeholder="Weight Limitation" type="number" class="form-control" value=weightLimitation}}</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</form>
+			{{/popup-window}}
+		</script>
 
 		<script type="text/x-handlebars" id="drone">
-			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones'}}
+			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-3">
 						<div class="row">
@@ -103,7 +160,7 @@
 							<div class="col-xs-4">{{model.droneType.type}}</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-8"><label>Version:</label></div>
+							<div class="col-xs-8"><label>Version number:</label></div>
 							<div class="col-xs-4">{{model.droneType.versionNumber}}</div>
 						</div>
 						<div class="row">
@@ -127,6 +184,13 @@
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
+			<div class="row">
+				<div class="col-xs-12">
+					{{#link-to 'assignments-add' class='btn btn-success pull-right'}}
+						Create assignment
+					{{/link-to}}
+				</div>
+			</div>
             {{#my-table columns=columns data=model}}
             {{#each item in model}}
             <tr>
@@ -150,8 +214,51 @@
             {{/my-table}}
         </script>
 		
+		<script type="text/x-handlebars" id="assignments-add">
+			{{#popup-window title="Create assignment" link='assignments' ok='save' saveButton=true}}
+				<div class="row">
+					<div id="assignmentAddAlert" class="col-xs-12"></div>
+				</div>
+				<form {{action 'ok' on='submit' target=view}}>
+					<div class="row">
+						<div class="col-xs-6"><label>Route:</label></div>
+						<div class="col-xs-6 text-right">
+							{{view "select" id="basestationSelect" content=basestations optionValuePath="content.id" optionLabelPath="content.name" prompt="Checkpoint" value=selected}}
+							<button {{action 'add' true}} style="line-height:0; font-size:10px" class="btn btn-xs">
+								<i class="fa fa-plus"></i>
+								<label id="addButtonText">Add</label>
+							</button>
+						</div>
+					</div>
+					<div id="routesAssignment">
+						<div id="well-0" class="well route-well">
+							<div class="row">
+								<div class="col-sm-3"><input class="longitude form-control" placeholder="Longitude" type="number"></div>
+								<div class="col-sm-3"><input class="latitude form-control" placeholder="Latitude" type="number"></div>
+								<div class="col-sm-3"><input class="altitude form-control" placeholder="Altitude" type="number"></div>
+								<div class="col-sm-3"><input class="waitingTime form-control" placeholder="Wait time" type="number"></div>
+							</div>
+						</div>
+					</div>
+					<label>
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Advanced</a>
+					</label>
+					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+						<div class="row">
+							<div class="col-xs-8"><label>Priority:</label></div>
+						</div>
+						<div class="well">
+							<div class="row">
+								<div class="col-xs-12">{{input class="form-control" value=priority}}</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			{{/popup-window}}
+		</script>
+				
 		<script type="text/x-handlebars" id="assignment">
-			{{#popup-window title=model.title  size="60%" link='assignments'}}
+			{{#popup-window title=model.title  size="60%" link='assignments' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="row">
@@ -205,7 +312,7 @@
         </script>
 		
 		<script type="text/x-handlebars" id="basestation">
-			{{#popup-window title=model.name link='basestations'}}
+			{{#popup-window title=model.name link='basestations' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-offset-1 col-xs-10">
 						{{#basestation-map mapName="basestationMap" location=basestationLocation}}{{/basestation-map}}
@@ -239,7 +346,7 @@
         </script>
 		
 		<script type="text/x-handlebars" id="user">
-			{{#popup-window title="Profile" link='users'}}
+			{{#popup-window title="Profile" link='users' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="row">
@@ -293,13 +400,13 @@
 							<form>
 								<fieldset class='text-center'>
 									<legend>Login to your account</legend>
-									<div class='form-group'>
-										{{ emailError }}
-										{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
+									<div {{bind-attr class=":form-group hasEmailError:has-error"}}>
+                                        {{#if hasEmailError}}<label class="control-label" for="email">{{ emailError }}</label>{{/if}}
+										{{input value=emailInput placeholder="Email address" type="text" class='form-control' id='email'}}
 									</div>
-									<div class='form-group'>
-										{{ passwordError }}
-										{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
+									<div {{bind-attr class=":form-group hasPasswordError:has-error"}}>
+                                        {{#if hasPasswordError}}<label class="control-label" for="password">{{ passwordError }}</label>{{/if}}
+										{{input value=passwordInput placeholder="Password" type="password" class='form-control' id='password' }}
 									</div>
 									<div class='text-center'>
 										<div class='checkbox'>
@@ -355,7 +462,14 @@
 									{{{footer}}}	
 								</div>
 								<div class="col-xs-4 col-xs-offset-4">
+								{{#if saveButton}}
+									<div class="btn-group">
+										<button {{action 'ok'}} class="btn btn-success">Save</button>
+										{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+									</div>
+								{{else}}
 									{{#link-to link class='btn btn-primary'}}Close{{/link-to}}
+								{{/if}}
 								</div>
 							</div>
 						</div>

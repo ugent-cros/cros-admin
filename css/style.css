@@ -42,6 +42,20 @@
 }
 
 .cros-logo {
-    background : url("../img/logo.png") !important;
+    background: url("../img/logo.png") !important;
     background-size: contain !important;
+}
+
+.btn.btn-swap {
+	margin-bottom: 10px;
+}
+
+.well.route-well {
+	margin-bottom: 10px;
+}
+
+.basestation {
+	margin-top: -20px;
+	margin-bottom: 8px;
+	margin-right: -17px;
 }
