@@ -293,13 +293,13 @@
 							<form>
 								<fieldset class='text-center'>
 									<legend>Login to your account</legend>
-									<div class='form-group'>
-										{{ emailError }}
-										{{input value=emailInput placeholder="Email address" type="text" class='form-control' }}
+									<div {{bind-attr class=":form-group hasEmailError:has-error"}}>
+                                        {{#if hasEmailError}}<label class="control-label" for="email">{{ emailError }}</label>{{/if}}
+										{{input value=emailInput placeholder="Email address" type="text" class='form-control' id='email'}}
 									</div>
-									<div class='form-group'>
-										{{ passwordError }}
-										{{input value=passwordInput placeholder="Password" type="password" class='form-control' }}
+									<div {{bind-attr class=":form-group hasPasswordError:has-error"}}>
+                                        {{#if hasPasswordError}}<label class="control-label" for="password">{{ passwordError }}</label>{{/if}}
+										{{input value=passwordInput placeholder="Password" type="password" class='form-control' id='password' }}
 									</div>
 									<div class='text-center'>
 										<div class='checkbox'>
