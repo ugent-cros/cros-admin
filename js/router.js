@@ -2,8 +2,11 @@ App.Router.map(function(){
 	this.resource('App', { 'path' : '/' }, function() {
 		this.resource('dashboard');
 		this.resource('drones');
+		this.resource('drones-add', { path: '/drones/add' });
 		this.resource('drone', { path: '/drones/:drone_id' });
+		this.resource('drone-edit', { path: '/drones/:drone_id/edit' });
 		this.resource('assignments');
+		this.resource('assignments-add', { path: '/assignments/add' });
 		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
@@ -140,6 +143,12 @@ App.DroneRoute = App.PopupRoute.extend({
 	
 	renderTemplate: function() {
 		this._super('drone', 'drones');
+	}
+});
+
+App.DronesAddRoute = App.PopupRoute.extend({
+	renderTemplate: function() {
+		this._super('drones-add', 'drones');
 	}
 });
 
