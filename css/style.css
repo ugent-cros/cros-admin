@@ -41,6 +41,11 @@
 	vertical-align: middle;
 }
 
+.cros-logo {
+    background: url("../img/logo.png") !important;
+    background-size: contain !important;
+}
+
 .btn.btn-swap {
 	margin-bottom: 10px;
 }

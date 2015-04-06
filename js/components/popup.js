@@ -1,4 +1,9 @@
 App.PopupWindowComponent = Ember.Component.extend({
+
+    sizeStyle: function(){
+        return "width: " + this.get("size");
+    }.property("size"),
+
 	closing: false,	
 	
 	actions: {
@@ -6,7 +11,7 @@ App.PopupWindowComponent = Ember.Component.extend({
 			this.sendAction('ok');
 		}
 	},
-	
+
 	show: function() {
 		var self = this;
 		this.$('.modal').modal('show');

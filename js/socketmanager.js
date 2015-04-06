@@ -32,7 +32,10 @@ App.SocketManager = Ember.Object.extend({
         s.onClose = function() {
             self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
 
-            clearInterval(this.get('timer'));
+            var timer = this.get('time');
+            if (timer) {
+                clearInterval(timer);
+            }
             self.set('connection', false);
         };
 
