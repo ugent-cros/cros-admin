@@ -40,3 +40,8 @@
 	padding: 15px;
 	vertical-align: middle;
 }
+
+.cros-logo {
+    background : url("../img/logo.png") !important;
+    background-size: contain !important;
+}
