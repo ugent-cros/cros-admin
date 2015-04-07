@@ -92,8 +92,8 @@ App.DashboardController = Ember.Controller.extend({
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
         var self = this;
-        return this.fetch({store:'drone', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
-            return data.resource;
+        return this.fetch({store:'drone', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
+            return data;
         }});
     }
 });
@@ -101,7 +101,7 @@ App.DronesRoute = App.AuthRoute.extend({
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
         return this.fetch({store:'assignment', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
-            return data.resource;
+            return data;
         }});
     }
 });
@@ -109,7 +109,7 @@ App.AssignmentsRoute = App.AuthRoute.extend({
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
         return this.fetch({store:'basestation', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
-            return data.resource;
+            return data;
         }});
     }
 });
@@ -117,7 +117,7 @@ App.BasestationsRoute = App.AuthRoute.extend({
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
         return this.fetch({store:'user', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
-            return data.resource;
+            return data;
         }});
     }
 });
