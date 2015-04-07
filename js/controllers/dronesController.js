@@ -7,7 +7,7 @@ App.DronesController = App.ListSuperController.extend({
     searchFields : ["name"]
 });
 
-App.DronesAddController = Ember.Controller.extend({	
+App.DroneEditController = Ember.Controller.extend({	
 	success: function(id) {
 		this.set('name', '');
 		this.set('address', '');
@@ -42,20 +42,11 @@ App.DronesAddController = Ember.Controller.extend({
 	
 	actions: {
 		save: function(){
-			var droneType = new Object;
-			droneType.type = this.type;
-			droneType.versionNumber = this.versionNumber;
-			
-			var drone = new Object();
-			drone.name = this.name;
-			drone.address = this.address;
-			drone.weightLimitation = this.weightLimitation;
-			drone.droneType = droneType;
-			
-			var jsonObject = new Object();
-			jsonObject.drone = drone;
-			
-			var result = this.customAdapter.post('drone', jsonObject);
+			var jsonObject = { drone: this.model };
+			if(this.model.id)
+				var result = this.customAdapter.edit('drone', this.model.id, jsonObject);
+			else
+				var result = this.customAdapter.post('drone', jsonObject);
 			var self = this;
 			result.then(
 				function(data) { self.success(data.drone.id); },
