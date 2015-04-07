@@ -130,7 +130,6 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	},
 	
     find : function(store, id, action, params) {
-        console.log(params);
         var self = this;
 		if (store === "home") {
             this.ajax(this.host, 'GET', {async : false, xhr : self.progressTracker }).then(function(data) {

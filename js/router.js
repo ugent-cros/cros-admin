@@ -9,6 +9,8 @@ App.Router.map(function(){
 		this.resource('assignments-add', { path: '/assignments/add' });
 		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
+        this.resource('basestations-add', { path: '/basestations/add' });
+        this.resource('basestation-edit', { path: '/basestations/:basestation_id/edit' });
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
 		this.resource('users-add', { path: '/users/add' });
@@ -198,6 +200,22 @@ App.BasestationRoute = App.PopupRoute.extend({
 	renderTemplate: function() {
 		this._super('basestation', 'basestations');
 	}
+});
+
+App.BasestationEditRoute = App.PopupRoute.extend({
+    model: function(params) {
+        if(params.basestation_id)
+            return this.fetch({store:'basestation', id: params.basestation_id });
+        else
+            return {location:{}};
+    },
+    renderTemplate: function() {
+        this._super('basestations-edit', 'basestations');
+    }
+});
+
+App.BasestationsAddRoute = App.BasestationEditRoute.extend({
+    controllerName: 'basestation-edit'
 });
 
 App.UserRoute = App.PopupRoute.extend({
