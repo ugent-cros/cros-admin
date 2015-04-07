@@ -128,6 +128,11 @@ App.PopupRoute = App.AuthRoute.extend({
 			into: 'App',
 			outlet: 'modal'
 		});
+	},
+	actions: {
+		willTransition: function(transition) {
+			this.controller.destroy();
+		}
 	}
 });
 
