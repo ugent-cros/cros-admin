@@ -91,13 +91,13 @@ App.MyTableComponent = Ember.Component.extend({
         this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
     }.observes('perPage'),
 
-
+    keyword: null,
     searchField: null,
 
     actions: {
         selectPage: function (number) {
             var self = this;
-            var search = document.getElementById("searchbox").value;
+            var search = this.get('keyword');
             this.set('page', number);
             this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
         },
