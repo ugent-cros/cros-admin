@@ -2,13 +2,17 @@ App.Router.map(function(){
 	this.resource('App', { 'path' : '/' }, function() {
 		this.resource('dashboard');
 		this.resource('drones');
+		this.resource('drones-add', { path: '/drones/add' });
 		this.resource('drone', { path: '/drones/:drone_id' });
+		this.resource('drone-edit', { path: '/drones/:drone_id/edit' });
 		this.resource('assignments');
+		this.resource('assignments-add', { path: '/assignments/add' });
 		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
 		this.resource('user', { path: '/users/:user_id' });
+        this.resource('unauthorised');
 	});
 	this.resource('login');
 });
@@ -18,10 +22,6 @@ App.BaseRoute = Ember.Route.extend({
         if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
             this.customAdapter.find("home");
         }
-		
-		if (!App.currentSocketManager) {
-			App.currentSocketManager = App.SocketManager.create({ url : this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"] });
-		}
     },
 	
 	setupController: function (controller, model) {
@@ -29,25 +29,59 @@ App.BaseRoute = Ember.Route.extend({
 		
 		NProgress.done();
 	},
+
+    afterModel: function() {
+        NProgress.done();
+    },
+
+    checkStatus : function(response, self) {
+        switch (response.status) {
+            case 401 :
+                self.transitionTo("unauthorised");
+                break;
+        }
+    },
+
+    fetch: function(params) {
+        var self = this;
+        var promise = this.customAdapter.find(params.store,params.id,params.action,params.options);
+        if (params.callback) {
+            return promise.then(params.callback).fail(function(jxhr) {
+                self.checkStatus(jxhr,self);
+            });
+        }
+        return promise.fail(function(jxhr) {
+            self.checkStatus(jxhr,self);
+        });
+    },
 	
 	actions: {
 		loading : function(transition, originRoute) {
 			NProgress.start();
-		},
+            return true;
+		}
 	}
 });
 
 App.AuthRoute = App.BaseRoute.extend({
     beforeModel: function() {
         this._super();
-        
-        if (this.customAdapter.token().authToken == "") {
+
+        if (!App.AuthManager.get("isLoggedIn")) {
             this.transitionTo('login');
         }
+
+        if (!App.currentSocketManager) {
+            App.currentSocketManager = App.SocketManager.create({url: this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"]});
+        }
+
+        App.currentSocketManager.initConnection();
     }
 });
 
-App.AppRoute = App.AuthRoute.extend({});
+App.AppRoute = App.BaseRoute.extend({});
+
+App.UnauthorisedRoute = App.BaseRoute.extend({});
 
 App.DashboardRoute = App.AuthRoute.extend({});
 
@@ -58,33 +92,33 @@ App.DashboardController = Ember.Controller.extend({
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
         var self = this;
-        return this.customAdapter.find('drone', null, null, {pageSize : 2, page : 0, total: true}).then(function(data){ //todo: hardcoded pageSize
-			return data;
-		});
+        return this.fetch({store:'drone', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+            return data.resource;
+        }});
     }
 });
 
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('assignment', null, null, {pageSize : 2, page : 0, total:true}).then(function(data){
-            return data;
-        });
+        return this.fetch({store:'assignment', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+            return data.resource;
+        }});
     }
 });
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('basestation', null, null, {pageSize : 2, page : 0, total:true}).then(function(data){
-            return data;
-        });
+        return this.fetch({store:'basestation', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+            return data.resource;
+        }});
     }
 });
 
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
-        return this.customAdapter.find('user', null, null, {pageSize : 2, page : 0, total:true}).then(function(data){
-            return data;
-        });
+        return this.fetch({store:'user', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+            return data.resource;
+        }});
     }
 });
 
@@ -100,7 +134,7 @@ App.PopupRoute = App.AuthRoute.extend({
 
 App.DroneRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('drone', params.drone_id);
+        return this.fetch({store:'drone', id: params.drone_id });
     },
 	
 	setupController: function(controller, model) {
@@ -113,18 +147,36 @@ App.DroneRoute = App.PopupRoute.extend({
 	}
 });
 
+App.DronesAddRoute = App.PopupRoute.extend({
+	renderTemplate: function() {
+		this._super('drones-add', 'drones');
+	}
+});
+
 App.AssignmentRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('assignment', params.assignment_id);
+        return this.fetch({store:'assignment', id: params.assignment_id});
     },
 	renderTemplate: function() {
 		this._super('assignment', 'assignments');
 	}
 });
 
+App.AssignmentsAddRoute = App.PopupRoute.extend({
+	setupController: function (controller, model) {
+		this._super(controller, model);
+		this.customAdapter.find('basestation').then(function(data){
+			controller.set('basestations', data.resource);
+		})
+	},
+	renderTemplate: function() {
+		this._super('assignments-add', 'assignments');
+	}
+});
+
 App.BasestationRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('basestation', params.basestation_id);
+        return this.fetch({store:'basestation', id: params.basestation_id });
     },
 	renderTemplate: function() {
 		this._super('basestation', 'basestations');
@@ -133,7 +185,7 @@ App.BasestationRoute = App.PopupRoute.extend({
 
 App.UserRoute = App.PopupRoute.extend({
     model: function(params) {
-        return this.customAdapter.find('user', params.user_id);
+        return this.fetch({store:'user', id: params.user_id });
     },
 	renderTemplate: function() {
 		this._super('user', 'users');

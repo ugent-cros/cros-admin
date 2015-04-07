@@ -2,30 +2,35 @@ App.LoginController = Ember.Controller.extend({
   
 	emailError : "",
 	passwordError : "",
+    hasEmailError : function() {
+        return this.get('emailError') !== "";
+    }.property('emailError'),
+    hasPasswordError : function() {
+        return this.get('passwordError') !== "";
+    }.property('passwordError'),
 	
 	emailInput : "",
 	passwordInput : "",
   
     actions : {
 		login : function() {
-			var result = this.customAdapter.post("login", { "emailAddress" : this.get('emailInput'), "password" : this.get('passwordInput') });
-			var self = this;
-			result.then(function(data) {
-				$.cookie("authToken", data.authToken);
-				App.Auth = Ember.Object.create({
-                    authToken : data.authToken,
-                });
-				
-				self.transitionToRoute('dashboard'); // TODO: redirect to correct route
-			}, function(data) {
-				if (data.status == 401) {
-					self.set('emailError', "the password was incorrect");
-				} else {
-					self.set('emailError', data.responseJSON.emailAddress);
-					self.set('passwordError', data.responseJSON.password);
-					console.log("failed");
-				}
-			});
+
+			var result = App.AuthManager.login(this, this.get('emailInput'), this.get('passwordInput'));
+            var self = this;
+            result.then(function() {
+                self.transitionToRoute('dashboard');
+            },function(data) {
+                if (data.status == 401) {
+                    self.set('emailError', "");
+                    self.set('passwordError', "the password was incorrect");
+                } else {
+                    self.set('emailError', data.responseJSON.emailAddress || "");
+                    self.set('passwordError', data.responseJSON.password || "");
+                }
+
+                NProgress.done();
+
+            });
 		}
     }
         

@@ -8,6 +8,7 @@ App.initializer({
         application.inject("controller", "customAdapter", "my:manager");
         application.inject("component", "customAdapter", "my:manager");
         application.inject("route", "customAdapter", "my:manager");
+        application.inject("component", "customAdapter", "my:manager");
 		application.inject("socketmanager", "customAdapter", "my:manager");
     }
 });
@@ -17,29 +18,6 @@ EmberENV = {
         'ember-htmlbars': true
     }
 };
-
-App.AppController = Ember.Controller.extend({
-	
-	notification : "",
-	notificationIsError : function() {
-		return this.get('notification') !== "";
-	}.property('notification'),
-
-	init : function() {
-		var self = this;
-		App.currentSocketManager.register("notification",null, function(data) {
-			self.set('notification', data.message);
-		});
-	},
-  
-	actions: {
-		dismiss : function() {
-			this.set('notification', "");
-		}
-	
-	}
-  
-});
 
 
 $(function() {
