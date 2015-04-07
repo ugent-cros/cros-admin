@@ -13,6 +13,7 @@ App.Router.map(function(){
 		this.resource('users');
 		this.resource('users-add', { path: '/users/add' });
 		this.resource('user', { path: '/users/:user_id' });
+		this.resource('user-edit', { path: '/drones/:user_id/edit' });
         this.resource('unauthorised');
 	});
 	this.resource('login');
@@ -207,10 +208,20 @@ App.UserRoute = App.PopupRoute.extend({
 	}
 });
 
-App.UsersAddRoute = App.PopupRoute.extend({
+App.UserEditRoute = App.PopupRoute.extend({
+	model: function(params) {
+		if(params.user_id)
+			return this.fetch({store:'user', id: params.user_id });
+		else
+			return new Object();
+	},
 	renderTemplate: function() {
-		this._super('users-add', 'users');
+		this._super('user-edit', 'users');
 	}
+});
+
+App.UsersAddRoute = App.UserEditRoute.extend({
+	controllerName: 'user-edit',
 });
 
 App.LoginRoute = App.BaseRoute.extend({
