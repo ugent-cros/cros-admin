@@ -70,7 +70,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchaction="search"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
                 {{#each item in model.resource}}
                     <tr>
                         <td>{{item.id}}</td>
@@ -131,7 +131,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
-            {{#my-table columns=columns data=model length=model.total action="getPage"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
             {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
@@ -189,7 +189,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="basestations">
-            {{#my-table columns=columns data=model length=model.total action="getPage"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
             {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
@@ -223,7 +223,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="users">
-            {{#my-table columns=columns data=model length=model.total action="getPage"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
             {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
@@ -332,14 +332,14 @@
                 </div>
                 <div class="panel-body filters">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <div class="input-group">
                                 <p>Aantal items:</p>
-                                {{view "select" content= nrOfElements optionValuePath="content.value" optionLabelPath="content.label" value=perPage}}
+                                {{view "select" id="searchFields" content= nrOfElements optionValuePath="content.value" optionLabelPath="content.label" value=perPage}}
                             </div>
                         </div>
-                        <div class="col-md-1">
-                            {{view "select" class="form-control" content=searchFields}}
+                        <div class="col-md-2">
+                            {{view "select" class="form-control" content=searchFields value=searchField}}
                         </div>
                         <div class="col-md-3 pull-right">
                             <div class="input-group">

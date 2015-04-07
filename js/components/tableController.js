@@ -88,22 +88,25 @@ App.MyTableComponent = Ember.Component.extend({
         if(this.get('perPage') == "all"){
             this.set('perPage', this.get('length'));
         }
-        this.sendAction('action', search, this.get('page'), this.get('perPage'));
+        this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
     }.observes('perPage'),
+
+
+    searchField: null,
 
     actions: {
         selectPage: function (number) {
             var self = this;
             var search = document.getElementById("searchbox").value;
             this.set('page', number);
-            this.sendAction('action', search, this.get('page'), this.get('perPage'));
+            this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
         },
 
         search: function(string){
             //reset page to 1
             this.set('page', 1);
             //send search
-            this.sendAction('action', string, this.get('page'), this.get('perPage'));
+            this.sendAction('action', string, this.get('searchField'), this.get('page'), this.get('perPage'));
         }
     }
 });

@@ -4,5 +4,5 @@
 App.DronesController = App.ListSuperController.extend({
     columns : ['#','Name','Status','Actions'],
     element : "drone",
-    searchField : "name"
+    searchFields : ["name"]
 });

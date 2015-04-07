@@ -3,12 +3,13 @@
  */
 App.ListSuperController = Ember.Controller.extend({
 
-    loadPage: function(search, page, perPage){
+    loadPage: function(search, searchField, page, perPage) {
         var self = this;
         var elementClass = self.get('element');
-        var searchField = self.get('searchField');
-        var params = {pageSize : perPage, page : (page-1), total: true};
-        params[searchField] = search;
+        var params = {pageSize: perPage, page: (page - 1), total: true};
+        if (searchField != null) {
+            params[searchField] = search;
+        }
         this.customAdapter.find(elementClass, null, null, params).then(function(data){
             self.set('model',data);
             return data;
@@ -20,11 +21,12 @@ App.ListSuperController = Ember.Controller.extend({
         delete: function (id) {
             var elementClass = this.get('element');
             this.customAdapter.remove(elementClass, id);
-            this.loadPage(null,1,2);
+            var search = document.getElementById("searchbox").value;
+            this.loadPage(search,1,2);
         },
 
-        getPage: function (search, page, perPage){
-            this.loadPage(search,page,perPage);
+        getPage: function (search, searchField, page, perPage){
+            this.loadPage(search, searchField, page,perPage);
             //todo: if total = 0
         }
     }
