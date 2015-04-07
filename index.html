@@ -233,10 +233,10 @@
 					<div id="routesAssignment">
 						<div id="well-0" class="well route-well">
 							<div class="row">
-								<div class="col-sm-3"><input class="longitude form-control" placeholder="Longitude" type="number"></div>
-								<div class="col-sm-3"><input class="latitude form-control" placeholder="Latitude" type="number"></div>
-								<div class="col-sm-3"><input class="altitude form-control" placeholder="Altitude" type="number"></div>
-								<div class="col-sm-3"><input class="waitingTime form-control" placeholder="Wait time" type="number"></div>
+								<div class="col-sm-3"><input class="longitude form-control" placeholder="Longitude" type="number" step="any"></div>
+								<div class="col-sm-3"><input class="latitude form-control" placeholder="Latitude" type="number" step="any"></div>
+								<div class="col-sm-3"><input class="altitude form-control" placeholder="Altitude" type="number" step="any"></div>
+								<div class="col-sm-3"><input class="waitingTime form-control" placeholder="Wait time" type="number" step="any"></div>
 							</div>
 						</div>
 					</div>
@@ -306,9 +306,9 @@
 					{{#link-to 'basestation' item.id class='btn btn-success'}}
 						<i class="fa fa-search"></i>
 					{{/link-to}}
-                    <a class='btn btn-info' href='#'>
+                    {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
                         <i class="fa fa-pencil"></i>
-                    </a>
+                    {{/link-to}}
                     <a class='btn btn-danger' href='#'>
                         <i class="fa fa-trash-o"></i>
                     </a>
@@ -318,25 +318,52 @@
             {{/my-table}}
         </script>
 
-        <script type="text/x-handlebars" id="basestations-add">
+        <script type="text/x-handlebars" id="basestations-edit">
             {{#popup-window title="Create basestation" link='basestations' ok='save' saveButton=true}}
                 <form {{action 'ok' on='submit' target=view}}>
                 <div class="row">
                     <div class="col-xs-12">
                         <div {{bind-attr class=":form-group hasNameError:has-error"}}>
                             {{#if hasNameError}}<label class="control-label" for="name">{{ nameError }}</label>{{/if}}
-                            {{input class="form-control" id="name" value=name placeholder='Name'}}
+                            {{input class="form-control" id="name" value=model.name placeholder='Name'}}
                         </div>
                     </div>
                 </div>
+                {{#if hasSomeError}}
+                    <div {{bind-attr class=":row hasSomeError:has-error" }} style="margin-top:10px">
+                        {{#if hasLocationError}}
+                            <div class="col-xs-12">
+                                <label class="control-label has-error" for="location">{{ locationError }}</label>
+                            </div>
+                        {{/if}}
+                        {{#if hasLongitudeError}}
+                            <div class="col-xs-4">
+                                <label class="control-label has-error" for="longitude">{{ longitudeError }}</label>
+                            </div>
+                        {{/if}}
+                        {{#if hasLatitudeError}}
+                            <div class="col-xs-4">
+                                <label class="control-label has-error" for="Latitude">{{ latitudeError }}</label>
+                            </div>
+                        {{/if}}
+                        {{#if hasAltitudeError}}
+                            <div class="col-xs-4">
+                                <label class="control-label has-error" for="Altitude">{{ altitudeError }}</label>
+                            </div>
+                        {{/if}}
+                    </div>
+                {{/if}}
                 <div class="row" style="margin-top:10px">
                     <div {{bind-attr class=":form-group hasLocationError:has-error"}}>
-                        <div class="col-xs-12">
-                            {{#if hasNameError}}<label class="control-label has-error" for="location">{{ locationError }}</label>{{/if}}
+                        <div {{bind-attr class=":col-sm-4 hasLongitudeError:has-error"}}>
+                            {{input class="form-control" id="longitude" value=model.location.longitude placeholder='Longitude' type='number'}}
                         </div>
-                        <div class="col-sm-4">{{input class="form-control" id="longitude" value=longitude placeholder='Longitude' type='number'}}</div>
-                        <div class="col-sm-4">{{input class="form-control" id="latitude" value=latitude placeholder='Latitude' type='number'}}</div>
-                        <div class="col-sm-4">{{input class="form-control" id="altitude" value=altitude placeholder='Altitude' type='number'}}</div>
+                        <div {{bind-attr class=":col-sm-4 hasLatitudeError:has-error"}}>
+                            {{input class="form-control" id="latitude" value=model.location.latitude placeholder='Latitude' type='number'}}
+                        </div>
+                        <div {{bind-attr class=":col-sm-4 hasAltitudeError:has-error"}}>
+                            {{input class="form-control" id="altitude" value=model.location.altitude placeholder='Altitude' type='number'}}
+                        </div>
                     </div>
                 </div>
                 <div class="row" style="margin-top:10px">

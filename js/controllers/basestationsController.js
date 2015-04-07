@@ -2,9 +2,8 @@ App.BasestationsController = Ember.Controller.extend({
     columns : ['#','Name','Actions']
 });
 
-App.BasestationsAddController = Ember.Controller.extend({
+App.BasestationEditController = Ember.Controller.extend({
 
-    name : "",
     nameError : "",
     hasNameError : function() {
         return this.get('nameError') !== "";
@@ -14,35 +13,56 @@ App.BasestationsAddController = Ember.Controller.extend({
         // setter
         if (arguments.length > 1) {
             if (value) {
-                this.set('longitude', value[0]);
-                this.set('latitude', value[1]);
+                this.set('model.location.longitude', value[0]);
+                this.set('model.location.latitude', value[1]);
             } else {
-                this.set('longitude', null);
-                this.set('latitude', null);
+                this.set('model.location.longitude', null);
+                this.set('model.location.latitude', null);
             }
         }
 
         // getter
-        if (this.get('longitude') && this.get("latitude"))
-            return [this.get('longitude'), this.get('latitude')];
+        if (!this.get("model.location"))
+            this.set("model.location", {});
+        var lat = this.get("model.location.latitude");
+        var lon = this.get("model.location.longitude");
+
+        if (lon && lat)
+            return [lon, lat];
         else
             return null
-    }.property('longitude', 'latitude'),
+    }.property("model.location.longitude", "model.location.latitude"),
     locationError : "",
     hasLocationError : function() {
         return this.get("locationError") !== "";
     }.property("locationError"),
 
-    altitude: null,
+    longitudeError : "",
+    hasLongitudeError : function() {
+        return this.get("longitudeError") !== "";
+    }.property("longitudeError"),
 
-    longitude : null,
+    latitudeError : "",
+    hasLatitudeError : function() {
+        return this.get("latitudeError") !== "";
+    }.property("latitudeError"),
 
-    latitude : null,
+    altitudeError : "",
+    hasAltitudeError : function() {
+        return this.get("altitudeError") !== "";
+    }.property("altitudeError"),
+
+    hasSomeError : function() {
+        return this.get("hasAltitudeError") || this.get("hasLatitudeError") || this.get("hasLongitudeError") || this.get("hasLocationError");
+    }.property("hasAltitudeError", "hasLatitudeError", "hasLongitudeError", "hasLocationError"),
 
     failure : function(result) {
         console.log("handle failure");
         this.set('nameError', result.responseJSON.name || "");
         this.set('locationError', result.responseJSON.location || "");
+        this.set('longitudeError', result.responseJSON["location.longitude"] || "");
+        this.set('latitudeError', result.responseJSON["location.latitude"] || "");
+        this.set('altitudeError', result.responseJSON["location.altitude"] || "");
     },
 
     success : function(result) {
@@ -53,17 +73,13 @@ App.BasestationsAddController = Ember.Controller.extend({
         save: function(){
 
             var jsonObject = {
-                basestation : {
-                    name : this.get('name'),
-                    location : {
-                        longitude : this.get('longitude'),
-                        altitude : this.get('altitude'),
-                        latitude : this.get('latitude')
-                    }
-                }
+                basestation : this.get("model")
             };
 
-            var result = this.customAdapter.post('basestation', jsonObject);
+            if (this.get("model.id"))
+                var result = this.customAdapter.edit('basestation', this.get("model.id"), jsonObject);
+            else
+                var result = this.customAdapter.post('basestation', jsonObject);
             var self = this;
             result.then(
                 function(data) { self.success(data); },

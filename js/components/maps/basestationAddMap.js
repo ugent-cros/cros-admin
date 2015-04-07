@@ -28,7 +28,8 @@ App.BasestationAddMapComponent = App.BasestationMapComponent.extend({
             else if (loc[0] instanceof Array)
                 map.fitBounds(loc, {padding:[50,50]});
             else {
-                map.setView(loc, map.getZoom());
+                var zoom = map.getZoom() || 13;
+                map.setView(loc, zoom);
             }
     }
 

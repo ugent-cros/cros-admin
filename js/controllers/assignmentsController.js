@@ -15,19 +15,19 @@ App.AssignmentsAddController = Ember.Controller.extend({
 		save: function(){
 			// Get all the checkpoints defining the route
 			route = [];
-			for (i = 0; i < $('.altitude').length; ++i) {
-				if($('.longitude')[i].value != '' && $('.latitude')[i].value != '' && $('.altitude')[i].value != '') {
-					var location = new Object();
-					location.longitude = parseInt($('.longitude')[i].value);
-					location.latitude = parseInt($('.latitude')[i].value);
-					location.altitude = parseInt($('.altitude')[i].value);
-					var checkpoint = new Object();
-					checkpoint.location = location;
-					if($('.waitingTime')[i].value != '')
-						checkpoint.waitingTime = parseInt($('.waitingTime')[i].value);
-					route.push(checkpoint);
-				}
-			}
+            for (i = 0; i < $('.altitude').length; ++i) {
+                if($('.longitude')[i].value != '' && $('.latitude')[i].value != '' && $('.altitude')[i].value != '') {
+                    var location = new Object();
+                    location.longitude = parseInt($('.longitude')[i].value);
+                    location.latitude = parseInt($('.latitude')[i].value);
+                    location.altitude = parseInt($('.altitude')[i].value);
+                    var checkpoint = new Object();
+                    checkpoint.location = location;
+                    if($('.waitingTime')[i].value != '')
+                        checkpoint.waitingTime = parseInt($('.waitingTime')[i].value);
+                    route.push(checkpoint);
+                }
+            }
 			// Create an json object
 			var assignment = new Object();
 			assignment.route = route;
@@ -223,6 +223,7 @@ App.AssignmentsAddController = Ember.Controller.extend({
 							.attr('class', 'longitude form-control')
 							.attr('placeholder', 'Longitude')
 							.attr('type', 'number')
+                            .attr('step', 'any')
 						)
 					)
 					.append($('<div>')
@@ -231,6 +232,7 @@ App.AssignmentsAddController = Ember.Controller.extend({
 							.attr('class', 'latitude form-control')
 							.attr('placeholder', 'Latitude')
 							.attr('type', 'number')
+                            .attr('step', 'any')
 						)
 					)
 					.append($('<div>')
@@ -239,6 +241,7 @@ App.AssignmentsAddController = Ember.Controller.extend({
 							.attr('class', 'altitude form-control')
 							.attr('placeholder', 'Altitude')
 							.attr('type', 'number')
+                            .attr('step', 'any')
 						)
 					)
 					.append($('<div>')
@@ -247,6 +250,7 @@ App.AssignmentsAddController = Ember.Controller.extend({
 							.attr('class', 'waitingTime form-control')
 							.attr('placeholder', 'Wait time')
 							.attr('type', 'number')
+                            .attr('step', 'any')
 						)
 					)
 				)

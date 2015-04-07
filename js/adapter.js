@@ -162,7 +162,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	edit : function(store, id, editData) {
 		var self = this;
 		var url = this.host + this.linkLibrary[store + self.delimiter + id];
-		return this.ajax(url, 'PUT', {data: postData, xhr : self.progressTracker}).then(function(data) {
+		return this.ajax(url, 'PUT', {data: editData, xhr : self.progressTracker}).then(function(data) {
 			return data;
 		});
 	},

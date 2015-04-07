@@ -10,6 +10,7 @@ App.Router.map(function(){
 		this.resource('assignment', { path: '/assignments/:assignment_id' });
 		this.resource('basestations');
         this.resource('basestations-add', { path: '/basestations/add' });
+        this.resource('basestation-edit', { path: '/basestations/:basestation_id/edit' });
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
 		this.resource('user', { path: '/users/:user_id' });
@@ -165,8 +166,8 @@ App.AssignmentRoute = App.PopupRoute.extend({
 App.AssignmentsAddRoute = App.PopupRoute.extend({
 	setupController: function (controller, model) {
 		this._super(controller, model);
-		this.customAdapter.find('assignment').then(function(data){
-			controller.set('assignments', data.resource);
+		this.customAdapter.find('basestation').then(function(data){
+			controller.set('basestations', data.resource);
 		})
 	},
 	renderTemplate: function() {
@@ -183,16 +184,20 @@ App.BasestationRoute = App.PopupRoute.extend({
 	}
 });
 
-App.BasestationsAddRoute = App.PopupRoute.extend({
-    setupController: function (controller, model) {
-        this._super(controller, model);
-        this.customAdapter.find('basestation').then(function(data){
-            controller.set('basestations', data.resource);
-        })
+App.BasestationEditRoute = App.PopupRoute.extend({
+    model: function(params) {
+        if(params.basestation_id)
+            return this.fetch({store:'basestation', id: params.basestation_id });
+        else
+            return {location:{}};
     },
     renderTemplate: function() {
-        this._super('basestations-add', 'basestations');
+        this._super('basestations-edit', 'basestations');
     }
+});
+
+App.BasestationsAddRoute = App.BasestationEditRoute.extend({
+    controllerName: 'basestation-edit'
 });
 
 App.UserRoute = App.PopupRoute.extend({
