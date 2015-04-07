@@ -11,6 +11,7 @@ App.Router.map(function(){
 		this.resource('basestations');
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
+		this.resource('users-add', { path: '/users/add' });
 		this.resource('user', { path: '/users/:user_id' });
         this.resource('unauthorised');
 	});
@@ -193,6 +194,12 @@ App.UserRoute = App.PopupRoute.extend({
     },
 	renderTemplate: function() {
 		this._super('user', 'users');
+	}
+});
+
+App.UsersAddRoute = App.PopupRoute.extend({
+	renderTemplate: function() {
+		this._super('users-add', 'users');
 	}
 });
 

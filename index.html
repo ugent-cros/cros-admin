@@ -322,6 +322,13 @@
 		</script>
 
         <script type="text/x-handlebars" id="users">
+			<div class="row">
+				<div class="col-xs-12">
+					{{#link-to 'users-add' class='btn btn-success pull-right'}}
+						Add user
+					{{/link-to}}
+				</div>
+			</div>
             {{#my-table columns=columns data=model}}
             {{#each item in model}}
             <tr>
@@ -344,6 +351,56 @@
             {{/each}}
             {{/my-table}}
         </script>
+		
+		<script type="text/x-handlebars" id="users-add">
+			{{#popup-window title="Add user" link='users' ok='save' saveButton=true}}
+				<div class="row">
+					<div id="userAddAlert" class="col-xs-12"></div>
+				</div>
+				<form {{action 'ok' on='submit' target=view}}>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-8"><label>Full name:</label></div>
+						</div>
+						<div class="well">
+							<div class="row">
+								<div class="col-sm-6">{{input  placeholder="First name" class="form-control" value=firstName}}</div>
+								<div class="col-sm-6">{{input  placeholder="Last name" class="form-control" value=lastName}}</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>E-mail:</label></div>
+						</div>
+						<div class="well">
+							<div class="row">
+								<div class="col-xs-12">{{input placeholder="E-mail" class="form-control" value=email}}</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Password:</label></div>
+						</div>
+						<div class="well">
+							<div class="row">
+								<div class="col-xs-12">{{input type="password" placeholder="Password" class="form-control" value=password}}</div>
+							</div>
+						</div>
+						<label>
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Advanced</a>
+						</label>
+						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+							<div class="row">
+								<div class="col-xs-8"><label>Role:</label></div>
+							</div>
+							<div class="well">
+								<div class="row">
+									<div class="col-xs-12">{{view "select" content=roles optionValuePath="content.value" optionLabelPath="content.name"value=role prompt="Roles"}}</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</form>
+			{{/popup-window}}
+		</script>
 		
 		<script type="text/x-handlebars" id="user">
 			{{#popup-window title="Profile" link='users' saveButton=false}}
