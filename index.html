@@ -335,11 +335,11 @@
                         <div class="col-md-7">
                             <div class="input-group">
                                 <p>Aantal items:</p>
-                                {{view "select" id="searchFields" content= nrOfElements optionValuePath="content.value" optionLabelPath="content.label" value=perPage}}
+                                {{view "select" id="perPage" content= nrOfElements optionValuePath="content.value" optionLabelPath="content.label" value=perPage}}
                             </div>
                         </div>
                         <div class="col-md-2">
-                            {{view "select" class="form-control" content=searchFields value=searchField}}
+                            {{view "select" id="searchFields" class="form-control" content=searchFields value=searchField}}
                         </div>
                         <div class="col-md-3 pull-right">
                             <div class="input-group">
