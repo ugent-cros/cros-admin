@@ -150,11 +150,7 @@ App.DroneRoute = App.PopupRoute.extend({
 App.DronesAddRoute = App.PopupRoute.extend({
 	renderTemplate: function() {
 		this._super('drones-add', 'drones');
-	},
-	cancel: function() {
-		console.log('Aha');
-		controller.destroy();
-	}.on('willDestroy')
+	}
 });
 
 App.AssignmentRoute = App.PopupRoute.extend({
