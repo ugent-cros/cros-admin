@@ -97,7 +97,7 @@
             {{/my-table}}
         </script>
 		
-		<script type="text/x-handlebars" id="drones-add">
+		<script type="text/x-handlebars" id="drones-edit">
 			{{#popup-window title="Add drone" link='drones' ok='save' saveButton=true}}
 				<div class="row">
 					<div id="droneAddAlert" class="col-xs-12"></div>
@@ -109,7 +109,7 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input  placeholder="Name" class="form-control" value=name}}</div>
+								<div class="col-xs-12">{{input  placeholder="Name" class="form-control" value=model.name}}</div>
 							</div>
 						</div>
 						<div class="row">
@@ -117,7 +117,7 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input  placeholder="Address" class="form-control" value=address}}</div>
+								<div class="col-xs-12">{{input  placeholder="Address" class="form-control" value=model.address}}</div>
 							</div>
 						</div>
 						<div class="row">
@@ -125,8 +125,8 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-sm-6">{{input placeholder="Type" class="form-control" value=type}}</div>
-								<div class="col-sm-6">{{input placeholder="Version number" class="form-control" value=versionNumber}}</div>
+								<div class="col-sm-6">{{input placeholder="Type" class="form-control" value=model.droneType.type}}</div>
+								<div class="col-sm-6">{{input placeholder="Version number" class="form-control" value=model.droneType.versionNumber}}</div>
 							</div>
 						</div>
 						<label>
@@ -138,7 +138,7 @@
 							</div>
 							<div class="well">
 								<div class="row">
-									<div class="col-xs-12">{{input placeholder="Weight Limitation" type="number" class="form-control" value=weightLimitation}}</div>
+									<div class="col-xs-12">{{input placeholder="Weight Limitation" type="number" class="form-control" value=model.weightLimitation}}</div>
 								</div>	
 							</div>
 						</div>
@@ -202,9 +202,6 @@
 					{{#link-to 'assignment' item.id class='btn btn-success'}}
 						<i class="fa fa-search"></i>
 					{{/link-to}}
-                    <a class='btn btn-info' href='#'>
-                        <i class="fa fa-pencil"></i>
-                    </a>
                     <a class='btn btn-danger' href='#'>
                         <i class="fa fa-trash-o"></i>
                     </a>
@@ -258,7 +255,7 @@
 		</script>
 				
 		<script type="text/x-handlebars" id="assignment">
-			{{#popup-window title=model.title  size="60%" link='assignments' saveButton=false}}
+			{{#popup-window title="Assignment"  size="60%" link='assignments' saveButton=false}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="row">

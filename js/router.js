@@ -146,10 +146,20 @@ App.DroneRoute = App.PopupRoute.extend({
 	}
 });
 
-App.DronesAddRoute = App.PopupRoute.extend({
+App.DroneEditRoute = App.PopupRoute.extend({
+	model: function(params) {
+		if(params.drone_id)
+			return this.fetch({store:'drone', id: params.drone_id });
+		else
+			return { droneType: new Object() };
+	},
 	renderTemplate: function() {
-		this._super('drones-add', 'drones');
+		this._super('drones-edit', 'drones');
 	}
+});
+
+App.DronesAddRoute = App.DroneEditRoute.extend({
+	controllerName: 'drone-edit',
 });
 
 App.AssignmentRoute = App.PopupRoute.extend({
