@@ -1,5 +1,8 @@
-App.BasestationsController = Ember.Controller.extend({
-    columns : ['#','Name','Actions']
+
+App.BasestationsController = App.ListSuperController.extend({
+    columns : ['#','Name','Actions'],
+    element : 'basestation',
+    searchFields : ["name"]
 });
 
 App.BasestationEditController = Ember.Controller.extend({
@@ -87,5 +90,4 @@ App.BasestationEditController = Ember.Controller.extend({
             );
         }
     }
-
 });

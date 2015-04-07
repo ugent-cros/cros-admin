@@ -13,7 +13,9 @@ App.Router.map(function(){
         this.resource('basestation-edit', { path: '/basestations/:basestation_id/edit' });
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
+		this.resource('users-add', { path: '/users/add' });
 		this.resource('user', { path: '/users/:user_id' });
+		this.resource('user-edit', { path: '/drones/:user_id/edit' });
         this.resource('unauthorised');
 	});
 	this.resource('login');
@@ -93,32 +95,33 @@ App.DashboardController = Ember.Controller.extend({
 
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'drone', callback: function(data) {
-            return data.resource;
+        var self = this;
+        return this.fetch({store:'drone', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
+            return data;
         }});
     }
 });
 
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'assignment', callback: function(data) {
-            return data.resource;
+        return this.fetch({store:'assignment', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+            return data;
         }});
     }
 });
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'basestation', callback: function(data) {
-            return data.resource;
+        return this.fetch({store:'basestation', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+            return data;
         }});
     }
 });
 
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'user', callback: function(data) {
-            return data.resource;
+        return this.fetch({store:'user', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+            return data;
         }});
     }
 });
@@ -130,6 +133,11 @@ App.PopupRoute = App.AuthRoute.extend({
 			into: 'App',
 			outlet: 'modal'
 		});
+	},
+	actions: {
+		willTransition: function(transition) {
+			this.controller.destroy();
+		}
 	}
 });
 
@@ -148,10 +156,20 @@ App.DroneRoute = App.PopupRoute.extend({
 	}
 });
 
-App.DronesAddRoute = App.PopupRoute.extend({
+App.DroneEditRoute = App.PopupRoute.extend({
+	model: function(params) {
+		if(params.drone_id)
+			return this.fetch({store:'drone', id: params.drone_id });
+		else
+			return { droneType: new Object() };
+	},
 	renderTemplate: function() {
-		this._super('drones-add', 'drones');
+		this._super('drones-edit', 'drones');
 	}
+});
+
+App.DronesAddRoute = App.DroneEditRoute.extend({
+	controllerName: 'drone-edit',
 });
 
 App.AssignmentRoute = App.PopupRoute.extend({
@@ -207,6 +225,22 @@ App.UserRoute = App.PopupRoute.extend({
 	renderTemplate: function() {
 		this._super('user', 'users');
 	}
+});
+
+App.UserEditRoute = App.PopupRoute.extend({
+	model: function(params) {
+		if(params.user_id)
+			return this.fetch({store:'user', id: params.user_id });
+		else
+			return new Object();
+	},
+	renderTemplate: function() {
+		this._super('user-edit', 'users');
+	}
+});
+
+App.UsersAddRoute = App.UserEditRoute.extend({
+	controllerName: 'user-edit',
 });
 
 App.LoginRoute = App.BaseRoute.extend({

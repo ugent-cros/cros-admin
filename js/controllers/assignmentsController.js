@@ -1,5 +1,7 @@
-App.AssignmentsController = Ember.Controller.extend({
-    columns : ['#','Priority','Creator','Drone','Actions']
+App.AssignmentsController = App.ListSuperController.extend({
+    columns : ['#','Priority','Creator','Drone','Actions'],
+    element : "assignment",
+    searchFields : ["creator","drone"]
 });
 
 App.AssignmentsAddController = Ember.Controller.extend({	
