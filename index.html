@@ -340,9 +340,9 @@
 					{{#link-to 'user' item.id class='btn btn-success'}}
 						<i class="fa fa-search"></i>
 					{{/link-to}}
-                    <a class='btn btn-info' href='#'>
-                        <i class="fa fa-pencil"></i>
-                    </a>
+                    {{#link-to 'user-edit' item.id class='btn btn-info'}}
+						<i class="fa fa-pencil"></i>
+					{{/link-to}}
                     <a class='btn btn-danger' href='#'>
                         <i class="fa fa-trash-o"></i>
                     </a>
@@ -352,7 +352,7 @@
             {{/my-table}}
         </script>
 		
-		<script type="text/x-handlebars" id="users-add">
+		<script type="text/x-handlebars" id="user-edit">
 			{{#popup-window title="Add user" link='users' ok='save' saveButton=true}}
 				<div class="row">
 					<div id="userAddAlert" class="col-xs-12"></div>
@@ -364,8 +364,8 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-sm-6">{{input  placeholder="First name" class="form-control" value=firstName}}</div>
-								<div class="col-sm-6">{{input  placeholder="Last name" class="form-control" value=lastName}}</div>
+								<div class="col-sm-6">{{input  placeholder="First name" class="form-control" value=model.firstName}}</div>
+								<div class="col-sm-6">{{input  placeholder="Last name" class="form-control" value=model.lastName}}</div>
 							</div>
 						</div>
 						<div class="row">
@@ -373,7 +373,7 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input placeholder="E-mail" class="form-control" value=email}}</div>
+								<div class="col-xs-12">{{input placeholder="E-mail" class="form-control" value=model.email}}</div>
 							</div>
 						</div>
 						<div class="row">
@@ -381,7 +381,7 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input type="password" placeholder="Password" class="form-control" value=password}}</div>
+								<div class="col-xs-12">{{input type="password" placeholder="Password" class="form-control" value=model.password}}</div>
 							</div>
 						</div>
 						<label>
@@ -393,7 +393,7 @@
 							</div>
 							<div class="well">
 								<div class="row">
-									<div class="col-xs-12">{{view "select" content=roles optionValuePath="content.value" optionLabelPath="content.name"value=role prompt="Roles"}}</div>
+									<div class="col-xs-12">{{view "select" content=roles optionValuePath="content.value" optionLabelPath="content.name"value=model.role prompt="Roles"}}</div>
 								</div>	
 							</div>
 						</div>

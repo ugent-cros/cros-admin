@@ -2,7 +2,7 @@ App.UsersController = Ember.Controller.extend({
     columns : ['#','Name','E-mail','Role','Actions']
 });
 
-App.UsersAddController = Ember.Controller.extend({
+App.UserEditController = Ember.Controller.extend({
 	roles: [
 		{name: "User", value: "USER"},
 		{name: "Admin", value: "ADMIN"},
@@ -11,7 +11,6 @@ App.UsersAddController = Ember.Controller.extend({
 	
 	success: function(id) {
 		this.transitionToRoute('user', id);
-		
 	},
 	
 	failure: function(data) {
@@ -40,17 +39,11 @@ App.UsersAddController = Ember.Controller.extend({
 	
 	actions: {
 		save: function(){
-			var user = new Object();
-			user.firstName = this.firstName;
-			user.lastName = this.lastName;
-			user.email = this.email;
-			user.password = this.password;
-			user.role = this.role;
-			console.log(JSON.stringify(user));
-			
-			var jsonObject = new Object();
-			jsonObject.user = user;
-			var result = this.customAdapter.post('user', jsonObject);
+			var jsonObject = { user: this.model };
+			if(this.model.id)
+				var result = this.customAdapter.edit('user', this.model.id, jsonObject);
+			else
+				var result = this.customAdapter.post('user', jsonObject);
 			var self = this;
 			result.then(
 				function(data) { self.success(data.user.id); },
