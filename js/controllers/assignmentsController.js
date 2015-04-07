@@ -1,4 +1,4 @@
-App.AssignmentsController = Ember.Controller.extend({
+App.AssignmentsController = App.ListSuperController.extend({
     columns : ['#','Priority','Creator','Drone','Actions'],
     element : "assignment"
 });
