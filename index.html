@@ -320,7 +320,31 @@
 
         <script type="text/x-handlebars" id="basestations-add">
             {{#popup-window title="Create basestation" link='basestations' ok='save' saveButton=true}}
-                {{#basestation-add-map mapName="basestationAddMap"}}{{/basestation-add-map}}
+                <form {{action 'ok' on='submit' target=view}}>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div {{bind-attr class=":form-group hasNameError:has-error"}}>
+                            {{#if hasNameError}}<label class="control-label" for="name">{{ nameError }}</label>{{/if}}
+                            {{input class="form-control" id="name" value=name placeholder='Name'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div {{bind-attr class=":form-group hasLocationError:has-error"}}>
+                        <div class="col-xs-12">
+                            {{#if hasNameError}}<label class="control-label has-error" for="location">{{ locationError }}</label>{{/if}}
+                        </div>
+                        <div class="col-sm-4">{{input class="form-control" id="longitude" value=longitude placeholder='Longitude' type='number'}}</div>
+                        <div class="col-sm-4">{{input class="form-control" id="latitude" value=latitude placeholder='Latitude' type='number'}}</div>
+                        <div class="col-sm-4">{{input class="form-control" id="altitude" value=altitude placeholder='Altitude' type='number'}}</div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-xs-12">
+                        {{#basestation-add-map mapName="basestationAddMap" location=location}}{{/basestation-add-map}}
+                    </div>
+                </div>
+                </form>
             {{/popup-window}}
         </script>
 		

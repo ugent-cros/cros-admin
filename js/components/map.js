@@ -77,7 +77,7 @@ App.MyMapComponent = Ember.Component.extend({
             else if (loc[0] instanceof Array)
                 map.fitBounds(loc, {padding:[50,50]});
             else
-                map.setView(loc, 13);
+                map.setView(loc,13);
     },
 
     didInsertElement : function(){

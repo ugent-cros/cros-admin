@@ -10,9 +10,26 @@ App.BasestationAddMapComponent = App.BasestationMapComponent.extend({
 
         $('.modal').on('shown.bs.modal', function (e) {
             self.get('map').on('click', function(e) {
-                console.log(e);
+                self.set('location', [e.latlng.lat, e.latlng.lng]);
             });
         });
+    },
+
+    updateMap : function() {
+        Ember.run.once(this, 'updateFunction');
+    },
+
+    updateFunction : function() {
+        var loc = this.get('location');
+        var map = this.get('map');
+        if (map)
+            if (! loc)
+                map.setView([0,0],1);
+            else if (loc[0] instanceof Array)
+                map.fitBounds(loc, {padding:[50,50]});
+            else {
+                map.setView(loc, map.getZoom());
+            }
     }
 
 });
