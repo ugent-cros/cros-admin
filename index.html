@@ -332,6 +332,15 @@
                 </div>
                 <div class="panel-body filters">
                     <div class="row">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <p>Aantal items:</p>
+                                {{view "select" content= nrOfElements optionValuePath="content.value" optionLabelPath="content.label" value=perPage}}
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            {{view "select" class="form-control" content=searchFields}}
+                        </div>
                         <div class="col-md-3 pull-right">
                             <div class="input-group">
                                 {{input class="form-control" id="searchbox" valueBinding='keyword' type="text" placeholder="Search..." action='search'}}
@@ -358,17 +367,17 @@
                     <div class="panel-footer">
                         <ul class="pagination pagination-sm">
                             {{#if prevPage}}
-                            <li><a href="#" {{action "selectPage" prevPage keyword}}>&laquo;</a></li>
+                            <li><a href="#" {{action "selectPage" prevPage}}>&laquo;</a></li>
                             {{else}}
                             <li class="disabled"><a>&laquo;</a></li>
                             {{/if}}
 
                             {{#each pages itemController="page"}}
-                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number keyword}}>{{number}}</a></li>
+                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
                             {{/each}}
 
                             {{#if nextPage}}
-                            <li><a href="#" {{action "selectPage" nextPage keyword}}>&raquo;</a></li>
+                            <li><a href="#" {{action "selectPage" nextPage}}>&raquo;</a></li>
                             {{else}}
                             <li class="disabled"><a>&raquo;</a></li>
                             {{/if}}

@@ -2,6 +2,18 @@ App.MyTableComponent = Ember.Component.extend({
 
     page: 1,
     perPage: 2, //todo debug value
+    nrOfElements: [
+        {label: "2", value: 2},
+        {label: "10", value: 10},
+        {label: "20", value: 20},
+        {label: "50", value: 50}
+        ],
+
+    initialize: function(){
+        var all = {label: "all"};
+        all['value'] = this.get('length');
+        this.get('nrOfElements').addObject(all);
+    }.on("init"),
 
     begin: function(){
         return ((this.get('page') - 1) * this.get('perPage'))+1;
@@ -69,6 +81,16 @@ App.MyTableComponent = Ember.Component.extend({
         return this.get('arrangedContent').slice(start, end);
     }).property('page', 'totalPages', 'arrangedContent.[]'),
 
+    onPerPageChange:function(){
+        //reset page to 1
+        this.set('page', 1);
+        var search = document.getElementById("searchbox").value;
+        if(this.get('perPage') == "all"){
+            this.set('perPage', this.get('length'));
+        }
+        this.sendAction('action', search, this.get('page'), this.get('perPage'));
+    }.observes('perPage'),
+
     actions: {
         selectPage: function (number) {
             var self = this;
@@ -78,7 +100,6 @@ App.MyTableComponent = Ember.Component.extend({
         },
 
         search: function(string){
-            var self = this;
             //reset page to 1
             this.set('page', 1);
             //send search
