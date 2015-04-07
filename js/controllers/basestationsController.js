@@ -1,3 +1,5 @@
-App.BasestationsController = Ember.Controller.extend({
-    columns : ['#','Name','Actions']
+App.BasestationsController = App.ListSuperController.extend({
+    columns : ['#','Name','Actions'],
+    element : 'basestation',
+    searchFields : ["name"]
 });

@@ -1,5 +1,7 @@
-App.UsersController = Ember.Controller.extend({
-    columns : ['#','Name','E-mail','Role','Actions']
+App.UsersController = App.ListSuperController.extend({
+    columns : ['#','Name','E-mail','Role','Actions'],
+    element : 'user',
+    searchFields : ["firstName", "lastName"]
 });
 
 App.UserEditController = Ember.Controller.extend({

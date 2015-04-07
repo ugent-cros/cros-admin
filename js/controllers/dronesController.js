@@ -1,13 +1,10 @@
 /**
  * Created by Eveline on 25/03/2015.
  */
-App.DronesController = Ember.Controller.extend({
+App.DronesController = App.ListSuperController.extend({
     columns : ['#','Name','Status','Actions'],
-    getStatusClass: function(){
-        if (status == 'AVAILABLE'){
-            return 'label-success'
-        }
-    }.property(status)
+    element : "drone",
+    searchFields : ["name"]
 });
 
 App.DroneEditController = Ember.Controller.extend({	

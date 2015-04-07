@@ -75,22 +75,24 @@
 					{{/link-to}}
 				</div>
 			</div>
-            {{#my-table columns=columns data=model}}
-                {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+                {{#each item in model.resource}}
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
                         <td>{{item.status}}</td>
                         <td class='action'>
-							{{#link-to 'drone' item.id class='btn btn-success'}}
-								<i class="fa fa-search"></i>
-							{{/link-to}}
-							{{#link-to 'drone-edit' item.id class='btn btn-info'}}
+                            <div class="btn-group">
+                                {{#link-to 'drone' item.id class='btn btn-success'}}
+                                <i class="fa fa-search"></i>
+                                {{/link-to}}
+                                {{#link-to 'drone-edit' item.id class='btn btn-info'}}
                                 <i class="fa fa-pencil"></i>
-							{{/link-to}}
-                            <a class='btn btn-danger' href='#'>
-                                <i class="fa fa-trash-o"></i>
-                            </a>
+                                {{/link-to}}
+                                <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 {{/each}}
@@ -191,20 +193,25 @@
 					{{/link-to}}
 				</div>
 			</div>
-            {{#my-table columns=columns data=model}}
-            {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+            {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.priority}}</td>
                 <td>{{item.creator.email}}</td>
                 <td>{{item.assignedDrone}}</td>
                 <td class='action'>
-					{{#link-to 'assignment' item.id class='btn btn-success'}}
-						<i class="fa fa-search"></i>
-					{{/link-to}}
-                    <a class='btn btn-danger' href='#'>
-                        <i class="fa fa-trash-o"></i>
-                    </a>
+                    <div class="btn-group">
+                        {{#link-to 'assignment' item.id class='btn btn-success'}}
+                            <i class="fa fa-search"></i>
+                        {{/link-to}}
+                        <a class='btn btn-info' href='#'>
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             {{/each}}
@@ -287,21 +294,23 @@
 		</script>
 
         <script type="text/x-handlebars" id="basestations">
-            {{#my-table columns=columns data=model}}
-            {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+            {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td class='action'>
-					{{#link-to 'basestation' item.id class='btn btn-success'}}
-						<i class="fa fa-search"></i>
-					{{/link-to}}
-                    <a class='btn btn-info' href='#'>
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a class='btn btn-danger' href='#'>
-                        <i class="fa fa-trash-o"></i>
-                    </a>
+                    <div class="btn-group">
+                        {{#link-to 'basestation' item.id class='btn btn-success'}}
+                            <i class="fa fa-search"></i>
+                        {{/link-to}}
+                        <a class='btn btn-info' href='#'>
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             {{/each}}
@@ -326,23 +335,25 @@
 					{{/link-to}}
 				</div>
 			</div>
-            {{#my-table columns=columns data=model}}
-            {{#each item in model}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+            {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.firstName}} {{item.lastName}}</td>
                 <td>{{item.email}}</td>
                 <td>{{item.role}}</td>
                 <td class='action'>
-					{{#link-to 'user' item.id class='btn btn-success'}}
-						<i class="fa fa-search"></i>
-					{{/link-to}}
-                    {{#link-to 'user-edit' item.id class='btn btn-info'}}
-						<i class="fa fa-pencil"></i>
-					{{/link-to}}
-                    <a class='btn btn-danger' href='#'>
-                        <i class="fa fa-trash-o"></i>
-                    </a>
+                    <div class="btn-group">
+                        {{#link-to 'user' item.id class='btn btn-success'}}
+                            <i class="fa fa-search"></i>
+                        {{/link-to}}
+                        {{#link-to 'user-edit' item.id class='btn btn-info'}}
+                        <i class="fa fa-pencil"></i>
+                        {{/link-to}}
+                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             {{/each}}
@@ -486,6 +497,32 @@
         <!---------------------------------Components--------------------------------->
         <script type="text/x-handlebars" id="components/my-table">
             <div class="panel panel-default grid">
+                <div class="panel-heading">
+
+                </div>
+                <div class="panel-body filters">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="input-group">
+                                <p>Number of items:</p>
+                                {{view "select" id="perPage" content= nrOfElements optionValuePath="content.value" optionLabelPath="content.label" value=perPage}}
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            {{view "select" id="searchFields" class="form-control" content=searchFields value=searchField}}
+                        </div>
+                        <div class="col-md-3 pull-right">
+                            <div class="input-group">
+                                {{input class="form-control" id="searchbox" valueBinding='keyword' type="text" placeholder="Search..." action='search'}}
+                                <span class="input-group-btn">
+                                    <button class="btn" type="button" {{action 'search' keyword}}>
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <table class="table">
                     <thead>
                     <tr>
@@ -496,6 +533,30 @@
                     </thead>
                     {{yield}}
                 </table>
+                {{#if hasPages}}
+                    <div class="panel-footer">
+                        <ul class="pagination pagination-sm">
+                            {{#if prevPage}}
+                            <li><a href="#" {{action "selectPage" prevPage}}>&laquo;</a></li>
+                            {{else}}
+                            <li class="disabled"><a>&laquo;</a></li>
+                            {{/if}}
+
+                            {{#each pages itemController="page"}}
+                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
+                            {{/each}}
+
+                            {{#if nextPage}}
+                            <li><a href="#" {{action "selectPage" nextPage}}>&raquo;</a></li>
+                            {{else}}
+                            <li class="disabled"><a>&raquo;</a></li>
+                            {{/if}}
+                        </ul>
+                        <div class="pull-right">
+                            Showing {{begin}} to {{end}} of {{length}} entries
+                        </div>
+                    </div>
+                {{/if}}
             </div>
         </script>
 
@@ -592,6 +653,7 @@
 		<script src="js/router.js"></script>
         <script src="js/authManager.js"></script>
 		<script src="js/models/drone.js"></script>
+        <script src="js/controllers/listsController.js"></script>
         <script src="js/controllers/appController.js"></script>
         <script src="js/controllers/loginController.js"></script>
 		<script src="js/controllers/droneController.js"></script>
@@ -601,6 +663,7 @@
         <script src="js/controllers/basestationController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
         <script src="js/controllers/usersController.js"></script>
+        <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
         <script src="js/components/maps/DroneMap.js"></script>
