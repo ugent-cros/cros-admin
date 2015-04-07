@@ -11,6 +11,7 @@ App.Router.map(function(){
 		this.resource('basestations');
 		this.resource('basestation', { path: '/basestations/:basestation_id' });
 		this.resource('users');
+		this.resource('users-add', { path: '/users/add' });
 		this.resource('user', { path: '/users/:user_id' });
         this.resource('unauthorised');
 	});
@@ -149,7 +150,11 @@ App.DroneRoute = App.PopupRoute.extend({
 App.DronesAddRoute = App.PopupRoute.extend({
 	renderTemplate: function() {
 		this._super('drones-add', 'drones');
-	}
+	},
+	cancel: function() {
+		console.log('Aha');
+		controller.destroy();
+	}.on('willDestroy')
 });
 
 App.AssignmentRoute = App.PopupRoute.extend({
@@ -188,6 +193,12 @@ App.UserRoute = App.PopupRoute.extend({
     },
 	renderTemplate: function() {
 		this._super('user', 'users');
+	}
+});
+
+App.UsersAddRoute = App.PopupRoute.extend({
+	renderTemplate: function() {
+		this._super('users-add', 'users');
 	}
 });
 
