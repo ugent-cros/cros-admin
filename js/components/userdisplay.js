@@ -1,47 +1,34 @@
 App.UserDisplayComponent = Ember.Component.extend({
 
-    user : null,
+    fullName : function(k,v) {
+        // NOTE: this is a hack, you can not set this property!!!
+        if (arguments.length > 1)
+            return v;
 
-    fullName : function() {
-        if (this.get("user") == null) {
-            this.fetchUser();
-            return "";
-        } else {
-            var u = this.get("user");
-            return u.firstName + " " + u.lastName;
-        }
-    }.property('user'),
-
-    userId : function() {
-        if (this.get("user") == null) {
-            this.fetchUser();
-            return "";
-        } else {
-            var u = this.get("user");
-            return u.id;
-        }
-    }.property('user'),
-
-    fetchUser : function() {
         var self = this;
-        return this.customAdapter.find("user", null, "me").then(function(data) {
-            self.set("user", data);
-            return data.firstName + " " + data.lastName;
+        App.AuthManager.set("currentAdapter",this.customAdapter);
+        App.AuthManager.get("user").then(function(data) {
+            self.set("fullName",data.firstName + " " + data.lastName);
         });
-    },
+    }.property(),
+
+    userId : function(k,v) {
+        // NOTE: this is a hack, you can not set this property!!!
+        if (arguments.length > 1)
+            return v;
+
+        var self = this;
+        App.AuthManager.set("currentAdapter",this.customAdapter);
+        App.AuthManager.get("user").then(function(data) {
+            self.set("userId", data.id);
+        });
+    }.property(),
 
     actions : {
         logout : function() {
             this.sendAction('action');
-        },
+        }
 
     }
-
-    /*show: function() {
-        this.$('.modal').modal('show');
-        this.$('.modal').on('hide.bs.modal', function(e) {
-            $('#closeModal').click();
-        });
-    }.on('didInsertElement')*/
 
 });
