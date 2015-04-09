@@ -414,7 +414,7 @@
 			</div>
             {{/if}}
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
-            {{#each item in model.resource}}
+            {{#each item in model.resource itemController="user"}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.firstName}} {{item.lastName}}</td>
@@ -429,9 +429,11 @@
                             {{#link-to 'user-edit' item.id class='btn btn-info'}}
                             <i class="fa fa-pencil"></i>
                             {{/link-to}}
+                            {{#if item.isNotCurrentUser}}
                             <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
                                 <i class="fa fa-trash-o"></i>
                             </a>
+                            {{/if}}
                         {{/if}}
                     </div>
                 </td>
@@ -747,6 +749,7 @@
         <script src="js/controllers/basestationController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
         <script src="js/controllers/usersController.js"></script>
+        <script src="js/controllers/userController.js"></script>
         <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
