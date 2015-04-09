@@ -78,11 +78,11 @@
 			</div>
             {{/if}}
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
-                {{#each item in model.resource}}
+                {{#each item in model.resource itemController='drone'}}
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
-                        <td>{{item.status}}</td>
+                        <td><span {{bind-attr class="item.getClass"}}>{{item.status}}</span></td>
                         <td class='action'>
                             <div class="btn-group">
                                 {{#link-to 'drone' item.id class='btn btn-success'}}
