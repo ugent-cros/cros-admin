@@ -625,7 +625,7 @@
                             {{/if}}
 
                             {{#each pages itemController="page"}}
-                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
+                            <li {{bind-attr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
                             {{/each}}
 
                             {{#if nextPage}}
