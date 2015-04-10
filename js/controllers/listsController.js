@@ -3,27 +3,23 @@
  */
 App.ListSuperController = Ember.Controller.extend({
 
-    _private_role : null,
+    currentUser: function(){
+        return this.authManager.get("user");
+    }.property("authManager.user"),
 
     userCanEdit: function() {
-        if (!this.get("_private_role")) {
-            this.fetchUserInfo();
-        }
-        return this.get("_private_role");
-    }.property(),
-
-    fetchUserInfo: function(){
-        var self = this;
-        return App.AuthManager.get("user").then(function (data) {
-            console.log(data);
+        var user = this.get("currentUser");
+        console.log(user);
+        if(user) {
             var canEdit = false;
-            if (data.role == "ADMIN") {
+            if (user.role == "ADMIN") {
                 canEdit = true;
             }
-            self.set("_private_role", canEdit);
             return canEdit;
-        });
-    },
+        }else{
+            return false;
+        }
+    }.property("currentUser"),
 
     loadPage: function(search, searchField, page, perPage) {
         var self = this;
