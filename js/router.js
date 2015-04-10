@@ -71,15 +71,12 @@ App.AuthRoute = App.BaseRoute.extend({
     beforeModel: function() {
         this._super();
 
-        if (!App.AuthManager.get("isLoggedIn")) {
+        if (!this.authManager.get("isLoggedIn")) {
             this.transitionTo('login');
         }
 
-        if (!App.currentSocketManager) {
-            App.currentSocketManager = App.SocketManager.create({url: this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"]});
-        }
-
-        App.currentSocketManager.initConnection();
+        this.socketManager.set("url", this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"]);
+        this.socketManager.initConnection();
     }
 });
 

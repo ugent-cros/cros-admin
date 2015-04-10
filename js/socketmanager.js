@@ -1,15 +1,10 @@
-App.SocketManager = Ember.Object.extend({
+window.SocketManager = Ember.Object.extend({
 
 	listeners : {},
 	socket : null,
     connection : false,
     reconnect : false,
     timer : null,
-
-
-	init : function() {
-		this._super();
-	},
 
     initConnection : function() {
         this.set("reconnect", true);
@@ -25,7 +20,7 @@ App.SocketManager = Ember.Object.extend({
         var url = this.get('url');
         url = url.replace(/https?/, "ws");
 
-        var s = new WebSocket(url + "?authToken=" + App.AuthManager.token());
+        var s = new WebSocket(url + "?authToken=" + this.authManager.token());
         this.set('socket', s);
         this.set('connection', true);
 
