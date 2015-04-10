@@ -72,10 +72,12 @@ App.MyMapComponent = Ember.Component.extend({
         var loc = this.get('location');
         var map = this.get('map');
         if (map)
-            if (this.get('location')[0] instanceof Array)
-                this.get('map').fitBounds(loc, {padding:[50,50]});
+            if (! loc)
+                map.setView([0,0],1);
+            else if (loc[0] instanceof Array)
+                map.fitBounds(loc, {padding:[50,50]});
             else
-                this.get('map').setView(loc, 13);
+                map.setView(loc,13);
     },
 
     didInsertElement : function(){
@@ -85,19 +87,17 @@ App.MyMapComponent = Ember.Component.extend({
 
         $('.modal').on('shown.bs.modal', function (e) {
 
-            var map;
-            if (self.get('location')[0] instanceof Array)
-                map = L.map(self.mapName).fitBounds(self.get('location'), {padding:[50,50]});
-            else
-                map = L.map(self.mapName).setView(self.get('location'), 13);
+            // init map
+            var map = L.map(self.mapName);
+            self.set('map',map);
+            self.updateMap();
 
             L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery � <a href="http://mapbox.com">Mapbox</a>',
                 maxZoom: 18
             }).addTo(map);
 
-            self.set('map',map);
-
+            // init markers
             var loc = self.get('location');
             if (!loc) {
                 self.set('marker', []);
