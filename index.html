@@ -243,14 +243,23 @@
 						</div>
 					</div>
 					<div id="routesAssignment">
-						<div id="well-0" class="well route-well">
-							<div class="row">
-								<div class="col-sm-3"><input class="longitude form-control" placeholder="Longitude" type="number" step="any"></div>
-								<div class="col-sm-3"><input class="latitude form-control" placeholder="Latitude" type="number" step="any"></div>
-								<div class="col-sm-3"><input class="altitude form-control" placeholder="Altitude" type="number" step="any"></div>
-								<div class="col-sm-3"><input class="waitingTime form-control" placeholder="Wait time" type="number" step="any"></div>
+						{{#each checkpoint in checkpoints itemController="checkpoint"}}
+							{{#unless checkpoint.isFirstCheckpoint}}
+								<div class="row text-center">
+									<button  {{action "swap" checkpoint.id}} class="btn btn-xs btn-swap">
+										<i class="fa fa-arrows-v"></i>
+									</button>
+								</div>
+							{{/unless}}
+							<div class="well route-well">
+								<div class="row">
+									<div class="col-sm-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
+									<div class="col-sm-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
+									<div class="col-sm-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
+									<div class="col-sm-3">{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}</div>
+								</div>
 							</div>
-						</div>
+						{{/each}}
 					</div>
 					<label>
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Advanced</a>
@@ -750,6 +759,7 @@
         <script src="js/controllers/basestationsController.js"></script>
         <script src="js/controllers/usersController.js"></script>
         <script src="js/controllers/userController.js"></script>
+        <script src="js/controllers/checkpointController.js"></script>
         <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
