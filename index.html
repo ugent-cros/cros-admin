@@ -74,6 +74,11 @@
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
                         <td>{{item.status}}</td>
+                        <td>
+                            <a class='btn-sm btn-warning' href='#' {{action 'emergency' item.id}}>
+                            EMERGENCY
+                            </a>
+                        </td>
                         <td class='action'>
                             <div class="btn-group">
                                 {{#link-to 'drone' item.id class='btn btn-success'}}

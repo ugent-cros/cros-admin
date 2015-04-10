@@ -2,9 +2,17 @@
  * Created by Eveline on 25/03/2015.
  */
 App.DronesController = App.ListSuperController.extend({
-    columns : ['#','Name','Status','Actions'],
+    columns : ['#','Name','Status','Emergency','Actions'],
     element : "drone",
-    searchFields : ["name"]
+    searchFields : ["name"],
+
+    actions:{
+        emergency: function(id){
+            this.customAdapter.find('drone',null,"emergency").then(function(data){
+                console.log(data);
+            });
+        }
+    }
 });
 
 App.DroneEditController = Ember.Controller.extend({	
