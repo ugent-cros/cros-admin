@@ -68,7 +68,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="drones-add"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="drones-add" userCanEdit=userCanEdit}}
                 {{#each item in model.resource itemController='drone'}}
                     <tr>
                         <td>{{item.id}}</td>
@@ -186,7 +186,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="assignments-add"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="assignments-add" userCanEdit=userCanEdit}}
             {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
@@ -298,7 +298,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="basestations">
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="basestations-add"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="basestations-add" userCanEdit=userCanEdit}}
             {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
@@ -391,7 +391,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="users">
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="users-add"}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="users-add" userCanEdit=userCanEdit}}
             {{#each item in model.resource itemController="user"}}
             <tr>
                 <td>{{item.id}}</td>
@@ -558,6 +558,7 @@
         <script type="text/x-handlebars" id="components/my-table">
             <div class="panel panel-default grid">
                 <div class="panel-heading">
+                    {{#if userCanEdit}}
                     <div class="row">
                         <div class="col-xs-12">
                             {{#link-to addLink class='btn-sm btn-success pull-right'}}
@@ -565,6 +566,7 @@
                             {{/link-to}}
                         </div>
                     </div>
+                    {{/if}}
                 </div>
                 <div class="panel-body filters">
                     <div class="row">
