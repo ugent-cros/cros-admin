@@ -22,9 +22,8 @@ App.MyMapComponent = Ember.Component.extend({
 
     updateMarker : function() {
         var loc = this.get('location');
-        var markers = this.get('marker');
-        if (!markers)
-            return;
+        var markers = this.get('marker') || [];
+        var self = this;
 
         if (!loc) {
             // remove existing markers
@@ -34,12 +33,12 @@ App.MyMapComponent = Ember.Component.extend({
             this.set('marker', []);
         } else if(loc[0] instanceof Array) {
             // multiple locations
-            if (markers.length < loc.length) {
+            if (markers.length <= loc.length) {
                 $.each(markers, function(index,data) { // update location of allready existing markers
                     data.setLatLng(loc[index]);
                 });
                 $.each(loc.slice(markers.length,loc.length), function(index,data) { // add new markers
-                    var marker = L.marker(data, {icon: this.currentIcon()}).addTo(this.get('map'));
+                    var marker = L.marker(data, {icon: self.currentIcon()}).addTo(self.get('map'));
                     markers.push(marker);
                 });
                 this.set('marker', markers);
@@ -116,12 +115,6 @@ App.MyMapComponent = Ember.Component.extend({
 
             self.addObserver('location',self,self.updateMarker);
             self.addObserver('location',self,self.updateMap);
-            // TODO: fix ugly hack
-            /*setTimeout(function() {
-                map.invalidateSize();
-                self.updateMap();
-            }, 500);*/
-
         })
     }
 });

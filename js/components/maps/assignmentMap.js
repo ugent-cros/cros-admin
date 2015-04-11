@@ -32,6 +32,7 @@ App.AssignmentMapComponent = App.MyMapComponent.extend({
     updateMarker : function() {
         this._super();
 
+        this.get("map").removeLayer(this.get("polyline"));
         var polyline = L.polyline([], {color: 'blue'}).addTo(this.get('map'));
         $.each(this.get('marker'), function(index,data) {
             polyline.addLatLng(data.getLatLng());
