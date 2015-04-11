@@ -104,7 +104,7 @@ App.DronesRoute = App.AuthRoute.extend({
 
 App.AssignmentsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'assignment', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+        return this.fetch({store:'assignment', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
             return data;
         }});
     }
@@ -112,7 +112,7 @@ App.AssignmentsRoute = App.AuthRoute.extend({
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'basestation', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+        return this.fetch({store:'basestation', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
             return data;
         }});
     }
@@ -120,7 +120,7 @@ App.BasestationsRoute = App.AuthRoute.extend({
 
 App.UsersRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'user', options : {pageSize : 2, page : 0}, total:true, callback: function(data) {
+        return this.fetch({store:'user', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
             return data;
         }});
     }
@@ -133,10 +133,11 @@ App.PopupRoute = App.AuthRoute.extend({
 			into: 'App',
 			outlet: 'modal'
 		});
+		this.set('resource', resource);
 	},
 	actions: {
 		willTransition: function(transition) {
-			this.controller.destroy();
+			this.controllerFor(this.get('resource')).send('reset');
 		}
 	}
 });

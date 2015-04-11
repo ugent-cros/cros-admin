@@ -2,17 +2,17 @@ App.MyTableComponent = Ember.Component.extend({
 
     page: 1,
     perPage: 2, //todo debug value
-    nrOfElements: [
-        {label: "2", value: 2},
-        {label: "10", value: 10},
-        {label: "20", value: 20},
-        {label: "50", value: 50}
-        ],
+    nrOfElements: [],
 
     initialize: function(){
+        var list = [{label: "2", value: 2},
+            {label: "10", value: 10},
+            {label: "20", value: 20},
+            {label: "50", value: 50}];
         var all = {label: "all"};
         all['value'] = this.get('length');
-        this.get('nrOfElements').addObject(all);
+        list.addObject(all);
+        this.set('nrOfElements', list);
     }.on("init"),
 
     begin: function(){

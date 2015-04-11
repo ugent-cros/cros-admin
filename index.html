@@ -69,11 +69,11 @@
 
         <script type="text/x-handlebars" id="drones">
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="drones-add"}}
-                {{#each item in model.resource}}
+                {{#each item in model.resource itemController='drone'}}
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
-                        <td>{{item.status}}</td>
+                        <td><span {{bind-attr class="item.getClass"}}>{{item.status}}</span></td>
                         <td>
                             <a class='btn-sm btn-warning' href='#' {{action 'emergency' item.id}}>
                             EMERGENCY
@@ -84,12 +84,14 @@
                                 {{#link-to 'drone' item.id class='btn btn-success'}}
                                 <i class="fa fa-search"></i>
                                 {{/link-to}}
-                                {{#link-to 'drone-edit' item.id class='btn btn-info'}}
-                                <i class="fa fa-pencil"></i>
-                                {{/link-to}}
-                                <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
+                                {{#if userCanEdit}}
+                                    {{#link-to 'drone-edit' item.id class='btn btn-info'}}
+                                    <i class="fa fa-pencil"></i>
+                                    {{/link-to}}
+                                    <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                {{/if}}
                             </div>
                         </td>
                     </tr>
@@ -196,12 +198,14 @@
                         {{#link-to 'assignment' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        <a class='btn btn-info' href='#'>
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+                        {{#if userCanEdit}}
+                            <a class='btn btn-info' href='#'>
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        {{/if}}
                     </div>
                 </td>
             </tr>
@@ -226,14 +230,23 @@
 						</div>
 					</div>
 					<div id="routesAssignment">
-						<div id="well-0" class="well route-well">
-							<div class="row">
-								<div class="col-sm-3"><input class="longitude form-control" placeholder="Longitude" type="number" step="any"></div>
-								<div class="col-sm-3"><input class="latitude form-control" placeholder="Latitude" type="number" step="any"></div>
-								<div class="col-sm-3"><input class="altitude form-control" placeholder="Altitude" type="number" step="any"></div>
-								<div class="col-sm-3"><input class="waitingTime form-control" placeholder="Wait time" type="number" step="any"></div>
+						{{#each checkpoint in checkpoints itemController="checkpoint"}}
+							{{#unless checkpoint.isFirstCheckpoint}}
+								<div class="row text-center">
+									<button  {{action "swap" checkpoint.id}} class="btn btn-xs btn-swap">
+										<i class="fa fa-arrows-v"></i>
+									</button>
+								</div>
+							{{/unless}}
+							<div class="well route-well">
+								<div class="row">
+									<div class="col-sm-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
+									<div class="col-sm-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
+									<div class="col-sm-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
+									<div class="col-sm-3">{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}</div>
+								</div>
 							</div>
-						</div>
+						{{/each}}
 					</div>
 					<label>
 						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Advanced</a>
@@ -295,12 +308,14 @@
                         {{#link-to 'basestation' item.id class='btn btn-success'}}
                         <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
-                        <i class="fa fa-pencil"></i>
-                        {{/link-to}}
-                        <a class='btn btn-danger' href='#'>
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+                        {{#if userCanEdit}}
+                            {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
+                            <i class="fa fa-pencil"></i>
+                            {{/link-to}}
+                            <a class='btn btn-danger' href='#'>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        {{/if}}
                     </div>
                 </td>
             </tr>
@@ -377,23 +392,27 @@
 
         <script type="text/x-handlebars" id="users">
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="users-add"}}
-            {{#each item in model.resource}}
+            {{#each item in model.resource itemController="user"}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.firstName}} {{item.lastName}}</td>
                 <td>{{item.email}}</td>
-                <td>{{item.role}}</td>
+                <td><span {{bind-attr class="item.getClass"}}>{{item.role}}</span></td>
                 <td class='action'>
                     <div class="btn-group">
                         {{#link-to 'user' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#link-to 'user-edit' item.id class='btn btn-info'}}
-                        <i class="fa fa-pencil"></i>
-                        {{/link-to}}
-                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+                        {{#if userCanEdit}}
+                            {{#link-to 'user-edit' item.id class='btn btn-info'}}
+                            <i class="fa fa-pencil"></i>
+                            {{/link-to}}
+                            {{#if item.isNotCurrentUser}}
+                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                            {{/if}}
+                        {{/if}}
                     </div>
                 </td>
             </tr>
@@ -590,7 +609,7 @@
                             {{/if}}
 
                             {{#each pages itemController="page"}}
-                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
+                            <li {{bind-attr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
                             {{/each}}
 
                             {{#if nextPage}}
@@ -714,6 +733,8 @@
         <script src="js/controllers/basestationController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
         <script src="js/controllers/usersController.js"></script>
+        <script src="js/controllers/userController.js"></script>
+        <script src="js/controllers/checkpointController.js"></script>
         <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
