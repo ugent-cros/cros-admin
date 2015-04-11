@@ -18,6 +18,7 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
                 if (!checkpoints[i])
                     checkpoints.pushObject({});
 
+                Ember.set(checkpoints[i], 'id', i);
                 Ember.set(checkpoints[i], 'longitude', location[0]);
                 Ember.set(checkpoints[i], 'latitude', location[1]);
             });
@@ -30,7 +31,7 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
                 result.push([this.longitude, this.latitude]);
         });
         if (result.length > 0)
-            return result;
+            return Ember.A(result);
         else
             return null;
     }.property("checkpoints.@each.longitude", "checkpoints.@each.latitude"),

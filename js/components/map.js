@@ -28,7 +28,7 @@ App.MyMapComponent = Ember.Component.extend({
         if (!loc) {
             // remove existing markers
             $.each(markers, function(index,data) {
-                this.get('map').removeLayer(data);
+                self.get('map').removeLayer(data);
             });
             this.set('marker', []);
         } else if(loc[0] instanceof Array) {
@@ -60,7 +60,7 @@ App.MyMapComponent = Ember.Component.extend({
             } else { // multiple markers
                 this.set('marker', markers.splice(0,1)); // only keep the first marker
                 $.each(markers, function(index,data) {
-                    this.get('map').removeLayer(data);
+                    self.get('map').removeLayer(data);
                 });
                 this.get('marker')[0].setLatLng(loc);
             }

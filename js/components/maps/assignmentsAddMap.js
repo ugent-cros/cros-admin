@@ -10,9 +10,9 @@ App.AssignmentsAddMapComponent = App.AssignmentMapComponent.extend({
 
         $('.modal').on('shown.bs.modal', function (e) {
             self.get('map').on('click', function(e) {
-                var location = self.get("location") || [];
+                var location = self.get("location") || Ember.A();
                 location.pushObject([e.latlng.lat, e.latlng.lng]);
-                self.set("location", location);
+                self.set("location", location.copy()); // TODO; find better solution than copy
             });
         });
     }
