@@ -26,8 +26,8 @@ App.AppController = Ember.Controller.extend({
 
     actions : {
         logout: function(){
-            App.AuthManager.logout();
-            App.currentSocketManager.disconnect();
+            this.authManager.logout();
+            this.socketManager.disconnect();
             this.transitionToRoute('login');
         },
 

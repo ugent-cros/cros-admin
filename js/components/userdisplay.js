@@ -1,28 +1,22 @@
 App.UserDisplayComponent = Ember.Component.extend({
 
-    fullName : function(k,v) {
-        // NOTE: this is a hack, you can not set this property!!!
-        if (arguments.length > 1)
-            return v;
+    currentUser : function() {
+        return this.authManager.get("user");
+    }.property("authManager.user"),
 
-        var self = this;
-        App.AuthManager.set("currentAdapter",this.customAdapter);
-        App.AuthManager.get("user").then(function(data) {
-            self.set("fullName",data.firstName + " " + data.lastName);
-        });
-    }.property(),
+    fullName : function() {
+        if (this.get("currentUser"))
+            return this.get('currentUser').firstName + " " + this.get('currentUser').lastName;
+        else
+            return "";
+    }.property("currentUser"),
 
-    userId : function(k,v) {
-        // NOTE: this is a hack, you can not set this property!!!
-        if (arguments.length > 1)
-            return v;
-
-        var self = this;
-        App.AuthManager.set("currentAdapter",this.customAdapter);
-        App.AuthManager.get("user").then(function(data) {
-            self.set("userId", data.id);
-        });
-    }.property(),
+    userId : function() {
+        if (this.get("currentUser"))
+            return this.get("currentUser").id;
+        else
+            return null;
+    }.property("authManager.user"),
 
     actions : {
         logout : function() {

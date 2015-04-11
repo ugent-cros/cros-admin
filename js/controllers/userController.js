@@ -3,28 +3,15 @@
  */
 App.UserController = Ember.ObjectController.extend({
 
-    _private_currentUserId : null,
+    currentUser: function(){
+        return this.authManager.get("user");
+    }.property("authManager.user"),
 
     isNotCurrentUser: function(id){
-        if (!this.get("_private_currentUserId")) {
-            this.fetchUserInfo();
-        }
-        return (this.get("_private_currentUserId") != this.get('id'));
-    }.property('id'),
-
-    fetchUserInfo: function(){
-        var self = this;
-        return App.AuthManager.get("user").then(function (data) {
-            console.log(data);
-            var canEdit = false;
-            if (data.role == "ADMIN") {
-                canEdit = true;
-            }
-            self.set("_private_role", canEdit);
-            self.set("_private_currentUserId", data.id);
-            return canEdit;
-        });
-    },
+        var user = this.get("currentUser");
+        console.log(user);
+        return (user.id != this.get('id'));
+    }.property('id','currentUser'),
 
     getClass: function(){
         var label = "label "
