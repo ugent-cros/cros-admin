@@ -68,21 +68,17 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
-            {{#if userCanEdit}}
-			<div class="row">
-				<div class="col-xs-12">
-					{{#link-to 'drones-add' class='btn btn-success pull-right'}}
-						Add drone
-					{{/link-to}}
-				</div>
-			</div>
-            {{/if}}
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="drones-add"}}
                 {{#each item in model.resource itemController='drone'}}
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
                         <td><span {{bind-attr class="item.getClass"}}>{{item.status}}</span></td>
+                        <td>
+                            <a class='btn-sm btn-warning' href='#' {{action 'emergency' item.id}}>
+                            EMERGENCY
+                            </a>
+                        </td>
                         <td class='action'>
                             <div class="btn-group">
                                 {{#link-to 'drone' item.id class='btn btn-success'}}
@@ -190,16 +186,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
-            {{#if userCanEdit}}
-			<div class="row">
-				<div class="col-xs-12">
-					{{#link-to 'assignments-add' class='btn btn-success pull-right'}}
-						Create assignment
-					{{/link-to}}
-				</div>
-			</div>
-            {{/if}}
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="assignments-add"}}
             {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
@@ -311,16 +298,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="basestations">
-            {{#if userCanEdit}}
-            <div class="row">
-                <div class="col-xs-12">
-                    {{#link-to 'basestations-add' class='btn btn-success pull-right'}}
-                    Create basestation
-                    {{/link-to}}
-                </div>
-            </div>
-            {{/if}}
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="basestations-add"}}
             {{#each item in model.resource}}
             <tr>
                 <td>{{item.id}}</td>
@@ -413,16 +391,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="users">
-            {{#if userCanEdit}}
-			<div class="row">
-				<div class="col-xs-12">
-					{{#link-to 'users-add' class='btn btn-success pull-right'}}
-						Add user
-					{{/link-to}}
-				</div>
-			</div>
-            {{/if}}
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
+            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="users-add"}}
             {{#each item in model.resource itemController="user"}}
             <tr>
                 <td>{{item.id}}</td>
@@ -589,7 +558,13 @@
         <script type="text/x-handlebars" id="components/my-table">
             <div class="panel panel-default grid">
                 <div class="panel-heading">
-
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {{#link-to addLink class='btn-sm btn-success pull-right'}}
+                            <i class="fa fa-plus"></i>
+                            {{/link-to}}
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body filters">
                     <div class="row">
