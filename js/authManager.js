@@ -7,7 +7,12 @@ window.AuthManager = Ember.Object.extend({
     cookieName : "authToken",
     redirectUrl : "dashboard", // TODO: change to actual route
     authToken : null,
-    user : null,
+    _private_user : null,
+    user : function() {
+        if (!this.get("_private_user"))
+            this.fetchUserInfo();
+        return this.get("_private_user");
+    }.property("_private_user"),
 
     isLoggedIn : function() {
         return this.token() != null;
@@ -32,7 +37,7 @@ window.AuthManager = Ember.Object.extend({
     fetchUserInfo : function() {
         var self = this;
         return this.adapter.find("user", null, "me").then(function(data) {
-            self.set("user", data);
+            self.set("_private_user", data);
         });
     },
 
