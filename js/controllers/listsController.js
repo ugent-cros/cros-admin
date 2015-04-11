@@ -9,14 +9,9 @@ App.ListSuperController = Ember.Controller.extend({
 
     userCanEdit: function() {
         var user = this.get("currentUser");
-        console.log(user);
         if(user) {
-            var canEdit = false;
-            if (user.role == "ADMIN") {
-                canEdit = true;
-            }
-            return canEdit;
-        }else{
+            return user.role === "ADMIN";
+        } else {
             return false;
         }
     }.property("currentUser"),

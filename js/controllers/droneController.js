@@ -1,4 +1,4 @@
-App.DroneController = Ember.Controller.extend({
+App.DroneController = Ember.ObjectController.extend({
   
 	battery : "N/A",
 	altitude : -1,
@@ -29,7 +29,22 @@ App.DroneController = Ember.Controller.extend({
             self.set('location',[data.longitude,data.latitude]);
             // todo: do something with gpsheight...?
         });
-	}
+	},
+
+    getClass: function(){
+        var label = "label "
+        var status = this.get('status');
+        if(status == "AVAILABLE")
+            return label + "label-success";
+        else if(status == "IN_FLIGHT")
+            return label + "label-info";
+        else if(status == "UNAVAILABLE" || status == "UNKNOWN")
+            return label + "label-default";
+        else if(status == "CHARGING")
+            return label + "label-primary";
+        else if(status == "EMERGENCY_LANDED" || status == "DECOMMISSIONED")
+            return label + "label-warning";
+    }.property('status')
 });
 
 App.DroneEditController = Ember.Controller.extend({

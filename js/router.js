@@ -130,10 +130,11 @@ App.PopupRoute = App.AuthRoute.extend({
 			into: 'App',
 			outlet: 'modal'
 		});
+		this.set('resource', resource);
 	},
 	actions: {
 		willTransition: function(transition) {
-			this.controller.destroy();
+			this.controllerFor(this.get('resource')).send('reset');
 		}
 	}
 });
