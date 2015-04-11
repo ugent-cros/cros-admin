@@ -8,7 +8,7 @@ App.DronesController = App.ListSuperController.extend({
 
     actions:{
         emergency: function(id){
-            this.customAdapter.find('drone',null,"emergency").then(function(data){
+            this.customAdapter.find('drone',id,"emergency").then(function(data){
                 console.log(data);
             });
         }
