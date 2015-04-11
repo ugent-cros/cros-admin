@@ -24,5 +24,16 @@ App.UserController = Ember.ObjectController.extend({
             self.set("_private_currentUserId", data.id);
             return canEdit;
         });
-    }
+    },
+
+    getClass: function(){
+        var label = "label "
+        var role = this.get('role');
+        if(role == "USER")
+            return label + "label-primary";
+        else if(role == "ADMIN")
+            return label + "label-danger";
+        else if(role == "READONLY_ADMIN")
+            return label + "label-warning";
+    }.property('role')
 });

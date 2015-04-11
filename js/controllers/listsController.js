@@ -15,7 +15,6 @@ App.ListSuperController = Ember.Controller.extend({
     fetchUserInfo: function(){
         var self = this;
         return App.AuthManager.get("user").then(function (data) {
-            console.log(data);
             var canEdit = false;
             if (data.role == "ADMIN") {
                 canEdit = true;
