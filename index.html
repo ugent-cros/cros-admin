@@ -68,6 +68,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
+            {{#if userCanEdit}}
 			<div class="row">
 				<div class="col-xs-12">
 					{{#link-to 'drones-add' class='btn btn-success pull-right'}}
@@ -75,23 +76,26 @@
 					{{/link-to}}
 				</div>
 			</div>
+            {{/if}}
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
-                {{#each item in model.resource}}
+                {{#each item in model.resource itemController='drone'}}
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
-                        <td>{{item.status}}</td>
+                        <td><span {{bind-attr class="item.getClass"}}>{{item.status}}</span></td>
                         <td class='action'>
                             <div class="btn-group">
                                 {{#link-to 'drone' item.id class='btn btn-success'}}
                                 <i class="fa fa-search"></i>
                                 {{/link-to}}
-                                {{#link-to 'drone-edit' item.id class='btn btn-info'}}
-                                <i class="fa fa-pencil"></i>
-                                {{/link-to}}
-                                <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
+                                {{#if userCanEdit}}
+                                    {{#link-to 'drone-edit' item.id class='btn btn-info'}}
+                                    <i class="fa fa-pencil"></i>
+                                    {{/link-to}}
+                                    <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                {{/if}}
                             </div>
                         </td>
                     </tr>
@@ -186,6 +190,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="assignments">
+            {{#if userCanEdit}}
 			<div class="row">
 				<div class="col-xs-12">
 					{{#link-to 'assignments-add' class='btn btn-success pull-right'}}
@@ -193,6 +198,7 @@
 					{{/link-to}}
 				</div>
 			</div>
+            {{/if}}
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
             {{#each item in model.resource}}
             <tr>
@@ -205,12 +211,14 @@
                         {{#link-to 'assignment' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        <a class='btn btn-info' href='#'>
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+                        {{#if userCanEdit}}
+                            <a class='btn btn-info' href='#'>
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        {{/if}}
                     </div>
                 </td>
             </tr>
@@ -294,6 +302,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="basestations">
+            {{#if userCanEdit}}
             <div class="row">
                 <div class="col-xs-12">
                     {{#link-to 'basestations-add' class='btn btn-success pull-right'}}
@@ -301,6 +310,7 @@
                     {{/link-to}}
                 </div>
             </div>
+            {{/if}}
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
             {{#each item in model.resource}}
             <tr>
@@ -311,12 +321,14 @@
                         {{#link-to 'basestation' item.id class='btn btn-success'}}
                         <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
-                        <i class="fa fa-pencil"></i>
-                        {{/link-to}}
-                        <a class='btn btn-danger' href='#'>
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+                        {{#if userCanEdit}}
+                            {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
+                            <i class="fa fa-pencil"></i>
+                            {{/link-to}}
+                            <a class='btn btn-danger' href='#'>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        {{/if}}
                     </div>
                 </td>
             </tr>
@@ -392,6 +404,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="users">
+            {{#if userCanEdit}}
 			<div class="row">
 				<div class="col-xs-12">
 					{{#link-to 'users-add' class='btn btn-success pull-right'}}
@@ -399,24 +412,29 @@
 					{{/link-to}}
 				</div>
 			</div>
+            {{/if}}
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields}}
-            {{#each item in model.resource}}
+            {{#each item in model.resource itemController="user"}}
             <tr>
                 <td>{{item.id}}</td>
                 <td>{{item.firstName}} {{item.lastName}}</td>
                 <td>{{item.email}}</td>
-                <td>{{item.role}}</td>
+                <td><span {{bind-attr class="item.getClass"}}>{{item.role}}</span></td>
                 <td class='action'>
                     <div class="btn-group">
                         {{#link-to 'user' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#link-to 'user-edit' item.id class='btn btn-info'}}
-                        <i class="fa fa-pencil"></i>
-                        {{/link-to}}
-                        <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                            <i class="fa fa-trash-o"></i>
-                        </a>
+                        {{#if userCanEdit}}
+                            {{#link-to 'user-edit' item.id class='btn btn-info'}}
+                            <i class="fa fa-pencil"></i>
+                            {{/link-to}}
+                            {{#if item.isNotCurrentUser}}
+                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                            {{/if}}
+                        {{/if}}
                     </div>
                 </td>
             </tr>
@@ -607,7 +625,7 @@
                             {{/if}}
 
                             {{#each pages itemController="page"}}
-                            <li {{bindAttr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
+                            <li {{bind-attr class="active disabled"}}><a href="#" {{action "selectPage" number}}>{{number}}</a></li>
                             {{/each}}
 
                             {{#if nextPage}}
@@ -731,6 +749,7 @@
         <script src="js/controllers/basestationController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
         <script src="js/controllers/usersController.js"></script>
+        <script src="js/controllers/userController.js"></script>
         <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
