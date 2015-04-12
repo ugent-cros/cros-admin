@@ -214,54 +214,61 @@
         </script>
 		
 		<script type="text/x-handlebars" id="assignments-add">
-			{{#popup-window title="Create assignment" link='assignments' ok='save' saveButton=true}}
+			{{#popup-window title="Create assignment" size="80%" link='assignments' ok='save' saveButton=true}}
 				<div class="row">
 					<div id="assignmentAddAlert" class="col-xs-12"></div>
 				</div>
-				<form {{action 'ok' on='submit' target=view}}>
-					<div class="row">
-						<div class="col-xs-6"><label>Route:</label></div>
-						<div class="col-xs-6 text-right">
-							{{view "select" id="basestationSelect" content=basestations optionValuePath="content.id" optionLabelPath="content.name" prompt="Checkpoint" value=selected}}
-							<button {{action 'add' true}} style="line-height:0; font-size:10px" class="btn btn-xs">
-								<i class="fa fa-plus"></i>
-								<label id="addButtonText">Add</label>
-							</button>
-						</div>
-					</div>
-					<div id="routesAssignment">
-						{{#each checkpoint in checkpoints itemController="checkpoint"}}
-							{{#unless checkpoint.isFirstCheckpoint}}
-								<div class="row text-center">
-									<button  {{action "swap" checkpoint.id}} class="btn btn-xs btn-swap">
-										<i class="fa fa-arrows-v"></i>
-									</button>
-								</div>
-							{{/unless}}
-							<div class="well route-well">
-								<div class="row">
-									<div class="col-sm-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
-									<div class="col-sm-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
-									<div class="col-sm-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
-									<div class="col-sm-3">{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}</div>
-								</div>
-							</div>
-						{{/each}}
-					</div>
-					<label>
-						<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Advanced</a>
-					</label>
-					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-						<div class="row">
-							<div class="col-xs-8"><label>Priority:</label></div>
-						</div>
-						<div class="well">
-							<div class="row">
-								<div class="col-xs-12">{{input class="form-control" value=priority}}</div>
-							</div>
-						</div>
-					</div>
-				</form>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <form {{action 'ok' on='submit' target=view}}>
+                        <div class="row">
+                            <div class="col-xs-6"><label>Route:</label></div>
+                            <div class="col-xs-6 text-right">
+                                {{view "select" id="basestationSelect" content=basestations optionValuePath="content.id" optionLabelPath="content.name" prompt="Checkpoint" value=selected}}
+                                <button {{action 'add' true}} style="line-height:0; font-size:10px" class="btn btn-xs">
+                                <i class="fa fa-plus"></i>
+                                <label id="addButtonText">Add</label>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="routesAssignment">
+                            {{#each checkpoint in checkpoints itemController="checkpoint"}}
+                            {{#unless checkpoint.isFirstCheckpoint}}
+                            <div class="row text-center">
+                                <button  {{action "swap" checkpoint.id}} class="btn btn-xs btn-swap">
+                                <i class="fa fa-arrows-v"></i>
+                                </button>
+                            </div>
+                            {{/unless}}
+                            <div class="well route-well">
+                                <div class="row">
+                                    <div class="col-sm-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
+                                    <div class="col-sm-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
+                                    <div class="col-sm-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
+                                    <div class="col-sm-3">{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}</div>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <label>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Advanced</a>
+                        </label>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="row">
+                                <div class="col-xs-8"><label>Priority:</label></div>
+                            </div>
+                            <div class="well">
+                                <div class="row">
+                                    <div class="col-xs-12">{{input class="form-control" value=priority}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        {{#assignments-add-map mapName="assignmentsAddMap" location=locations}}{{/assignments-add-map}}
+                    </div>
+                </div>
 			{{/popup-window}}
 		</script>
 				
@@ -685,6 +692,10 @@
             {{partial 'map'}}
         </script>
 
+        <script type="text/x-handlebars" id="components/assignments-add-map">
+            {{partial 'map'}}
+        </script>
+
 		<script type="text/x-handlebars" id="components/time-graph">
 			<div {{bind-attr id=chartName}} class="epoch category10" style="width: 200px; height: 200px"></div>
 		</script>
@@ -749,6 +760,7 @@
         <script src="js/components/maps/basestationMap.js"></script>
         <script src="js/components/maps/basestationAddMap.js"></script>
         <script src="js/components/maps/assignmentMap.js"></script>
+        <script src="js/components/maps/assignmentsAddMap.js"></script>
         <script src="js/components/userdisplay.js"></script>
 		<!-- script src="js/components/graph.js"></script -->
 	</body>
