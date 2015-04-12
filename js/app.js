@@ -16,13 +16,13 @@ App.initializer({
         socketManager.adapter = adapter;
         socketManager.authManager = authManager;
 
-        application.inject("controller", "customAdapter", "my:adapter");
+        application.inject("controller", "adapter", "my:adapter");
         application.inject("controller", "authManager", "my:authmanager");
         application.inject("controller", "socketManager", "my:socketmanager");
-        application.inject("route", "customAdapter", "my:adapter");
+        application.inject("route", "adapter", "my:adapter");
         application.inject("route", "authManager", "my:authmanager");
         application.inject("route", "socketManager", "my:socketmanager");
-        application.inject('component', 'customAdapter', 'my:adapter');
+        application.inject('component', 'adapter', 'my:adapter');
         application.inject('component', 'authManager', 'my:authmanager');
         application.inject('component', 'socketManager', 'my:socketmanager');
     }

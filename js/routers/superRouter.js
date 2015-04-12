@@ -4,8 +4,8 @@
 
 App.BaseRoute = Ember.Route.extend({
     beforeModel: function() {
-        if(!this.customAdapter.linkLibrary.hasOwnProperty("login")) {
-            this.customAdapter.find("home");
+        if(!this.adapter.linkLibrary.hasOwnProperty("login")) {
+            this.adapter.find("home");
         }
     },
 
@@ -29,7 +29,7 @@ App.BaseRoute = Ember.Route.extend({
 
     fetch: function(params) {
         var self = this;
-        var promise = this.customAdapter.find(params.store,params.id,params.action,params.options);
+        var promise = this.adapter.find(params.store,params.id,params.action,params.options);
         if (params.callback) {
             return promise.then(params.callback).fail(function(jxhr) {
                 self.checkStatus(jxhr,self);
@@ -56,7 +56,7 @@ App.AuthRoute = App.BaseRoute.extend({
             this.transitionTo('login');
         }
 
-        this.socketManager.set("url", this.customAdapter.host + this.customAdapter.linkLibrary["datasocket"]);
+        this.socketManager.set("url", this.adapter.host + this.adapter.linkLibrary["datasocket"]);
         this.socketManager.initConnection();
     }
 });

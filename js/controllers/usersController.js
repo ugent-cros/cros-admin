@@ -43,9 +43,9 @@ App.UserEditController = Ember.Controller.extend({
 		save: function(){
 			var jsonObject = { user: this.model };
 			if(this.model.id)
-				var result = this.customAdapter.edit('user', this.model.id, jsonObject);
+				var result = this.adapter.edit('user', this.model.id, jsonObject);
 			else
-				var result = this.customAdapter.post('user', jsonObject);
+				var result = this.adapter.post('user', jsonObject);
 			var self = this;
 			result.then(
 				function(data) { self.success(data.user.id); },
