@@ -8,7 +8,7 @@ App.DronesController = App.ListSuperController.extend({
 
     actions:{
         emergency: function(id){
-            this.customAdapter.find('drone',id,"emergency").then(function(data){
+            this.adapter.find('drone',id,"emergency").then(function(data){
                 console.log(data);
             });
         }
@@ -52,9 +52,9 @@ App.DroneEditController = Ember.Controller.extend({
 		save: function(){
 			var jsonObject = { drone: this.model };
 			if(this.model.id)
-				var result = this.customAdapter.edit('drone', this.model.id, jsonObject);
+				var result = this.adapter.edit('drone', this.model.id, jsonObject);
 			else
-				var result = this.customAdapter.post('drone', jsonObject);
+				var result = this.adapter.post('drone', jsonObject);
 			var self = this;
 			result.then(
 				function(data) { self.success(data.drone.id); },

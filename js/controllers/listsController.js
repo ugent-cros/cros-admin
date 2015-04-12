@@ -23,7 +23,7 @@ App.ListSuperController = Ember.Controller.extend({
         if (searchField != null) {
             params[searchField] = search;
         }
-        this.customAdapter.find(elementClass, null, null, params).then(function(data){
+        this.adapter.find(elementClass, null, null, params).then(function(data){
             self.set('model',data);
             return data;
         });
@@ -33,7 +33,7 @@ App.ListSuperController = Ember.Controller.extend({
     actions: {
         delete: function (id) {
             var elementClass = this.get('element');
-            this.customAdapter.remove(elementClass, id);
+            this.adapter.remove(elementClass, id);
             //refresh
             var search = document.getElementById("searchbox").value;
             var searchField = document.getElementById("searchFields").value;

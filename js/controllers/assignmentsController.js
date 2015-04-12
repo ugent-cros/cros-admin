@@ -39,7 +39,7 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 			var jsonObject = new Object();
 			jsonObject.assignment = assignment;
 			// Send the object to the server for saving
-			var result = this.customAdapter.post('assignment', jsonObject);
+			var result = this.adapter.post('assignment', jsonObject);
 			var self = this;
 			result.then(
 				function(data) { self.success(data.assignment.id); },
@@ -58,7 +58,7 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 			var checkpoints = this.get('checkpoints');
 			if(this.selected != null) {
 				var self = this;
-				this.customAdapter.find('basestation', this.selected).then(function(data){					
+				this.adapter.find('basestation', this.selected).then(function(data){
 					$("select option").filter(function() {
 						return $(this).text() == 'Checkpoint'; 
 					}).prop('selected', true);

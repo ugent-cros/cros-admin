@@ -13,7 +13,7 @@ App.AssignmentsRoute = App.AuthRoute.extend({
 App.AssignmentsAddRoute = App.PopupRoute.extend({
     setupController: function (controller, model) {
         this._super(controller, model);
-        this.customAdapter.find('basestation').then(function(data){
+        this.adapter.find('basestation').then(function(data){
             controller.set('basestations', data.resource);
         })
     },
