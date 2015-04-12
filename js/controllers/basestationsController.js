@@ -80,9 +80,9 @@ App.BasestationEditController = Ember.Controller.extend({
             };
 
             if (this.get("model.id"))
-                var result = this.customAdapter.edit('basestation', this.get("model.id"), jsonObject);
+                var result = this.adapter.edit('basestation', this.get("model.id"), jsonObject);
             else
-                var result = this.customAdapter.post('basestation', jsonObject);
+                var result = this.adapter.post('basestation', jsonObject);
             var self = this;
             result.then(
                 function(data) { self.success(data); },
