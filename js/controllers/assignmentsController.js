@@ -99,5 +99,35 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 			Ember.set(checkpoints[nextID], 'altitude', prevAltitude);
 			Ember.set(checkpoints[nextID], 'waitingTime', prevWaitingTime);
 		}
-	}
+	},
+	
+	/*
+	 * Called on an successful save to the server. 
+	 */
+	success: function(id) {
+		this.priority = '';
+		this.transitionToRoute('assignment', id);
+		
+	},
+	
+	/*
+	 * Called on a failed save to the server.
+	 */
+	failure: function(data) {
+		if (data.status == 400) {
+			if(!$('#assignmentAlert')[0]) {
+				$('#assignmentAddAlert')
+					.append($('<div>')
+						.attr('id', 'assignmentAlert')
+						.attr('class', 'alert alert-danger alert-dismissible')
+						.attr('role', 'alert')
+					);
+			}
+			$('#assignmentAlert').text('');
+			if(data.responseJSON.route)
+				$('#assignmentAlert').append($('<p>').text('Route: at least one checkpoint (latitude, longitude and altitude) is required'));
+			if(data.responseJSON.priority)
+				$('#droneAlert').append($('<p>').text('Priority: ' + data.responseJSON.priority));
+		}
+	},
 });
