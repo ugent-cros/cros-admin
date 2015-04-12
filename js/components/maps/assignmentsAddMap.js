@@ -15,6 +15,27 @@ App.AssignmentsAddMapComponent = App.AssignmentMapComponent.extend({
                 self.set("location", location.copy()); // TODO; find better solution than copy
             });
         });
+    },
+
+    createMarker : function(location, id) {
+        var marker = L.marker(location, {id: id, icon: this.currentIcon(), draggable:'true'}).addTo(this.get('map'));
+        var self = this;
+        marker.on('drag', function() {
+            self.updatepolyLine();
+        });
+
+        marker.on('dragend', function(event){
+            var marker = event.target;
+            var position = marker.getLatLng();
+            var i = self.get("marker").indexOf(marker);
+
+            var location = self.get("location") || Ember.A();
+            location[i][0] = position.lat;
+            location[i][1] = position.lng;
+            self.set("location", location.copy()); // TODO; find better solution than copy
+        });
+        return marker;
+
     }
 
 

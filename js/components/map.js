@@ -20,6 +20,10 @@ App.MyMapComponent = Ember.Component.extend({
         return i;
     },
 
+    createMarker : function(location, i) {
+        return L.marker(location, {id: i, icon: this.currentIcon()}).addTo(this.get('map'));
+    },
+
     updateMarker : function() {
         var loc = this.get('location');
         var markers = this.get('marker') || [];
@@ -38,8 +42,7 @@ App.MyMapComponent = Ember.Component.extend({
                     data.setLatLng(loc[index]);
                 });
                 $.each(loc.slice(markers.length,loc.length), function(index,data) { // add new markers
-                    var marker = L.marker(data, {icon: self.currentIcon()}).addTo(self.get('map'));
-                    markers.push(marker);
+                    markers.push(self.createMarker(data, index));
                 });
                 this.set('marker', markers);
             } else {
@@ -55,8 +58,7 @@ App.MyMapComponent = Ember.Component.extend({
         } else {
             // only one location
             if (markers.length < 1) {  // no markers
-                var marker = L.marker(loc, {icon: this.currentIcon()}).addTo(this.get('map'));
-                this.set('marker', [marker]);
+                this.set('marker', [self.createMarker(loc, 0)]);
             } else { // multiple markers
                 this.set('marker', markers.splice(0,1)); // only keep the first marker
                 $.each(markers, function(index,data) {
@@ -97,21 +99,7 @@ App.MyMapComponent = Ember.Component.extend({
             }).addTo(map);
 
             // init markers
-            var loc = self.get('location');
-            if (!loc) {
-                self.set('marker', []);
-            } else if (loc[0] instanceof Array) {
-                var markerArray = [];
-                var iconToUse = self.currentIcon();
-                $.each(loc, function() {
-                    var marker = L.marker(this, {icon: iconToUse}).addTo(map);
-                    markerArray.push(marker);
-                });
-                self.set('marker',markerArray);
-            } else {
-                var marker = L.marker(loc, {icon: self.currentIcon()}).addTo(map);
-                self.set('marker',[marker]);
-            }
+            self.updateMarker();
 
             self.addObserver('location',self,self.updateMarker);
             self.addObserver('location',self,self.updateMap);
