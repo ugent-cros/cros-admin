@@ -12,6 +12,13 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 	
 	// ACTIONS
 	actions: {
+		reset: function() {
+			this._super();
+			this.checkpoints.clear();
+			this.checkpoints.pushObject({ id: 0,  latitude: null, longitude: null, altitude: null, waitingTime: null });
+			this.priority = '';
+		},
+		
 		/*
 		 * Save the assignment in the database
 		 */
