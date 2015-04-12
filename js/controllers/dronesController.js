@@ -23,8 +23,15 @@ App.DroneEditController = Ember.Controller.extend({
 		this.set('type', '');
 		this.set('versionNumber', '');
 		this.transitionToRoute('drone', id);
-		
 	},
+
+    selected : function() {
+        var types = this.get('types') || [];
+        for(var i = 0; i < types.length; i++) {
+            if(types[i].type == this.get("model.droneType").type)
+                return types[i].type;
+        }
+    }.property("model.droneType", "types"),
 	
 	failure: function(data) {
 		if (data.status == 400) {
@@ -60,6 +67,10 @@ App.DroneEditController = Ember.Controller.extend({
 				function(data) { self.success(data.drone.id); },
 				function(data) { self.failure(data); }
 			);
-		}
+		},
+        reset: function() {
+            this._super();
+            this.types = [];
+        }
 	}
 });

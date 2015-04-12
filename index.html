@@ -127,8 +127,7 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-sm-6">{{input placeholder="Type" class="form-control" value=model.droneType.type}}</div>
-								<div class="col-sm-6">{{input placeholder="Version number" class="form-control" value=model.droneType.versionNumber}}</div>
+								<div class="col-xs-12" id="typeSelector">{{view "select" content=types optionLabelPath="content.type" optionValuePath="content.type" class="form-control" value=selected}}</div>
 							</div>
 						</div>
 						<label>
