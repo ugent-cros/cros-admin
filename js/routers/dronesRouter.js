@@ -30,7 +30,7 @@ App.DroneEditRoute = App.PopupRoute.extend({
     setupController: function(controller, model) {
         this._super(controller,model);
         this.adapter.find("drone", null, "types").then(function(data) {
-            controller.set("types", data.droneType);
+            controller.set("types", data.droneType.map(function(t) { return Ember.Object.create(t);}));
         });
     },
 
@@ -41,7 +41,7 @@ App.DroneEditRoute = App.PopupRoute.extend({
             return { droneType: new Object() };
     },
     renderTemplate: function() {
-        this._super('drones-edit', 'drones');
+        this._super('drone-edit', 'drones');
     }
 });
 

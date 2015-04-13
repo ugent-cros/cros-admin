@@ -15,6 +15,12 @@ App.DronesController = App.ListSuperController.extend({
     }
 });
 
+App.TypeController = Ember.ObjectController.extend({
+    isSelected: function() {
+        return this.get("selected");
+    }.property()
+});
+
 App.DroneEditController = Ember.Controller.extend({	
 	success: function(id) {
 		this.set('name', '');
@@ -25,13 +31,13 @@ App.DroneEditController = Ember.Controller.extend({
 		this.transitionToRoute('drone', id);
 	},
 
-    selected : function() {
-        var types = this.get('types') || [];
-        for(var i = 0; i < types.length; i++) {
-            if(types[i].type == this.get("model.droneType").type)
-                return types[i].type;
-        }
-    }.property("model.droneType", "types"),
+    updateSelected : function() {
+        var self = this;
+        var types = this.get("types") || [];
+        $.each(types, function() {
+            this.set("selected", this.type === self.get("model.droneType").type);
+        });
+    }.observes("types", "model.droneType"),
 	
 	failure: function(data) {
 		if (data.status == 400) {
@@ -68,9 +74,15 @@ App.DroneEditController = Ember.Controller.extend({
 				function(data) { self.failure(data); }
 			);
 		},
-        reset: function() {
-            this._super();
-            this.types = [];
+
+        updateType : function(type) {
+            var typeString = $("#typeSelector select option:selected").text();
+            var type = typeString.split(" (")[0];
+            var version = typeString.split(" (")[1].slice(0,-1);
+            var selectedType = this.get("types").filter(function(t) {
+                return t.type === type && t.versionNumber === version;
+            });
+            this.set("model.droneType", selectedType[0]);
         }
 	}
 });
