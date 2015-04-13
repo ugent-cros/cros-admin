@@ -9,7 +9,6 @@ App.UserController = Ember.ObjectController.extend({
 
     isNotCurrentUser: function(id){
         var user = this.get("currentUser");
-        console.log(user);
         return (user.id != this.get('id'));
     }.property('id','currentUser'),
 

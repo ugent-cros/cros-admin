@@ -18,7 +18,6 @@ App.DroneRoute = App.PopupRoute.extend({
 
     setupController: function(controller, model) {
         this._super(controller,model);
-        controller.initRegistration(model.id);
     },
 
     renderTemplate: function() {

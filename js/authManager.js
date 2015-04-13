@@ -19,8 +19,8 @@ window.AuthManager = Ember.Object.extend({
     }.property("authToken"),
 
     logout: function(){
+        $.removeCookie(this.get("cookieName"));
         this.set("authToken", null);
-        $.removeCookie(this.get("cookieName"), {path:'/'});
     },
 
     login : function(selfCaller, email, password) {

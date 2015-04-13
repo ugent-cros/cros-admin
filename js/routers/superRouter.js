@@ -54,10 +54,10 @@ App.AuthRoute = App.BaseRoute.extend({
 
         if (!this.authManager.get("isLoggedIn")) {
             this.transitionTo('login');
+        } else {
+            this.socketManager.set("url", this.adapter.host + this.adapter.linkLibrary["datasocket"]);
+            this.socketManager.initConnection();
         }
-
-        this.socketManager.set("url", this.adapter.host + this.adapter.linkLibrary["datasocket"]);
-        this.socketManager.initConnection();
     }
 });
 

@@ -33,7 +33,7 @@ App.MyTableComponent = Ember.Component.extend({
     }.property('length', 'perPage'),
 
     //get collection with page numbers
-    pages: (function() {
+    pages: function() {
         var collection = Ember.A();//list with numbers
 
         for(var i = 0; i < this.get('totalPages'); i++) {
@@ -43,7 +43,7 @@ App.MyTableComponent = Ember.Component.extend({
         }
 
         return collection;
-    }).property('totalPages'),
+    }.property('totalPages'),
 
     //are there pages?
     hasPages: (function() {
