@@ -1,6 +1,6 @@
 App.Router.map(function(){
-	this.resource('App', { 'path' : '/' }, function() {
-		this.resource('dashboard');
+	this.resource('App', { path : '/' }, function() {
+		this.resource('dashboard', { path : '/'});
 		this.resource('drones');
 		this.resource('drones-add', { path: '/drones/add' });
 		this.resource('drone', { path: '/drones/:drone_id' });
@@ -15,7 +15,7 @@ App.Router.map(function(){
 		this.resource('users');
 		this.resource('users-add', { path: '/users/add' });
 		this.resource('user', { path: '/users/:user_id' });
-		this.resource('user-edit', { path: '/drones/:user_id/edit' });
+		this.resource('user-edit', { path: '/users/:user_id/edit' });
         this.resource('unauthorised');
 	});
 	this.resource('login');
