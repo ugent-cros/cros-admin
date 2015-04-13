@@ -15,7 +15,7 @@
 	<body class="main page">
 		<script type="text/x-handlebars" id="App">
 			<div class="navbar navbar-default" id="navbar">
-				<a class="navbar-brand" href="#"><img src="img/logo.png" style="height:50px;display:inline-block;" />ROS</a>
+				<a class="navbar-brand" href="#"><img src="img/logo_small.png" style="height:50px;display:inline-block;" />ROS</a>
 				{{#user-display action="logout"}}
                 {{/user-display}}
 			</div>
@@ -48,7 +48,7 @@
 
 				<!--Toolbar-->
 				<section id="tools" style="height:51px;" {{bind-attr class="notificationIsError:errorNotification"}}>
-					{{notification}}    
+					{{notification}}
 					{{#if notificationIsError}}
 						<button type="button" class="close" aria-label="Close" {{action 'dismiss'}}><span aria-hidden="true">&times;</span></button>
 					{{/if}}
@@ -146,7 +146,7 @@
 							<div class="well">
 								<div class="row">
 									<div class="col-xs-12">{{input placeholder="Weight Limitation" type="number" class="form-control" value=model.weightLimitation}}</div>
-								</div>	
+								</div>
 							</div>
 						</div>
 					</div>
@@ -217,7 +217,7 @@
             {{/each}}
             {{/my-table}}
         </script>
-		
+
 		<script type="text/x-handlebars" id="assignments-add">
 			{{#popup-window title="Create assignment" size="80%" link='assignments' ok='save' saveButton=true}}
 				<div class="row">
@@ -276,7 +276,7 @@
                 </div>
 			{{/popup-window}}
 		</script>
-				
+
 		<script type="text/x-handlebars" id="assignment">
 			{{#popup-window title="Assignment"  size="60%" link='assignments' saveButton=false}}
 				<div class="row">
@@ -391,7 +391,7 @@
                 </form>
             {{/popup-window}}
         </script>
-		
+
 		<script type="text/x-handlebars" id="basestation">
 			{{#popup-window title=model.name link='basestations' saveButton=false}}
 				<div class="row">
@@ -431,7 +431,7 @@
             {{/each}}
             {{/my-table}}
         </script>
-		
+
 		<script type="text/x-handlebars" id="user-edit">
 			{{#popup-window title="Add user" link='users' ok='save' saveButton=true}}
 				<div class="row">
@@ -474,14 +474,14 @@
 							<div class="well">
 								<div class="row">
 									<div class="col-xs-12">{{view "select" content=roles optionValuePath="content.value" optionLabelPath="content.name"value=model.role prompt="Roles"}}</div>
-								</div>	
+								</div>
 							</div>
 						</div>
 					</div>
 				</form>
 			{{/popup-window}}
 		</script>
-		
+
 		<script type="text/x-handlebars" id="user">
 			{{#popup-window title="Profile" link='users' saveButton=false}}
 				<div class="row">
@@ -517,7 +517,7 @@
                 <p>You are unauthorised to view this page!</p>
             </div>
         </script>
-		
+
 		<script type="text/x-handlebars" id="login">
 			<div class='login'>
 				<div class='wrapper'>
@@ -654,7 +654,7 @@
 						<div class="modal-footer">
 							<div class="row">
 								<div class="col-xs-4">
-									{{{footer}}}	
+									{{{footer}}}
 								</div>
 								<div class="col-xs-4 col-xs-offset-4">
 								{{#if saveButton}}
