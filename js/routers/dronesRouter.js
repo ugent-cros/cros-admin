@@ -27,14 +27,21 @@ App.DroneRoute = App.PopupRoute.extend({
 });
 
 App.DroneEditRoute = App.PopupRoute.extend({
+    setupController: function(controller, model) {
+        this._super(controller,model);
+        this.adapter.find("drone", null, "types").then(function(data) {
+            controller.set("types", data.droneType.map(function(t) { return Ember.Object.create(t);}));
+        });
+    },
+
     model: function(params) {
         if(params.drone_id)
-            return this.fetch({store:'drone', id: params.drone_id });
+            return this.fetch({store:'drone', id: params.drone_id});
         else
             return { droneType: new Object() };
     },
     renderTemplate: function() {
-        this._super('drones-edit', 'drones');
+        this._super('drone-edit', 'drones');
     }
 });
 

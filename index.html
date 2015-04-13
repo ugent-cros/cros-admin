@@ -99,7 +99,7 @@
             {{/my-table}}
         </script>
 		
-		<script type="text/x-handlebars" id="drones-edit">
+		<script type="text/x-handlebars" id="drone-edit">
 			{{#popup-window title="Add drone" link='drones' ok='save' saveButton=true}}
 				<div class="row">
 					<div id="droneAddAlert" class="col-xs-12"></div>
@@ -127,8 +127,13 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-sm-6">{{input placeholder="Type" class="form-control" value=model.droneType.type}}</div>
-								<div class="col-sm-6">{{input placeholder="Version number" class="form-control" value=model.droneType.versionNumber}}</div>
+								<div class="col-xs-12" id="typeSelector">
+                                    <select class="form-control" {{action 'updateType' on='change'}}>
+                                        {{#each type in types itemController="type"}}
+                                            <option {{bind-attr value=type.type selected=type.selected }}>{{type.type}} ({{type.versionNumber}})</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
 							</div>
 						</div>
 						<label>
