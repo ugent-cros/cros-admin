@@ -100,8 +100,8 @@ App.MyMapComponent = Ember.Component.extend({
         // init markers
         self.updateMarker();
 
-        self.addObserver('location',self,self.updateMarker);
-        self.addObserver('location',self,self.updateMap);
+        self.addObserver('location.@each',self,self.updateMarker);
+        self.addObserver('location.@each',self,self.updateMap);
     },
 
     didInsertElement : function() {

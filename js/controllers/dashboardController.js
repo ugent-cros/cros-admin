@@ -11,7 +11,7 @@ App.DashboardController = Ember.Controller.extend({
         this.fetchLocations();
     },
 
-    locations : null,
+    locations : undefined,
 
     fetchLocations : function() {
         var self = this;
@@ -22,13 +22,30 @@ App.DashboardController = Ember.Controller.extend({
             var promises = [];
             $.each(data.resource,function(i,d) {
                 promises.pushObject(self.adapter.find("drone", d.id, "location").then(function(data) {
-                    tempLocations.pushObject(data.location);
+                    tempLocations.pushObject([data.location.longitude, data.location.latitude, "drone"]);
                 }));
             });
 
             $.when.apply($, promises).then(function() {
                 var locs = self.get("locations") || [];
                 locs.pushObjects(tempLocations);
+            });
+        });
+
+        // get all basestation locations
+        this.adapter.find("basestation", null, null).then(function(data) {
+            var tempLocations = [];
+            var promises = [];
+            $.each(data.resource,function(i,d) {
+                promises.pushObject(self.adapter.find("basestation", d.id, null).then(function(data) {
+                    tempLocations.pushObject([data.location.longitude,data.location.latitude,"basestation"]);
+                }));
+            });
+
+            $.when.apply($, promises).then(function() {
+                var locs = self.get("locations") || [];
+                locs.pushObjects(tempLocations);
+                self.set("locations", locs);
             });
         });
     }
