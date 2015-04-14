@@ -1,5 +1,7 @@
 App.MyMapComponent = Ember.Component.extend({
-	marker : null,
+    layoutName : 'components/my-map',
+
+    marker : null,
     map : null,
     defaultIcon : L.icon({
         iconUrl: 'img/marker-icon.png',
@@ -81,28 +83,30 @@ App.MyMapComponent = Ember.Component.extend({
                 map.setView(loc,13);
     },
 
-    didInsertElement : function(){
+    initialization : function(){
         this._super();
-
         var self = this;
 
-        $('.modal').on('shown.bs.modal', function (e) {
+        // init map
+        var map = L.map(self.mapName);
+        self.set('map',map);
+        self.updateMap();
 
-            // init map
-            var map = L.map(self.mapName);
-            self.set('map',map);
-            self.updateMap();
+        L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery � <a href="http://mapbox.com">Mapbox</a>',
+            maxZoom: 18
+        }).addTo(map);
 
-            L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery � <a href="http://mapbox.com">Mapbox</a>',
-                maxZoom: 18
-            }).addTo(map);
+        // init markers
+        self.updateMarker();
 
-            // init markers
-            self.updateMarker();
+        self.addObserver('location',self,self.updateMarker);
+        self.addObserver('location',self,self.updateMap);
+    },
 
-            self.addObserver('location',self,self.updateMarker);
-            self.addObserver('location',self,self.updateMap);
-        })
+    didInsertElement : function() {
+        this._super();
+
+        this.initialization();
     }
 });

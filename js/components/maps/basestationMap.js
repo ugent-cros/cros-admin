@@ -2,7 +2,7 @@
  * Created by matthias on 3/04/2015.
  */
 
-App.BasestationMapComponent = App.MyMapComponent.extend({
+App.BasestationMapComponent = App.PopupMapComponent.extend({
 
     icon : L.icon({
         iconUrl: 'img/basestationMarker.png',

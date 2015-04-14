@@ -2,7 +2,7 @@
  * Created by matthias on 3/04/2015.
  */
 
-App.DroneMapComponent = App.MyMapComponent.extend({
+App.DroneMapComponent = App.PopupMapComponent.extend({
 
     icon : L.icon({
         iconUrl: 'img/droneMarker.png',

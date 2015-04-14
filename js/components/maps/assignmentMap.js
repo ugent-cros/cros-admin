@@ -2,7 +2,7 @@
  * Created by matthias on 3/04/2015.
  */
 
-App.AssignmentMapComponent = App.MyMapComponent.extend({
+App.AssignmentMapComponent = App.PopupMapComponent.extend({
 
     icon : L.icon({
         iconUrl: 'img/checkpointMarker.png',
@@ -16,13 +16,9 @@ App.AssignmentMapComponent = App.MyMapComponent.extend({
     }),
     polyline : null,
 
-    didInsertElement : function(){
+    initialization : function(){
         this._super();
-
-        var self = this;
-        $('.modal').on('shown.bs.modal', function (e) {
-            self.updatepolyLine();
-        });
+        this.updatepolyLine();
     },
 
     updatepolyLine : function() {
