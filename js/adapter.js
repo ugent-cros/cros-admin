@@ -2,6 +2,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     linkLibrary : {},
 
     host : "http://localhost:9000",
+    namespace : "",
 	linksKey : "links",
 	delimiter : "-",
     
@@ -63,7 +64,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	
 	brol : function(urlObj, store) {
 		var self = this;
-		return self.ajax(self.host + urlObj.url, 'GET').then(function(data) {
+		return self.ajax(urlObj.url, 'GET').then(function(data) {
 			self.processLinks(data[store], urlObj.key);
 		});
 	},
@@ -143,7 +144,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 				if (params) {
 					urlObj.url += "?" + $.param(params);
 				}
-				return self.ajax(self.host + urlObj.url, 'GET');
+				return self.ajax(urlObj.url, 'GET');
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
 				return data[store];
@@ -153,7 +154,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     
     post : function(store, postData) {
 		var self = this;
-		return this.ajax(this.host + this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
+		return this.ajax(this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
             self.processLinks(data, "");
 			return data;
 		});
@@ -161,7 +162,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     
 	edit : function(store, id, editData) {
 		var self = this;
-		var url = this.host + this.linkLibrary[store + self.delimiter + id];
+		var url = this.linkLibrary[store + self.delimiter + id];
 		return this.ajax(url, 'PUT', {data: editData, xhr : self.progressTracker}).then(function(data) {
 			return data;
 		});
@@ -169,7 +170,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	
 	remove : function(store, id) {
 		var self = this;
-		var url = this.host + this.linkLibrary[store + self.delimiter + id];
+		var url = this.linkLibrary[store + self.delimiter + id];
 		return this.ajax(url, 'DELETE', { xhr : self.progressTracker}).then(function(data) {
 			return data;
 		});
