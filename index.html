@@ -67,9 +67,8 @@
 			</div>
 		</script>
 
-
 		<script type="text/x-handlebars" id="dashboard">
-			<p>This is a test</p>
+			{{popup-map mapName="dashboardMap"}}
 		</script>
 
         <script type="text/x-handlebars" id="drones">
@@ -308,7 +307,7 @@
 						</div>
 					</div>
 					<div class="col-xs-6">
-                        {{#assignment-map mapName="assignment" location=checkpointLocations}}{{/assignment-map}}
+                        {{assignment-map mapName="assignment" location=checkpointLocations}}
 					</div>
 				</div>
 			{{/popup-window}}
@@ -678,32 +677,8 @@
 			</div>
 		</script>
 
-        <script type="text/x-handlebars" id="_map">
-            <div {{bind-attr id=mapName}} style="height:500px;"></div>
-        </script>
-
         <script type="text/x-handlebars" id="components/my-map">
-            {{partial 'map'}}
-        </script>
-
-        <script type="text/x-handlebars" id="components/drone-map">
-            {{partial 'map'}}
-        </script>
-
-        <script type="text/x-handlebars" id="components/basestation-map">
-            {{partial 'map'}}
-        </script>
-
-        <script type="text/x-handlebars" id="components/basestation-add-map">
-            {{partial 'map'}}
-        </script>
-
-        <script type="text/x-handlebars" id="components/assignment-map">
-            {{partial 'map'}}
-        </script>
-
-        <script type="text/x-handlebars" id="components/assignments-add-map">
-            {{partial 'map'}}
+            <div {{bind-attr id=mapName}} style="height:500px;"></div>
         </script>
 
 		<script type="text/x-handlebars" id="components/time-graph">
@@ -752,7 +727,7 @@
         <script src="js/routers/usersRouter.js"></script>
 		<script src="js/models/drone.js"></script>
         <script src="js/controllers/listsController.js"></script>
-        <script src="js/controllers/appController.js"></script>
+        <script src="js/controllers/appcontroller.js"></script>
         <script src="js/controllers/loginController.js"></script>
 		<script src="js/controllers/droneController.js"></script>
         <script src="js/controllers/dronesController.js"></script>
@@ -766,6 +741,7 @@
         <script src="js/components/tableController.js"></script>
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
+        <script src="js/components/popupMap.js"></script>
         <script src="js/components/maps/DroneMap.js"></script>
         <script src="js/components/maps/basestationMap.js"></script>
         <script src="js/components/maps/basestationAddMap.js"></script>
