@@ -17,7 +17,7 @@ window.SocketManager = Ember.Object.extend({
 
         var self = this;
 
-        var url = this.get('url');
+        var url = this.adapter.linkLibrary["datasocket"];
         url = url.replace(/https?/, "ws");
 
         var s = new WebSocket(url + "?authToken=" + this.authManager.token());
