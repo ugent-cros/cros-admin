@@ -68,7 +68,18 @@
 		</script>
 
 		<script type="text/x-handlebars" id="dashboard">
-			{{dashboard-map mapName="dashboardMap" location=locations}}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="well">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="well">
+                        {{dashboard-map mapName="dashboardMap" location=locations}}
+                    </div>
+                </div>
+            </div>
 		</script>
 
         <script type="text/x-handlebars" id="drones">
