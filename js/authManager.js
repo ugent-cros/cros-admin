@@ -19,6 +19,8 @@ window.AuthManager = Ember.Object.extend({
     }.property("authToken"),
 
     logout: function(){
+        this.adapter.set("linkLibrary",{});
+        this.set("_private_user", undefined);
         $.removeCookie(this.get("cookieName"));
         this.set("authToken", null);
     },
