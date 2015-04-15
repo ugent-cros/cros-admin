@@ -14,7 +14,7 @@ App.DroneController = Ember.ObjectController.extend({
             self.set("altitude", data.altitude);
         });
         this.adapter.find("drone", this.get("model.id"), "location").then(function(data) {
-            self.set("location", data.location);
+            self.set("location", [data.location.longitude,data.location.latitude]);
         });
 
 
