@@ -13,6 +13,7 @@ App.MyMapComponent = Ember.Component.extend({
         shadowAnchor: [12, 41],  // the same for the shadow
         popupAnchor:  [0, -41] // point from which the popup should open relative to the iconAnchor
     }),
+    centered : true,
 
     currentIcon : function() {
         var i = this.get('icon');
@@ -71,16 +72,23 @@ App.MyMapComponent = Ember.Component.extend({
         }
     },
 
-    updateMap : function() {
+    updateMap : function(updateZoom) {
+        if (!this.get("centered"))
+            return;
+
         var loc = this.get('location');
         var map = this.get('map');
-        if (map)
+        updateZoom = typeof(updateZoom) === "boolean" ? updateZoom : false;
+
+        if (map) {
+            var zoomLevel = updateZoom || typeof(map.getZoom()) !== "number" ? 13 : map.getZoom();
             if (! loc)
                 map.setView([0,0],1);
             else if (loc[0] instanceof Array)
                 map.fitBounds(loc, {padding:[50,50]});
             else
-                map.setView(loc,13);
+                map.setView(loc,zoomLevel);
+        }
     },
 
     initialization : function(){
@@ -89,6 +97,17 @@ App.MyMapComponent = Ember.Component.extend({
 
         // init map
         var map = L.map(self.mapName);
+        var control = L.control.center({centered : this.get("centered"), update : function(value) {
+            self.set("centered", value);
+            if (value)
+                self.updateMap(true);
+        }});
+        map.on('dragstart', function(e) {
+            self.set("centered", false);
+            control.setCenter(false);
+        });
+        control.addTo(map);
+
         self.set('map',map);
         self.updateMap();
 
@@ -109,4 +128,40 @@ App.MyMapComponent = Ember.Component.extend({
 
         this.initialization();
     }
+
 });
+
+L.Control.Center = L.Control.extend({
+    options: {
+        position: 'bottomleft'
+    },
+
+    controlUI : undefined,
+
+    setCenter : function(value) {
+        this.options.centered = typeof(value) === "undefined" ? !this.options.centered : value;
+        this.options.update(this.options.centered);
+        this.controlUI.className = 'leaflet-control-center-interior' + (this.options.centered ? " leaflet-control-center-active" : "");
+    },
+
+    onAdd: function (map) {
+        var self = this;
+        var controlDiv = L.DomUtil.create('div', 'leaflet-control-center');
+        this.controlUI = L.DomUtil.create('div', 'leaflet-control-center-interior' + (this.options.centered ? " leaflet-control-center-active" : ""), controlDiv);
+        L.DomUtil.create('i', 'fa fa-location-arrow fa-2x',this.controlUI);
+
+        L.DomEvent
+            .addListener(controlDiv, 'click', L.DomEvent.stopPropagation)
+            .addListener(controlDiv, 'click', L.DomEvent.preventDefault)
+            .addListener(controlDiv, 'click', function () {
+                self.setCenter();
+            });
+
+        this.controlUI.title = 'Map Commands';
+        return controlDiv;
+    }
+});
+
+L.control.center = function(options) {
+    return new L.Control.Center(options);
+}
