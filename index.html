@@ -68,7 +68,18 @@
 		</script>
 
 		<script type="text/x-handlebars" id="dashboard">
-			{{popup-map mapName="dashboardMap"}}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="well">
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="well">
+                        {{dashboard-map mapName="dashboardMap" location=locations}}
+                    </div>
+                </div>
+            </div>
 		</script>
 
         <script type="text/x-handlebars" id="drones">
@@ -728,6 +739,7 @@
 		<script src="js/models/drone.js"></script>
         <script src="js/controllers/listsController.js"></script>
         <script src="js/controllers/appcontroller.js"></script>
+        <script src="js/controllers/dashboardController.js"></script>
         <script src="js/controllers/loginController.js"></script>
 		<script src="js/controllers/droneController.js"></script>
         <script src="js/controllers/dronesController.js"></script>
@@ -742,6 +754,7 @@
 		<script src="js/components/popup.js"></script>
 		<script src="js/components/map.js"></script>
         <script src="js/components/popupMap.js"></script>
+        <script src="js/components/maps/dashboardMap.js"></script>
         <script src="js/components/maps/DroneMap.js"></script>
         <script src="js/components/maps/basestationMap.js"></script>
         <script src="js/components/maps/basestationAddMap.js"></script>

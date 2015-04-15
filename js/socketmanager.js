@@ -24,34 +24,33 @@ window.SocketManager = Ember.Object.extend({
         this.set('socket', s);
         this.set('connection', true);
 
-        s.onClose = function() {
-            self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},self);
-
-            var timer = this.get('time');
-            if (timer) {
-                clearInterval(timer);
-            }
-            self.set('connection', false);
-        };
-
         if (s.readyState == 3 || s.readyState == 4) {
-            s.onClose(); // Close socket immediately if connection failed
+            this.onClose(); // Close socket immediately if connection failed
             return;
         } else {
             self.onMessage({data:'{"type": "notification","value": {"action" : "clear"}}'},self);
         }
 
-        s.onmessage = function(event) {
-            self.onMessage(event,self);
-        };
+        s.onClose = this.onClose;
+        s.onmessage = function(event) {self.onMessage(event,self);};
 
         this.set('timer', setInterval(function() {
             var s = self.get('socket');
             if (s.readyState == 3 || s.readyState == 4) {
                 s.onClose();
             }
-        }, 500));
+        }, 1000));
     }.observes("connection"),
+
+    onClose : function() {
+        this.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},this);
+
+        var timer = this.get('time');
+        if (timer) {
+            clearInterval(timer);
+        }
+        this.set('connection', false);
+    },
 
     disconnect : function() {
         clearInterval(this.get('timer'));
