@@ -20,36 +20,37 @@ window.SocketManager = Ember.Object.extend({
         var url = this.adapter.linkLibrary["datasocket"];
         url = url.replace(/https?/, "ws");
 
-        var s = new WebSocket(url + "?authToken=" + this.authManager.token());
-        this.set('socket', s);
         this.set('connection', true);
+        var s = new WebSocket(url + "?authToken=" + this.authManager.token());
+        self.set("socket", s);
 
-        if (s.readyState == 3 || s.readyState == 4) {
-            this.onClose(); // Close socket immediately if connection failed
+        /*if (s.readyState == 2 || s.readyState == 3) {
+            this.onClose(self); // Close socket immediately if connection failed
             return;
-        } else {
-            self.onMessage({data:'{"type": "notification","value": {"action" : "clear"}}'},self);
-        }
+        }*/
 
-        s.onClose = this.onClose;
+        s.onclose = function() { self.onClose(self) };
+        s.onopen = function() { self.onOpen(self); };
         s.onmessage = function(event) {self.onMessage(event,self);};
-
-        this.set('timer', setInterval(function() {
-            var s = self.get('socket');
-            if (s.readyState == 3 || s.readyState == 4) {
-                s.onClose();
-            }
-        }, 1000));
     }.observes("connection"),
 
-    onClose : function() {
-        this.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},this);
+    onClose : function(self) {
+        self.onMessage({data:'{"type": "notification","value": {"message" : "lost connection with server. Trying to reconnect..."}}'},this);
 
-        var timer = this.get('time');
-        if (timer) {
-            clearInterval(timer);
-        }
-        this.set('connection', false);
+        setTimeout(function() {
+            self.set('connection', false);
+        }, 1000);
+    },
+
+    onOpen : function(self) {
+        self.onMessage({data:'{"type": "notification","value": {"action" : "clear"}}'},self);
+
+        /*self.set('timer', setInterval(function() {
+            var s = self.get('socket');
+            if (s.readyState == 2 || s.readyState == 3) {
+                s.onclose();
+            }
+        }, 1000));*/
     },
 
     disconnect : function() {
@@ -60,6 +61,7 @@ window.SocketManager = Ember.Object.extend({
     },
 	
 	onMessage : function(event, self) {
+        console.log(event.data);
 		var jsonData = $.parseJSON(event.data);
 		if (self.listeners[jsonData.type]) {
 			var callbacks = self.listeners[jsonData.type][0] || [];
