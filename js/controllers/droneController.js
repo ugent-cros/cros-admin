@@ -14,7 +14,7 @@ App.DroneController = Ember.ObjectController.extend({
             self.set("altitude", data.altitude);
         });
         this.adapter.find("drone", this.get("model.id"), "location").then(function(data) {
-            self.set("location", [data.location.longitude,data.location.latitude]);
+            self.set("location", [data.location.latitude,data.location.longitude]);
         });
 
 
@@ -35,7 +35,7 @@ App.DroneController = Ember.ObjectController.extend({
 
         // TODO: set back to 'model.id' after testing
         this.socketManager.register("locationChanged", 0, function(data) {
-            self.set('location',[data.longitude,data.latitude]);
+            self.set('location',[data.latitude, data.longitude]);
             // todo: do something with gpsheight...?
         });
     }.observes("model"),

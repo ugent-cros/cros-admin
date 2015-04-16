@@ -21,7 +21,7 @@ App.DashboardController = Ember.Controller.extend({
             $.each(data.resource,function(i,d) {
                 self.adapter.find("drone", d.id, "location").then(function(data) {
                     var locs = self.get("locations") || [];
-                    locs.pushObject([data.location.longitude, data.location.latitude, "drone"]);
+                    locs.pushObject([data.location.latitude, data.location.longitude, "drone"]);
                     self.set("locations", locs);
                 });
             });
@@ -32,7 +32,7 @@ App.DashboardController = Ember.Controller.extend({
             $.each(data.resource,function(i,d) {
                 self.adapter.find("basestation", d.id, null).then(function(data) {
                     var locs = self.get("locations") || [];
-                    locs.pushObject([data.location.longitude,data.location.latitude,"basestation"]);
+                    locs.pushObject([data.location.latitude, data.location.longitude,"basestation"]);
                     self.set("locations", locs);
                 });
             });

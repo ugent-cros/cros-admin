@@ -103,7 +103,7 @@
                                     {{#link-to 'drone-edit' item.id class='btn btn-info'}}
                                     <i class="fa fa-pencil"></i>
                                     {{/link-to}}
-                                    <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                                    <a class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}}>
                                         <i class="fa fa-trash-o"></i>
                                     </a>
                                 {{/if}}
@@ -222,7 +222,7 @@
                             <a class='btn btn-info' href='#'>
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
+                            <a class='btn btn-danger' href='javascript:;' {{action 'delete' item.id}}>
                                 <i class="fa fa-trash-o"></i>
                             </a>
                         {{/if}}
@@ -339,7 +339,7 @@
                             {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
                             <i class="fa fa-pencil"></i>
                             {{/link-to}}
-                            <a class='btn btn-danger' href='#'>
+                            <a class='btn btn-danger' href='javascript:;' {{action 'delete' item.id}}>
                                 <i class="fa fa-trash-o"></i>
                             </a>
                         {{/if}}

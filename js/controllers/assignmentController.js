@@ -12,7 +12,7 @@ App.AssignmentController = Ember.Controller.extend({
         var route = this.get('model').route;
         var result = [];
         $.each(route, function(index,data) {
-            result.push([data.location.longitude,data.location.latitude]);
+            result.push([data.location.latitude,data.location.longitude]);
         });
         return result;
     }.property('model')
