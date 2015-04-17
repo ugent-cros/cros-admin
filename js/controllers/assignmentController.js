@@ -7,6 +7,33 @@
  */
 
 App.AssignmentController = Ember.Controller.extend({
+	
+	init : function() {
+        this._super();
+		this.registerForEvents();
+	},
+	
+	progress: function() {
+		var model = this.get('model');
+		if(model.progress == model.route.length) {
+			return 'completed';
+		} else if (model.progress == 0) {
+			return 'pending';
+		} else {
+			return 'in progress';
+		}
+	}.property('model.progress'),
+	
+	progressLabel: function() {
+		var model = this.get('model');
+		if(model.progress == model.route.length) {
+			return 'label-success';
+		} else if (model.progress == 0) {
+			return 'label-default';
+		} else {
+			return 'label-info';
+		}
+	}.property('model.progress'),
 
     checkpointLocations : function() {
         var route = this.get('model').route;
@@ -15,6 +42,30 @@ App.AssignmentController = Ember.Controller.extend({
             result.push([data.location.latitude,data.location.longitude]);
         });
         return result;
-    }.property('model')
+    }.property('model'),
+	
+	registerForEvents: function() {
+		var self = this;
+		this.socketManager.register("droneAssigned", 0, "assignment", function(data, id) {
+			self.adapter.find('assignment', id).then(function(assignment){
+				self.set('model', assignment);
+			});
+		});
+		this.socketManager.register("assignmentStarted", 0, "assignment", function(data, id) {
+			self.adapter.find('assignment', id).then(function(assignment){
+				self.set('model', assignment);
+			});
+		});
+		this.socketManager.register("assignmentProgressChanged", 0, "assignment", function(data, id) {
+			self.adapter.find('assignment', id).then(function(assignment){
+				self.set('model', assignment);
+			});
+		});
+		this.socketManager.register("assignmentCompleted", 0, "assignment", function(data, id) {
+			self.adapter.find('assignment', id).then(function(assignment){
+				self.set('model', assignment);
+			});
+		});
+	},
 
 });

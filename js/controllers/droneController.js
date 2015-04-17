@@ -18,8 +18,7 @@ App.DroneController = Ember.ObjectController.extend({
         });
 
 
-        // TODO: set back to 'model.id' after testing
-        this.socketManager.register("batteryPercentageChanged", 0, function(data) {
+        this.socketManager.register("batteryPercentageChanged", this.get("model.id"), "drone", function(data) {
             self.set('battery', data.percent);
             $('.batteryStatus').css('width', data.percent + '%');
             if(data.percent < 25)
@@ -28,13 +27,11 @@ App.DroneController = Ember.ObjectController.extend({
                 $('.batteryStatus').css('background-color', '#0A0');
         });
 
-        // TODO: set back to 'model.id' after testing
-        this.socketManager.register("altitudeChanged", 0, function(data) {
+        this.socketManager.register("altitudeChanged", this.get("model.id"), "drone", function(data) {
             self.set("altitude", data.altitude.toFixed(2));
         });
 
-        // TODO: set back to 'model.id' after testing
-        this.socketManager.register("locationChanged", 0, function(data) {
+        this.socketManager.register("locationChanged", this.get("model.id"), "drone", function(data) {
             self.set('location',[data.latitude, data.longitude]);
             // todo: do something with gpsheight...?
         });
