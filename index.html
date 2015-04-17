@@ -339,7 +339,7 @@
                             {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
                             <i class="fa fa-pencil"></i>
                             {{/link-to}}
-                            <a class='btn btn-danger' href='#'>
+                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
                                 <i class="fa fa-trash-o"></i>
                             </a>
                         {{/if}}
