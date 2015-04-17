@@ -3,13 +3,6 @@
  */
 
 App.DronesRoute = App.AuthRoute.extend({
-    setupController: function(controller, model) {
-        this._super(controller,model);
-        this.adapter.find("drone", null, "total").then(function(data) {
-            controller.set("total", data.total);
-        });
-    },
-
     model: function() {
         /*return this.fetch({store:'drone', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
             return data;

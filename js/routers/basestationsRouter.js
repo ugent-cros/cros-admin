@@ -4,9 +4,9 @@
 
 App.BasestationsRoute = App.AuthRoute.extend({
     model: function() {
-        return this.fetch({store:'basestation', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
+        /*return this.fetch({store:'basestation', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
             return data;
-        }});
+        }});*/
     }
 });
 
