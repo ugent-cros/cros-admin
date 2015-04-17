@@ -5,7 +5,6 @@ App.MyTableComponent = Ember.Component.extend({
     nrOfElements: [],
 
     initialize: function(){
-        console.log("init");
         var pageSize = 2;
         if(this.get('perPage')){
             pageSize = this.get('perPage');
@@ -26,7 +25,6 @@ App.MyTableComponent = Ember.Component.extend({
     },
 
     onLengthChange:function(){
-        console.log('length changed => select updated');
         this.initSelect();
     }.observes('length'),
 
