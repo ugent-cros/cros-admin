@@ -64,32 +64,26 @@ window.SocketManager = Ember.Object.extend({
         console.log(event.data);
 		var jsonData = $.parseJSON(event.data);
 		if (self.listeners[jsonData.type]) {
-			var callbacks = self.listeners[jsonData.type][0] || [];
-			if (jsonData.id && self.listeners[jsonData.type][jsonData.id]) {
-				callbacks.pushObjects(self.listeners[jsonData.type][jsonData.id]);
-			}
-			
-			$.each(callbacks, function(index, callback) {
-				callback(jsonData.value);
+			var listeners = self.listeners[jsonData.type];
+			$.each(listeners, function(index, listener) {
+				if(jsonData.id && (listener.id == 0 || jsonData.id == listener.id)) {
+					listener.callback(jsonData.value, jsonData.id);
+				}
 			});
 		}
 	},
 	
-	register : function(type, id, callback) {
+	register : function(type, id, controllerName, callback) {		
 		if (!id) {
 			id = 0;
 		}
 		
-		var typeCallbacks = this.listeners[type];
-		if (typeCallbacks) {
-			var idCallbacks = typeCallbacks[id] || [];
-			idCallbacks.push(callback);
-			typeCallbacks[id] = idCallbacks;
-		} else {
-			typeCallbacks = [];
-			typeCallbacks[id] = [callback];
+		var controllerCallbacks = this.listeners[type];
+		if(!controllerCallbacks) {
+			controllerCallbacks = {};
 		}
-		this.listeners[type] = typeCallbacks;
+		controllerCallbacks[controllerName] = {callback: callback, id: id};
+		this.listeners[type] = controllerCallbacks;
 	}
 
 });

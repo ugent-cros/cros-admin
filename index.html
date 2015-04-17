@@ -52,11 +52,12 @@
 				</section>
 
 				<!--Toolbar-->
-				<section id="tools" style="height:51px;" {{bind-attr class="notificationIsError:errorNotification"}}>
-					{{notification}}
-					{{#if notificationIsError}}
+				<section id="tools" style="height:51px;" {{bind-attr class="notificationType"}}>
+					<div id="notificationSlider">
+						<i class="fa fa-info-circle"></i> 
+						{{notification.message}}
 						<button type="button" class="close" aria-label="Close" {{action 'dismiss'}}><span aria-hidden="true">&times;</span></button>
-					{{/if}}
+					</div>
 				</section>
 
 				<!--Content-->>
@@ -71,14 +72,34 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="well">
-
+						<ul class="list-group">
+							<li class="list-group-item text-center notifications-title"><b>Notifications</b></li>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="scroll">
+										{{#if notificationsAvailable}}
+											{{#each item in notifications}}
+												<a href="javascript:;" class="list-group-item extra-padding" {{ action 'notificationClicked' item}}>
+													{{#unless item.seen}} <span class="badge">new</span>{{/unless}}
+													<b>#{{item.number}}:</b> {{item.message}} 
+													<span class="time">{{item.time}}</span>
+												</a>
+											{{/each}}	
+										{{else}}
+											<li class="list-group-item text-center no-notifications">no notifications to show</li>
+										{{/if}}
+									</div>
+									<button {{bind-attr class=":btn :btn-xs :pull-right isEnabled:enabled:disabled"}} {{ action 'removeSeenNotifications'}}>Remove seen notifications</button>
+								</div>
+							</div>
+						</ul>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="well">
-                        {{dashboard-map mapName="dashboardMap" location=locations}}
-                    </div>
-                </div>
+				<div class="col-md-6">
+					<div class="well">
+						{{dashboard-map mapName="dashboardMap" location=locations}}
+					</div>
+				</div>
             </div>
 		</script>
 
@@ -212,7 +233,7 @@
                 <td>{{item.id}}</td>
                 <td>{{item.priority}}</td>
                 <td>{{item.creator.email}}</td>
-                <td>{{item.assignedDrone}}</td>
+                <td>{{item.assignedDrone.name}}</td>
                 <td class='action'>
                     <div class="btn-group">
                         {{#link-to 'assignment' item.id class='btn btn-success'}}
@@ -306,7 +327,7 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-8"><label>Assigned drone:</label></div>
-							<div class="col-xs-4">{{model.assignedDrone}}</div>
+							<div class="col-xs-4">{{#link-to 'drone' model.assignedDrone.id}} {{model.assignedDrone.name}} {{/link-to}}</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-8"><label>Priority:</label></div>
@@ -314,7 +335,7 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-8"><label>Progress:</label></div>
-							<div class="col-xs-4">{{model.progress}}</div>
+							<div class="col-xs-4"><span {{bind-attr class=":label progressLabel"}}>{{progress}}</span></div>
 						</div>
 					</div>
 					<div class="col-xs-6">
