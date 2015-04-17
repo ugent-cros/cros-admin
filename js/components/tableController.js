@@ -6,11 +6,15 @@ App.MyTableComponent = Ember.Component.extend({
 
     initialize: function(){
         console.log("init");
-        this.sendAction('action', this.get('keyword'), this.get('searchField'), this.get('page'), this.get('perPage'));
+        var pageSize = 2;
+        if(this.get('perPage')){
+            pageSize = this.get('perPage');
+        }
+        this.sendAction('action', this.get('keyword'), this.get('searchField'), this.get('page'), pageSize);
+        this.initSelect();
     }.on("init"),
 
-    onLengthChange:function(){
-        console.log('length changed => select updated')
+    initSelect: function () {
         var list = [{label: "2", value: 2},
             {label: "10", value: 10},
             {label: "20", value: 20},
@@ -19,6 +23,11 @@ App.MyTableComponent = Ember.Component.extend({
         all['value'] = this.get('length');
         list.addObject(all);
         this.set('nrOfElements', list);
+    },
+
+    onLengthChange:function(){
+        console.log('length changed => select updated');
+        this.initSelect();
     }.observes('length'),
 
     begin: function(){
