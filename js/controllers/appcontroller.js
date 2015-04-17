@@ -3,7 +3,6 @@
  */
 
 App.AppController = Ember.Controller.extend({
-
     notification : {},
 	
 	notificationType: function() {
@@ -76,9 +75,18 @@ App.AppController = Ember.Controller.extend({
 	},
 	
 	handleEvent: function(data, id, func) {
+		var self = this;
 		$('#notificationSlider').slideUp('slow', function() {
 			func(data, id);
 			$('#notificationSlider').slideDown('slow');
+			var timeout = self.get('timeout');
+			if(timeout)
+				clearTimeout(timeout);
+			timeout = setTimeout(function() { 
+				self.set('notification', {});
+				$('#notificationSlider').hide();
+			}, 5000);
+			self.set('timeout', timeout);			
 		});
 	}
 });
