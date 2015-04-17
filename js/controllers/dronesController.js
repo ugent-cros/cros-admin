@@ -5,6 +5,7 @@ App.DronesController = App.ListSuperController.extend({
     columns : ['#','Name','Status','Emergency','Actions'],
     element : "drone",
     searchFields : ["name"],
+    total: null,
 
     actions:{
         emergency: function(id){

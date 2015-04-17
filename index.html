@@ -83,7 +83,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="drones">
-            {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="drones-add" userCanEdit=userCanEdit}}
+            {{#my-table columns=columns data=model length=total action="getPage" searchFields=searchFields addLink="drones-add" userCanEdit=userCanEdit}}
                 {{#each item in model.resource itemController='drone'}}
                     <tr>
                         <td>{{item.id}}</td>

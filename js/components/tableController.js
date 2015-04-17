@@ -5,6 +5,12 @@ App.MyTableComponent = Ember.Component.extend({
     nrOfElements: [],
 
     initialize: function(){
+        console.log("init");
+        this.sendAction('action', this.get('keyword'), this.get('searchField'), this.get('page'), this.get('perPage'));
+    }.on("init"),
+
+    onLengthChange:function(){
+        console.log('length changed => select updated')
         var list = [{label: "2", value: 2},
             {label: "10", value: 10},
             {label: "20", value: 20},
@@ -13,14 +19,22 @@ App.MyTableComponent = Ember.Component.extend({
         all['value'] = this.get('length');
         list.addObject(all);
         this.set('nrOfElements', list);
-    }.on("init"),
+    }.observes('length'),
 
     begin: function(){
-        return ((this.get('page') - 1) * this.get('perPage'))+1;
+        var perPage = 2;
+        if(this.get('perPage')){
+            perPage = this.get('perPage');
+        }
+        return ((this.get('page') - 1) * perPage)+1;
     }.property('page', 'perPage'),
 
     end: function(){
-        var max = ((this.get('page') * this.get('perPage'))-1)+1;
+        var perPage = 2;
+        if(this.get('perPage')){
+            perPage = this.get('perPage');
+        }
+        var max = ((this.get('page') * perPage)-1)+1;
         if(max > this.get('length')){
             return this.get('length');
         }
@@ -29,7 +43,12 @@ App.MyTableComponent = Ember.Component.extend({
 
     //calculate totalpages
     totalPages: function() {
-        return Math.ceil(this.get('length') / this.get('perPage'));
+        if (this.get('perPage')) {
+            return Math.ceil(this.get('length') / this.get('perPage'));
+        }
+        else{
+            return Math.ceil(this.get('length') / 2); //default!
+        }
     }.property('length', 'perPage'),
 
     //get collection with page numbers
@@ -48,7 +67,7 @@ App.MyTableComponent = Ember.Component.extend({
     //are there pages?
     hasPages: (function() {
         return this.get('totalPages') > 1;
-    }).property('totalPages'),
+    }).observes('length').property('totalPages'),
 
     //function to get the previous page
     prevPage: (function() {
