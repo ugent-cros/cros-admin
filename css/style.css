@@ -85,6 +85,7 @@
     cursor: pointer;
     color: #1ABC9C;
 }
+
 #customTableHeader
 {
     color: black;
@@ -102,4 +103,33 @@
 {
     webkit-box-shadow: none;
     box-shadow: none;
+}
+
+.list-group-item.extra-padding {
+	padding-bottom: 20px;
+}
+
+.list-group-item.notifications-title {
+	background-color: #CCC;
+}
+
+.list-group-item.no-notifications {
+	color: #BBB;
+}
+
+.time {
+	color: #AAA;
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	font-size: small;
+}
+
+.scroll {
+	height: 415px;
+	overflow-y:auto;
+}
+
+#notificationSlider {
+	display: none;
 }
