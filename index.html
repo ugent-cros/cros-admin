@@ -621,9 +621,9 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        {{#each column in columns}}
+                        {{#each column in columns itemController='column'}}
                             {{#if column.sortable}}
-                                <th><a class="btn" id="customTableHeader" {{action "sort" column.value}}>{{column.label}} {{#if column.sortable}} <i class="fa fa-sort"></i>{{/if}}</a></th>
+                                <th><a class="btn" id="customTableHeader" {{action "sort" column.value}}>{{column.label}} {{#if column.sortable}} <i {{bind-attr class="column.getIconClass"}}></i>{{/if}}</a></th>
                             {{else}}
                                 <th>{{column.label}}</th>
                             {{/if}}

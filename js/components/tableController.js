@@ -170,3 +170,24 @@ App.PageController = Ember.ObjectController.extend({
         return this.get('number') === this.get('currentPage');
     }).property('number', 'currentPage')
 });
+
+App.ColumnController = Ember.ObjectController.extend({
+
+    orderBy: Ember.computed.alias('parentController.orderBy'),
+    order: Ember.computed.alias('parentController.order'),
+
+    getIconClass: (function(){
+        console.log("changed");
+        var icon = "fa "
+        if(this.get('value') == this.get('orderBy')){
+            if(this.get('order') == 'desc'){
+                icon += "fa-sort-desc"
+            }else{
+                icon += "fa-sort-asc"
+            }
+        }else{
+            icon += "fa-sort"
+        }
+        return icon
+    }).property('value', 'orderBy', 'order')
+});
