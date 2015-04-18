@@ -85,3 +85,21 @@
     cursor: pointer;
     color: #1ABC9C;
 }
+#customTableHeader
+{
+    color: black;
+    font-weight: bold;
+    padding: 0px 0px;
+
+}
+#customTableHeader:hover
+{
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+#customTableHeader:active
+{
+    webkit-box-shadow: none;
+    box-shadow: none;
+}
