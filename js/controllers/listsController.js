@@ -55,8 +55,12 @@ App.ListSuperController = Ember.Controller.extend({
     actions: {
         delete: function (id) {
             var elementClass = this.get('element');
-            this.adapter.remove(elementClass, id);
-            this.refresh();
+            var result = this.adapter.remove(elementClass, id);
+            var self = this;
+            result.then(
+                function(){self.refresh();},
+                function(){self.refresh();}//todo: if fail?
+            );
         },
 
         getPage: function (search, searchField, page, perPage){
