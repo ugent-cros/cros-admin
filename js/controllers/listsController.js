@@ -18,17 +18,28 @@ App.ListSuperController = Ember.Controller.extend({
         }
     }.property("currentUser"),
 
-    loadPage: function(search, searchField, page, perPage) {
+    loadPage: function(search, searchField, page, perPage, orderBy, order) {
         var self = this;
         var elementClass = self.get('element');
-        if(perPage == "all")
-            var params =  {total: true};
-        else
+        //parameters
+        if(perPage == "all") {
+            var params = {total: true};
+        }else {
             var params = {pageSize: perPage, page: (page - 1), total: true};
+        }
         if (searchField != null) {
             params[searchField] = search;
         }
+        if(orderBy != null && order!=null){
+            params['orderBy'] = orderBy;
+            params['order'] = order;
+        }else{
+            params['orderBy'] = 'id';
+            params['order'] = 'asc';
+        }
+        //save parameters
         this.set('params', params);
+        //call to rest
         this.adapter.find(elementClass, null, null, params).then(function(data){
             self.set('model',data);
             return data;
@@ -36,14 +47,14 @@ App.ListSuperController = Ember.Controller.extend({
     },
 
     refresh: function(){
+        var self = this;
+        var elementClass = this.get('element');
         //first get last saved parameter or use default parameters
         if(!this.get('params')){
-            var params = {pageSize: 2, page: 1, total: true};
+            var params = {pageSize: 2, page: 1, total: true, orderBy: "id", order:"asc"};
         }else{
             var params = this.get('params');
         }
-        var elementClass = this.get('element');
-        var self = this;
         //call to rest
         this.adapter.find(elementClass, null, null, params).then(function(data){
             self.set('model',data);
@@ -59,8 +70,8 @@ App.ListSuperController = Ember.Controller.extend({
             this.refresh();
         },
 
-        getPage: function (search, searchField, page, perPage){
-            this.loadPage(search, searchField, page,perPage);
+        getPage: function (search, searchField, page, perPage, orderBy, order){
+            this.loadPage(search, searchField, page,perPage, orderBy, order);
         }
     }
 });

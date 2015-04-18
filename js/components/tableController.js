@@ -1,5 +1,6 @@
 App.MyTableComponent = Ember.Component.extend({
 
+    /*****************************Paging*****************************/
     page: 1,
     perPage: 2, //todo debug value
     nrOfElements: [],
@@ -117,23 +118,47 @@ App.MyTableComponent = Ember.Component.extend({
         var search = document.getElementById("searchbox").value;
         this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
     }.observes('perPage'),
+    /*****************************Sorting*****************************/
+
+    orderBy: "id",
+    order: "asc",
+
+    /*****************************Searching*****************************/
 
     keyword: null,
     searchField: null,
 
+    /*****************************Actions*****************************/
     actions: {
         selectPage: function (number) {
-            var self = this;
             var search = this.get('keyword');
             this.set('page', number);
-            this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
+            this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'), this.get('orderBy'), this.get('order'));
         },
 
         search: function(string){
             //reset page to 1
             this.set('page', 1);
             //send search
-            this.sendAction('action', string, this.get('searchField'), this.get('page'), this.get('perPage'));
+            this.sendAction('action', string, this.get('searchField'), this.get('page'), this.get('perPage'), this.get('orderBy'), this.get('order'));
+        },
+
+        sort: function(column){
+            var order = this.get('order');
+            if(this.get('orderBy') == column){
+                if(order && order == 'asc'){
+                    order = 'desc';
+                }else{
+                    order = 'asc'
+                }
+            }else{
+                order = 'asc'
+            }
+            //set new values
+            this.set('orderBy', column);
+            this.set('order', order);
+            //send request
+            this.sendAction('action', this.get('keyword'), this.get('searchField'), this.get('page'), this.get('perPage'), this.get('orderBy'), this.get('order'));
         }
     }
 });
