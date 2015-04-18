@@ -17,15 +17,16 @@ App.MyTableComponent = Ember.Component.extend({
         var list = [{label: "2", value: 2},
             {label: "10", value: 10},
             {label: "20", value: 20},
-            {label: "50", value: 50}];
-        var all = {label: "all"};
+            {label: "50", value: 50},
+            {label: "all", value: "all"}];
+        /*var all = {label: "all"};
         all['value'] = this.get('length');
-        list.addObject(all);
+        list.addObject(all);*/
         this.set('nrOfElements', list);
     },
 
     onLengthChange:function(){
-        this.initSelect();
+
     }.observes('length'),
 
     begin: function(){
@@ -73,7 +74,10 @@ App.MyTableComponent = Ember.Component.extend({
 
     //are there pages?
     hasPages: (function() {
-        return this.get('totalPages') > 1;
+        if(this.get('perPage') == "all")
+            return false;
+        else
+            return this.get('totalPages') > 1;
     }).observes('length').property('totalPages'),
 
     //function to get the previous page
@@ -111,9 +115,6 @@ App.MyTableComponent = Ember.Component.extend({
         //reset page to 1
         this.set('page', 1);
         var search = document.getElementById("searchbox").value;
-        if(this.get('perPage') == "all"){
-            this.set('perPage', this.get('length'));
-        }
         this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
     }.observes('perPage'),
 
