@@ -5,6 +5,9 @@ App.UsersController = App.ListSuperController.extend({
 });
 
 App.UserEditController = Ember.Controller.extend({
+    needs: 'users',
+    index: Ember.computed.alias("controllers.users"),
+
 	roles: [
 		{name: "User", value: "USER"},
 		{name: "Admin", value: "ADMIN"},
@@ -48,8 +51,14 @@ App.UserEditController = Ember.Controller.extend({
 				var result = this.adapter.post('user', jsonObject);
 			var self = this;
 			result.then(
-				function(data) { self.success(data.user.id); },
-				function(data) { self.failure(data); }
+				function(data) {
+                    self.success(data.user.id);
+                    self.get('index').refresh();
+                },
+				function(data) {
+                    self.failure(data);
+                    self.get('index').refresh();
+                }
 			);
 		}
 	}

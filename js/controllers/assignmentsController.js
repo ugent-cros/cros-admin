@@ -5,6 +5,9 @@ App.AssignmentsController = App.ListSuperController.extend({
 });
 
 App.AssignmentsAddController = Ember.ArrayController.extend({
+    needs: 'assignments',
+    index: Ember.computed.alias("controllers.assignments"),
+
 	selected: null,	
 	checkpoints: Ember.A([
 		{ id: 0,  latitude: null, longitude: null, altitude: null, waitingTime: null }
@@ -75,8 +78,14 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 			var result = this.adapter.post('assignment', jsonObject);
 			var self = this;
 			result.then(
-				function(data) { self.success(data.assignment.id); },
-				function(data) { self.failure(data); }
+				function(data) {
+                    self.success(data.assignment.id);
+                    self.get('index').refresh();
+                },
+				function(data) {
+                    self.failure(data);
+                    self.get('index').refresh();
+                }
 			);
 		},
 		

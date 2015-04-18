@@ -22,7 +22,10 @@ App.TypeController = Ember.ObjectController.extend({
     }.property()
 });
 
-App.DroneEditController = Ember.Controller.extend({	
+App.DroneEditController = Ember.Controller.extend({
+    needs: 'drones',
+    index: Ember.computed.alias("controllers.drones"),
+
 	success: function(id) {
 		this.set('name', '');
 		this.set('address', '');
@@ -71,8 +74,14 @@ App.DroneEditController = Ember.Controller.extend({
 				var result = this.adapter.post('drone', jsonObject);
 			var self = this;
 			result.then(
-				function(data) { self.success(data.drone.id); },
-				function(data) { self.failure(data); }
+				function(data) {
+                    self.success(data.drone.id);
+                    self.get('index').refresh();
+                },
+				function(data) {
+                    self.failure(data);
+                    self.get('index').refresh();
+                }
 			);
 		},
 
