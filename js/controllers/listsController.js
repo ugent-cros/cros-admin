@@ -56,16 +56,11 @@ App.ListSuperController = Ember.Controller.extend({
         delete: function (id) {
             var elementClass = this.get('element');
             this.adapter.remove(elementClass, id);
-            //refresh
-            var search = document.getElementById("searchbox").value;
-            var searchField = document.getElementById("searchFields").value;
-            var perPage = document.getElementById("perPage").value;
-            this.loadPage(search,searchField,1,perPage);
+            this.refresh();
         },
 
         getPage: function (search, searchField, page, perPage){
             this.loadPage(search, searchField, page,perPage);
-            //todo: if total = 0
         }
     }
 });
