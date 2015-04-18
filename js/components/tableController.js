@@ -25,9 +25,9 @@ App.MyTableComponent = Ember.Component.extend({
         this.set('nrOfElements', list);
     },
 
-    onLengthChange:function(){
-
-    }.observes('length'),
+    isEmpty: function(){
+        return this.get('length') == 0;
+    }.property('length'),
 
     begin: function(){
         var perPage = 2;
