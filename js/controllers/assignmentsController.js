@@ -1,5 +1,10 @@
 App.AssignmentsController = App.ListSuperController.extend({
-    columns : ['#','Priority','Creator','Drone','Actions'],
+    columns : [{label:'#', value:"id", sortable:1},
+        {label:'Priority', value: "priority", sortable:1},
+        {label:'Creator', value:"creator", sortable:1},
+        {label:'Drone', value: "assignedDrone", sortable:1},
+        {label:'Actions', sortable:0}
+    ],
     element : "assignment",
     searchFields : ["creator","drone"]
 });

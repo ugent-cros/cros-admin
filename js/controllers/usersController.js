@@ -1,5 +1,10 @@
 App.UsersController = App.ListSuperController.extend({
-    columns : ['#','Name','E-mail','Role','Actions'],
+    columns : [{label:'#', value:"id", sortable:1},
+        {label:'Name', value: "firstName", sortable:1},
+        {label:'E-mail', value:"email", sortable:1},
+        {label:'Role', value: "role", sortable:1},
+        {label:'Actions', sortable:0}
+    ],
     element : 'user',
     searchFields : ["firstName", "lastName"]
 });
