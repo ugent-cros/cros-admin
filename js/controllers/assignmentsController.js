@@ -27,8 +27,8 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
                     checkpoints.pushObject({});
 
                 Ember.set(checkpoints[i], 'id', i);
-                Ember.set(checkpoints[i], 'longitude', location[0]);
-                Ember.set(checkpoints[i], 'latitude', location[1]);
+                Ember.set(checkpoints[i], 'latitude', location[0]);
+                Ember.set(checkpoints[i], 'longitude', location[1]);
             });
         }
 
@@ -36,7 +36,7 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
         var result = [];
         $.each(this.get("checkpoints"), function() {
             if (this.latitude && this.longitude)
-                result.push([this.longitude, this.latitude]);
+                result.push([this.latitude, this.longitude]);
         });
         if (result.length > 0)
             return Ember.A(result);
@@ -176,5 +176,5 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 			if(data.responseJSON.priority)
 				$('#droneAlert').append($('<p>').text('Priority: ' + data.responseJSON.priority));
 		}
-	},
+	}
 });

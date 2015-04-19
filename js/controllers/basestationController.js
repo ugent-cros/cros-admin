@@ -6,7 +6,7 @@ App.BasestationController = Ember.Controller.extend({
 
     basestationLocation : function() {
         var loc = this.get('model').location;
-        return [loc.longitude, loc.latitude];
+        return [loc.latitude, loc.longitude];
     }.property('model')
 
 });

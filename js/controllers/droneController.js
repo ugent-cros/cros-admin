@@ -14,11 +14,10 @@ App.DroneController = Ember.ObjectController.extend({
             self.set("altitude", data.altitude);
         });
         this.adapter.find("drone", this.get("model.id"), "location").then(function(data) {
-            self.set("location", [data.location.longitude,data.location.latitude]);
+            self.set("location", [data.location.latitude,data.location.longitude]);
         });
 
 
-        // TODO: set back to 'model.id' after testing
         this.socketManager.register("batteryPercentageChanged", this.get("model.id"), "drone", function(data) {
             self.set('battery', data.percent);
             $('.batteryStatus').css('width', data.percent + '%');
@@ -28,14 +27,12 @@ App.DroneController = Ember.ObjectController.extend({
                 $('.batteryStatus').css('background-color', '#0A0');
         });
 
-        // TODO: set back to 'model.id' after testing
         this.socketManager.register("altitudeChanged", this.get("model.id"), "drone", function(data) {
             self.set("altitude", data.altitude.toFixed(2));
         });
 
-        // TODO: set back to 'model.id' after testing
         this.socketManager.register("locationChanged", this.get("model.id"), "drone", function(data) {
-            self.set('location',[data.longitude,data.latitude]);
+            self.set('location',[data.latitude, data.longitude]);
             // todo: do something with gpsheight...?
         });
     }.observes("model"),
