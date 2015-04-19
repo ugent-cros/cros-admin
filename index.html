@@ -582,17 +582,18 @@
 										{{input value=passwordInput placeholder="Password" type="password" class='form-control' id='password' }}
 									</div>
 									<div class='text-center'>
-										<div class='checkbox'>
+										<!--<div class='checkbox'>
 											<label>
 												<input type='checkbox'>
 												Remember me on this computer
 											</label>
-										</div>
+										</div>-->
 										<button class="btn btn-default" {{ action 'login' }}>Sign in</button>
-										<br>
-											<a href="javascript:;">Forgot password?</a>
-											<a href="javascript:;" data-toggle="popover" title="register" data-content="Contact your system administrator to add new accounts">Register</a>
 									</div>
+                                    <div class="text-center">
+                                        <a href="javascript:;" data-toggle="popover" data-placement="left" title="forgot" data-content="If you forgot your password, please contact the administrator.">Forgot password?</a>
+                                        <a href="javascript:;" data-toggle="popover" title="register" data-content="Contact your system administrator to add new accounts">Register</a>
+                                    </div>
 								</fieldset>
 							</form>
 						</div>
