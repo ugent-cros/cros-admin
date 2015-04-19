@@ -4,10 +4,9 @@
 
 App.DronesRoute = App.AuthRoute.extend({
     model: function() {
-        var self = this;
-        return this.fetch({store:'drone', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
+        /*return this.fetch({store:'drone', options : {pageSize : 2, page : 0, total:true}, callback: function(data) {
             return data;
-        }});
+        }});*/
     }
 });
 

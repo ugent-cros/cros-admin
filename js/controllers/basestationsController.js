@@ -6,6 +6,8 @@ App.BasestationsController = App.ListSuperController.extend({
 });
 
 App.BasestationEditController = Ember.Controller.extend({
+    needs: 'basestations',
+    index: Ember.computed.alias("controllers.basestations"),
 
     nameError : "",
     hasNameError : function() {
@@ -85,8 +87,14 @@ App.BasestationEditController = Ember.Controller.extend({
                 var result = this.adapter.post('basestation', jsonObject);
             var self = this;
             result.then(
-                function(data) { self.success(data); },
-                function(data) { self.failure(data); }
+                function(data) {
+                    self.success(data);
+                    self.get('index').refresh();
+                },
+                function(data) {
+                    self.failure(data);
+                    self.get('index').refresh();
+                }
             );
         }
     }

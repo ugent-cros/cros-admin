@@ -5,22 +5,44 @@ App.MyTableComponent = Ember.Component.extend({
     nrOfElements: [],
 
     initialize: function(){
+        var pageSize = 2;
+        if(this.get('perPage')){
+            pageSize = this.get('perPage');
+        }
+        this.sendAction('action', this.get('keyword'), this.get('searchField'), this.get('page'), pageSize);
+        this.initSelect();
+    }.on("init"),
+
+    initSelect: function () {
         var list = [{label: "2", value: 2},
             {label: "10", value: 10},
             {label: "20", value: 20},
-            {label: "50", value: 50}];
-        var all = {label: "all"};
+            {label: "50", value: 50},
+            {label: "all", value: "all"}];
+        /*var all = {label: "all"};
         all['value'] = this.get('length');
-        list.addObject(all);
+        list.addObject(all);*/
         this.set('nrOfElements', list);
-    }.on("init"),
+    },
+
+    isEmpty: function(){
+        return this.get('length') == 0;
+    }.property('length'),
 
     begin: function(){
-        return ((this.get('page') - 1) * this.get('perPage'))+1;
+        var perPage = 2;
+        if(this.get('perPage')){
+            perPage = this.get('perPage');
+        }
+        return ((this.get('page') - 1) * perPage)+1;
     }.property('page', 'perPage'),
 
     end: function(){
-        var max = ((this.get('page') * this.get('perPage'))-1)+1;
+        var perPage = 2;
+        if(this.get('perPage')){
+            perPage = this.get('perPage');
+        }
+        var max = ((this.get('page') * perPage)-1)+1;
         if(max > this.get('length')){
             return this.get('length');
         }
@@ -29,7 +51,12 @@ App.MyTableComponent = Ember.Component.extend({
 
     //calculate totalpages
     totalPages: function() {
-        return Math.ceil(this.get('length') / this.get('perPage'));
+        if (this.get('perPage')) {
+            return Math.ceil(this.get('length') / this.get('perPage'));
+        }
+        else{
+            return Math.ceil(this.get('length') / 2); //default!
+        }
     }.property('length', 'perPage'),
 
     //get collection with page numbers
@@ -47,8 +74,11 @@ App.MyTableComponent = Ember.Component.extend({
 
     //are there pages?
     hasPages: (function() {
-        return this.get('totalPages') > 1;
-    }).property('totalPages'),
+        if(this.get('perPage') == "all")
+            return false;
+        else
+            return this.get('totalPages') > 1;
+    }).observes('length').property('totalPages'),
 
     //function to get the previous page
     prevPage: (function() {
@@ -85,9 +115,6 @@ App.MyTableComponent = Ember.Component.extend({
         //reset page to 1
         this.set('page', 1);
         var search = document.getElementById("searchbox").value;
-        if(this.get('perPage') == "all"){
-            this.set('perPage', this.get('length'));
-        }
         this.sendAction('action', search, this.get('searchField'), this.get('page'), this.get('perPage'));
     }.observes('perPage'),
 
