@@ -2,7 +2,12 @@
  * Created by Eveline on 25/03/2015.
  */
 App.DronesController = App.ListSuperController.extend({
-    columns : ['#','Name','Status','Emergency','Actions'],
+    columns : [{label:'#', value:"id", sortable:1},
+                {label:'Name', value: "name", sortable:1},
+                {label:'Status', value:"status", sortable:1},
+                {label:'Emergency', sortable:0},
+                {label:'Actions', sortable:0}
+    ],
     element : "drone",
     searchFields : ["name"],
     total: null,

@@ -9,9 +9,9 @@
               href="img/logo_icon.png">
 
 		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel='stylesheet' href='css/nprogress.css'/>
 		<link rel="stylesheet" href="css/leaflet.css" />
@@ -642,8 +642,12 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        {{#each column in columns}}
-                            <th>{{column}}</th>
+                        {{#each column in columns itemController='column'}}
+                            {{#if column.sortable}}
+                                <th><a class="btn" id="customTableHeader" {{action "sort" column.value}}>{{column.label}} {{#if column.sortable}} <i {{bind-attr class="column.getIconClass"}}></i>{{/if}}</a></th>
+                            {{else}}
+                                <th>{{column.label}}</th>
+                            {{/if}}
                         {{/each}}
                     </tr>
                     </thead>

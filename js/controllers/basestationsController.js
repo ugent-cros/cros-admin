@@ -1,6 +1,9 @@
 
 App.BasestationsController = App.ListSuperController.extend({
-    columns : ['#','Name','Actions'],
+    columns : [{label:'#', value:"id", sortable:1},
+        {label:'Name', value: "name", sortable:1},
+        {label:'Actions', sortable:0}
+    ],
     element : 'basestation',
     searchFields : ["name"]
 });
