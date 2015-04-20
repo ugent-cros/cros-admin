@@ -30,19 +30,20 @@ App.MyMapComponent = Ember.Component.extend({
     updateMarker : function() {
         var loc = this.get('location');
         var markers = this.get('marker') || [];
+        var map = this.get("map");
         var self = this;
 
         if (!loc) {
             // remove existing markers
             $.each(markers, function(index,data) {
-                self.get('map').removeLayer(data);
+                map.removeLayer(data);
             });
             this.set('marker', []);
-        } else if(loc[0] instanceof Array) {
+        } else if(loc instanceof Array) {
             // multiple locations
             if (markers.length <= loc.length) {
-                $.each(markers, function(index,data) { // update location of allready existing markers
-                    data.setLatLng(loc[index]);
+                $.each(markers, function(index,m) { // update location of allready existing markers
+                    m.setLatLng(loc[index]);
                 });
                 $.each(loc.slice(markers.length,loc.length), function(index,data) { // add new markers
                     markers.push(self.createMarker(data, index));
@@ -84,7 +85,7 @@ App.MyMapComponent = Ember.Component.extend({
             var zoomLevel = updateZoom || typeof(map.getZoom()) !== "number" ? 13 : map.getZoom();
             if (! loc)
                 map.setView([0,0],1);
-            else if (loc[0] instanceof Array)
+            else if (loc instanceof Array)
                 map.fitBounds(loc, {padding:[50,50]});
             else
                 map.setView(loc,zoomLevel);
@@ -120,6 +121,8 @@ App.MyMapComponent = Ember.Component.extend({
         self.updateMarker();
 
         self.addObserver('location.@each',self,self.updateMarker);
+        self.addObserver('location.@each.lon',self,self.updateMarker);
+        self.addObserver('location.@each.lat',self,self.updateMarker);
         self.addObserver('location.@each',self,self.updateMap);
     },
 

@@ -21,9 +21,15 @@ App.DashboardController = Ember.Controller.extend({
         // get all drone locations
         this.adapter.find("drone", null, null).then(function(data) {
             $.each(data.resource,function(i,d) {
+                var currentId = d.id;
                 self.adapter.find("drone", d.id, "location").then(function(data) {
-                    var locs = self.get("locations") || [];
-                    locs.pushObject([data.location.latitude, data.location.longitude, "drone"]);
+                    var locs = self.get("locations") || Ember.A();
+                    locs.pushObject(Ember.Object.create({
+                        lat : data.location.latitude,
+                        lon : data.location.longitude,
+                        type : "drone",
+                        id : currentId
+                    }));
                     self.set("locations", locs);
                 });
             });
@@ -32,9 +38,15 @@ App.DashboardController = Ember.Controller.extend({
         // get all basestation locations
         this.adapter.find("basestation", null, null).then(function(data) {
             $.each(data.resource,function(i,d) {
+                var currentId = d.id;
                 self.adapter.find("basestation", d.id, null).then(function(data) {
-                    var locs = self.get("locations") || [];
-                    locs.pushObject([data.location.latitude, data.location.longitude,"basestation"]);
+                    var locs = self.get("locations") || Ember.A();
+                    locs.pushObject(Ember.Object.create({
+                        lat : data.location.latitude,
+                        lon : data.location.longitude,
+                        type : "basestation",
+                        id : currentId
+                    }));
                     self.set("locations", locs);
                 });
             });
@@ -95,8 +107,20 @@ App.DashboardController = Ember.Controller.extend({
 					notifications.unshiftObject({ number: notifications.length, message: message, link:'assignment', id: id, seen: false, time: self.getTime() });
 			});
         });
-	},
-	
+
+        this.socketManager.register("locationChanged", 0, "dashboard", function(data,id) {
+            var locs = self.get("locations");
+            if (!locs)
+                return;
+
+            var current = locs.filter(function(t) {return t.id === parseInt(id) && t.type === "drone";})[0];
+            if (!current)
+                return;
+            current.set("lat", data.latitude);
+            current.set("lon", data.longitude);
+        });
+    },
+
 	getTime: function() {
 		var dt = new Date();
 		return '(' + dt.toLocaleTimeString() + ')';
