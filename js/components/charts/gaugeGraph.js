@@ -12,7 +12,7 @@ App.GaugeGraphComponent = Ember.Component.extend({
                 tickOffset: 20
         });
         var self = this;
-        this.socketManager.register("batteryPercentageChanged", this.get("drone"), "drone", function(data) {
+        this.socketManager.register("batteryPercentageChanged", this.get("drone"), "gaugegraph", function(data) {
             console.log("DATA: " + data.percent);
             chart.update((data.percent/100));
         });

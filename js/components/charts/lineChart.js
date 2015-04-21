@@ -13,7 +13,7 @@ App.LineGraphComponent = Ember.Component.extend({
         });
         this.set('chart',chart);
 
-        this.socketManager.register("altitudeChanged", this.get("drone"), "drone", function(data) {
+        this.socketManager.register("altitudeChanged", this.get("drone"), "linegraph", function(data) {
             var entry = [];
             var timestamp = Date.now() / 1000 | 0;
             entry.push({ time: timestamp, y: data.altitude.toFixed(2) });
