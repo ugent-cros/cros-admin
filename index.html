@@ -105,7 +105,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="well">
-                        {{pie-chart}}
+                        <div class="row">
+                            <div class="col-sm-9">
+                            {{pie-chart}}
+                            </div>
+                            <div class="col-sm-3" id="legend">
+                                <h5><span class="label label-unavailable">Unavailable</span></h5>
+                                <h5><span class="label label-available">Available</span></h5>
+                                <h5><span class="label label-inflight">In flight</span></h5>
+                                <h5><span class="label label-charging">Charging</span></h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -749,7 +759,7 @@
         </script>
 
         <script type="text/x-handlebars" id="components/pie-chart">
-            <div  class="epoch category2 b" id="pie" style="width: 400px; height: 400px"></div>
+            <div  class="epoch category2 b" id="pie" style="width: 350px; height: 350px"></div>
         </script>
 
         <script type="text/x-handlebars" id="components/user-display">
