@@ -16,14 +16,11 @@ App.DroneMapComponent = App.PopupMapComponent.extend({
     }),
     polyline : null,
 
-    didInsertElement : function(){
+    initialization : function(){
         this._super();
 
-        var self = this;
-        $('.modal').on('shown.bs.modal', function (e) {
-            var polyline = L.polyline([], {color: 'blue'}).addTo(self.get('map'));
-            self.set('polyline', polyline);
-        });
+        var polyline = L.polyline([], {color: 'blue'}).addTo(self.get('map'));
+        self.set('polyline', polyline);
     },
 
     updateMarker : function() {

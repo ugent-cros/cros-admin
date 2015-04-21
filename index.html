@@ -335,11 +335,11 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-8"><label>Progress:</label></div>
-							<div class="col-xs-4"><span {{bind-attr class=":label progressLabel"}}>{{progress}}</span></div>
+							<div class="col-xs-4"><span {{bind-attr class=":label progressLabel"}}>{{progressText}}</span></div>
 						</div>
 					</div>
 					<div class="col-xs-6">
-                        {{assignment-map mapName="assignment" location=checkpointLocations}}
+                        {{assignment-map mapName="assignment" location=checkpointLocations droneLocation=droneLocation progress=model.progress}}
 					</div>
 				</div>
 			{{/popup-window}}

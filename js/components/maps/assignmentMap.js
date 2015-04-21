@@ -19,20 +19,56 @@ App.AssignmentMapComponent = App.PopupMapComponent.extend({
     initialization : function(){
         this._super();
         this.updatepolyLine();
+
+        var polyline = L.polyline([], {color: '#1abc9c'}).addTo(self.get('map')); // TODO: smooth factor?
+        self.set('dronePolyline', polyline);
     },
 
     updatepolyLine : function() {
-        if (this.get("polyline"))
-            this.get("map").removeLayer(this.get("polyline"));
-        var polyline = L.polyline([], {color: 'blue'}).addTo(this.get('map'));
+        // cleanup
+        if (this.get("completedAssignmentPolyline"))
+            this.get("map").removeLayer(this.get("completedAssignmentPolyline"));
+        if (this.get("uncompletedAssignmentPolyline"))
+            this.get("map").removeLayer(this.get("uncompletedAssignmentPolyline"));
+
+        // assignment line
+        var polylineCompleted = L.polyline([], {color: 'green'}).addTo(this.get('map')); // TODO: smooth factor?
+        var polylineUncomplete = L.polyline([], {color: 'blue'}).addTo(this.get('map')); // TODO: smooth factor?
+        var progress = this.get("progress");
         $.each(this.get('marker'), function(index,data) {
-            polyline.addLatLng(data.getLatLng());
+            if (index < progress) {
+                polylineUncomplete.addLatLng(data.getLatLng());
+            } else if (progress == index) {
+                polylineUncomplete.addLatLng(data.getLatLng());// last point of
+                polylineCompleted.addLatLng(data.getLatLng()); // first point of
+            } else {
+                polylineCompleted.addLatLng(data.getLatLng());
+            }
         });
-        this.set('polyline', polyline);
+        this.set('completedAssignmentPolyline', polylineCompleted);
+        this.set('completedAssignmentPolyline', polylineUncomplete);
+
+        if (this.get('dronePolyline') && this.get('droneLocation'))
+            this.get('dronePolyline').addLatLng(this.get('droneLocation'));
     },
 
     updateMarker : function() {
         this._super();
+
+        var drone = this.get("droneLocation");
+        var marker = this.get("droneMarker");
+        if (drone) {
+            if (marker) {
+                // TODO: marker set latlng
+            } else {
+                // TODO: create marker with latlng
+            }
+        } else {
+            if (marker) {
+                this.get("map").removeLayer(marker);
+                this.set("droneMarker", null);
+            }
+        }
 
         this.updatepolyLine();
     }
