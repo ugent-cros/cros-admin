@@ -102,6 +102,13 @@
 					</div>
 				</div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="well">
+                        {{pie-chart}}
+                    </div>
+                </div>
+            </div>
 		</script>
 
         <script type="text/x-handlebars" id="drones">
@@ -740,6 +747,10 @@
             <div class="epoch category10" id="lineChart" style="width: 800px; height: 200px"></div>
         </script>
 
+        <script type="text/x-handlebars" id="components/pie-chart">
+            <div  class="epoch category2 b" id="pie" style="width: 400px; height: 400px"></div>
+        </script>
+
         <script type="text/x-handlebars" id="components/user-display">
             <ul class="nav navbar-nav pull-right">
                 <li class="dropdown">
@@ -808,8 +819,9 @@
         <script src="js/components/maps/assignmentMap.js"></script>
         <script src="js/components/maps/assignmentsAddMap.js"></script>
         <script src="js/components/userdisplay.js"></script>
-		<script src="js/components/liveGraph.js"></script>
-        <script src="js/components/lineChart.js"></script>
+		<script src="js/components/charts/liveGraph.js"></script>
+        <script src="js/components/charts/lineChart.js"></script>
+        <script src="js/components/charts/pieChart.js"></script>
 		<!-- script src="js/components/graph.js"></script -->
 	</body>
 </html>
