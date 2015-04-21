@@ -39,7 +39,7 @@ App.AssignmentController = Ember.Controller.extend({
         var route = this.get('model').route;
         var result = [];
         $.each(route, function(index,data) {
-            result.push([data.location.latitude,data.location.longitude]);
+            result.push(Ember.Object.create({lat : data.location.latitude, lon : data.location.longitude}));
         });
         return result;
     }.property('model'),
@@ -66,6 +66,6 @@ App.AssignmentController = Ember.Controller.extend({
 				self.set('model', assignment);
 			});
 		});
-	},
+	}
 
 });
