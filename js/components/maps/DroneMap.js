@@ -19,8 +19,8 @@ App.DroneMapComponent = App.PopupMapComponent.extend({
     initialization : function(){
         this._super();
 
-        var polyline = L.polyline([], {color: 'blue'}).addTo(self.get('map'));
-        self.set('polyline', polyline);
+        var polyline = L.polyline([], {color: 'blue'}).addTo(this.get('map'));
+        this.set('polyline', polyline);
     },
 
     updateMarker : function() {
