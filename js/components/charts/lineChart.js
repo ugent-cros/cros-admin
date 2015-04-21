@@ -1,7 +1,7 @@
 /**
  * Created by Eveline on 21/04/2015.
  */
-App.LiveGraphComponent = Ember.Component.extend({
+App.LineGraphComponent = Ember.Component.extend({
 
     draw: function(){
         var data = [{ label: 'A', values: [] }];
