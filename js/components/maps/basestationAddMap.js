@@ -10,7 +10,7 @@ App.BasestationAddMapComponent = App.BasestationMapComponent.extend({
 
         $('.modal').on('shown.bs.modal', function (e) {
             self.get('map').on('click', function(e) {
-                self.set('location', [e.latlng.lat, e.latlng.lng]);
+                self.set('location', Ember.Object.create({lat : e.latlng.lat, lon : e.latlng.lng}));
             });
         });
     },

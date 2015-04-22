@@ -12,8 +12,8 @@ App.AssignmentController = Ember.Controller.extend({
         this._super();
 		this.registerForEvents();
 	},
-	
-	progress: function() {
+
+	progressText: function() {
 		var model = this.get('model');
 		if(model.progress == model.route.length) {
 			return 'completed';
@@ -43,6 +43,13 @@ App.AssignmentController = Ember.Controller.extend({
         });
         return result;
     }.property('model'),
+
+    updateDroneLocation : function(location) {
+        this.set('droneLocation', Ember.Object.create({
+            lat : location.latitude,
+            lon : location.longitude
+        }));
+    },
 	
 	registerForEvents: function() {
 		var self = this;
@@ -66,6 +73,11 @@ App.AssignmentController = Ember.Controller.extend({
 				self.set('model', assignment);
 			});
 		});
+        this.socketManager.register("locationChanged", 0, "assignment", function(data, id) {
+            var assignedId = self.get("model.assignedDrone.id");
+            if (assignedId && self.get("model.assignedDrone.id") === parseInt(id))
+                self.updateDroneLocation(data);
+        });
 	}
 
 });
