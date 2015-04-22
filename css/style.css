@@ -133,3 +133,8 @@
 #notificationSlider {
 	display: none;
 }
+
+.disabledLink {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}

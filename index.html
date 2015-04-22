@@ -120,14 +120,12 @@
                                 {{#link-to 'drone' item.id class='btn btn-success'}}
                                 <i class="fa fa-search"></i>
                                 {{/link-to}}
-                                {{#if userCanEdit}}
-                                    {{#link-to 'drone-edit' item.id class='btn btn-info'}}
+                                {{#link-to 'drone-edit' item.id class='btn btn-info' tag="button" disabled=userCanEdit}}
                                     <i class="fa fa-pencil"></i>
-                                    {{/link-to}}
-                                    <a class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}}>
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                {{/if}}
+                                {{/link-to}}
+                                <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -239,14 +237,9 @@
                         {{#link-to 'assignment' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#if userCanEdit}}
-                            <a class='btn btn-info' href='#'>
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                            <a class='btn btn-danger' href='javascript:;' {{action 'delete' item.id}}>
-                                <i class="fa fa-trash-o"></i>
-                            </a>
-                        {{/if}}
+                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                            <i class="fa fa-trash-o"></i>
+                        </button>
                     </div>
                 </td>
             </tr>
@@ -356,14 +349,12 @@
                         {{#link-to 'basestation' item.id class='btn btn-success'}}
                         <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#if userCanEdit}}
-                            {{#link-to 'basestation-edit' item.id class='btn btn-info'}}
+                        {{#link-to 'basestation-edit' item.id class='btn btn-info' tag="button" disabled=userCanEdit}}
                             <i class="fa fa-pencil"></i>
-                            {{/link-to}}
-                            <a class='btn btn-danger' href='javascript:;' {{action 'delete' item.id}}>
-                                <i class="fa fa-trash-o"></i>
-                            </a>
-                        {{/if}}
+                        {{/link-to}}
+                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                            <i class="fa fa-trash-o"></i>
+                        </button>
                     </div>
                 </td>
             </tr>
@@ -451,16 +442,12 @@
                         {{#link-to 'user' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#if userCanEdit}}
-                            {{#link-to 'user-edit' item.id class='btn btn-info'}}
+                        {{#link-to 'user-edit' item.id class='btn btn-info' tag="button" disabled=userCanEdit}}
                             <i class="fa fa-pencil"></i>
-                            {{/link-to}}
-                            {{#if item.isNotCurrentUser}}
-                            <a class='btn btn-danger' href='#' {{action 'delete' item.id}}>
-                                <i class="fa fa-trash-o"></i>
-                            </a>
-                            {{/if}}
-                        {{/if}}
+                        {{/link-to}}
+                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                            <i class="fa fa-trash-o"></i>
+                        </button>
                     </div>
                 </td>
             </tr>
