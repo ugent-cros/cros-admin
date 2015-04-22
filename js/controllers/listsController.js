@@ -12,11 +12,15 @@ App.ListSuperController = Ember.Controller.extend({
     userCanEdit: function() {
         var user = this.get("currentUser");
         if(user) {
-            return user.role !== "ADMIN";
+            return user.role === "ADMIN";
         } else {
-            return !false;
+            return false;
         }
     }.property("currentUser"),
+
+    userCantEdit: function() {
+        return !this.get("userCanEdit");
+    }.property("userCanEdit"),
 
     loadPage: function(search, searchField, page, perPage, orderBy, order) {
         var self = this;
