@@ -21,8 +21,8 @@ App.BasestationEditController = Ember.Controller.extend({
         // setter
         if (arguments.length > 1) {
             if (value) {
-                this.set('model.location.longitude', value[1]);
-                this.set('model.location.latitude', value[0]);
+                this.set('model.location.longitude', value.lon);
+                this.set('model.location.latitude', value.lat);
             } else {
                 this.set('model.location.longitude', null);
                 this.set('model.location.latitude', null);
@@ -36,7 +36,7 @@ App.BasestationEditController = Ember.Controller.extend({
         var lon = this.get("model.location.longitude");
 
         if (lon && lat)
-            return [lat, lon];
+            return Ember.Object.create({lat : lat, lon : lon});
         else
             return null
     }.property("model.location.longitude", "model.location.latitude"),
