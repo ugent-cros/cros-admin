@@ -50,7 +50,7 @@ App.DroneEditController = Ember.Controller.extend({
             this.set("selected", condition);
         });
         if (noneSelected && types[0]) {
-            types[0].set("selected", true);
+            Ember.set(this.get("model"), "droneType", types[0]);
         }
     }.observes("types", "model.droneType"),
 	
