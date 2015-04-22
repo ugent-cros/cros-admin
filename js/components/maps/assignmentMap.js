@@ -43,11 +43,14 @@ App.AssignmentMapComponent = App.PopupMapComponent.extend({
         if (this.get("polyline")) {
             var pos = this.get("polyline").getLatLngs();
 
-            var markers = this.get("marker");
+            var markers = this.get("marker") || [];
             var needsUpdate = false;
-            $.each(pos,function(i) {
-                var p = markers[i].getLatLng();
-                needsUpdate = needsUpdate || this.lat != p.lat || this.lon != p.lon;
+            $.each(markers,function(i) {
+                if (pos[i]) {
+                    needsUpdate = needsUpdate || this.lat != pos[i].lat || this.lon != pos[i].lon;
+                } else {
+                    needsUpdate = true;
+                }
             });
             if (!needsUpdate)
                 return;
