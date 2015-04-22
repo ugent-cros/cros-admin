@@ -4,16 +4,14 @@
 
 App.AssignmentsAddMapComponent = App.AssignmentMapComponent.extend({
 
-    didInsertElement : function(){
+    initialization : function(){
         this._super();
         var self = this;
 
-        $('.modal').on('shown.bs.modal', function (e) {
-            self.get('map').on('click', function(e) {
-                var location = self.get("location") || Ember.A();
-                location.pushObject(Ember.Object.create({lat : e.latlng.lat, lon : e.latlng.lng}));
-                self.set("location", location.copy()); // TODO; find better solution than copy
-            });
+        self.get('map').on('click', function(e) {
+            var location = self.get("location") || Ember.A();
+            location.pushObject(Ember.Object.create({lat : e.latlng.lat, lon : e.latlng.lng}));
+            self.set("location", location.copy()); // TODO; find better solution than copy
         });
     },
 
@@ -30,8 +28,8 @@ App.AssignmentsAddMapComponent = App.AssignmentMapComponent.extend({
             var i = self.get("marker").indexOf(marker);
 
             var location = self.get("location") || Ember.A();
-            location[i][0] = position.lat;
-            location[i][1] = position.lng;
+            location[i].set("lat", position.lat);
+            location[i].set("lon", position.lng);
             self.set("location", location.copy()); // TODO; find better solution than copy
         });
         return marker;
