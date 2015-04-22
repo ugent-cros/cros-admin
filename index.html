@@ -120,10 +120,10 @@
                                 {{#link-to 'drone' item.id class='btn btn-success'}}
                                 <i class="fa fa-search"></i>
                                 {{/link-to}}
-                                {{#link-to 'drone-edit' item.id class='btn btn-info' tag="button" disabled=userCanEdit}}
+                                {{#link-to 'drone-edit' item.id class='btn btn-info' tag="button" disabled=userCantEdit}}
                                     <i class="fa fa-pencil"></i>
                                 {{/link-to}}
-                                <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                                <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCantEdit}}>
                                     <i class="fa fa-trash-o"></i>
                                 </button>
                             </div>
@@ -237,7 +237,7 @@
                         {{#link-to 'assignment' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCantEdit}}>
                             <i class="fa fa-trash-o"></i>
                         </button>
                     </div>
@@ -349,10 +349,10 @@
                         {{#link-to 'basestation' item.id class='btn btn-success'}}
                         <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#link-to 'basestation-edit' item.id class='btn btn-info' tag="button" disabled=userCanEdit}}
+                        {{#link-to 'basestation-edit' item.id class='btn btn-info' tag="button" disabled=userCantEdit}}
                             <i class="fa fa-pencil"></i>
                         {{/link-to}}
-                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCantEdit}}>
                             <i class="fa fa-trash-o"></i>
                         </button>
                     </div>
@@ -442,10 +442,10 @@
                         {{#link-to 'user' item.id class='btn btn-success'}}
                             <i class="fa fa-search"></i>
                         {{/link-to}}
-                        {{#link-to 'user-edit' item.id class='btn btn-info' tag="button" disabled=userCanEdit}}
+                        {{#link-to 'user-edit' item.id class='btn btn-info' tag="button" disabled=userCantEdit}}
                             <i class="fa fa-pencil"></i>
                         {{/link-to}}
-                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCanEdit}}>
+                        <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCantEdit}}>
                             <i class="fa fa-trash-o"></i>
                         </button>
                     </div>
