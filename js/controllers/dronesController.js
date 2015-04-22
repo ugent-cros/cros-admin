@@ -59,6 +59,8 @@ App.DroneEditController = Ember.Controller.extend({
 					);
 			}
 			$('#droneAlert').text('');
+            if (data.responseText)
+                $('#droneAlert').append($('<p>').text('Name: ' + data.responseText));
 			if(data.responseJSON.name)
 				$('#droneAlert').append($('<p>').text('Name: ' + data.responseJSON.name));
 			if(data.responseJSON.address)
