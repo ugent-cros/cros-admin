@@ -43,9 +43,15 @@ App.DroneEditController = Ember.Controller.extend({
     updateSelected : function() {
         var self = this;
         var types = this.get("types") || [];
+        var noneSelected = true;
         $.each(types, function() {
-            this.set("selected", this.type === self.get("model.droneType").type);
+            var condition = this.type === self.get("model.droneType").type;
+            noneSelected = noneSelected && !condition;
+            this.set("selected", condition);
         });
+        if (noneSelected && types[0]) {
+            Ember.set(this.get("model"), "droneType", types[0]);
+        }
     }.observes("types", "model.droneType"),
 	
 	failure: function(data) {
