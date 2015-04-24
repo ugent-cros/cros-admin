@@ -69,8 +69,8 @@ App.ListSuperController = Ember.Controller.extend({
             var result = this.adapter.remove(elementClass, id);
             var self = this;
             result.then(
-                function(){self.refresh();},
-                function(){self.refresh();}//todo: if fail?
+                function(){self.refresh(); NProgress.done(); },
+                function(){self.refresh(); NProgress.done(); }//todo: if fail?
             );
         },
 
