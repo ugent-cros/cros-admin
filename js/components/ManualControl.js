@@ -6,9 +6,9 @@ App.Keyboard = Ember.Object.create({
 
     listeners : {},
 
-    registerListener : function(keycode, handler) {
+    registerListener : function(keycode, handler, releaseHandler) {
         var arr = this.get("listeners")[keycode] || [];
-        arr.pushObject(handler);
+        arr.pushObject({handler: handler, releaseHandler: releaseHandler});
         this.get("listeners")[keycode] = arr;
     },
 
@@ -17,13 +17,25 @@ App.Keyboard = Ember.Object.create({
 
         var handlers = this.get("listeners")[keyPressed] || [];
         $.each(handlers, function() {
-            this();
+            if (this.handler)
+                this.handler();
+        });
+    },
+
+    release : function(event) {
+        var keyPressed = String.fromCharCode(event.keyCode);
+
+        var handlers = this.get("listeners")[keyPressed] || [];
+        $.each(handlers, function() {
+            if (this.releaseHandler)
+                this.releaseHandler();
         });
     },
 
     init : function() {
         var self = this;
         document.addEventListener("keydown", function(event) {self.handler(event);}, false);
+        document.addEventListener("keyup", function(event) {self.release(event);}, false);
     }
 
 });
@@ -56,10 +68,8 @@ App.ManualControlComponent = Ember.Component.extend({
             App.Keyboard.registerListener(this.get("key"), function() {
                 self.$().addClass("controlButtonActive");
                 self.send("click");
-                setTimeout(function() {
-                    self.$().removeClass("controlButtonActive");
-                }, 150);
-                console.log("pressed key " + self.get("key"));
+            }, function() {
+                self.$().removeClass("controlButtonActive");
             });
         }
     },
