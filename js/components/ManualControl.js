@@ -6,10 +6,19 @@ App.Keyboard = Ember.Object.create({
 
     listeners : {},
 
-    registerListener : function(keycode, handler, releaseHandler) {
+    registerListener : function(keycode, id, handler, releaseHandler) {
         var arr = this.get("listeners")[keycode] || [];
-        arr.pushObject({handler: handler, releaseHandler: releaseHandler});
+        arr.pushObject({id : id, handler: handler, releaseHandler: releaseHandler});
         this.get("listeners")[keycode] = arr;
+    },
+
+    unregisterListener : function(keycode, id) {
+        if (keycode) {
+            var arr = this.get("listeners")[keycode].filter(function(handlerObj) {return handlerObj.id === id;});
+            if (arr.length > 0) {
+                this.get("listeners")[keycode].removeObject(arr[0]);
+            }
+        }
     },
 
     handler : function(event) {
@@ -56,16 +65,11 @@ App.ManualControlComponent = Ember.Component.extend({
     didInsertElement : function() {
         var self = this;
         this.$().on('click', function() {
-            self.adapter.find("drone",self.get("currentId"), ["commands", self.get("command")]).fail(function(data) {
-                if (data.responseJSON instanceof String)
-                    self.set("error", data.responseJSON);
-                else
-                    self.set("error", data.responseJSON.reason);
-            });
+            self.send("click");
         });
 
         if (this.get("key")) {
-            App.Keyboard.registerListener(this.get("key"), function() {
+            App.Keyboard.registerListener(this.get("key"), "control-"+this.get("key"), function() {
                 self.$().addClass("controlButtonActive");
                 self.send("click");
             }, function() {
@@ -74,10 +78,16 @@ App.ManualControlComponent = Ember.Component.extend({
         }
     },
 
+    willDestroyElement : function() {
+        App.Keyboard.unregisterListener(this.get("key"), "control-"+this.get("key"));
+    },
+
     actions: {
         click : function() {
             var self = this;
-            this.adapter.find("drone",this.get("currentId"), ["commands", this.get("command")]).fail(function(data) {
+            this.adapter.find("drone",this.get("currentId"), ["commands", this.get("command")]).then(function() {
+                self.set("error", "");
+            }).fail(function(data) {
                 if (typeof data.responseJSON === "string")
                     self.set("error", data.responseJSON);
                 else
