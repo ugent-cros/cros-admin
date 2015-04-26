@@ -37,6 +37,18 @@ App.DroneController = Ember.ObjectController.extend({
         });
     }.observes("model"),
 
+    automatic : function() {
+        if (this.get("model.status") === "MANUAL_CONTROL") {
+            return false;
+        } else {
+            return true;
+        }
+    }.property("model.status"),
+
+    manual : function() {
+        return !this.get("automatic");
+    }.property("automatic"),
+
     getClass: function(){
         var label = "label "
         var status = this.get('status');
@@ -50,7 +62,36 @@ App.DroneController = Ember.ObjectController.extend({
             return label + "label-primary";
         else if(status == "EMERGENCY_LANDED" || status == "DECOMMISSIONED")
             return label + "label-warning";
-    }.property('status')
+    }.property('status'),
+
+    controlError : "",
+    hasControlError : function() {
+        return this.get("controlError") !== "";
+    }.property("controlError"),
+
+    actions: {
+        setAutomatic : function(){
+            var self = this;
+            this.adapter.find("drone",this.get("model.id"), ["commands", "automatic"]).then(function(data) {
+                self.set("model.status", "AVAILABLE");
+            }, function(data) {
+                self.set("controlError", data.responseJSON);
+            });
+        },
+
+        setManual : function() {
+            var self = this;
+            this.adapter.find("drone",this.get("model.id"), ["commands", "manual"]).then(function(data) {
+                self.set("model.status", "MANUAL_CONTROL");
+            }, function(data) {
+                self.set("controlError", data.responseJSON);
+            });
+        }
+    }
+});
+
+$( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+    console.log();
 });
 
 App.DroneEditController = Ember.Controller.extend({

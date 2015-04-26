@@ -190,39 +190,147 @@
 
 		<script type="text/x-handlebars" id="drone">
 			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
-				<div class="row">
-					<div class="col-xs-3">
-						<div class="row">
-							<div class="col-xs-8"><label>Address:</label></div>
-							<div class="col-xs-4">{{model.address}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Type:</label></div>
-							<div class="col-xs-4">{{model.droneType.type}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Version number:</label></div>
-							<div class="col-xs-4">{{model.droneType.versionNumber}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Status:</label></div>
-							<div class="col-xs-4">{{model.status}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Weight limitation:</label></div>
-							<div class="col-xs-4">{{model.weightLimitation}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>altitude:</label></div>
-							<div class="col-xs-4">{{altitude}}</div>
-						</div>
-					</div>
-					<div class="col-xs-9">
-                        {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
-					</div>
-				</div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center">
+                            {{#if hasControlError}}
+                            <div {{bind-attr class="hasControlError:has-error"}}>
+                                <label class="control-label">{{ controlError }}</label>
+                            </div>
+                            {{/if}}
+                            <div class="btn-group" data-toggle="buttons">
+                                <label {{bind-attr class=":btn :btn-success automatic:active"}} {{action 'setAutomatic'}}>
+                                    <input type="radio" name="automatic" id="automatic" autocomplete="off" {{bind-attr checked="automatic"}}>
+                                    <i class="fa fa-magic"></i> Automagic
+                                </label>
+                                <label {{bind-attr class=":btn :btn-success manual:active"}}  {{action 'setManual'}}>
+                                    <input type="radio" name="manual" id="manual" autocomplete="off" {{bind-attr checked="manual"}}>
+                                    <i class="fa fa-gamepad"></i> Manual Control
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{partial "droneAutomatic" }}
+                {{partial "droneManual" }}
 			{{/popup-window}}
 		</script>
+
+        <script type="text/x-handlebars" id="_droneAutomatic">
+            <div {{bind-attr class=":row automatic:show:hidden"}}>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-xs-8"><label>Address:</label></div>
+                        <div class="col-xs-4">{{model.address}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8"><label>Type:</label></div>
+                        <div class="col-xs-4">{{model.droneType.type}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8"><label>Version number:</label></div>
+                        <div class="col-xs-4">{{model.droneType.versionNumber}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8"><label>Status:</label></div>
+                        <div class="col-xs-4">{{model.status}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8"><label>Weight limitation:</label></div>
+                        <div class="col-xs-4">{{model.weightLimitation}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8"><label>altitude:</label></div>
+                        <div class="col-xs-4">{{altitude}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars" id="_droneManual">
+            <div {{bind-attr class=":row :manualController automatic:hidden:show"}}>
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <video width="560" height="340" controls>
+                            Video here...
+                        </video>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="btn-group-vertical">
+                            {{#manual-control title="Outdoor" currentId=model.id command="setOutdoor" error=controlError}}{{/manual-control}}
+                            {{#manual-control title="Indoor" currentId=model.id command="setIndoor" error=controlError}}{{/manual-control}}
+                        </div>
+                        <div class="btn-group-vertical">
+                            {{#manual-control title="Hull" currentId=model.id command="setHull" error=controlError}}{{/manual-control}}
+                            {{#manual-control title="No hull" currentId=model.id command="setNoHull" error=controlError}}{{/manual-control}}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        {{partial "directionControls"}}
+                    </div>
+                    <div class="col-md-3">
+                        {{#manual-control title="Flat trim" currentId=model.id command="flatTrim" error=controlError}}{{/manual-control}}
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars" id="_directionControls">
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="Flip Left" currentId=model.id command="flipLeft" key="d" error=controlError}}{{/manual-control}}
+                    </div></div>
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="<i class='fa fa-undo'></i>" currentId=model.id command="rotateLeft" key="%" error=controlError}}{{/manual-control}}
+                        {{#manual-control title="<i class='fa fa-arrow-left'></i>" currentId=model.id command="moveLeft" key="Q" error=controlError}}{{/manual-control}}
+                    </div></div>
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="Flip Backward" currentId=model.id command="flipBack" key="b" error=controlError}}{{/manual-control}}
+                    </div></div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="<i class='fa fa-arrow-up'></i>" currentId=model.id command="moveForward" key="Z" error=controlError}}{{/manual-control}}
+                        {{#manual-control title="<i class='glyphicon glyphicon-triangle-top'></i>" currentId=model.id command="moveUp" key="A" error=controlError}}{{/manual-control}}
+                    </div></div>
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="<i class='fa fa-circle'></i>" currentId=model.id command="center" error=controlError}}{{/manual-control}}
+                    </div></div>
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="<i class='fa fa-arrow-down'></i>" currentId=model.id command="moveBackward" key="S" error=controlError}}{{/manual-control}}
+                        {{#manual-control title="<i class='glyphicon glyphicon-triangle-bottom'></i>" currentId=model.id command="moveDown" key="E" error=controlError}}{{/manual-control}}
+                    </div></div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="Flip Forward" currentId=model.id command="flipFront" key="h" error=controlError}}{{/manual-control}}
+                    </div></div>
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="<i class='fa fa-arrow-right'></i>" currentId=model.id command="moveRight" key="D" error=controlError}}{{/manual-control}}
+                        {{#manual-control title="<i class='fa fa-repeat'></i>" currentId=model.id command="rotateRight" key="'" error=controlError}}{{/manual-control}}
+                    </div></div>
+                    <div class="row"><div class="btn-group btn-group-justified">
+                        {{#manual-control title="Flip Right" currentId=model.id command="flipRight" key="f" error=controlError}}{{/manual-control}}
+                    </div></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="btn-group btn-group-justified" role="group">
+                        {{#manual-control title="Take off" currentId=model.id command="takeOff" key="T" error=controlError}}{{/manual-control}}
+                        {{#manual-control title="Land" currentId=model.id command="land" key="L" error=controlError}}{{/manual-control}}
+                    </div>
+                </div>
+            </div>
+
+
+        </script>
 
         <script type="text/x-handlebars" id="assignments">
             {{#my-table columns=columns data=model length=model.total action="getPage" searchFields=searchFields addLink="assignments-add" userCanEdit=userCanEdit}}
@@ -735,6 +843,10 @@
             </ul>
         </script>
 
+        <script type="text/x-handlebars" id="components/manual-control">
+            {{{title}}}
+        </script>
+
 		<script src="js/libs/jquery-2.1.3.min.js"></script>
 		<script src="js/libs/bootstrap.min.js"></script>
 		<script src="js/libs/jquery.cookie.js"></script>
@@ -779,6 +891,7 @@
         <script src="js/components/maps/assignmentMap.js"></script>
         <script src="js/components/maps/assignmentsAddMap.js"></script>
         <script src="js/components/userdisplay.js"></script>
+        <script src="js/components/ManualControl.js"></script>
 		<!-- script src="js/components/graph.js"></script -->
 	</body>
 </html>

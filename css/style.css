@@ -138,3 +138,9 @@
     pointer-events: none !important;
     cursor: not-allowed !important;
 }
+
+.controlButtonActive {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
