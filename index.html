@@ -279,7 +279,10 @@
                                     <div class="col-sm-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
                                     <div class="col-sm-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
                                     <div class="col-sm-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
-                                    <div class="col-sm-3">{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}</div>
+                                    <div class="col-sm-3">
+										{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}
+										<a href="javascript:;" {{action 'remove' checkpoint.id}} class="remove close">&times;</a>
+									</div>
                                 </div>
                             </div>
                             {{/each}}
