@@ -211,7 +211,8 @@
 		<script type="text/x-handlebars" id="drone">
 			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
 				<div class="row">
-					<div class="col-xs-4">
+					<div class="col-sm-6">
+                        <div class="well">
 						<div class="row">
 							<div class="col-xs-8"><label>Address:</label></div>
 							<div class="col-xs-4">{{model.address}}</div>
@@ -233,23 +234,26 @@
 							<div class="col-xs-4">{{model.weightLimitation}}</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-8"><label>altitude:</label></div>
+							<div class="col-xs-8"><label>Altitude:</label></div>
 							<div class="col-xs-4">{{altitude}}</div>
 						</div>
                         <div class="row">
-                            <div class="col-xs-6"><label>Battery:</label></div>
-                            <div class="col-xs-6">{{gauge-graph drone=model.id}}</div>
+                            <div class="col-xs-8"><label>Altitude:</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-top: 7%">
+                                {{gauge-graph drone=model.id}}
+                            </div>
+                            <div class="col-xs-9" style="padding-right: 0px">
+                                {{#line-graph drone=model.id}}{{/line-graph}}
+                            </div>
+                        </div>
                         </div>
 					</div>
-					<div class="col-xs-8">
+					<div class="col-sm-6">
                         {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
 					</div>
 				</div>
-                <div class="row">
-                    <div class="pull-right">
-                    {{#line-graph drone=model.id}}{{/line-graph}}
-                    </div>
-                </div>
 			{{/popup-window}}
 		</script>
 
@@ -727,7 +731,7 @@
 						<div class="modal-footer">
 							<div class="row">
 								<div class="col-xs-4">
-									{{{footer}}}
+                                    {{{footer}}}
 								</div>
 								<div class="col-xs-4 col-xs-offset-4">
 								{{#if saveButton}}
@@ -747,7 +751,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="components/my-map">
-            <div {{bind-attr id=mapName}} style="height:300px;"></div>
+            <div {{bind-attr id=mapName}} style="height:365px;"></div>
         </script>
 
 		<script type="text/x-handlebars" id="components/gauge-graph">
@@ -755,7 +759,7 @@
 		</script>
 
         <script type="text/x-handlebars" id="components/line-graph">
-            <div class="epoch category10" id="lineChart" style="width: 800px; height: 200px"></div>
+            <div class="epoch category10" id="lineChart" style="width: inherit; height: 150px"></div>
         </script>
 
         <script type="text/x-handlebars" id="components/pie-chart">
