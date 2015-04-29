@@ -50,7 +50,20 @@ App.DroneController = Ember.ObjectController.extend({
             return label + "label-primary";
         else if(status == "EMERGENCY_LANDED" || status == "DECOMMISSIONED")
             return label + "label-warning";
-    }.property('status')
+    }.property('status'),
+
+    actions : {
+        initVideo : function() {
+            var self = this;
+            this.adapter.find("drone", this.get("model.id"), "initVideo").then(function() {
+                this.adapter.resolveLink("drone", this.get("model.id"), "videoSocket").then(function(url) {
+                    var socket = window.SocketManager.create({defaultUrl : url.url});
+                    self.set("videoSocket", socket);
+                    socket.initConnection();
+                });
+            });
+        }
+    }
 });
 
 App.DroneEditController = Ember.Controller.extend({

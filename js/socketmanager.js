@@ -5,6 +5,7 @@ window.SocketManager = Ember.Object.extend({
     connection : false,
     reconnect : false,
     timer : null,
+    defaultUrl : null,
 
     initConnection : function() {
         this.set("reconnect", true);
@@ -17,7 +18,7 @@ window.SocketManager = Ember.Object.extend({
 
         var self = this;
 
-        var url = this.adapter.linkLibrary["datasocket"];
+        var url = this.get("defaultUrl") || this.adapter.linkLibrary["datasocket"];
         url = url.replace(/https?/, "ws");
 
         this.set('connection', true);
