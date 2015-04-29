@@ -19,7 +19,6 @@ App.LineGraphComponent = Ember.Component.extend({
                 var entry = [];
                 var timestamp = Date.now() / 1000 | 0;
                 entry.push({ time: timestamp, y: data.altitude.toFixed(2) });
-                //console.log('DATA: ' + timestamp + " " + data.altitude.toFixed(2));
                 chart.push(entry);
             });
         });

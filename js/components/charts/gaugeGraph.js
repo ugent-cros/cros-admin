@@ -13,7 +13,6 @@ App.GaugeGraphComponent = Ember.Component.extend({
         });
         var self = this;
         this.socketManager.register("batteryPercentageChanged", this.get("drone"), "gaugegraph", function(data) {
-            console.log("DATA: " + data.percent);
             chart.update((data.percent/100));
         });
 	}.on('didInsertElement')
