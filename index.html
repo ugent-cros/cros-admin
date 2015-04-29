@@ -179,7 +179,12 @@
 							</div>
 							<div class="well">
 								<div class="row">
-									<div class="col-xs-12">{{input placeholder="Weight Limitation" type="number" class="form-control" value=model.weightLimitation}}</div>
+									<div class="col-xs-12">
+										<div class="input-group">
+											{{input placeholder="Weight Limitation" type="number" class="form-control" value=model.weightLimitation}}
+											<div class="input-group-addon">kg</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -366,7 +371,7 @@
 					<div id="assignmentAddAlert" class="col-xs-12"></div>
 				</div>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-7">
                         <form {{action 'ok' on='submit' target=view}}>
                         <div class="row">
                             <div class="col-xs-6"><label>Route:</label></div>
@@ -389,10 +394,15 @@
                             {{/unless}}
                             <div class="well route-well">
                                 <div class="row">
-                                    <div class="col-sm-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
-                                    <div class="col-sm-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
-                                    <div class="col-sm-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
-                                    <div class="col-sm-3">{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}</div>
+                                    <div class="col-sm-6 col-lg-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
+                                    <div class="col-sm-6 col-lg-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
+                                    <div class="col-sm-6 col-lg-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
+                                    <div class="col-sm-6 col-lg-3">
+										<div class="input-group">
+											{{input class='waitingTime form-control' placeholder='Wait time' type='number' value=checkpoint.waitingTime}}
+											<div class="input-group-addon">s</div>
+										</div>
+									</div>
                                 </div>
                             </div>
                             {{/each}}
@@ -412,7 +422,7 @@
                         </div>
                         </form>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         {{#assignments-add-map mapName="assignmentsAddMap" location=locations}}{{/assignments-add-map}}
                     </div>
                 </div>

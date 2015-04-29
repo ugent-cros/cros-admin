@@ -55,27 +55,27 @@ App.DroneEditController = Ember.Controller.extend({
     }.observes("types", "model.droneType"),
 	
 	failure: function(data) {
-		if (data.status == 400) {
-			if(!$('#droneAlert')[0]) {
-				$('#droneAddAlert')
-					.append($('<div>')
-						.attr('id', 'droneAlert')
-						.attr('class', 'alert alert-danger alert-dismissible')
-						.attr('role', 'alert')
-					);
-			}
-			$('#droneAlert').text('');
-            if (data.responseText)
-                $('#droneAlert').append($('<p>').text(data.responseText));
-			if(data.responseJSON.name)
-				$('#droneAlert').append($('<p>').text('Name: ' + data.responseJSON.name));
-			if(data.responseJSON.address)
-				$('#droneAlert').append($('<p>').text('Address: ' + data.responseJSON.address));
-			if(data.responseJSON.droneType)
-				$('#droneAlert').append($('<p>').text('Drone type and version: ' + data.responseJSON.droneType));
-			if(data.responseJSON.weightLimitation)
-				$('#droneAlert').append($('<p>').text('Weight limitation: ' + data.responseJSON.weightLimitation));
-		}
+        if(!$('#droneAlert')[0]) {
+            $('#droneAddAlert')
+                .append($('<div>')
+                    .attr('id', 'droneAlert')
+                    .attr('class', 'alert alert-danger alert-dismissible')
+                    .attr('role', 'alert')
+                );
+        }
+        $('#droneAlert').text('');
+        if (typeof data.responseJSON === 'string')
+            $('#droneAlert').append($('<p>').text(data.responseJSON));
+        if (data.responseJSON.reason)
+            $('#droneAlert').append($('<p>').text(data.responseJSON.reason));
+        if(data.responseJSON.name)
+            $('#droneAlert').append($('<p>').text('Name: ' + data.responseJSON.name));
+        if(data.responseJSON.address)
+            $('#droneAlert').append($('<p>').text('Address: ' + data.responseJSON.address));
+        if(data.responseJSON.droneType)
+            $('#droneAlert').append($('<p>').text('Drone type and version: ' + data.responseJSON.droneType));
+        if(data.responseJSON.weightLimitation)
+            $('#droneAlert').append($('<p>').text('Weight limitation: ' + data.responseJSON.weightLimitation));
 	},
 	
 	actions: {

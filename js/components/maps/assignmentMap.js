@@ -100,7 +100,8 @@ App.AssignmentMapComponent = App.PopupMapComponent.extend({
         if (map) {
             var zoomLevel = updateZoom || typeof(map.getZoom()) !== "number" ? 13 : map.getZoom();
             if (! loc)
-                map.setView([0,0],1);
+                map.fitBounds([{lat:51.051045, lon:3.706872},
+                    {lat:51.020118,lon:3.740603}], {padding:[50,50]});
             else if (loc instanceof Array) {
                 if (this.get("droneLocation"))
                     loc = loc.concat(this.get("droneLocation"));
