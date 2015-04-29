@@ -132,15 +132,14 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 		
 		remove: function(id) {
 			var checkpoints = this.get('checkpoints');
-			for (i = 0; i < checkpoints.length; ++i) {
-					if(checkpoints[i].id == id && checkpoints.length > 1) {
-						checkpoints.removeAt(i);
-					} else if(checkpoints[i].id == id){
-						Ember.set(checkpoints[i], 'latitude', null);
-						Ember.set(checkpoints[i], 'longitude', null);
-						Ember.set(checkpoints[i], 'altitude', null);
-						Ember.set(checkpoints[i], 'waitingTime', null);
-					}
+			var checkpointToDelete = checkpoints.filter(function(e) { return e.id == id; })[0];
+			if(checkpoints.length > 1) {
+				checkpoints.removeObject(checkpointToDelete);
+			} else {
+				Ember.set(checkpointToDelete, 'latitude', null);
+				Ember.set(checkpointToDelete, 'longitude', null);
+				Ember.set(checkpointToDelete, 'altitude', null);
+				Ember.set(checkpointToDelete, 'waitingTime', null);
 			}
 		},
 		
