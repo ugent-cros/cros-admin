@@ -191,23 +191,21 @@
 		<script type="text/x-handlebars" id="drone">
 			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="text-center">
-                            {{#if hasControlError}}
-                            <div {{bind-attr class="hasControlError:has-error"}}>
-                                <label class="control-label">{{ controlError }}</label>
-                            </div>
-                            {{/if}}
-                            <div class="btn-group" data-toggle="buttons">
-                                <label {{bind-attr class=":btn :btn-success automatic:active"}} {{action 'setAutomatic'}}>
-                                    <input type="radio" name="automatic" id="automatic" autocomplete="off" {{bind-attr checked="automatic"}}>
-                                    <i class="fa fa-magic"></i> Automagic
-                                </label>
-                                <label {{bind-attr class=":btn :btn-success manual:active"}}  {{action 'setManual'}}>
-                                    <input type="radio" name="manual" id="manual" autocomplete="off" {{bind-attr checked="manual"}}>
-                                    <i class="fa fa-gamepad"></i> Manual Control
-                                </label>
-                            </div>
+                    <div class="col-xs-12 text-center whitespaceBottom">
+                        {{#if hasControlError}}
+                        <div {{bind-attr class="hasControlError:has-error"}}>
+                            <label class="control-label">{{ controlError }}</label>
+                        </div>
+                        {{/if}}
+                        <div class="btn-group" data-toggle="buttons">
+                            <label {{bind-attr class=":btn :btn-success automatic:active"}} {{action 'setAutomatic'}}>
+                                <input type="radio" name="automatic" id="automatic" autocomplete="off" {{bind-attr checked="automatic"}}>
+                                <i class="fa fa-magic"></i> Automagic
+                            </label>
+                            <label {{bind-attr class=":btn :btn-success manual:active"}}  {{action 'setManual'}}>
+                                <input type="radio" name="manual" id="manual" autocomplete="off" {{bind-attr checked="manual"}}>
+                                <i class="fa fa-gamepad"></i> Manual Control
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -245,36 +243,43 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
+                    {{#drone-map mapName="droneMap" location=location updateSize=automatic}}{{/drone-map}}
                 </div>
             </div>
         </script>
 
         <script type="text/x-handlebars" id="_droneManual">
             <div {{bind-attr class=":row :manualController automatic:hidden:show"}}>
-                <div class="row text-center">
-                    <div class="col-sm-12">
-                        <video width="560" height="340" controls>
-                            Video here...
-                        </video>
-                    </div>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-3">
-                        <div class="btn-group-vertical">
-                            {{#manual-control title="Outdoor" currentId=model.id command="setOutdoor" error=controlError}}{{/manual-control}}
-                            {{#manual-control title="Indoor" currentId=model.id command="setIndoor" error=controlError}}{{/manual-control}}
+                <div class="col-xs-12">
+                    <div class="row whitespaceBottom">
+                        <div class="col-md-6">
+                            <img src="" />
                         </div>
-                        <div class="btn-group-vertical">
-                            {{#manual-control title="Hull" currentId=model.id command="setHull" error=controlError}}{{/manual-control}}
-                            {{#manual-control title="No hull" currentId=model.id command="setNoHull" error=controlError}}{{/manual-control}}
+                        <div class="col-md-6">
+                            {{#drone-map mapName="droneControlMap" location=location updateSize=automatic}}{{/drone-map}}
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        {{partial "directionControls"}}
-                    </div>
-                    <div class="col-md-3">
-                        {{#manual-control title="Flat trim" currentId=model.id command="flatTrim" error=controlError}}{{/manual-control}}
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <div class="btn-group-vertical">
+                                {{#manual-control title="Outdoor" currentId=model.id command="setOutdoor" error=controlError}}{{/manual-control}}
+                                {{#manual-control title="Indoor" currentId=model.id command="setIndoor" error=controlError}}{{/manual-control}}
+                            </div>
+                            <div class="btn-group-vertical">
+                                {{#manual-control title="Hull" currentId=model.id command="setHull" error=controlError}}{{/manual-control}}
+                                {{#manual-control title="No hull" currentId=model.id command="setNoHull" error=controlError}}{{/manual-control}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            {{partial "directionControls"}}
+                        </div>
+                        <div class="col-md-3">
+                            {{#manual-control title="Flat trim" currentId=model.id command="flatTrim" error=controlError}}{{/manual-control}}
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Speed ({{speedString}})</span>
+                                {{input class="form-control" id="speed" value=speedvalue min="0" max="1" step="0.01" placeholder='Speed' type='range'}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

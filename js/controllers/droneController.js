@@ -45,6 +45,12 @@ App.DroneController = Ember.ObjectController.extend({
         }
     }.property("model.status"),
 
+    speedvalue : 1,
+
+    speedString : function() {
+        return parseFloat(this.get("speedvalue")).toFixed(2);
+    }.property("speedvalue"),
+
     manual : function() {
         return !this.get("automatic");
     }.property("automatic"),

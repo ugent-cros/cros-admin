@@ -44,7 +44,7 @@ App.ListSuperController = Ember.Controller.extend({
         //save parameters
         this.set('params', params);
         //call to rest
-        this.adapter.find(elementClass, null, null, params).then(function(data){
+        this.adapter.find(elementClass, null, null, {query:params}).then(function(data){
             self.set('model',data);
             return data;
         });
@@ -60,7 +60,7 @@ App.ListSuperController = Ember.Controller.extend({
             var params = this.get('params');
         }
         //call to rest
-        this.adapter.find(elementClass, null, null, params).then(function(data){
+        this.adapter.find(elementClass, null, null, {query:params}).then(function(data){
             self.set('model',data);
             return data;
         });

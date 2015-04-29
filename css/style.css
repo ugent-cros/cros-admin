@@ -152,3 +152,7 @@
 .controlButtonContainerParent {
     margin-right: 3px !important;
 }
+
+.whitespaceBottom {
+    margin-bottom: 10px;
+}

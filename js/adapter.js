@@ -149,9 +149,10 @@ App.CustomAdapter = DS.RESTAdapter.extend({
             return urlPromise.then(function(obj) {
 				urlObj = obj;
 				if (params) {
-					urlObj.url += "?" + $.param(params);
+                    if (params.query)
+					    urlObj.url += "?" + $.param(params.query);
 				}
-				return self.ajax(urlObj.url, 'GET');
+                return self.ajax(urlObj.url, 'GET', params);
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
 				return data[store];
