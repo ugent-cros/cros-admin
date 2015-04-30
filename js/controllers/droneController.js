@@ -37,6 +37,24 @@ App.DroneController = Ember.ObjectController.extend({
         });
     }.observes("model"),
 
+    automatic : function() {
+        if (this.get("model.status") === "MANUAL_CONTROL") {
+            return false;
+        } else {
+            return true;
+        }
+    }.property("model.status"),
+
+    speedvalue : 1,
+
+    speedString : function() {
+        return parseFloat(this.get("speedvalue")).toFixed(2);
+    }.property("speedvalue"),
+
+    manual : function() {
+        return !this.get("automatic");
+    }.property("automatic"),
+
     getClass: function(){
         var label = "label "
         var status = this.get('status');
@@ -52,7 +70,30 @@ App.DroneController = Ember.ObjectController.extend({
             return label + "label-warning";
     }.property('status'),
 
-    actions : {
+    controlError : "",
+    hasControlError : function() {
+        return this.get("controlError") !== "";
+    }.property("controlError"),
+
+    actions: {
+        setAutomatic : function(){
+            var self = this;
+            this.adapter.find("drone",this.get("model.id"), ["commands", "automatic"]).then(function(data) {
+                self.set("model.status", "AVAILABLE");
+            }, function(data) {
+                self.set("controlError", data.responseJSON);
+            });
+        },
+
+        setManual : function() {
+            var self = this;
+            this.adapter.find("drone",this.get("model.id"), ["commands", "manual"]).then(function(data) {
+                self.set("model.status", "MANUAL_CONTROL");
+            }, function(data) {
+                self.set("controlError", data.responseJSON);
+            });
+        },
+
         initVideo : function() {
             var self = this;
             this.adapter.find("drone", this.get("model.id"), "initVideo").then(function() {

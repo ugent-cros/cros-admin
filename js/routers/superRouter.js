@@ -29,7 +29,7 @@ App.BaseRoute = Ember.Route.extend({
 
     fetch: function(params) {
         var self = this;
-        var promise = this.adapter.find(params.store,params.id,params.action,params.options);
+        var promise = this.adapter.find(params.store,params.id,params.action,{query:params.options});
         if (params.callback) {
             return promise.then(params.callback).fail(function(jxhr) {
                 self.checkStatus(jxhr,self);

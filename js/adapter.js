@@ -30,6 +30,9 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	processLinks : function(data, root) {
 		var lk = this.linksKey;
 		var self = this;
+        if (!data)
+            return;
+
 		$.each(data, function(k, v) {
 			if (lk === k) {
 				self.insertLinks(data[k], root);
@@ -75,8 +78,12 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			
 		if (id)
 			key += self.delimiter + id;
-		if (action)
-			key += self.delimiter + action;
+		if (action) {
+            if (action instanceof Array)
+                key += self.delimiter + action.join(self.delimiter);
+             else
+                key += self.delimiter + action;
+        }
 
 		var tempKey = key;
 		var callsRemaining = true;
@@ -102,7 +109,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		} else {
 			var currentPromise = $.Deferred(function(defer) { defer.resolveWith(this,[]); });
 			for (var i = 0; i < calls.length; ++i) {
-				currentPromise = currentPromise.pipe(function() { return self.brol({ "url" : self.linkLibrary[calls[i]], "key" : calls[i] }, store); });
+				currentPromise = currentPromise.then(function() { return self.brol({ "url" : self.linkLibrary[calls[i]], "key" : calls[i] }, store); });
 			}
 			return currentPromise.then(function() {
 				return { "url" : self.linkLibrary[key], "key" : key};
@@ -129,7 +136,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		
 		return $.ajax(hash);
 	},
-	
+
     find : function(store, id, action, params) {
         var self = this;
 		if (store === "home") {
@@ -142,14 +149,15 @@ App.CustomAdapter = DS.RESTAdapter.extend({
             return urlPromise.then(function(obj) {
 				urlObj = obj;
 				if (params) {
-					urlObj.url += "?" + $.param(params);
+                    if (params.query)
+					    urlObj.url += "?" + $.param(params.query);
 				}
-				return self.ajax(urlObj.url, 'GET');
+                return self.ajax(urlObj.url, 'GET', params);
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
 				return data[store];
 			});
-        }        
+        }
     },
     
     post : function(store, postData) {
