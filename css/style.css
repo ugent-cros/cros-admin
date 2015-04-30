@@ -125,6 +125,12 @@
 	font-size: small;
 }
 
+.remove {
+	position: absolute;
+	top: -19px;
+	right: 0px;
+}
+
 .scroll {
 	height: 415px;
 	overflow-y:auto;

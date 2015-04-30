@@ -281,6 +281,7 @@
                             {{/unless}}
                             <div class="well route-well">
                                 <div class="row">
+									<div class="col-lg-12"><a href="javascript:;" {{action 'remove' checkpoint.id}} class="remove close">&times;</a></div>
                                     <div class="col-sm-6 col-lg-3">{{input class='longitude form-control' placeholder='Longitude' type='number' value=checkpoint.longitude}}</div>
                                     <div class="col-sm-6 col-lg-3">{{input class='latitude form-control' placeholder='Latitude' type='number' value=checkpoint.latitude}}</div>
                                     <div class="col-sm-6 col-lg-3">{{input class='altitude form-control' placeholder='Altitude' type='number' value=checkpoint.altitude}}</div>
