@@ -63,7 +63,7 @@ App.AssignmentController = Ember.Controller.extend({
 				self.set('model', assignment);
 			});
 		});
-		this.socketManager.register("assignmentProgressChanged", 0, "assignment", function(data, id) {
+		this.socketManager.register("assignmentProgressed", 0, "assignment", function(data, id) {
 			self.adapter.find('assignment', id).then(function(assignment){
 				self.set('model', assignment);
 			});
