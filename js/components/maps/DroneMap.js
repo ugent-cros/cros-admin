@@ -16,15 +16,20 @@ App.DroneMapComponent = App.PopupMapComponent.extend({
     }),
     polyline : null,
 
-    didInsertElement : function(){
+    initialization : function(){
         this._super();
 
-        var self = this;
-        $('.modal').on('shown.bs.modal', function (e) {
-            var polyline = L.polyline([], {color: 'blue'}).addTo(self.get('map'));
-            self.set('polyline', polyline);
-        });
+        var polyline = L.polyline([], {color: 'blue'}).addTo(this.get('map'));
+        this.set('polyline', polyline);
     },
+
+    invalidateSize : function() {
+        var map = this.get("map");
+        Ember.run.scheduleOnce('afterRender', this, function() {
+            if (map)
+                map.invalidateSize();
+        });
+    }.observes("updateSize"),
 
     updateMarker : function() {
         this._super();

@@ -32,7 +32,7 @@ App.DashboardMapComponent = App.MyMapComponent.extend({
 
         var locations = self.get("location");
         $.each(this.get("marker"), function(i,marker) {
-            switch (locations[i][2]) {
+            switch (locations[i].type) {
                 case "drone" :
                     marker.setIcon(self.droneIcon);
                     break;

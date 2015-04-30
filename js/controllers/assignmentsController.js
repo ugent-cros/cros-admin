@@ -24,11 +24,11 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
             var checkpoints = this.get("checkpoints");
             $.each(v, function(i, location) {
                 if (!checkpoints[i])
-                    checkpoints.pushObject({});
+                    checkpoints.pushObject(Ember.Object.create({}));
 
                 Ember.set(checkpoints[i], 'id', i);
-                Ember.set(checkpoints[i], 'latitude', location[0]);
-                Ember.set(checkpoints[i], 'longitude', location[1]);
+                Ember.set(checkpoints[i], 'latitude', location.lat);
+                Ember.set(checkpoints[i], 'longitude', location.lon);
             });
         }
 
@@ -36,7 +36,7 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
         var result = [];
         $.each(this.get("checkpoints"), function() {
             if (this.latitude && this.longitude)
-                result.push([this.latitude, this.longitude]);
+                result.push(Ember.Object.create({ lat : this.latitude, lon : this.longitude}));
         });
         if (result.length > 0)
             return Ember.A(result);
@@ -128,6 +128,19 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 			}
 			else
 				checkpoints.pushObject({ id: checkpoints.length,  latitude: null, longitude: null, altitude: null, waitingTime: null });
+		},
+		
+		remove: function(id) {
+			var checkpoints = this.get('checkpoints');
+			var checkpointToDelete = checkpoints.filter(function(e) { return e.id == id; })[0];
+			if(checkpoints.length > 1) {
+				checkpoints.removeObject(checkpointToDelete);
+			} else {
+				Ember.set(checkpointToDelete, 'latitude', null);
+				Ember.set(checkpointToDelete, 'longitude', null);
+				Ember.set(checkpointToDelete, 'altitude', null);
+				Ember.set(checkpointToDelete, 'waitingTime', null);
+			}
 		},
 		
 		swap: function(nextID) {

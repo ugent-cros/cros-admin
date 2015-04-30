@@ -18,6 +18,10 @@ App.ListSuperController = Ember.Controller.extend({
         }
     }.property("currentUser"),
 
+    userCantEdit: function() {
+        return !this.get("userCanEdit");
+    }.property("userCanEdit"),
+
     loadPage: function(search, searchField, page, perPage, orderBy, order) {
         var self = this;
         var elementClass = self.get('element');
@@ -40,7 +44,7 @@ App.ListSuperController = Ember.Controller.extend({
         //save parameters
         this.set('params', params);
         //call to rest
-        this.adapter.find(elementClass, null, null, params).then(function(data){
+        this.adapter.find(elementClass, null, null, {query:params}).then(function(data){
             self.set('model',data);
             return data;
         });
@@ -56,7 +60,7 @@ App.ListSuperController = Ember.Controller.extend({
             var params = this.get('params');
         }
         //call to rest
-        this.adapter.find(elementClass, null, null, params).then(function(data){
+        this.adapter.find(elementClass, null, null, {query:params}).then(function(data){
             self.set('model',data);
             return data;
         });
@@ -69,8 +73,8 @@ App.ListSuperController = Ember.Controller.extend({
             var result = this.adapter.remove(elementClass, id);
             var self = this;
             result.then(
-                function(){self.refresh();},
-                function(){self.refresh();}//todo: if fail?
+                function(){self.refresh(); NProgress.done(); },
+                function(){self.refresh(); NProgress.done(); }//todo: if fail?
             );
         },
 
