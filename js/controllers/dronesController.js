@@ -30,13 +30,24 @@ App.TypeController = Ember.ObjectController.extend({
 App.DroneEditController = Ember.Controller.extend({
     needs: 'drones',
     index: Ember.computed.alias("controllers.drones"),
+	nameError: "",
+	addressError: "",
+	typeError: "",
+	weightError: "",
+    hasNameError : function() {
+        return this.get('nameError') !== "";
+    }.property('nameError'),
+    hasAddressError : function() {
+        return this.get('addressError') !== "";
+    }.property('addressError'),
+    hasTypeError : function() {
+        return this.get('typeError') !== "";
+    }.property('typeError'),
+    hasWeightError : function() {
+        return this.get('weightError') !== "";
+    }.property('weightError'),
 
 	success: function(id) {
-		this.set('name', '');
-		this.set('address', '');
-		this.set('weightLimitation', '');
-		this.set('type', '');
-		this.set('versionNumber', '');
 		this.transitionToRoute('drone', id);
 	},
 
@@ -55,27 +66,25 @@ App.DroneEditController = Ember.Controller.extend({
     }.observes("types", "model.droneType"),
 	
 	failure: function(data) {
-        if(!$('#droneAlert')[0]) {
-            $('#droneAddAlert')
-                .append($('<div>')
-                    .attr('id', 'droneAlert')
-                    .attr('class', 'alert alert-danger alert-dismissible')
-                    .attr('role', 'alert')
-                );
-        }
-        $('#droneAlert').text('');
-        if (typeof data.responseJSON === 'string')
-            $('#droneAlert').append($('<p>').text(data.responseJSON));
-        if (data.responseJSON.reason)
-            $('#droneAlert').append($('<p>').text(data.responseJSON.reason));
-        if(data.responseJSON.name)
-            $('#droneAlert').append($('<p>').text('Name: ' + data.responseJSON.name));
-        if(data.responseJSON.address)
-            $('#droneAlert').append($('<p>').text('Address: ' + data.responseJSON.address));
-        if(data.responseJSON.droneType)
-            $('#droneAlert').append($('<p>').text('Drone type and version: ' + data.responseJSON.droneType));
-        if(data.responseJSON.weightLimitation)
-            $('#droneAlert').append($('<p>').text('Weight limitation: ' + data.responseJSON.weightLimitation));
+        if(typeof data.responseJSON === 'string' || data.responseJSON.reason) {
+			if(!$('#droneAlert')[0]) {
+				$('#droneAddAlert')
+					.append($('<div>')
+						.attr('id', 'droneAlert')
+						.attr('class', 'alert alert-danger alert-dismissible')
+						.attr('role', 'alert')
+					);
+			}
+			$('#droneAlert').text('');
+			if (typeof data.responseJSON === 'string')
+				$('#droneAlert').append($('<p>').text(data.responseJSON));
+			if (data.responseJSON.reason)
+				$('#droneAlert').append($('<p>').text(data.responseJSON.reason));
+		}
+		this.set('nameError', data.responseJSON.name || "");
+		this.set('addressError', data.responseJSON.address || "");
+		this.set('typeError', data.responseJSON.droneType || "");
+		this.set('weightError', data.responseJSON.weightLimitation || "");
 	},
 	
 	actions: {

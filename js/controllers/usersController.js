@@ -12,7 +12,23 @@ App.UsersController = App.ListSuperController.extend({
 App.UserEditController = Ember.Controller.extend({
     needs: 'users',
     index: Ember.computed.alias("controllers.users"),
-
+	firstNameError: "",
+	lastNameError: "",
+	emailError: "",
+	passwordError: "",
+    hasFirstNameError : function() {
+        return this.get('firstNameError') !== "";
+    }.property('firstNameError'),
+    hasLastNameError : function() {
+        return this.get('lastNameError') !== "";
+    }.property('lastNameError'),
+    hasEmailError : function() {
+        return this.get('emailError') !== "";
+    }.property('emailError'),
+    hasPasswordError : function() {
+        return this.get('passwordError') !== "";
+    }.property('passwordError'),
+	
 	roles: [
 		{name: "User", value: "USER"},
 		{name: "Admin", value: "ADMIN"},
@@ -24,27 +40,10 @@ App.UserEditController = Ember.Controller.extend({
 	},
 	
 	failure: function(data) {
-		if (data.status == 400) {
-			if(!$('#userAlert')[0]) {
-				$('#userAddAlert')
-					.append($('<div>')
-						.attr('id', 'userAlert')
-						.attr('class', 'alert alert-danger alert-dismissible')
-						.attr('role', 'alert')
-					);
-			}
-			$('#userAlert').text('');
-			if(data.responseJSON.firstName)
-				$('#userAlert').append($('<p>').text('First name: ' + data.responseJSON.firstName));
-			if(data.responseJSON.lastName)
-				$('#userAlert').append($('<p>').text('Last name: ' + data.responseJSON.lastName));
-			if(data.responseJSON.email)
-				$('#userAlert').append($('<p>').text('E-mail: ' + data.responseJSON.email));
-			if(data.responseJSON.password)
-				$('#userAlert').append($('<p>').text('Password: ' + data.responseJSON.password));
-			if(data.responseJSON.role)
-				$('#userAlert').append($('<p>').text('Role: ' + data.responseJSON.role));
-		}
+		this.set('firstNameError', data.responseJSON.firstName || "");
+		this.set('lastNameError', data.responseJSON.lastName || "");
+		this.set('emailError', data.responseJSON.email || "");
+		this.set('passwordError', data.responseJSON.password || "");
 	},
 	
 	actions: {

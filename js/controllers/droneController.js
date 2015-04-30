@@ -35,6 +35,10 @@ App.DroneController = Ember.ObjectController.extend({
             self.set('location',Ember.Object.create({lat : data.latitude, lon : data.longitude}));
             // todo: do something with gpsheight...?
         });
+
+        this.socketManager.register("droneStatusChanged", this.get("model.id"), "drone", function(data) {
+            self.set('model.status',data.newStatus);
+        });
     }.observes("model"),
 
     automatic : function() {
@@ -66,9 +70,24 @@ App.DroneController = Ember.ObjectController.extend({
             return label + "label-default";
         else if(status == "CHARGING")
             return label + "label-primary";
-        else if(status == "EMERGENCY_LANDED" || status == "DECOMMISSIONED")
+        else if(status == "EMERGENCY" || status == "DECOMMISSIONED")
             return label + "label-warning";
     }.property('status'),
+
+    getModelClass: function(){
+        var label = "label "
+        var status = this.get('model.status');
+        if(status == "AVAILABLE")
+            return label + "label-success";
+        else if(status == "IN_FLIGHT")
+            return label + "label-info";
+        else if(status == "UNAVAILABLE" || status == "UNKNOWN")
+            return label + "label-default";
+        else if(status == "CHARGING")
+            return label + "label-primary";
+        else if(status == "EMERGENCY" || status == "DECOMMISSIONED")
+            return label + "label-warning";
+    }.property('model.status'),
 
     controlError : "",
     hasControlError : function() {
@@ -104,17 +123,23 @@ App.DroneController = Ember.ObjectController.extend({
 
         initVideo : function() {
             var self = this;
-            this.adapter.find("drone", this.get("model.id"), "initVideo").then(function() {
-                this.adapter.resolveLink("drone", this.get("model.id"), "videoSocket").then(function(url) {
-                    var socket = window.SocketManager.create({defaultUrl : url.url});
+            this.adapter.find("drone", this.get("model.id"), "initVideo").then(function () {
+                this.adapter.resolveLink("drone", this.get("model.id"), "videoSocket").then(function (url) {
+                    var socket = window.SocketManager.create({defaultUrl: url.url});
                     self.set("videoSocket", socket);
                     socket.initConnection();
                 });
-            }, function(data) {
+            }, function (data) {
                 if (data.responseJSON.reason)
                     self.set("controlError", data.responseJSON.reason);
                 else
                     self.set("controlError", data.responseJSON);
+            });
+        },
+
+        emergency: function(id){
+            this.adapter.find('drone',id,"emergency").then(function(data){
+                console.log(data);
             });
         }
     }

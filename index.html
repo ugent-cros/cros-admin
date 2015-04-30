@@ -145,7 +145,10 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input  placeholder="Name" class="form-control" value=model.name}}</div>
+								<div {{bind-attr class=":col-xs-12 hasNameError:has-error"}}>
+									{{#if hasNameError}}<label class="control-label">{{ nameError }}</label>{{/if}}
+									{{input  placeholder="Name" class="form-control" value=model.name}}
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -153,7 +156,10 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input  placeholder="Address" class="form-control" value=model.address}}</div>
+								<div {{bind-attr class=":col-xs-12 hasAddressError:has-error"}}>
+									{{#if hasAddressError}}<label class="control-label">{{ addressError }}</label>{{/if}}
+									{{input  placeholder="Address" class="form-control" value=model.address}}
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -161,13 +167,14 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12" id="typeSelector">
-                                    <select class="form-control" {{action 'updateType' on='change'}}>
-                                        {{#each type in types itemController="type"}}
-                                            <option {{bind-attr value=type.type selected=type.selected }}>{{type.type}} ({{type.versionNumber}})</option>
-                                        {{/each}}
-                                    </select>
-                                </div>
+								<div id="typeSelector" {{bind-attr class=":col-xs-12 hasTypeError:has-error"}}>
+									{{#if hasTypeError}}<label class="control-label">{{ typeError }}</label>{{/if}}
+									<select class="form-control" {{action 'updateType' on='change'}}>
+										{{#each type in types itemController="type"}}
+											<option {{bind-attr value=type.type selected=type.selected }}>{{type.type}} ({{type.versionNumber}})</option>
+										{{/each}}
+									</select>
+								</div>
 							</div>
 						</div>
 						<label>
@@ -179,7 +186,8 @@
 							</div>
 							<div class="well">
 								<div class="row">
-									<div class="col-xs-12">
+									<div {{bind-attr class=":col-xs-12 hasWeightError:has-error"}}>
+										{{#if hasWeightError}}<label class="control-label">{{ weightError }}</label>{{/if}}
 										<div class="input-group">
 											{{input placeholder="Weight Limitation" type="number" class="form-control" value=model.weightLimitation}}
 											<div class="input-group-addon">kg</div>
@@ -196,7 +204,8 @@
 		<script type="text/x-handlebars" id="drone">
 			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
                 <div class="row">
-                    <div class="col-xs-12 text-center whitespaceBottom">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-10 text-center whitespaceBottom">
                         {{#if hasControlError}}
                         <div {{bind-attr class="hasControlError:has-error"}}>
                             <label class="control-label">{{ controlError }}</label>
@@ -212,6 +221,11 @@
                                 <i class="fa fa-gamepad"></i> Manual Control
                             </label>
                         </div>
+                    </div>
+                    <div class="col-xs-1">
+                        <a class='btn-sm btn-warning' href='#' {{action 'emergency' model.id}}>
+                            EMERGENCY
+                        </a>
                     </div>
                 </div>
                 {{partial "droneAutomatic" }}
@@ -236,7 +250,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8"><label>Status:</label></div>
-                        <div class="col-xs-4">{{model.status}}</div>
+                        <div {{bind-attr class=":col-xs-2 getModelClass"}}>{{model.status}}</div>
                     </div>
                     <div class="row">
                         <div class="col-xs-8"><label>Weight limitation:</label></div>
@@ -600,8 +614,14 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-sm-6">{{input  placeholder="First name" class="form-control" value=model.firstName}}</div>
-								<div class="col-sm-6">{{input  placeholder="Last name" class="form-control" value=model.lastName}}</div>
+								<div {{bind-attr class=":col-sm-6 hasFirstNameError:has-error"}}>
+									{{#if hasFirstNameError}}<label class="control-label" for="name">{{ firstNameError }}</label>{{/if}}
+									{{input  placeholder="First name" class="form-control" value=model.firstName}}
+								</div>
+								<div {{bind-attr class=":col-sm-6 hasLastNameError:has-error"}}>
+									{{#if hasLastNameError}}<label class="control-label" for="name">{{ lastNameError }}</label>{{/if}}
+									{{input  placeholder="Last name" class="form-control" value=model.lastName}}
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -609,7 +629,10 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input placeholder="E-mail" class="form-control" value=model.email}}</div>
+								<div {{bind-attr class=":col-sm-12 hasEmailError:has-error"}}>
+									{{#if hasEmailError}}<label class="control-label" for="name">{{ emailError }}</label>{{/if}}
+									{{input placeholder="E-mail" class="form-control" value=model.email}}
+								</div>
 							</div>
 						</div>
 						<div class="row">
@@ -617,7 +640,10 @@
 						</div>
 						<div class="well">
 							<div class="row">
-								<div class="col-xs-12">{{input type="password" placeholder="Password" class="form-control" value=model.password}}</div>
+								<div {{bind-attr class=":col-sm-12 hasPasswordError:has-error"}}>
+									{{#if hasPasswordError}}<label class="control-label" for="name">{{ passwordError }}</label>{{/if}}
+									{{input type="password" placeholder="Password" class="form-control" value=model.password}}
+								</div>
 							</div>
 						</div>
 						<label>
