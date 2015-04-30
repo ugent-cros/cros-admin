@@ -62,7 +62,7 @@ App.DroneController = Ember.ObjectController.extend({
     getClass: function(){
         var label = "label "
         var status = this.get('status');
-        if(status == "AVAILABLE")
+        if(status == "AVAILABLE" || status === "MANUAL")
             return label + "label-success";
         else if(status == "IN_FLIGHT")
             return label + "label-info";
@@ -94,6 +94,14 @@ App.DroneController = Ember.ObjectController.extend({
         return this.get("controlError") !== "";
     }.property("controlError"),
 
+    streamingVideo : function() {
+        if (this.get("videoSocket")) {
+            return this.get("videoSocket.connection");
+        } else {
+            return false;
+        }
+    }.property("videoSocket"),
+
     actions: {
         setAutomatic : function(){
             var self = this;
@@ -113,16 +121,28 @@ App.DroneController = Ember.ObjectController.extend({
             });
         },
 
+        initVideo : function() {
+            var self = this;
+            this.adapter.find("drone", this.get("model.id"), "initVideo").then(function () {
+                this.adapter.resolveLink("drone", this.get("model.id"), "videoSocket").then(function (url) {
+                    var socket = window.SocketManager.create({defaultUrl: url.url});
+                    self.set("videoSocket", socket);
+                    socket.initConnection();
+                });
+            }, function (data) {
+                if (data.responseJSON.reason)
+                    self.set("controlError", data.responseJSON.reason);
+                else
+                    self.set("controlError", data.responseJSON);
+            });
+        },
+
         emergency: function(id){
             this.adapter.find('drone',id,"emergency").then(function(data){
                 console.log(data);
             });
         }
     }
-});
-
-$( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
-    console.log();
 });
 
 App.DroneEditController = Ember.Controller.extend({

@@ -162,3 +162,12 @@
 .whitespaceBottom {
     margin-bottom: 10px;
 }
+
+.videoClick {
+    height:500px;
+    background: black;
+}
+
+.videoClick button {
+    margin-top: 225px;
+}

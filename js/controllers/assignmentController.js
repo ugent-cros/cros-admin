@@ -17,7 +17,7 @@ App.AssignmentController = Ember.Controller.extend({
 		var model = this.get('model');
 		if(model.progress == model.route.length) {
 			return 'completed';
-		} else if (model.progress == 0) {
+		} else if (!model.scheduled) {
 			return 'pending';
 		} else {
 			return 'in progress';
@@ -28,7 +28,7 @@ App.AssignmentController = Ember.Controller.extend({
 		var model = this.get('model');
 		if(model.progress == model.route.length) {
 			return 'label-success';
-		} else if (model.progress == 0) {
+		} else if (!model.scheduled) {
 			return 'label-default';
 		} else {
 			return 'label-info';
@@ -63,7 +63,7 @@ App.AssignmentController = Ember.Controller.extend({
 				self.set('model', assignment);
 			});
 		});
-		this.socketManager.register("assignmentProgressChanged", 0, "assignment", function(data, id) {
+		this.socketManager.register("assignmentProgressed", 0, "assignment", function(data, id) {
 			self.adapter.find('assignment', id).then(function(assignment){
 				self.set('model', assignment);
 			});

@@ -272,7 +272,16 @@
                 <div class="col-xs-12">
                     <div class="row whitespaceBottom">
                         <div class="col-md-6">
-                            <img src="" />
+                            {{#if streamingVideo}}
+                                <img src="" />
+                            {{else}}
+                                <div class="videoClick text-center">
+                                    <button class="btn btn-lg btn-default" {{action 'initVideo'}} style="vertical-align: middle" >
+                                        <i class='fa fa-play-circle'></i>
+                                    </button>
+                                </div>
+                            {{/if}}
+
                         </div>
                         <div class="col-md-6">
                             {{#drone-map mapName="droneControlMap" location=location updateSize=automatic}}{{/drone-map}}

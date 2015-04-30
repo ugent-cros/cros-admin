@@ -67,7 +67,7 @@ App.DashboardController = Ember.Controller.extend({
 			var notifications = self.get('notifications');
 			notifications.unshiftObject({ number: notifications.length, message: message, link:'assignment', id: id, seen: false, time: self.getTime() });
         });
-		this.socketManager.register("assignmentProgressChanged", 0, "dashboard", function(data, id) {
+		this.socketManager.register("assignmentProgressed", 0, "dashboard", function(data, id) {
 			self.adapter.find('assignment', id).then(function(assignment){
 				var message = assignment.assignedDrone.name + ' reached the next checkpoint (' + data.progress + ' of ' + assignment.route.length + ')';
 				var notifications = self.get('notifications');
