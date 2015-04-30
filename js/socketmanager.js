@@ -84,6 +84,12 @@ window.SocketManager = Ember.Object.extend({
 		}
 		controllerCallbacks[controllerName] = {callback: callback, id: id};
 		this.listeners[type] = controllerCallbacks;
-	}
+	},
+
+    unregister : function(type, id, controllerName) {
+        var controllerCallbacks = this.listeners[type];
+        controllerCallbacks.delete(controllerName);
+        this.listeners[type] = controllerCallbacks;
+    }
 
 });
