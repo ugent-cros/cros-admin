@@ -16,7 +16,7 @@ App.PieChartComponent = Ember.Component.extend({
             data: pieData
         });
         var self = this;
-        this.socketManager.register("droneStatusChanged", this.get("drone"), "gaugegraph", function(data) {
+        this.socketManager.register("droneStatusChanged", 0, "piechart", function(data) {
             var status = data.newStatus;
             var old = data.oldStatus;
             var statuses = self.get('data');
