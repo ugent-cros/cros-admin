@@ -6,7 +6,7 @@ App.LineGraphComponent = Ember.Component.extend({
     draw: function(){
         var self = this
         $('.modal').on('shown.bs.modal', function (e) {
-            var data = [{ label: 'A', values: [] }];
+            var data = [{ label: 'A', values: [{ time: Date.now() / 1000 | 0, y: 0 }] }];
             var chart = $('#lineChart').epoch({
                 type: 'time.line',
                 data: data,
