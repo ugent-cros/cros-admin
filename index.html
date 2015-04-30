@@ -107,13 +107,14 @@
                     <div class="well">
                         <div class="row">
                             <div class="col-sm-9">
-                            {{pie-chart}}
+                            {{pie-chart data=statuses total=total}}
                             </div>
                             <div class="col-sm-3" id="legend">
                                 <h5><span class="label label-unavailable">Unavailable</span></h5>
                                 <h5><span class="label label-available">Available</span></h5>
                                 <h5><span class="label label-inflight">In flight</span></h5>
                                 <h5><span class="label label-charging">Charging</span></h5>
+                                <h5>Total: {{total}}</h5>
                             </div>
                         </div>
                     </div>
@@ -763,6 +764,7 @@
         </script>
 
         <script type="text/x-handlebars" id="components/pie-chart">
+            {{statuses}}
             <div  class="epoch category2 b" id="pie" style="width: 350px; height: 350px"></div>
         </script>
 

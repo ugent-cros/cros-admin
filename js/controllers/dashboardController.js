@@ -11,6 +11,7 @@ App.DashboardController = Ember.Controller.extend({
 
         this.fetchLocations();
 		this.registerForEvents();
+        this.fetchStatuses();
     },
 
     locations : undefined,
@@ -40,6 +41,30 @@ App.DashboardController = Ember.Controller.extend({
             });
         });
     },
+
+    statuses :{UNAVAILABLE: 0, FLYING: 0, AVAILABLE:0, CHARGING:0},
+    total : 0,
+
+    fetchStatuses : function() {
+        var self = this;
+
+        // get all drone locations
+        this.adapter.find("drone", null, null).then(function(data) {
+            $.each(data.resource,function(i,d) {
+                self.adapter.find("drone", d.id, null).then(function(data) {
+                    var status = data.status;
+                    var statuses = self.get('statuses');
+                    statuses[status] = statuses[status] + 1;
+                    self.set('statuses', statuses);
+                    self.set('total', self.get('total')+1);
+                });
+            });
+        });
+    },
+
+    debug : function () {
+        console.log(this.get('statuses'));
+    }.observes('statuses'),
 	
 	registerForEvents: function() {
 		var self = this;

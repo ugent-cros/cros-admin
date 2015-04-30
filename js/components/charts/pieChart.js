@@ -3,16 +3,39 @@
  */
 App.PieChartComponent = Ember.Component.extend({
 
+    chart: undefined,
+
     draw: function(){
-        var pieData = [
-            { label: '10%', value: 10 },
-            { label: '20%', value: 20 },
-            { label: '40%', value: 40 },
-            { label: '30%', value: 30 }
-        ]
+        var pieData = [];
+        var statuses = this.get('data');
+        for(var key in statuses){
+            pieData.push({label: '', value: statuses[key]});
+        }
         $('#pie').epoch({
             type: 'pie',
             data: pieData
         });
-    }.on('didInsertElement')
+        var self = this;
+        this.socketManager.register("droneStatusChanged", this.get("drone"), "gaugegraph", function(data) {
+            var status = data.newStatus;
+            var old = data.oldStatus;
+            var statuses = self.get('data');
+            statuses[status] = statuses[status] + 1;
+            statuses[old] = statuses[old] - 1;
+            self.set('data', statuses);
+            self.update();
+        });
+    }.on('didInsertElement'),
+
+    update: function(){
+        console.log("update pie");
+        var pieData = [];
+        var statuses = this.get('data');
+        for(var key in statuses){
+            pieData.push({label: '', value: statuses[key]});
+        }
+        var chart = this.get('chart');
+        console.log(pieData);
+        chart.update(pieData);
+    }.observes('data')
 });
