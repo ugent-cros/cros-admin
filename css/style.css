@@ -144,3 +144,21 @@
     pointer-events: none !important;
     cursor: not-allowed !important;
 }
+
+.controlButtonActive {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.controlButtonContainer {
+    margin:3px !important;
+}
+
+.controlButtonContainerParent {
+    margin-right: 3px !important;
+}
+
+.whitespaceBottom {
+    margin-bottom: 10px;
+}
