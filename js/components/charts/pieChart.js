@@ -27,6 +27,10 @@ App.PieChartComponent = Ember.Component.extend({
         });
     }.on('didInsertElement'),
 
+    unregister: function(){
+        this.socketManager.unregister("droneStatusChanged", 0, "piechart")
+    }.on('willDestroyElement'),
+
     update: function(){
         console.log("update pie");
         var pieData = [];

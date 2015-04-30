@@ -25,6 +25,7 @@ App.GaugeGraphComponent = Ember.Component.extend({
                 if(t) {
                     s = x / t;
                 }
+                console.log('SPEED: ' + s);
                 chart.update(s);
             }else{
                 self.set('previousTime', timestamp);
