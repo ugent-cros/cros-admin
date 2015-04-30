@@ -196,7 +196,8 @@
 		<script type="text/x-handlebars" id="drone">
 			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
                 <div class="row">
-                    <div class="col-xs-12 text-center whitespaceBottom">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-10 text-center whitespaceBottom">
                         {{#if hasControlError}}
                         <div {{bind-attr class="hasControlError:has-error"}}>
                             <label class="control-label">{{ controlError }}</label>
@@ -212,6 +213,11 @@
                                 <i class="fa fa-gamepad"></i> Manual Control
                             </label>
                         </div>
+                    </div>
+                    <div class="col-xs-1">
+                        <a class='btn-sm btn-warning' href='#' {{action 'emergency' model.id}}>
+                            EMERGENCY
+                        </a>
                     </div>
                 </div>
                 {{partial "droneAutomatic" }}
@@ -236,7 +242,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8"><label>Status:</label></div>
-                        <div class="col-xs-4">{{model.status}}</div>
+                        <div {{bind-attr class=":col-xs-2 getModelClass"}}>{{model.status}}</div>
                     </div>
                     <div class="row">
                         <div class="col-xs-8"><label>Weight limitation:</label></div>
