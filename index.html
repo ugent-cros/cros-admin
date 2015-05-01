@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel='stylesheet' href='css/nprogress.css'/>
 		<link rel="stylesheet" href="css/leaflet.css" />
+		<link rel="stylesheet" href="css/epoch.min.css" />
 		<!-- link rel="stylesheet" href="css/epoch.css"-->
 	</head>
 	<body class="main page">
@@ -100,6 +101,24 @@
 						{{dashboard-map mapName="dashboardMap" location=locations}}
 					</div>
 				</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-sm-9">
+                            {{pie-chart data=statuses total=total}}
+                            </div>
+                            <div class="col-sm-3" id="legend">
+                                <h5><span class="label label-unavailable">Unavailable</span></h5>
+                                <h5><span class="label label-available">Available</span></h5>
+                                <h5><span class="label label-inflight">In flight</span></h5>
+                                <h5><span class="label label-charging">Charging</span></h5>
+                                <h5>Total: {{total}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 		</script>
 
@@ -203,6 +222,50 @@
 
 		<script type="text/x-handlebars" id="drone">
 			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
+				<div class="row">
+					<div class="col-sm-6">
+                        <div class="well">
+						<div class="row">
+							<div class="col-xs-8"><label>Address:</label></div>
+							<div class="col-xs-4">{{model.address}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Type:</label></div>
+							<div class="col-xs-4">{{model.droneType.type}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Version number:</label></div>
+							<div class="col-xs-4">{{model.droneType.versionNumber}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Status:</label></div>
+							<div class="col-xs-4">{{model.status}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Weight limitation:</label></div>
+							<div class="col-xs-4">{{model.weightLimitation}}</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-8"><label>Altitude:</label></div>
+							<div class="col-xs-4">{{altitude}}</div>
+						</div>
+                        <div class="row">
+                            <div class="col-xs-8"><label>Altitude:</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-top: 7%">
+                                {{gauge-graph drone=model.id}}
+                            </div>
+                            <div class="col-xs-9" style="padding-right: 0px">
+                                {{#line-graph drone=model.id}}{{/line-graph}}
+                            </div>
+                        </div>
+                        </div>
+					</div>
+					<div class="col-sm-6">
+                        {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
+					</div>
+				</div>
                 <div class="row">
                     <div class="col-xs-1"></div>
                     <div class="col-xs-10 text-center whitespaceBottom">
@@ -846,7 +909,7 @@
 						<div class="modal-footer">
 							<div class="row">
 								<div class="col-xs-4">
-									{{{footer}}}
+                                    {{{footer}}}
 								</div>
 								<div class="col-xs-4 col-xs-offset-4">
 								{{#if saveButton}}
@@ -866,12 +929,21 @@
 		</script>
 
         <script type="text/x-handlebars" id="components/my-map">
-            <div {{bind-attr id=mapName}} style="height:500px;"></div>
+            <div {{bind-attr id=mapName}} style="height:365px;"></div>
         </script>
 
-		<script type="text/x-handlebars" id="components/time-graph">
-			<div {{bind-attr id=chartName}} class="epoch category10" style="width: 200px; height: 200px"></div>
+		<script type="text/x-handlebars" id="components/gauge-graph">
+			<div id="gauge" class="epoch gauge-tiny graph" ></div>
 		</script>
+
+        <script type="text/x-handlebars" id="components/line-graph">
+            <div class="epoch category10" id="lineChart" style="width: inherit; height: 150px"></div>
+        </script>
+
+        <script type="text/x-handlebars" id="components/pie-chart">
+            {{statuses}}
+            <div  class="epoch category2 b" id="pie" style="width: 350px; height: 350px"></div>
+        </script>
 
         <script type="text/x-handlebars" id="components/user-display">
             <ul class="nav navbar-nav pull-right">
@@ -906,11 +978,14 @@
 		<script src="js/libs/ember-data.js"></script>
 		<script src='js/libs/nprogress.js'></script>
 		<script src="js/libs/leaflet.js"></script>
+		<script src="js/libs/d3.js"></script>
+		<script src="js/libs/epoch.min.js"></script>
 
         <script src="js/authManager.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/adapter.js"></script>
 		<script src="js/socketmanager.js"></script>
+		<script src="js/test.js"></script>
         <script src="js/routers/superRouter.js"></script>
 		<script src="js/router.js"></script>
         <script src="js/routers/assignmentsRouter.js"></script>
@@ -942,7 +1017,9 @@
         <script src="js/components/maps/assignmentMap.js"></script>
         <script src="js/components/maps/assignmentsAddMap.js"></script>
         <script src="js/components/userdisplay.js"></script>
+		<script src="js/components/charts/gaugeGraph.js"></script>
+        <script src="js/components/charts/lineChart.js"></script>
+        <script src="js/components/charts/pieChart.js"></script>
         <script src="js/components/ManualControl.js"></script>
-		<!-- script src="js/components/graph.js"></script -->
 	</body>
 </html>

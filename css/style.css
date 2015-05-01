@@ -140,6 +140,27 @@
 	display: none;
 }
 
+.label-charging {
+    background-color: #d62728;
+}
+
+.label-available {
+    background-color: #2ca02c;
+}
+
+.label-unavailable {
+    background-color: #1f77b4;
+}
+
+.label-inflight {
+    background-color: #ff7f0e;
+}
+
+#legend {
+    padding-top: 100px;
+    height: 350px;
+}
+
 .disabledLink {
     pointer-events: none !important;
     cursor: not-allowed !important;
