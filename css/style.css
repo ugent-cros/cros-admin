@@ -192,3 +192,11 @@
 .videoClick button {
     margin-top: 225px;
 }
+
+.unavailable {
+    background-image: url('../img/unavailable.png');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
