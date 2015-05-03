@@ -64,14 +64,14 @@ App.DroneController = Ember.ObjectController.extend({
         var status = this.get('status');
         if(status == "AVAILABLE" || status === "MANUAL")
             return label + "label-success";
-        else if(status == "IN_FLIGHT")
-            return label + "label-info";
+        else if(status == "FLYING")
+            return label + "label-warning";
         else if(status == "UNAVAILABLE" || status == "UNKNOWN")
             return label + "label-default";
         else if(status == "CHARGING")
             return label + "label-primary";
         else if(status == "EMERGENCY" || status == "DECOMMISSIONED")
-            return label + "label-warning";
+            return label + "label-danger";
     }.property('status'),
 
     getModelClass: function(){
@@ -79,14 +79,14 @@ App.DroneController = Ember.ObjectController.extend({
         var status = this.get('model.status');
         if(status == "AVAILABLE")
             return label + "label-success";
-        else if(status == "IN_FLIGHT")
-            return label + "label-info";
+        else if(status == "FLYING")
+            return label + "label-warning";
         else if(status == "UNAVAILABLE" || status == "UNKNOWN")
             return label + "label-default";
         else if(status == "CHARGING")
             return label + "label-primary";
         else if(status == "EMERGENCY" || status == "DECOMMISSIONED")
-            return label + "label-warning";
+            return label + "label-danger";
     }.property('model.status'),
 
     controlError : "",
