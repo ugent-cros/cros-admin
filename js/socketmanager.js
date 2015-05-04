@@ -89,7 +89,7 @@ window.SocketManager = Ember.Object.extend({
 
     unregister : function(type, id, controllerName) {
         var controllerCallbacks = this.listeners[type];
-        controllerCallbacks.delete(controllerName);
+        delete controllerCallbacks[controllerName];
         this.listeners[type] = controllerCallbacks;
     }
 
