@@ -185,10 +185,18 @@
 }
 
 .videoClick {
-    height:500px;
+    height:365px;
     background: black;
 }
 
 .videoClick button {
-    margin-top: 225px;
+    margin-top: 180px;
+}
+
+.unavailable {
+    background-image: url('../img/unavailable.png');
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    margin: auto;
 }

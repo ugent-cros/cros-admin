@@ -68,7 +68,7 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
                     location.altitude = checkpoints[i].altitude;
                     var checkpoint = new Object();
                     checkpoint.location = location;
-                    if(checkpoints[i].value != null)
+                    if(checkpoints[i].waitingTime != null)
                         checkpoint.waitingTime = checkpoints[i].waitingTime;
                     route.push(checkpoint);
                 }
@@ -186,8 +186,15 @@ App.AssignmentsAddController = Ember.ArrayController.extend({
 			$('#assignmentAlert').text('');
 			if(data.responseJSON.route)
 				$('#assignmentAlert').append($('<p>').text('Route: at least one checkpoint (latitude, longitude and altitude) is required'));
+            var routeErrors = Object.keys(data.responseJSON).filter(function(k) { return k.startsWith("route");});
+            if (routeErrors.length > 0) {
+                $.each(routeErrors, function(i,e) {
+                    var type = e.substr(e.lastIndexOf(".")+1);
+                    $('#assignmentAlert').append($('<p>').text(type + ': ' + data.responseJSON[e]));
+                });
+            }
 			if(data.responseJSON.priority)
-				$('#droneAlert').append($('<p>').text('Priority: ' + data.responseJSON.priority));
+				$('#assignmentAlert').append($('<p>').text('Priority: ' + data.responseJSON.priority));
 		}
 	}
 });

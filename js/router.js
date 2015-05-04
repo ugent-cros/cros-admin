@@ -19,6 +19,7 @@ App.Router.map(function(){
         this.resource('unauthorised');
 	});
 	this.resource('login');
+    this.resource('unavailable');
 });
 
 App.AppRoute = App.BaseRoute.extend({});

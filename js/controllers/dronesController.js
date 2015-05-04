@@ -51,6 +51,26 @@ App.DroneEditController = Ember.Controller.extend({
 		this.transitionToRoute('drone', id);
 	},
 
+    isAvailableState : function() {
+        return this.get("model.status") == "AVAILABLE";
+    }.property("model.status"),
+
+    isChargingState : function() {
+        return this.get("model.status") == "CHARGING";
+    }.property("model.status"),
+
+    isInactiveState : function() {
+        return this.get("model.status") == "INACTIVE";
+    }.property("model.status"),
+
+    isRetiredState : function() {
+        return this.get("model.status") == "RETIRED";
+    }.property("model.status"),
+
+    isManualState : function() {
+        return this.get("model.status") == "MANUAL_CONTROL";
+    }.property("model.status"),
+
     updateSelected : function() {
         var self = this;
         var types = this.get("types") || [];
@@ -115,6 +135,10 @@ App.DroneEditController = Ember.Controller.extend({
                 return t.type === type && t.versionNumber === version;
             });
             this.set("model.droneType", selectedType[0]);
+        },
+
+        setState : function(state) {
+            this.set("model.status", state);
         }
 	}
 });
