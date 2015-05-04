@@ -3,6 +3,7 @@ App.DroneController = Ember.ObjectController.extend({
 	battery : "N/A",
 	altitude : -1,
     location : [0,0],
+    originalDroneStatus : null,
 
     initialization : function() {
         var self = this;
@@ -39,14 +40,14 @@ App.DroneController = Ember.ObjectController.extend({
         this.socketManager.register("droneStatusChanged", this.get("model.id"), "drone", function(data) {
             self.set('model.status',data.newStatus);
         });
+
+        if (!this.get("originalDroneStatus")) {
+            this.set("originalDroneStatus", this.get("model.status"));
+        }
     }.observes("model"),
 
     automatic : function() {
-        if (this.get("model.status") === "MANUAL_CONTROL") {
-            return false;
-        } else {
-            return true;
-        }
+        return this.get("model.status") === this.get("originalDroneStatus") && this.get("originalDroneStatus") !== "MANUAL_CONTROL";
     }.property("model.status"),
 
     speedvalue : 1,
@@ -105,15 +106,16 @@ App.DroneController = Ember.ObjectController.extend({
     actions: {
         setAutomatic : function(){
             var self = this;
-            this.adapter.find("drone",this.get("model.id"), ["commands", "automatic"]).then(function(data) {
-                self.set("model.status", "AVAILABLE");
-            }, function(data) {
+            this.set("model.status", this.get("originalDroneStatus"));
+            self.set("controlError", "");
+            this.adapter.edit('drone', this.get("model.id"), {drone : this.get("model")}).fail(function(data) {
                 self.set("controlError", data.responseJSON);
             });
         },
 
         setManual : function() {
             var self = this;
+            self.set("controlError", "");
             this.adapter.find("drone",this.get("model.id"), ["commands", "manual"]).then(function(data) {
                 self.set("model.status", "MANUAL_CONTROL");
             }, function(data) {
