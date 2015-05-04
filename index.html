@@ -214,6 +214,35 @@
 									</div>
 								</div>
 							</div>
+                            <div class="well">
+                                <div class="row">
+                                    <div {{bind-attr class=":col-xs-12 hasStateError:has-error"}}>
+                                        {{#if hasStateError}}<label class="control-label">{{ stateError }}</label>{{/if}}
+                                        <div id="droneStatus" class="btn-group btn-group-justified" data-toggle="buttons">
+                                            <label {{bind-attr class=":btn :btn-success isAvailableState:active"}} {{action 'setState' "AVAILABLE" }}>
+                                                <input type="radio" name="available" id="available" autocomplete="off" {{bind-attr checked="isAvailableState"}}>
+                                                Available
+                                            </label>
+                                            <label {{bind-attr class=":btn :btn-success isChargingState:active"}} {{action 'setState' "CHARGING" }}>
+                                                <input type="radio" name="charging" id="charging" autocomplete="off" {{bind-attr checked="isChargingState"}}>
+                                                Charging
+                                            </label>
+                                            <label {{bind-attr class=":btn :btn-success isInactiveState:active"}} {{action 'setState' "INACTIVE" }}>
+                                                <input type="radio" name="inactive" id="inactive" autocomplete="off" {{bind-attr checked="isInactiveState"}}>
+                                                Inactive
+                                            </label>
+                                            <label {{bind-attr class=":btn :btn-success isRetiredState:active"}} {{action 'setState' "RETIRED" }}>
+                                                <input type="radio" name="retired" id="retired" autocomplete="off" {{bind-attr checked="isRetiredState"}}>
+                                                Retired
+                                            </label>
+                                            <label {{bind-attr class=":btn :btn-success isManualState:active"}} {{action 'setState' "MANUAL_CONTROL" }}>
+                                                <input type="radio" name="manual" id="manual" autocomplete="off" {{bind-attr checked="isManualState"}}>
+                                                Manual control
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</form>
@@ -222,53 +251,9 @@
 
 		<script type="text/x-handlebars" id="drone">
 			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
-				<div class="row">
-					<div class="col-sm-6">
-                        <div class="well">
-						<div class="row">
-							<div class="col-xs-8"><label>Address:</label></div>
-							<div class="col-xs-4">{{model.address}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Type:</label></div>
-							<div class="col-xs-4">{{model.droneType.type}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Version number:</label></div>
-							<div class="col-xs-4">{{model.droneType.versionNumber}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Status:</label></div>
-							<div class="col-xs-4">{{model.status}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Weight limitation:</label></div>
-							<div class="col-xs-4">{{model.weightLimitation}}</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-8"><label>Altitude:</label></div>
-							<div class="col-xs-4">{{altitude}}</div>
-						</div>
-                        <div class="row">
-                            <div class="col-xs-8"><label>Altitude:</label></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-3" style="padding-top: 7%">
-                                {{gauge-graph drone=model.id}}
-                            </div>
-                            <div class="col-xs-9" style="padding-right: 0px">
-                                {{#line-graph drone=model.id}}{{/line-graph}}
-                            </div>
-                        </div>
-                        </div>
-					</div>
-					<div class="col-sm-6">
-                        {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
-					</div>
-				</div>
                 <div class="row">
-                    <div class="col-xs-1"></div>
-                    <div class="col-xs-10 text-center whitespaceBottom">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8 text-center whitespaceBottom">
                         {{#if hasControlError}}
                         <div {{bind-attr class="hasControlError:has-error"}}>
                             <label class="control-label">{{ controlError }}</label>
@@ -285,7 +270,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="col-xs-1">
+                    <div class="col-xs-2">
                         <a class='btn-sm btn-warning' href='#' {{action 'emergency' model.id}}>
                             EMERGENCY
                         </a>
@@ -298,33 +283,46 @@
 
         <script type="text/x-handlebars" id="_droneAutomatic">
             <div {{bind-attr class=":row automatic:show:hidden"}}>
-                <div class="col-sm-4">
-                    <div class="row">
-                        <div class="col-xs-8"><label>Address:</label></div>
-                        <div class="col-xs-4">{{model.address}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-8"><label>Type:</label></div>
-                        <div class="col-xs-4">{{model.droneType.type}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-8"><label>Version number:</label></div>
-                        <div class="col-xs-4">{{model.droneType.versionNumber}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-8"><label>Status:</label></div>
-                        <div {{bind-attr class=":col-xs-2 getModelClass"}}>{{model.status}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-8"><label>Weight limitation:</label></div>
-                        <div class="col-xs-4">{{model.weightLimitation}}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-8"><label>altitude:</label></div>
-                        <div class="col-xs-4">{{altitude}}</div>
+                <div class="col-sm-6">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-xs-8"><label>Address:</label></div>
+                            <div class="col-xs-4">{{model.address}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8"><label>Type:</label></div>
+                            <div class="col-xs-4">{{model.droneType.type}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8"><label>Version number:</label></div>
+                            <div class="col-xs-4">{{model.droneType.versionNumber}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8"><label>Status:</label></div>
+                            <div class="col-xs-4">{{model.status}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8"><label>Weight limitation:</label></div>
+                            <div class="col-xs-4">{{model.weightLimitation}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8"><label>Altitude:</label></div>
+                            <div class="col-xs-4">{{altitude}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8"><label>Altitude:</label></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3" style="padding-top: 7%">
+                                {{gauge-graph drone=model.id}}
+                            </div>
+                            <div class="col-xs-9" style="padding-right: 0px">
+                                {{#line-graph drone=model.id}}{{/line-graph}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     {{#drone-map mapName="droneMap" location=location updateSize=automatic}}{{/drone-map}}
                 </div>
             </div>
@@ -424,8 +422,6 @@
                     </div>
                 </div>
             </div>
-
-
         </script>
 
         <script type="text/x-handlebars" id="assignments">
