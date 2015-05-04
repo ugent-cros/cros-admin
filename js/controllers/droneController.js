@@ -103,6 +103,18 @@ App.DroneController = Ember.ObjectController.extend({
         }
     }.property("videoSocket.connection"),
 
+    currentFrame : "",
+    videoPrefix : "data:image/jpeg;base64, ",
+
+    videoProperty : function() {
+        $("#videoStream").attr('src', this.get("videoPrefix").concat(this.get("currentFrame")));
+
+        /*if (this.get("currentFrame"))
+         return this.get("videoPrefix").concat(this.get("currentFrame"));
+         else
+         return "";*/
+    }.observes("currentFrame"),
+
     actions: {
         setAutomatic : function(){
             var self = this;
@@ -123,23 +135,17 @@ App.DroneController = Ember.ObjectController.extend({
             });
         },
 
-        currentFrame : "",
-        videoPrefix : "data:image/jpeg;base64, ",
-
-        video : function() {
-            this.get("videoPrefix").concat(this.get("currentFrame"));
-        }.property("currentFrame"),
-
         initVideo : function() {
             var self = this;
             this.adapter.find("drone", this.get("model.id"), "initVideo").then(function () {
-                this.adapter.resolveLink("drone", this.get("model.id"), "videoSocket").then(function (url) {
-                    var socket = window.SocketManager.create({defaultUrl: url.url});
+                self.adapter.resolveLink("drone", self.get("model.id"), "videoSocket").then(function (url) {
+                    var socket = window.SocketManager.create({defaultUrl: url.url, authManager:self.authManager });
                     self.set("videoSocket", socket);
                     socket.initConnection();
 
                     socket.register("JPEGFrameChanged", 0, "droneController", function(message) {
                         self.set("currentFrame", message.imageData);
+                        self.videoProperty();
                     });
                 });
             }, function (data) {
