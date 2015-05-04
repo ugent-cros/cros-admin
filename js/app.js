@@ -59,10 +59,11 @@ EmberENV = {
 };
 
 $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
-    if (thrownError.code == thrownError.NETWORK_ERR) {
+    if (thrownError.code && thrownError.code === thrownError.NETWORK_ERR) {
         var url = window.location.href;
         window.location.href = url.substr(0,url.lastIndexOf("#")+1) + "/unavailable";
     }
+    console.log(thrownError.stack);
     throw thrownError;
 });
 
