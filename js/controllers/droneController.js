@@ -101,7 +101,7 @@ App.DroneController = Ember.ObjectController.extend({
         } else {
             return false;
         }
-    }.property("videoSocket"),
+    }.property("videoSocket.connection"),
 
     actions: {
         setAutomatic : function(){
@@ -123,6 +123,13 @@ App.DroneController = Ember.ObjectController.extend({
             });
         },
 
+        currentFrame : "",
+        videoPrefix : "data:image/jpeg;base64, ",
+
+        video : function() {
+            this.get("videoPrefix").concat(this.get("currentFrame"));
+        }.property("currentFrame"),
+
         initVideo : function() {
             var self = this;
             this.adapter.find("drone", this.get("model.id"), "initVideo").then(function () {
@@ -130,6 +137,10 @@ App.DroneController = Ember.ObjectController.extend({
                     var socket = window.SocketManager.create({defaultUrl: url.url});
                     self.set("videoSocket", socket);
                     socket.initConnection();
+
+                    socket.register("JPEGFrameChanged", 0, "droneController", function(message) {
+                        self.set("currentFrame", message.imageData);
+                    });
                 });
             }, function (data) {
                 if (data.responseJSON.reason)
