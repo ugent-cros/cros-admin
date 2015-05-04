@@ -64,6 +64,15 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		
 		return xhr;
 	},
+
+    onfailure : function(data) {
+        if (data.status === 401) {
+            this.socketManager.disconnect();
+            this.authManager.logout();
+            var url = window.location.href;
+            window.location.href = url.substr(0,url.lastIndexOf("#")+1) + "/login";
+        }
+    },
 	
 	brol : function(urlObj, store) {
 		var self = this;
@@ -156,7 +165,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			}).then(function(data) {
 				self.processLinks(data[store], urlObj.key);
 				return data[store];
-			});
+			}, self.onfailure);
         }
     },
     
@@ -165,7 +174,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		return this.ajax(this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
             self.processLinks(data, "");
 			return data;
-		});
+		}, self.onfailure);
 	},
     
 	edit : function(store, id, editData) {
@@ -173,7 +182,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		var url = this.linkLibrary[store + self.delimiter + id];
 		return this.ajax(url, 'PUT', {data: editData, xhr : self.progressTracker}).then(function(data) {
 			return data;
-		});
+		}, self.onfailure);
 	},
 	
 	remove : function(store, id) {
@@ -181,7 +190,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		var url = this.linkLibrary[store + self.delimiter + id];
 		return this.ajax(url, 'DELETE', { xhr : self.progressTracker}).then(function(data) {
 			return data;
-		});
+		}, self.onfailure);
 	}
 	
 });
