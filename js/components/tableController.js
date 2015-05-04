@@ -1,12 +1,13 @@
 App.MyTableComponent = Ember.Component.extend({
 
     /*****************************Paging*****************************/
+    DEFAULT: 10, //do not change
     page: 1,
-    perPage: 2, //todo debug value
+    perPage: 10,
     nrOfElements: [],
 
     initialize: function(){
-        var pageSize = 2;
+        var pageSize = this.get('DEFAULT');
         if(this.get('perPage')){
             pageSize = this.get('perPage');
         }
@@ -15,8 +16,7 @@ App.MyTableComponent = Ember.Component.extend({
     }.on("init"),
 
     initSelect: function () {
-        var list = [{label: "2", value: 2},
-            {label: "10", value: 10},
+        var list = [{label: "10", value: 10},
             {label: "20", value: 20},
             {label: "50", value: 50},
             {label: "all", value: "all"}];
@@ -39,7 +39,7 @@ App.MyTableComponent = Ember.Component.extend({
     }.property('page', 'perPage'),
 
     end: function(){
-        var perPage = 2;
+        var perPage = 10;
         if(this.get('perPage')){
             perPage = this.get('perPage');
         }
@@ -56,7 +56,7 @@ App.MyTableComponent = Ember.Component.extend({
             return Math.ceil(this.get('length') / this.get('perPage'));
         }
         else{
-            return Math.ceil(this.get('length') / 2); //default!
+            return Math.ceil(this.get('length') / this.get('DEFAULT')); //default!
         }
     }.property('length', 'perPage'),
 
