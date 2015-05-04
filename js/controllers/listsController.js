@@ -72,6 +72,19 @@ App.ListSuperController = Ember.Controller.extend({
         delete: function (id) {
             var elementClass = this.get('element');
             var result = this.adapter.remove(elementClass, id);
+            //prevent list would be empty
+            var data = this.get('model');
+            var params = this.get('params');
+            if(data && params){
+                var elementsPerPage = Math.ceil(data.total/params['pageSize']);
+                var elements = elementsPerPage * (params['page']); //number of elements before the current page
+                var newTotal = data.total - 1;
+                if(newTotal <= elements){
+                    if(params['page'] > 0) {
+                        params['page'] = params['page'] - 1;
+                    }
+                }
+            }
             var self = this;
             result.then(
                 function(){self.refresh(); NProgress.done(); },
