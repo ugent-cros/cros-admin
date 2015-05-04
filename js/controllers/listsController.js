@@ -3,6 +3,7 @@
  */
 App.ListSuperController = Ember.Controller.extend({
 
+    DEFAULT: 10, //do not change
     params: null,
 
     currentUser: function(){
@@ -55,7 +56,7 @@ App.ListSuperController = Ember.Controller.extend({
         var elementClass = this.get('element');
         //first get last saved parameter or use default parameters
         if(!this.get('params')){
-            var params = {pageSize: 2, page: 1, total: true, orderBy: "id", order:"asc"};
+            var params = {pageSize: this.get('DEFAULT'), page: 1, total: true, orderBy: "id", order:"asc"};
         }else{
             var params = this.get('params');
         }
