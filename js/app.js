@@ -63,6 +63,7 @@ $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
         var url = window.location.href;
         window.location.href = url.substr(0,url.lastIndexOf("#")+1) + "/unavailable";
     }
+    console.log(thrownError.stack);
     throw thrownError;
 });
 
