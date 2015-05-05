@@ -78,6 +78,14 @@ App.AssignmentController = Ember.Controller.extend({
             if (assignedId && self.get("model.assignedDrone.id") === parseInt(id))
                 self.updateDroneLocation(data);
         });
-	}
+	},
+
+    actions : {
+        emergency: function(){
+            this.adapter.find('drone',this.get("model.assignedDrone.id"),"emergency").then(function(data){
+                console.log(data);
+            });
+        }
+    }
 
 });
