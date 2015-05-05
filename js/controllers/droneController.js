@@ -115,6 +115,14 @@ App.DroneController = Ember.ObjectController.extend({
          return "";*/
     }.observes("currentFrame"),
 
+    closeStream : function() {
+        if (this.get("streamingVideo")) {
+            var socket = this.get("videoSocket");
+            socket.disconnect();
+            this.set("videoSocket", null);
+        }
+    },
+
     actions: {
         setAutomatic : function(){
             var self = this;
@@ -154,6 +162,10 @@ App.DroneController = Ember.ObjectController.extend({
                 else
                     self.set("controlError", data.responseJSON);
             });
+        },
+
+        closeStreamAction : function() {
+            this.closeStream();
         },
 
         emergency: function(id){
