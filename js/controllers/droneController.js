@@ -103,15 +103,16 @@ App.DroneController = Ember.ObjectController.extend({
     }.property("currentUser"),
 
     isNotDeletable: function(){
-        if(userCanEdit()) {
-            if (status == "AVAILABLE")
+        var rol = this.get("userCanEdit");
+        if(rol) {
+            if (this.model.status == "AVAILABLE")
                 return false;
             else
                 return true;
         }else{
             return true;
         }
-    },
+    }.property(),
 
     controlError : "",
     hasControlError : function() {
