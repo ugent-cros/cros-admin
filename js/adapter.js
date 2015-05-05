@@ -72,6 +72,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
             var url = window.location.href;
             window.location.href = url.substr(0,url.lastIndexOf("#")+1) + "/login";
         }
+        return data;
     },
 	
 	brol : function(urlObj, store) {
