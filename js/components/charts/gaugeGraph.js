@@ -18,7 +18,8 @@ App.GaugeGraphComponent = Ember.Component.extend({
             var x = data.speedX;
             var y = data.speedY;
             var s = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
-            chart.update(s);
+            var value = Math.min(s,30);
+            chart.update(value);
         });
 	}.on('didInsertElement')
 });
