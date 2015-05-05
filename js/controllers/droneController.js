@@ -88,30 +88,12 @@ App.DroneController = Ember.ObjectController.extend({
         else if(status == "EMERGENCY" || status == "DECOMMISSIONED")
             return label + "label-warning";
     }.property('model.status'),
-
-    currentUser: function(){
-        return this.authManager.get("user");
-    }.property("authManager.user"),
-
-    userCanEdit: function() {
-        var user = this.get("currentUser");
-        if(user) {
-            return user.role === "ADMIN";
-        } else {
-            return false;
-        }
-    }.property("currentUser"),
-
+    
     isNotDeletable: function(){
-        var rol = this.get("userCanEdit");
-        if(rol) {
-            if (this.model.status == "AVAILABLE")
-                return false;
-            else
-                return true;
-        }else{
+        if (this.model.status == "AVAILABLE")
+            return false;
+        else
             return true;
-        }
     }.property(),
 
     controlError : "",

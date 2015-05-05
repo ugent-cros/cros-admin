@@ -142,7 +142,7 @@
                                 {{#link-to 'drone-edit' item.id class='btn btn-info' tag="button" disabled=userCantEdit}}
                                     <i class="fa fa-pencil"></i>
                                 {{/link-to}}
-                                <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=item.isNotDeletable}}>
+                                <button class='btn btn-danger' href="javascript:;" {{action 'delete' item.id}} {{bind-attr disabled=userCantEdit}} {{bind-attr disabled=item.isNotDeletable}}>
                                     <i class="fa fa-trash-o"></i>
                                 </button>
                             </div>
