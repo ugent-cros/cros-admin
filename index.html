@@ -102,24 +102,6 @@
 					</div>
 				</div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="well">
-                        <div class="row">
-                            <div class="col-sm-9">
-                                {{pie-chart data=statuses total=total}}
-                            </div>
-                            <div class="col-sm-3" id="legend">
-                                <h5><span class="label label-unavailable">Unavailable</span></h5>
-                                <h5><span class="label label-available">Available</span></h5>
-                                <h5><span class="label label-inflight">In flight</span></h5>
-                                <h5><span class="label label-charging">Charging</span></h5>
-                                <h5>Total: {{total}}</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 		</script>
 
         <script type="text/x-handlebars" id="drones">
@@ -960,11 +942,6 @@
             <div class="epoch category10" id="lineChart" style="width: inherit; height: 150px"></div>
         </script>
 
-        <script type="text/x-handlebars" id="components/pie-chart">
-            {{statuses}}
-            <div  class="epoch category2 b" id="pie" style="width: 350px; height: 350px"></div>
-        </script>
-
         <script type="text/x-handlebars" id="components/user-display">
             <ul class="nav navbar-nav pull-right">
                 <li class="dropdown">
@@ -1039,7 +1016,6 @@
         <script src="js/components/userdisplay.js"></script>
 		<script src="js/components/charts/gaugeGraph.js"></script>
         <script src="js/components/charts/lineChart.js"></script>
-        <script src="js/components/charts/pieChart.js"></script>
         <script src="js/components/ManualControl.js"></script>
 	</body>
 </html>
