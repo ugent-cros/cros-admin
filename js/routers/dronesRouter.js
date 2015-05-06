@@ -30,6 +30,8 @@ App.DroneRoute = App.PopupRoute.extend({
                 this.set("currentModel.status", this.get("controller.originalDroneStatus"));
                 this.adapter.edit('drone', this.get("currentModel.id"), {drone : this.get("currentModel")});
             }
+
+            this.set("controller.originalDroneStatus", undefined);
         }
     }
 });
