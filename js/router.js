@@ -28,6 +28,19 @@ App.UnauthorisedRoute = App.BaseRoute.extend({});
 
 App.DashboardRoute = App.AuthRoute.extend({});
 
+App.UnavailableRoute = Ember.Route.extend({
+
+    setupController : function() {
+        this._super();
+        var self = this;
+
+        this.adapter.find("home").then(function() {
+            self.transitionTo("App");
+        });
+    }
+
+});
+
 App.LoginRoute = App.BaseRoute.extend({
 	renderTemplate : function() {
 		this.render('login', {into: ''});
