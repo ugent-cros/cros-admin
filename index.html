@@ -128,7 +128,7 @@
                     <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.name}}</td>
-                        <td><span {{bind-attr class="item.getClass"}}>{{item.status}}</span></td>
+                        <td><span {{bind-attr class="item.getModelClass"}}>{{item.status}}</span></td>
                         <td>
                             <a class='btn-sm btn-warning' href='#' {{action 'emergency' item.id}}>
                             EMERGENCY
@@ -299,7 +299,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8"><label>Status:</label></div>
-                            <div class="col-xs-4"><span {{bind-attr class="getClass"}}>{{model.status}}</span></div>
+                            <div class="col-xs-4"><span {{bind-attr class="getModelClass"}}>{{model.status}}</span></div>
                         </div>
                         <div class="row">
                             <div class="col-xs-8"><label>Weight limitation:</label></div>
