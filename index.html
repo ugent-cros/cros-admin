@@ -536,6 +536,16 @@
 							<div class="col-xs-8"><label>Progress:</label></div>
 							<div class="col-xs-4"><span {{bind-attr class=":label progressLabel"}}>{{progressText}}</span></div>
 						</div>
+                        {{#if model.assignedDrone}}
+                        <div class="row">
+                            <div class="col-xs-8"><label>Emergency:</label></div>
+                            <div class="col-xs-4">
+                                <a class='btn-sm btn-warning' href='#' {{action 'emergency'}}>
+                                    EMERGENCY
+                                </a>
+                            </div>
+                        </div>
+                        {{/if}}
 					</div>
 					<div class="col-xs-6">
                         {{assignment-map mapName="assignment" location=checkpointLocations droneLocation=droneLocation progress=model.progress}}
