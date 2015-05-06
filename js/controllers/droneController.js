@@ -91,7 +91,7 @@ App.DroneController = Ember.ObjectController.extend({
     
     isNotDeletable: function(){
         this.get("model.status") !== "AVAILABLE"
-    }.property(),
+    }.property("model.status"),
 
     controlError : "",
     hasControlError : function() {
