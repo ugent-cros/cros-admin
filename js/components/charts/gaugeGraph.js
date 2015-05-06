@@ -10,27 +10,17 @@ App.GaugeGraphComponent = Ember.Component.extend({
             .epoch({
                 type: 'time.gauge',
                 value: 0.0,
-                tickOffset: 20,
+                tickOffset: 15,
                 domain: [0,10]
         });
         var self = this;
-        this.socketManager.register("locationChanged", this.get("drone"), "gaugegraph", function(data) {
-            var timestamp = Date.now() / 1000 | 0;
-            var previousValue = self.get('previousValue');
-            var previousTime = self.get('previousTime');
-            if(self.get('previousTime') && self.get('previousValue')){
-                var x = self.calculateDistance(data.longitude, data.latitude, previousValue.longitude, previousValue.latitude);
-                var t = (timestamp - previousTime)/1000;
-                var s = 0;
-                if(t) {
-                    s = x / t;
-                }
-                console.log('SPEED: ' + s);
-                chart.update(s);
-            }else{
-                self.set('previousTime', timestamp);
-                self.set('previousValue', data);
-            }
+        this.socketManager.register("speedChanged", this.get("drone"), "gaugegraph", function(data) {
+            var x = data.speedX;
+            var y = data.speedY;
+			console.log("Speed: " + x + " " + y);
+            var s = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+            var value = Math.min(s,30);
+            chart.update(value);
         });
 	}.on('didInsertElement'),
 
