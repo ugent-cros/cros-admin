@@ -66,7 +66,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	},
 
     onfailure : function(data) {
-        if (data.status === 401) {
+        if (data.status === 401 && this.authManager.isLoggedIn) {
             this.socketManager.disconnect();
             this.authManager.logout();
             var url = window.location.href;
@@ -172,7 +172,8 @@ App.CustomAdapter = DS.RESTAdapter.extend({
     
     post : function(store, postData) {
 		var self = this;
-		return this.ajax(this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
+        var url = this.linkLibrary[store];
+		return this.ajax(url, 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
             self.processLinks(data, "");
 			return data;
 		}, self.onfailure);
