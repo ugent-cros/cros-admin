@@ -17,7 +17,6 @@ App.GaugeGraphComponent = Ember.Component.extend({
         this.socketManager.register("speedChanged", this.get("drone"), "gaugegraph", function(data) {
             var x = data.speedX;
             var y = data.speedY;
-			console.log("Speed: " + x + " " + y);
             var s = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
             var value = Math.min(s,30);
             chart.update(value);
