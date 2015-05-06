@@ -18,21 +18,28 @@ window.SocketManager = Ember.Object.extend({
 
         var self = this;
 
-        var url = this.get("defaultUrl") || this.adapter.linkLibrary["datasocket"];
-        url = url.replace(/https?/, "ws");
+        var urlPromise;
+        if (this.get("defaultUrl"))
+            urlPromise = $.Deferred(function(defer) { defer.resolveWith(this,[ this.get("defaultUrl") ]); });
+        else
+            urlPromise = this.adapter.resolveLink("datasocket");
 
-        this.set('connection', true);
-        var s = new WebSocket(url + "?authToken=" + this.authManager.token());
-        self.set("socket", s);
+        urlPromise.then(function(urlObj) {
+            var url = urlObj.url.replace(/https?/, "ws");
 
-        /*if (s.readyState == 2 || s.readyState == 3) {
-            this.onClose(self); // Close socket immediately if connection failed
-            return;
-        }*/
+            self.set('connection', true);
+            var s = new WebSocket(url + "?authToken=" + self.authManager.token());
+            self.set("socket", s);
 
-        s.onclose = function() { self.onClose(self) };
-        s.onopen = function() { self.onOpen(self); };
-        s.onmessage = function(event) {self.onMessage(event,self);};
+            /*if (s.readyState == 2 || s.readyState == 3) {
+             this.onClose(self); // Close socket immediately if connection failed
+             return;
+             }*/
+
+            s.onclose = function() { self.onClose(self) };
+            s.onopen = function() { self.onOpen(self); };
+            s.onmessage = function(event) {self.onMessage(event,self);};
+        });
     }.observes("connection"),
 
     onClose : function(self) {

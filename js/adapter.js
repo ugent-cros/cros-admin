@@ -1,10 +1,16 @@
 App.CustomAdapter = DS.RESTAdapter.extend({
-    linkLibrary : {},
-
     host : "http://localhost:9000",
     namespace : "",
 	linksKey : "links",
 	delimiter : "-",
+
+    linkLibrary : {},
+
+    init : function() {
+        this._super();
+
+        this.get("linkLibrary")["home"] = this.get("host") + this.get("namespace");
+    },
     
     headers: function() {
         return {
@@ -28,6 +34,11 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	},
 	
 	processLinks : function(data, root) {
+        if (root === "home") {
+            $.extend(this.linkLibrary, data);
+            return;
+        }
+
 		var lk = this.linksKey;
 		var self = this;
         if (!data)
@@ -66,12 +77,17 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	},
 
     onfailure : function(data) {
-        if (data.status === 401) {
+        if (data.status === 401 && this.authManager.isLoggedIn) {
             this.socketManager.disconnect();
             this.authManager.logout();
             var url = window.location.href;
-            window.location.href = url.substr(0,url.lastIndexOf("#")+1) + "/login";
+            var index = url.lastIndexOf("#");
+            if (index === -1)
+                window.location.href = url + "#/login";
+            else
+                window.location.href = url.substr(0,url.lastIndexOf("#")+1) + "/login";
         }
+        return data;
     },
 	
 	brol : function(urlObj, store) {
@@ -80,50 +96,60 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			self.processLinks(data[store], urlObj.key);
 		});
 	},
-	
-	resolveLink : function(store, id, action) {
-		var key = store;
-		var self = this;
-			
-		if (id)
-			key += self.delimiter + id;
-		if (action) {
+
+    resolveLinkInner : function(store,id,action) {
+        var key = store;
+        var self = this;
+
+        if (id)
+            key += self.delimiter + id;
+        if (action) {
             if (action instanceof Array)
                 key += self.delimiter + action.join(self.delimiter);
-             else
+            else
                 key += self.delimiter + action;
         }
 
-		var tempKey = key;
-		var callsRemaining = true;
-		var i = 0;
-		var calls = [];
-		while (!self.linkLibrary[tempKey]) {
-			i = tempKey.lastIndexOf(self.delimiter);
-			var temp;
-			if (i == -1) {
-				calls.push("home");
-				callsRemaining = false;
-				break;
-			} else {
-				temp = tempKey.substring(0,i);
-				calls.push(temp);
-			}
-			tempKey = temp;
-		}
+        var tempKey = key;
+        var callsRemaining = true;
+        var i = 0;
+        var calls = [];
+        while (!self.linkLibrary[tempKey]) {
+            i = tempKey.lastIndexOf(self.delimiter);
+            var temp;
+            if (i == -1) {
+                calls.push("home");
+                callsRemaining = false;
+                break;
+            } else {
+                temp = tempKey.substring(0,i);
+                calls.push(temp);
+            }
+            tempKey = temp;
+        }
 
-
-		if(calls.length == 0) {
-			return $.Deferred(function(defer) { defer.resolveWith(this,[{ "url" : self.linkLibrary[key], "key" : key }]); }).promise();
-		} else {
-			var currentPromise = $.Deferred(function(defer) { defer.resolveWith(this,[]); });
-			for (var i = 0; i < calls.length; ++i) {
-				currentPromise = currentPromise.then(function() { return self.brol({ "url" : self.linkLibrary[calls[i]], "key" : calls[i] }, store); });
-			}
-			return currentPromise.then(function() {
-				return { "url" : self.linkLibrary[key], "key" : key};
-			});
-		}
+        if(calls.length == 0) {
+            return $.Deferred(function(defer) { defer.resolveWith(this,[{ "url" : self.linkLibrary[key], "key" : key }]); }).promise();
+        } else {
+            var currentPromise = this.get("currentRequest") || $.Deferred(function(defer) { defer.resolveWith(this,[]); });
+            for (var i = 0; i < calls.length; ++i) {
+                currentPromise = currentPromise.then(function() { return self.brol({ "url" : self.linkLibrary[calls[i]], "key" : calls[i] }, store); });
+            }
+            return currentPromise.then(function() {
+                return { "url" : self.linkLibrary[key], "key" : key };
+            });
+        }
+    },
+	
+	resolveLink : function(store, id, action) {
+        var self = this;
+        if (this.get("currentRequest")) {
+            return this.get("currentRequest").then(function() {
+                return self.resolveLinkInner(store,id,action);
+            });
+        } else {
+            return this.resolveLinkInner(store,id,action);
+        }
 	},
 	
 	ajax : function(url, method, options) {
@@ -146,32 +172,42 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		return $.ajax(hash);
 	},
 
+    currentRequest: null,
+
     find : function(store, id, action, params) {
         var self = this;
-		if (store === "home") {
-            this.ajax(this.host, 'GET', {async : false, xhr : self.progressTracker }).then(function(data) {
-                self.linkLibrary = data[store];
+        var r = this.get("currentRequest");
+
+        var urlPromise;
+        if (r) {
+            urlPromise = r.then(function () {
+                self.set("currentRequest", null);
+                return this.resolveLink(store, id, action);
             });
-        } else {
-			var urlPromise = this.resolveLink(store,id,action);
-			var urlObj;
-            return urlPromise.then(function(obj) {
-				urlObj = obj;
-				if (params) {
-                    if (params.query)
-					    urlObj.url += "?" + $.param(params.query);
-				}
-                return self.ajax(urlObj.url, 'GET', params);
-			}).then(function(data) {
-				self.processLinks(data[store], urlObj.key);
-				return data[store];
-			}, self.onfailure);
-        }
+        } else
+            urlPromise = this.resolveLink(store,id,action);
+
+        var urlObj;
+        r = urlPromise.then(function(obj) {
+            urlObj = obj;
+            if (params) {
+                if (params.query)
+                    urlObj.url += "?" + $.param(params.query);
+            }
+            return self.ajax(urlObj.url, 'GET', params);
+        }).then(function(data) {
+            self.processLinks(data[store], urlObj.key);
+            return data[store];
+        }, self.onfailure);
+
+        self.set("currentRequest", r);
+        return r;
     },
     
     post : function(store, postData) {
 		var self = this;
-		return this.ajax(this.linkLibrary[store], 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
+        var url = this.linkLibrary[store];
+		return this.ajax(url, 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
             self.processLinks(data, "");
 			return data;
 		}, self.onfailure);

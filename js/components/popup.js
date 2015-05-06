@@ -14,7 +14,11 @@ App.PopupWindowComponent = Ember.Component.extend({
 
 	show: function() {
 		var self = this;
-		this.$('.modal').modal('show');
+		this.$('.modal').modal({
+			backdrop: 'static',
+			keyboard: true,
+			show: true
+		});
 		this.$('.modal').on('hide.bs.modal', function(e) {
 			if(!self.closing) {
 				$('#closeModal').click();

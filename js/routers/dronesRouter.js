@@ -33,6 +33,8 @@ App.DroneRoute = App.PopupRoute.extend({
 
             if (this.get("controller.streamingVideo"))
                 this.get("controller").closeStream();
+
+            this.set("controller.originalDroneStatus", undefined);
         }
     }
 });
