@@ -334,7 +334,10 @@
                     <div class="row whitespaceBottom">
                         <div class="col-md-6">
                             {{#if streamingVideo}}
-                                <img src="" />
+                                <img id="videoStream" src="" style="width:100%;" />
+                                <button class="btn btn-lg btn-default" {{action 'closeStreamAction'}}>
+                                    <i class="fa fa-stop"></i>
+                                </button>
                             {{else}}
                                 <div class="videoClick text-center">
                                     <button class="btn btn-lg btn-default" {{action 'initVideo'}} style="vertical-align: middle" >

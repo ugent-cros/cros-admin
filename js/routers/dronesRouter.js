@@ -31,6 +31,9 @@ App.DroneRoute = App.PopupRoute.extend({
                 this.adapter.edit('drone', this.get("currentModel.id"), {drone : this.get("currentModel")});
             }
 
+            if (this.get("controller.streamingVideo"))
+                this.get("controller").closeStream();
+
             this.set("controller.originalDroneStatus", undefined);
         }
     }
