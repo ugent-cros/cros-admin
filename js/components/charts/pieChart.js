@@ -47,7 +47,6 @@ App.PieChartComponent = Ember.Component.extend({
 					statuses[status].value = statuses[status].value + 1;
 					statuses[old].value = statuses[old].value - 1;
 					self.set('statuses', statuses);
-					self.update();
 				});
 				self.set('registered', true);
 			}

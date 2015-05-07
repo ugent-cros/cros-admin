@@ -56,7 +56,7 @@ App.DashboardController = Ember.Controller.extend({
 	registerForEvents: function() {
 		var self = this;
 		this.socketManager.register("droneAssigned", 0, "dashboard", function(data, id) {
-			self.adapter.find('drone', data.assignedDroneID).then(function(data){
+			self.adapter.find('drone', data.droneId).then(function(data){
 				var message = data.name + ' got assigned to assignment #' + id;
 				var notifications = self.get('notifications');
 				notifications.unshiftObject({ number: notifications.length, message: message, link:'assignment', id: id, seen: false, time: self.getTime() });
@@ -69,17 +69,19 @@ App.DashboardController = Ember.Controller.extend({
         });
 		this.socketManager.register("assignmentProgressed", 0, "dashboard", function(data, id) {
 			self.adapter.find('assignment', id).then(function(assignment){
-				var message = assignment.assignedDrone.name + ' reached the next checkpoint (' + data.progress + ' of ' + assignment.route.length + ')';
-				var notifications = self.get('notifications');
-				var found = false;
-				for(var i = 0; i < self.notifications.length; ++i) {
-					var n = self.notifications[i];
-					if(n.link == 'drone' && n.id == assignment.assignedDrone.id) {
-						Ember.set(self.notifications[i], 'message', message);
-						Ember.set(self.notifications[i], 'seen', false);
-						Ember.set(self.notifications[i], 'time', self.getTime());
-						found = true;
-						break;
+				if(assignment.assignedDrone != null) {
+					var message = assignment.assignedDrone.name + ' reached the next checkpoint (' + data.progress + ' of ' + assignment.route.length + ')';
+					var notifications = self.get('notifications');
+					var found = false;
+					for(var i = 0; i < self.notifications.length; ++i) {
+						var n = self.notifications[i];
+						if(n.link == 'drone' && n.id == assignment.assignedDrone.id) {
+							Ember.set(self.notifications[i], 'message', message);
+							Ember.set(self.notifications[i], 'seen', false);
+							Ember.set(self.notifications[i], 'time', self.getTime());
+							found = true;
+							break;
+						}
 					}
 				}
 				if(!found) 
