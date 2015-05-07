@@ -148,12 +148,32 @@
     background-color: #2ca02c;
 }
 
-.label-unavailable {
+.label-inactive {
     background-color: #1f77b4;
 }
 
 .label-inflight {
     background-color: #ff7f0e;
+}
+
+.label-manual {
+    background-color: #9467bd;
+}
+
+.label-emergency {
+    background-color: #8c564b;
+}
+
+.label-error {
+    background-color: #e377c2;
+}
+
+.label-unreachable {
+    background-color: #7f7f7f;
+}
+
+.label-unknown {
+    background-color: #bcbd22;
 }
 
 #legend {
