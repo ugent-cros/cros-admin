@@ -43,10 +43,10 @@ App.PieChartComponent = Ember.Component.extend({
 				self.socketManager.register("droneStatusChanged", 0, "piechart", function(data) {
 					var status = data.newStatus;
 					var old = data.oldStatus;
-					var statuses = self.get('data');
-					statuses[status] = statuses[status] + 1;
-					statuses[old] = statuses[old] - 1;
-					self.set('data', statuses);
+					var statuses = self.get('statuses');
+					statuses[status].value = statuses[status].value + 1;
+					statuses[old].value = statuses[old].value - 1;
+					self.set('statuses', statuses);
 					self.update();
 				});
 				self.set('registered', true);
@@ -57,7 +57,7 @@ App.PieChartComponent = Ember.Component.extend({
     unregister: function(){
 		if(this.get('registered')) {
 			this.socketManager.unregister("droneStatusChanged", 0, "piechart");
-			this.set('registered', true);
+			this.set('registered', false);
 		}
     }.on('willDestroyElement'),
 	
