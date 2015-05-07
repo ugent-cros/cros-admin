@@ -110,7 +110,7 @@ App.DroneEditController = Ember.Controller.extend({
 	actions: {
 		save: function(){
 			var jsonObject = { drone: this.model };
-            jsonObject.drone.status = jsonObject.drone.status || "AVAILABLE";
+            Ember.set(jsonObject.drone, "status", jsonObject.drone.status || "AVAILABLE");
 			if(this.model.id)
 				var result = this.adapter.edit('drone', this.model.id, jsonObject);
 			else
