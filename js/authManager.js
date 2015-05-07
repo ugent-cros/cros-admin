@@ -44,7 +44,7 @@ window.AuthManager = Ember.Object.extend({
     },
 
     token : function() {
-        if (this.authToken == null) {
+        if (this.get("authToken") === null) {
             var token = $.cookie(this.cookieName);
 
             if (token == null){

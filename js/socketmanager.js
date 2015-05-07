@@ -19,8 +19,9 @@ window.SocketManager = Ember.Object.extend({
         var self = this;
 
         var urlPromise;
-        if (this.get("defaultUrl"))
-            urlPromise = $.Deferred(function(defer) { defer.resolveWith(this,[ this.get("defaultUrl") ]); });
+        var url = this.get("defaultUrl");
+        if (url)
+            urlPromise = $.Deferred(function(defer) { defer.resolveWith(this,[ {url: url} ]); });
         else
             urlPromise = this.adapter.resolveLink("datasocket");
 
