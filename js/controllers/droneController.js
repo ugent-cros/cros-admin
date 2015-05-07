@@ -78,7 +78,7 @@ App.DroneController = Ember.ObjectController.extend({
     }.property('model.status'),
     
     isNotDeletable: function(){
-        this.get("model.status") !== "AVAILABLE"
+        return this.get("model.status") !== "AVAILABLE"
     }.property("model.status"),
 
     controlError : "",
@@ -120,7 +120,10 @@ App.DroneController = Ember.ObjectController.extend({
             this.set("model.status", this.get("originalDroneStatus"));
             self.set("controlError", "");
             this.adapter.edit('drone', this.get("model.id"), {drone : this.get("model")}).fail(function(data) {
-                self.set("controlError", data.responseJSON);
+                if (data.responseJSON.reason)
+                    self.set("controlError", data.responseJSON.reason);
+                else
+                    self.set("controlError", data.responseJSON);
             });
         },
 
@@ -130,7 +133,10 @@ App.DroneController = Ember.ObjectController.extend({
             this.adapter.find("drone",this.get("model.id"), ["commands", "manual"]).then(function(data) {
                 self.set("model.status", "MANUAL_CONTROL");
             }, function(data) {
-                self.set("controlError", data.responseJSON);
+                if (data.responseJSON.reason)
+                    self.set("controlError", data.responseJSON.reason);
+                else
+                    self.set("controlError", data.responseJSON);
             });
         },
 
