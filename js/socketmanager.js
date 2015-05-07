@@ -29,7 +29,7 @@ window.SocketManager = Ember.Object.extend({
             var url = urlObj.url.replace(/https?/, "ws");
 
             self.set('connection', true);
-            var s = new WebSocket(url + "?authToken=" + self.authManager.token());
+            var s = new WebSocket(url + "?authToken=" + self.authManager.get("token"));
             self.set("socket", s);
 
             /*if (s.readyState == 2 || s.readyState == 3) {
