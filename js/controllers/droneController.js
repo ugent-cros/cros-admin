@@ -123,7 +123,7 @@ App.DroneController = Ember.ObjectController.extend({
         initVideo : function() {
             var self = this;
             this.adapter.find("drone", this.get("model.id"), "initVideo").then(function () {
-                this.adapter.resolveLink("drone", this.get("model.id"), "videoSocket").then(function (url) {
+                self.adapter.resolveLink("drone", self.get("model.id"), "videoSocket").then(function (url) {
                     var socket = window.SocketManager.create({defaultUrl: url.url});
                     self.set("videoSocket", socket);
                     socket.initConnection();
