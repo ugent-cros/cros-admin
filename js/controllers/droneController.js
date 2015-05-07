@@ -92,7 +92,27 @@ App.DroneController = Ember.ObjectController.extend({
         } else {
             return false;
         }
-    }.property("videoSocket"),
+    }.property("videoSocket.connection"),
+
+    currentFrame : "",
+    videoPrefix : "data:image/jpeg;base64, ",
+
+    videoProperty : function() {
+        $("#videoStream").attr('src', this.get("videoPrefix").concat(this.get("currentFrame")));
+
+        /*if (this.get("currentFrame"))
+         return this.get("videoPrefix").concat(this.get("currentFrame"));
+         else
+         return "";*/
+    }.observes("currentFrame"),
+
+    closeStream : function() {
+        if (this.get("streamingVideo")) {
+            var socket = this.get("videoSocket");
+            socket.disconnect();
+            this.set("videoSocket", null);
+        }
+    },
 
     actions: {
         setAutomatic : function(){
@@ -124,9 +144,14 @@ App.DroneController = Ember.ObjectController.extend({
             var self = this;
             this.adapter.find("drone", this.get("model.id"), "initVideo").then(function () {
                 self.adapter.resolveLink("drone", self.get("model.id"), "videoSocket").then(function (url) {
-                    var socket = window.SocketManager.create({defaultUrl: url.url});
+                    var socket = window.SocketManager.create({defaultUrl: url.url, authManager:self.authManager });
                     self.set("videoSocket", socket);
                     socket.initConnection();
+
+                    socket.register("JPEGFrameChanged", 0, "droneController", function(message) {
+                        self.set("currentFrame", message.imageData);
+                        self.videoProperty();
+                    });
                 });
             }, function (data) {
                 if (data.responseJSON.reason)
@@ -134,6 +159,10 @@ App.DroneController = Ember.ObjectController.extend({
                 else
                     self.set("controlError", data.responseJSON);
             });
+        },
+
+        closeStreamAction : function() {
+            this.closeStream();
         },
 
         emergency: function(id){

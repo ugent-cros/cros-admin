@@ -77,7 +77,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	},
 
     onfailure : function(data) {
-        if (data.status === 401 && this.authManager.isLoggedIn) {
+        if (data.status === 401 && this.authManager.get("isLoggedIn")) {
             this.socketManager.disconnect();
             this.authManager.logout();
             var url = window.location.href;

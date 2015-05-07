@@ -84,7 +84,7 @@ App.DroneEditController = Ember.Controller.extend({
             Ember.set(this.get("model"), "droneType", types[0]);
         }
     }.observes("types", "model.droneType"),
-	
+
 	failure: function(data) {
         if(typeof data.responseJSON === 'string' || data.responseJSON.reason) {
 			if(!$('#droneAlert')[0]) {

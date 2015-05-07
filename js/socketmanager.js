@@ -70,7 +70,7 @@ window.SocketManager = Ember.Object.extend({
     },
 	
 	onMessage : function(event, self) {
-        console.log(event.data);
+        //console.log(event.data);
 		var jsonData = $.parseJSON(event.data);
 		if (self.listeners[jsonData.type]) {
 			var listeners = self.listeners[jsonData.type];
