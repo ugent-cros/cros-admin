@@ -18,7 +18,6 @@ App.DroneController = Ember.ObjectController.extend({
             self.set("location", Ember.Object.create({lat : data.location.latitude, lon: data.location.longitude}));
         });
 
-
         this.socketManager.register("batteryPercentageChanged", this.get("model.id"), "drone", function(data) {
             self.set('battery', data.percent);
             $('.batteryStatus').css('width', data.percent + '%');
@@ -45,6 +44,23 @@ App.DroneController = Ember.ObjectController.extend({
             this.set("originalDroneStatus", this.get("model.status"));
         }
     }.observes("model"),
+
+    beforePopupClose : function(e) {
+        if (this.get("flying")) {
+            this.set("controlError", "You need to land the drone before closing.");
+            return false;
+        }
+
+        if (this.get("model.status") !== this.get("model.originalDroneStatus")) {
+            this._actions['setAutomatic'].apply(this);
+        }
+
+        if (this.get("controller.streamingVideo"))
+            this.get("controller").closeStream();
+
+        this.set("originalDroneStatus", undefined);
+        return true;
+    },
 
     automatic : function() {
         return this.get("model.status") === this.get("originalDroneStatus") && this.get("originalDroneStatus") !== "MANUAL_CONTROL";
@@ -78,7 +94,7 @@ App.DroneController = Ember.ObjectController.extend({
     }.property('model.status'),
     
     isNotDeletable: function(){
-        return this.get("model.status") !== "AVAILABLE"
+        return this.get("model.status") !== "AVAILABLE" && this.get("model.status") !== "MANUAL_CONTROL";
     }.property("model.status"),
 
     controlError : "",
@@ -118,12 +134,19 @@ App.DroneController = Ember.ObjectController.extend({
         }
     },
 
+    canChangeStatus : function() {
+        return this.get("originalDroneStatus") !== "MANUAL_CONTROL";
+    }.property("originalDroneStatus"),
+
+    flying : false,
+
     actions: {
         setAutomatic : function(){
             var self = this;
-            this.set("model.status", this.get("originalDroneStatus"));
             self.set("controlError", "");
-            this.adapter.find('drone', this.get("model.id"), ["commands", "status"],{query : { status: this.get("model.status")}}).fail(function(data) {
+            this.adapter.find('drone', this.get("model.id"), ["commands", "status"],{query : { status: this.get("originalDroneStatus")}}).then(function(data) {
+                self.set("model.status", self.get("originalDroneStatus"));
+            }, function(data) {
                 if (data.responseJSON.reason)
                     self.set("controlError", data.responseJSON.reason);
                 else
@@ -163,6 +186,10 @@ App.DroneController = Ember.ObjectController.extend({
                 else
                     self.set("controlError", data.responseJSON);
             });
+        },
+
+        click : function(state) {
+            this.set("flying", state);
         },
 
         closeStreamAction : function() {

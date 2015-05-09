@@ -87,6 +87,10 @@ App.ManualControlComponent = Ember.Component.extend({
             var self = this;
             var params = {data: {speed: parseFloat($("#speed").val())}};
             this.adapter.find("drone",this.get("currentId"), ["commands", this.get("command")], params).then(function() {
+                if (self.get("command") === "takeOff")
+                    self.sendAction('action', true);
+                if (self.get("command") === "land")
+                    self.sendAction('action', false);
                 self.set("error", "");
             }).fail(function(data) {
                 if (typeof data.responseJSON === "string")

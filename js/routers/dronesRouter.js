@@ -25,16 +25,12 @@ App.DroneRoute = App.PopupRoute.extend({
     },
 
     actions : {
-        willTransition : function() {
-            if (this.get("currentModel.status") !== this.get("controller.originalDroneStatus")) {
-                this.set("currentModel.status", this.get("controller.originalDroneStatus"));
-                this.adapter.edit('drone', this.get("currentModel.id"), {drone : this.get("currentModel")});
+        willTransition : function(transition) {
+            if (this.get("controller").beforePopupClose()) {
+                return true;
+            } else {
+                transition.abort();
             }
-
-            if (this.get("controller.streamingVideo"))
-                this.get("controller").closeStream();
-
-            this.set("controller.originalDroneStatus", undefined);
         }
     }
 });

@@ -237,7 +237,7 @@
 		</script>
 
 		<script type="text/x-handlebars" id="drone">
-			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
+			{{#popup-window contr=this title=model.name modalName="droneModal" size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
                 <div class="row">
                     <div class="col-xs-2"></div>
                     <div class="col-xs-8 text-center whitespaceBottom">
@@ -247,14 +247,16 @@
                         </div>
                         {{/if}}
                         <div class="btn-group" data-toggle="buttons">
-                            <label {{bind-attr class=":btn :btn-success automatic:active"}} {{action 'setAutomatic'}}>
-                                <input type="radio" name="automatic" id="automatic" autocomplete="off" {{bind-attr checked="automatic"}}>
-                                <i class="fa fa-magic"></i> Automagic
-                            </label>
-                            <label {{bind-attr class=":btn :btn-success manual:active"}}  {{action 'setManual'}}>
-                                <input type="radio" name="manual" id="manual" autocomplete="off" {{bind-attr checked="manual"}}>
-                                <i class="fa fa-gamepad"></i> Manual Control
-                            </label>
+                            {{#if canChangeStatus}}
+                                <label {{bind-attr class=":btn :btn-success automatic:active"}} {{action 'setAutomatic'}}>
+                                    <input type="radio" name="automatic" id="automatic" autocomplete="off" {{bind-attr checked="automatic" }}>
+                                    <i class="fa fa-magic"></i> Automagic
+                                </label>
+                                <label {{bind-attr class=":btn :btn-success manual:active"}}  {{action 'setManual'}}>
+                                    <input type="radio" name="manual" id="manual" autocomplete="off" {{bind-attr checked="manual"  }}>
+                                    <i class="fa fa-gamepad"></i> Manual Control
+                                </label>
+                            {{/if}}
                         </div>
                     </div>
                     <div class="col-xs-2">
@@ -263,11 +265,8 @@
                         </a>
                     </div>
                 </div>
-				{{#if automatic}}
-					{{partial "droneAutomatic" }}
-				{{else}}
-					{{partial "droneManual" }}
-				{{/if}}
+                {{partial "droneAutomatic" }}
+                {{partial "droneManual" }}
 			{{/popup-window}}
 		</script>
 
@@ -919,7 +918,7 @@
         </script>
 
 		<script type="text/x-handlebars" data-template-name="components/popup-window">
-			<div class="modal fade">
+			<div class="modal fade" {{bind-attr id=modalName }}>
 				<div class="modal-dialog" {{ bind-attr style=sizeStyle }}>
 					<div class="modal-content">
 						<div class="modal-header">
