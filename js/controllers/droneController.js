@@ -106,6 +106,10 @@ App.DroneController = Ember.ObjectController.extend({
          return "";*/
     }.observes("currentFrame"),
 
+    /**
+     * This function will close the active videowebsocket.
+     * If no video websocket is active, this will do nothing.
+     */
     closeStream : function() {
         if (this.get("streamingVideo")) {
             var socket = this.get("videoSocket");
@@ -119,7 +123,7 @@ App.DroneController = Ember.ObjectController.extend({
             var self = this;
             this.set("model.status", this.get("originalDroneStatus"));
             self.set("controlError", "");
-            this.adapter.edit('drone', this.get("model.id"), {drone : this.get("model")}).fail(function(data) {
+            this.adapter.find('drone', this.get("model.id"), ["commands", "status"],{query : { status: this.get("model.status")}}).fail(function(data) {
                 if (data.responseJSON.reason)
                     self.set("controlError", data.responseJSON.reason);
                 else

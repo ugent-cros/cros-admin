@@ -77,6 +77,8 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 	},
 
     onfailure : function(data) {
+        this.set("currentRequest", null);
+
         if (data.status === 401 && this.authManager.get("isLoggedIn")) {
             this.socketManager.disconnect();
             this.authManager.logout();
@@ -181,7 +183,6 @@ App.CustomAdapter = DS.RESTAdapter.extend({
         var urlPromise;
         if (r) {
             urlPromise = r.then(function () {
-                self.set("currentRequest", null);
                 return this.resolveLink(store, id, action);
             });
         } else
@@ -197,6 +198,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
             return self.ajax(urlObj.url, 'GET', params);
         }).then(function(data) {
             self.processLinks(data[store], urlObj.key);
+            self.set("currentRequest", null);
             return data[store];
         }, self.onfailure);
 
@@ -209,6 +211,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
         var url = this.linkLibrary[store];
 		return this.ajax(url, 'POST', {data: postData, xhr : self.progressTracker}).then(function(data) {
             self.processLinks(data, "");
+            self.set("currentRequest", null);
 			return data;
 		}, self.onfailure);
 	},
@@ -217,6 +220,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		var self = this;
 		var url = this.linkLibrary[store + self.delimiter + id];
 		return this.ajax(url, 'PUT', {data: editData, xhr : self.progressTracker}).then(function(data) {
+            self.set("currentRequest", null);
 			return data;
 		}, self.onfailure);
 	},
@@ -225,6 +229,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		var self = this;
 		var url = this.linkLibrary[store + self.delimiter + id];
 		return this.ajax(url, 'DELETE', { xhr : self.progressTracker}).then(function(data) {
+            self.set("currentRequest", null);
 			return data;
 		}, self.onfailure);
 	}
