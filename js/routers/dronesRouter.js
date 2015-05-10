@@ -22,11 +22,28 @@ App.DroneRoute = App.PopupRoute.extend({
 
     renderTemplate: function() {
         this._super('drone', 'drones');
+    }
+});
+
+App.ManualControlRoute = App.PopupRoute.extend({
+    controllerName: 'manual',
+
+    setupController: function(controller, model) {
+        this._super(controller,model);
+    },
+
+    model: function(params) {
+        var self = this;
+        return this.fetch({store:'drone', id: params.drone_id});
+    },
+
+    renderTemplate: function() {
+        this._super('manualControl', 'drones');
     },
 
     actions : {
         willTransition : function(transition) {
-            if (this.get("controller").beforePopupClose()) {
+            if (this.get("controller").beforeClose()) {
                 return true;
             } else {
                 transition.abort();
