@@ -26,6 +26,9 @@ App.DroneMapComponent = App.PopupMapComponent.extend({
     invalidateSize : function() {
         var map = this.get("map");
         Ember.run.scheduleOnce('afterRender', this, function() {
+            if (!map)
+                this.initialization();
+
             if (map)
                 map.invalidateSize();
         });

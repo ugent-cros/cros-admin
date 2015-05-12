@@ -4,6 +4,7 @@ App.Router.map(function(){
 		this.resource('drones');
 		this.resource('drones-add', { path: '/drones/add' });
 		this.resource('drone', { path: '/drones/:drone_id' });
+        this.resource('manualControl', { path: '/drones/:drone_id/control' });
 		this.resource('drone-edit', { path: '/drones/:drone_id/edit' });
 		this.resource('assignments');
 		this.resource('assignments-add', { path: '/assignments/add' });
