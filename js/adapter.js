@@ -1,9 +1,35 @@
+/**
+ * This will create a new RestAdapter with support for HATEOAS.
+ * @class CustomAdapter
+ * @constructor
+ * @namespace
+ * @extends DS.RESTAdapter
+ */
 App.CustomAdapter = DS.RESTAdapter.extend({
+    /**
+     * @public
+     * @property {string}  host - The root url to the used REST-API
+     */
     host : "http://localhost:9000",
+    /**
+     * @property {string} namespace - The namespace of the REST-API (relative to the host url)
+     */
     namespace : "",
+    /**
+     * @property {string} linksKey - The key which will contain the HATEOAS links within json reponses
+     */
 	linksKey : "links",
+    /**
+     * @property {string} delimiter - The delimiter used to build the keys in the linkLibrary
+     */
 	delimiter : "-",
-
+    /**
+     * This object contains all links to REST calls. They are fetched from the REST responses and stored as a dictionary
+     * that maps keys on urls.
+     *
+     * @property linkLibrary
+     * @type {object}
+     */
     linkLibrary : {},
 
     init : function() {

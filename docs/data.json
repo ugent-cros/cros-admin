@@ -1,0 +1,527 @@
+{
+    "project": {
+        "name": "The cros-admin API",
+        "description": "The cros-admin API, The classes consist of an application to administrate the cros-core functionalities.",
+        "version": "1.0.0",
+        "url": "http://example.com/"
+    },
+    "files": {
+        "js\\components\\charts\\lineChart.js": {
+            "name": "js\\components\\charts\\lineChart.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\charts\\pieChart.js": {
+            "name": "js\\components\\charts\\pieChart.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\DroneMap.js": {
+            "name": "js\\components\\maps\\DroneMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\assignmentMap.js": {
+            "name": "js\\components\\maps\\assignmentMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\assignmentsAddMap.js": {
+            "name": "js\\components\\maps\\assignmentsAddMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\basestationAddMap.js": {
+            "name": "js\\components\\maps\\basestationAddMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\basestationMap.js": {
+            "name": "js\\components\\maps\\basestationMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\dashboardMap.js": {
+            "name": "js\\components\\maps\\dashboardMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\ManualControl.js": {
+            "name": "js\\components\\ManualControl.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\popupMap.js": {
+            "name": "js\\components\\popupMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\tableController.js": {
+            "name": "js\\components\\tableController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\appcontroller.js": {
+            "name": "js\\controllers\\appcontroller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\assignmentController.js": {
+            "name": "js\\controllers\\assignmentController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\basestationController.js": {
+            "name": "js\\controllers\\basestationController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\dashboardController.js": {
+            "name": "js\\controllers\\dashboardController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\dronesController.js": {
+            "name": "js\\controllers\\dronesController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\listsController.js": {
+            "name": "js\\controllers\\listsController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\userController.js": {
+            "name": "js\\controllers\\userController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\assignmentsRouter.js": {
+            "name": "js\\routers\\assignmentsRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\basestationsRouter.js": {
+            "name": "js\\routers\\basestationsRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\dronesRouter.js": {
+            "name": "js\\routers\\dronesRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\superRouter.js": {
+            "name": "js\\routers\\superRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\usersRouter.js": {
+            "name": "js\\routers\\usersRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\adapter.js": {
+            "name": "js\\adapter.js",
+            "modules": {},
+            "classes": {
+                ".CustomAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\authManager.js": {
+            "name": "js\\authManager.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        ".CustomAdapter": {
+            "name": ".CustomAdapter",
+            "shortname": ".CustomAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "js\\adapter.js",
+            "line": 1,
+            "description": "This will create a new RestAdapter with support for HATEOAS.",
+            "is_constructor": 1,
+            "extends": "DS.RESTAdapter"
+        }
+    },
+    "classitems": [
+        {
+            "file": "js\\components\\charts\\lineChart.js",
+            "line": 1,
+            "description": "Created by Eveline on 21/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\charts\\pieChart.js",
+            "line": 1,
+            "description": "Created by Eveline on 21/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\DroneMap.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\assignmentMap.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\assignmentsAddMap.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\basestationAddMap.js",
+            "line": 1,
+            "description": "Created by matthias on 6/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\basestationMap.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\dashboardMap.js",
+            "line": 1,
+            "description": "Created by matthias on 14/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\ManualControl.js",
+            "line": 1,
+            "description": "Created by matthias on 25/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\popupMap.js",
+            "line": 1,
+            "description": "Created by matthias on 14/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 3,
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 121,
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 126,
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 131,
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\appcontroller.js",
+            "line": 1,
+            "description": "Created by matthias on 30/03/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\assignmentController.js",
+            "line": 1,
+            "description": "Created by matthias on 4/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\assignmentController.js",
+            "line": 5,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\basestationController.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\dashboardController.js",
+            "line": 1,
+            "description": "Created by matthias on 14/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\dronesController.js",
+            "line": 1,
+            "description": "Created by Eveline on 25/03/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\listsController.js",
+            "line": 1,
+            "description": "Created by Eveline on 5/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\userController.js",
+            "line": 1,
+            "description": "Created by Eveline on 9/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\assignmentsRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\basestationsRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\dronesRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\superRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\usersRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 9,
+            "access": "public",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "host - The root url to the used REST-API",
+            "type": "String",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 14,
+            "itemtype": "property",
+            "name": "namespace - The namespace of the REST-API (relative to the host url)",
+            "type": "String",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 18,
+            "itemtype": "property",
+            "name": "linksKey - The key which will contain the HATEOAS links within json reponses",
+            "type": "String",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 22,
+            "itemtype": "property",
+            "name": "delimiter - The delimiter used to build the keys in the linkLibrary",
+            "type": "String",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 26,
+            "description": "This object contains all links to REST calls. They are fetched from the REST responses and stored as a dictionary\nthat maps keys on urls.",
+            "itemtype": "property",
+            "name": "linkLibrary",
+            "type": "{object}",
+            "class": ".CustomAdapter"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 1,
+            "description": "Created by matthias on 30/03/2015.",
+            "class": ""
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nCreated by Eveline on 21/04/2015.",
+            "line": " js\\components\\charts\\lineChart.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 21/04/2015.",
+            "line": " js\\components\\charts\\pieChart.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\components\\maps\\DroneMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\components\\maps\\assignmentMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\components\\maps\\assignmentsAddMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 6/04/2015.",
+            "line": " js\\components\\maps\\basestationAddMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\components\\maps\\basestationMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 14/04/2015.",
+            "line": " js\\components\\maps\\dashboardMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 25/04/2015.",
+            "line": " js\\components\\ManualControl.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 14/04/2015.",
+            "line": " js\\components\\popupMap.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:3"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:121"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:126"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:131"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 30/03/2015.",
+            "line": " js\\controllers\\appcontroller.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 4/04/2015.",
+            "line": " js\\controllers\\assignmentController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\controllers\\assignmentController.js:5"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\controllers\\basestationController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 14/04/2015.",
+            "line": " js\\controllers\\dashboardController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 25/03/2015.",
+            "line": " js\\controllers\\dronesController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 5/04/2015.",
+            "line": " js\\controllers\\listsController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 9/04/2015.",
+            "line": " js\\controllers\\userController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\assignmentsRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\basestationsRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\dronesRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\superRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\usersRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 30/03/2015.",
+            "line": " js\\authManager.js:1"
+        }
+    ]
+}
