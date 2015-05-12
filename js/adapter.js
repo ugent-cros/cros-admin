@@ -1,49 +1,91 @@
 /**
+ * @module cros-admin
+ */
+
+/**
  * This will create a new RestAdapter with support for HATEOAS.
  * @class CustomAdapter
  * @constructor
- * @namespace
  * @extends DS.RESTAdapter
  */
 App.CustomAdapter = DS.RESTAdapter.extend({
     /**
+     * The root url to the used REST-API
+     *
      * @public
-     * @property {string}  host - The root url to the used REST-API
+     * @required
+     * @property {string}  host
      */
     host : "http://localhost:9000",
     /**
-     * @property {string} namespace - The namespace of the REST-API (relative to the host url)
+     *  The namespace of the REST-API (relative to the host url)
+     *
+     * @public
+     * @default ""
+     * @property {string} namespace
      */
     namespace : "",
     /**
-     * @property {string} linksKey - The key which will contain the HATEOAS links within json reponses
+     * The key which will contain the HATEOAS links within json reponses
+     *
+     * @public
+     * @default "links"
+     * @property {string} linksKey
      */
 	linksKey : "links",
     /**
-     * @property {string} delimiter - The delimiter used to build the keys in the linkLibrary
+     * The delimiter used to build the keys in the linkLibrary
+     *
+     * @public
+     * @default "-"
+     * @property {string} delimiter
      */
 	delimiter : "-",
     /**
      * This object contains all links to REST calls. They are fetched from the REST responses and stored as a dictionary
      * that maps keys on urls.
      *
+     * @private
      * @property linkLibrary
      * @type {object}
      */
     linkLibrary : {},
 
+    /**
+     * This method will perform the initialization of the adapter. It will insert one link in the {{#crossLink "CustomAdapter/linkLibrary:property"}}{{/crossLink}},
+     * namely to the root (+namespace) of the REST-API.
+     *
+     * @public
+     * @method init
+     */
     init : function() {
         this._super();
 
         this.get("linkLibrary")["home"] = this.get("host") + this.get("namespace");
     },
-    
+
+    /**
+     * This property contains all the headers that should be sent with every request.
+     * This now only contains the correct authentication token for the REST-API.
+     *
+     * @private
+     * @property headers {object}
+     */
     headers: function() {
         return {
             "X-AUTH-TOKEN" : this.authManager.token()
         };
     }.property().volatile(),
 
+    /**
+     * This function will process a received links object and enter the links in the {{#crossLink "CustomAdapter/linkLibrary:property"}}{{/crossLink}}.
+     * This is done by iterating over the links available and inserting them with the correct key (based on the provided root).
+     *
+     * @private
+     * @method insertLinks
+     * @param linksObj the object containing all the links
+     * @param root the root key that should be used for these links.
+     */
 	insertLinks : function(linksObj, root) {
 		var self = this;
 		$.each(linksObj, function(k, v) {
@@ -58,7 +100,19 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			}
 		});
 	},
-	
+
+    /**
+     * This function will search through the response json and search for objects with key {{#crossLink "CustomAdapter/linksKey:property"}}{{/crossLink}}.
+     * For each object it finds, it will call {{#crossLink "CustomAdapter/insertLinks:method"}}{{/crossLink}} so that the contained links are added to the linkLibrary.
+     *
+     * In current version the home link is treated separately. Since the links in the root of this specific REST-API are not contained within a linkskey object,
+     * they are just added to the linkLibrary directly.
+     *
+     * @private
+     * @method processLinks
+     * @param data The response json
+     * @param root The root key of the links that should be added.
+     */
 	processLinks : function(data, root) {
         if (root === "home") {
             $.extend(this.linkLibrary, data);
@@ -72,15 +126,23 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 
 		$.each(data, function(k, v) {
 			if (lk === k) {
-				self.insertLinks(data[k], root);
-			} else if(k === "resource") {
-				$.each(data[k], function(i, obj) {
+				self.insertLinks(v, root);
+			} else if(k === "resource") { // lists of items are contained within a "resource" tag
+				$.each(v, function(i, obj) {
 					self.processLinks(obj, root + self.delimiter + obj.id);
 				});
 			}
 		});
 	},
-	
+
+    /**
+     * Progress of an ajax call can be tracked with nProgress library.
+     * Starting this tracking can be done with this function.
+     *
+     * @private
+     * @method progressTracker
+     * @returns {XMLHttpRequest}
+     */
 	progressTracker: function()
 	{
 		var xhr = new window.XMLHttpRequest();
@@ -102,6 +164,15 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		return xhr;
 	},
 
+    /**
+     * When any request made by the adapter fails, this function is called. It will do necessary checks of the errorstatus and
+     * the error response. If necessary, the adapter will call the logout functionality of the authManager.
+     *
+     * @private
+     * @method onfailure
+     * @param data the response from the ajax call
+     * @returns {object} the response from the ajax call (for further chaining)
+     */
     onfailure : function(data) {
         if (data.status === 401 && this.authManager.get("isLoggedIn")) {
             this.socketManager.disconnect();
@@ -115,8 +186,18 @@ App.CustomAdapter = DS.RESTAdapter.extend({
         }
         return data;
     },
-	
-	brol : function(urlObj, store) {
+
+    /**
+     * This method will fetch any missing links in the linklibrary. It will call ajax and use {{#crossLink "CustomAdapter/processLinks:method"}}{{/crossLink}}
+     * to update the linksLibrary.
+     *
+     * @private
+     * @method recursiveFetch
+     * @param urlObj the url to be fetched
+     * @param store the root key to use when inserting the links.
+     * @returns {Promise} Any code executed after this promise will have the necessary links in the linkLibrary
+     */
+	recursiveFetch : function(urlObj, store) {
 		var self = this;
 		return self.ajax(urlObj.url, 'GET').then(function(data) {
 			self.processLinks(data[store], urlObj.key);
@@ -159,7 +240,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
         } else {
             var currentPromise = this.get("currentRequest") || $.Deferred(function(defer) { defer.resolveWith(this,[]); });
             for (var i = 0; i < calls.length; ++i) {
-                currentPromise = currentPromise.then(function() { return self.brol({ "url" : self.linkLibrary[calls[i]], "key" : calls[i] }, store); });
+                currentPromise = currentPromise.then(function() { return self.recursiveFetch({ "url" : self.linkLibrary[calls[i]], "key" : calls[i] }, store); });
             }
             return currentPromise.then(function() {
                 return { "url" : self.linkLibrary[key], "key" : key };
