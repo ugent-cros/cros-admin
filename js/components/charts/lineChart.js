@@ -1,8 +1,16 @@
 /**
- * Created by Eveline on 21/04/2015.
+ * This will create a new line chart component
+ * @class LineGraphComponent
+ * @constructor
+ * @extends Component
  */
 App.LineGraphComponent = Ember.Component.extend({
 
+    /**
+     * This function draws the linechart
+     *
+     * @method
+     */
     draw: function(){
         var self = this
         $('.modal').on('shown.bs.modal', function (e) {
