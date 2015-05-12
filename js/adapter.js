@@ -204,6 +204,22 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		});
 	},
 
+    /**
+     * This function will return the correct url based on key parameters. This function has two part:
+     *      1) Using the input parameters, the correct key is assembled. This is done by concatenating
+     *         the the input parameters, separated with the specified {{#crossLink "CustomAdapter/delimiter:property}}{{/crossLink}}.
+     *      2) Once the key has been constructed, the function will check whether or not this key is available in the linkLibrary. If not
+     *         it will recursively remove one part of the key (based on de delimiter) and check whether this key is available. It continues untill
+     *         a link is found or until no key is left (if this is the case, the home link will be fetched).
+     *         This implies that every url (linked to key 'k') should reply with links to all possible keys 'k' + delimiter + 't' (where 't' are all possible key parts after 'k').
+     *
+     * @private
+     * @method resolveLinkInner
+     * @param store the type of entity that is request
+     * @param id the id of the entity requested
+     * @param action the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter).
+     * @returns {object} an object containing the url and the key.
+     */
     resolveLinkInner : function(store,id,action) {
         var key = store;
         var self = this;
@@ -247,7 +263,18 @@ App.CustomAdapter = DS.RESTAdapter.extend({
             });
         }
     },
-	
+
+    /**
+     * This function has the same functionality as {{#crossLink "CustomAdapter/resolveLinkInner:method"}}{{/crossLink}}. However, this method will chain
+     * this call to any ongoing requests. This is necessary, if any of the previous requests is retrieving a link used in this function.
+     *
+     * @public
+     * @method resolveLink
+     * @param store the type of entity that is request
+     * @param id the id of the entity requested
+     * @param action the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter).
+     * @returns {object|Promise} a promise which will resolve in an object containing the requested url and the key used.
+     */
 	resolveLink : function(store, id, action) {
         var self = this;
         if (this.get("currentRequest")) {
@@ -258,7 +285,18 @@ App.CustomAdapter = DS.RESTAdapter.extend({
             return this.resolveLinkInner(store,id,action);
         }
 	},
-	
+
+    /**
+     * This function will execute the actual ajax call. It uses the functionality of jquery. For more explanation please checkout their documentation pages.
+     * This function will set all properties in the ajax call. Extra properties can be given via the options paramter.
+     *
+     * @private
+     * @method ajax
+     * @param url The request url
+     * @param method The HTTP method
+     * @param options Extra options that should be set in the ajax call.
+     * @returns {object|Promise} The response data from the REST-call.
+     */
 	ajax : function(url, method, options) {
 		hash = options || {};
 		hash.url = url;
@@ -279,8 +317,32 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 		return $.ajax(hash);
 	},
 
+    /**
+     * The current promise being handled. If null, no request is busy.
+     *
+     * @private
+     * @property currentRequest {Promise}
+     */
     currentRequest: null,
 
+    /**
+     * This function will resolve any request to the backend REST-api.
+     * It will first resolve the link based on the input parameters (using {{#crossLink "CustomAdapter/resolveLink:method"}}{{/crossLink}}).
+     * Using the correct link it will do a jquery ajax call (using {{#crossLink "CustomAdapter/ajax:method"}}{{/crossLink}}).
+     * Finally any links contained in the response data will be processed (using {{#crossLink "CustomAdapter/processLinks:method"}}{{/crossLink}}).
+     * This function assumes all REST-calls return an object with root element "store". This root element will be removed from the returned value.
+     * Also if the result contains multiple elements, this should be contained within an array with key "resource".
+     *
+     * Note: This request will be chained to any previous ongoing requests. Also, this request will be set as the new {{#crossLink "CustomAdapter/currentRequest:property"}}{{/crossLink}}.
+     *
+     * @public
+     * @method find
+     * @param store the type of the entity requested
+     * @param id the id of the entity requested
+     * @param action the actions called on this entity. This can be either a string or an array of strings. In case of an array, the elements are concatenated separated with the delimiter.
+     * @param params Any extra ajax parameters can be set in this object. Also, if this object contains a query object, this will be used as query paramters after the url.
+     * @returns {object|Promise} The response data from the REST-call
+     */
     find : function(store, id, action, params) {
         var self = this;
         var r = this.get("currentRequest");
@@ -310,7 +372,16 @@ App.CustomAdapter = DS.RESTAdapter.extend({
         self.set("currentRequest", r);
         return r;
     },
-    
+
+    /**
+     * This function will execute any post requests to the REST-API.
+     *
+     * @public
+     * @method post
+     * @param store The type of entity that will be posted
+     * @param postData The data that will be posted.
+     * @returns {object|Promise} the REST-call result in json.
+     */
     post : function(store, postData) {
 		var self = this;
         var url = this.linkLibrary[store];
@@ -319,7 +390,17 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			return data;
 		}, self.onfailure);
 	},
-    
+
+    /**
+     * This function will execute a PUT request to the REST-API.
+     *
+     * @public
+     * @method edit
+     * @param store The type of entity that will be updated
+     * @param id the id of the entity that will be updated
+     * @param editData the data containing the updated entity
+     * @returns {object|Promise} the data returned from the REST-call.
+     */
 	edit : function(store, id, editData) {
 		var self = this;
 		var url = this.linkLibrary[store + self.delimiter + id];
@@ -327,7 +408,16 @@ App.CustomAdapter = DS.RESTAdapter.extend({
 			return data;
 		}, self.onfailure);
 	},
-	
+
+    /**
+     * The function will execute a DELETE request to the REST-API.
+     *
+     * @public
+     * @method remove
+     * @param store The type of entity that will be removed
+     * @param id the id of the entity that will be removed
+     * @returns {object|Promise} the data returned from the REST-call.
+     */
 	remove : function(store, id) {
 		var self = this;
 		var url = this.linkLibrary[store + self.delimiter + id];

@@ -568,6 +568,217 @@
             "module": "cros-admin"
         },
         {
+            "file": "js\\adapter.js",
+            "line": 207,
+            "description": "This function will return the correct url based on key parameters. This function has two part:\n     1) Using the input parameters, the correct key is assembled. This is done by concatenating\n        the the input parameters, separated with the specified {{#crossLink \"CustomAdapter/delimiter:property}}{{/crossLink}}.\n     2) Once the key has been constructed, the function will check whether or not this key is available in the linkLibrary. If not\n        it will recursively remove one part of the key (based on de delimiter) and check whether this key is available. It continues untill\n        a link is found or until no key is left (if this is the case, the home link will be fetched).\n        This implies that every url (linked to key 'k') should reply with links to all possible keys 'k' + delimiter + 't' (where 't' are all possible key parts after 'k').",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "resolveLinkInner",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "the type of entity that is request"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity requested"
+                },
+                {
+                    "name": "action",
+                    "description": "the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter)."
+                }
+            ],
+            "return": {
+                "description": "an object containing the url and the key.",
+                "type": "Object"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 267,
+            "description": "This function has the same functionality as {{#crossLink \"CustomAdapter/resolveLinkInner:method\"}}{{/crossLink}}. However, this method will chain\nthis call to any ongoing requests. This is necessary, if any of the previous requests is retrieving a link used in this function.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "resolveLink",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "the type of entity that is request"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity requested"
+                },
+                {
+                    "name": "action",
+                    "description": "the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter)."
+                }
+            ],
+            "return": {
+                "description": "a promise which will resolve in an object containing the requested url and the key used.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 289,
+            "description": "This function will execute the actual ajax call. It uses the functionality of jquery. For more explanation please checkout their documentation pages.\nThis function will set all properties in the ajax call. Extra properties can be given via the options paramter.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "ajax",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The request url"
+                },
+                {
+                    "name": "method",
+                    "description": "The HTTP method"
+                },
+                {
+                    "name": "options",
+                    "description": "Extra options that should be set in the ajax call."
+                }
+            ],
+            "return": {
+                "description": "The response data from the REST-call.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 320,
+            "description": "The current promise being handled. If null, no request is busy.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "currentRequest",
+            "type": "Promise",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 328,
+            "description": "This function will resolve any request to the backend REST-api.\nIt will first resolve the link based on the input parameters (using {{#crossLink \"CustomAdapter/resolveLink:method\"}}{{/crossLink}}).\nUsing the correct link it will do a jquery ajax call (using {{#crossLink \"CustomAdapter/ajax:method\"}}{{/crossLink}}).\nFinally any links contained in the response data will be processed (using {{#crossLink \"CustomAdapter/processLinks:method\"}}{{/crossLink}}).\nThis function assumes all REST-calls return an object with root element \"store\". This root element will be removed from the returned value.\nAlso if the result contains multiple elements, this should be contained within an array with key \"resource\".\n\nNote: This request will be chained to any previous ongoing requests. Also, this request will be set as the new {{#crossLink \"CustomAdapter/currentRequest:property\"}}{{/crossLink}}.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "find",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "the type of the entity requested"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity requested"
+                },
+                {
+                    "name": "action",
+                    "description": "the actions called on this entity. This can be either a string or an array of strings. In case of an array, the elements are concatenated separated with the delimiter."
+                },
+                {
+                    "name": "params",
+                    "description": "Any extra ajax parameters can be set in this object. Also, if this object contains a query object, this will be used as query paramters after the url."
+                }
+            ],
+            "return": {
+                "description": "The response data from the REST-call",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 376,
+            "description": "This function will execute any post requests to the REST-API.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "post",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The type of entity that will be posted"
+                },
+                {
+                    "name": "postData",
+                    "description": "The data that will be posted."
+                }
+            ],
+            "return": {
+                "description": "the REST-call result in json.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 394,
+            "description": "This function will execute a PUT request to the REST-API.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "edit",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The type of entity that will be updated"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity that will be updated"
+                },
+                {
+                    "name": "editData",
+                    "description": "the data containing the updated entity"
+                }
+            ],
+            "return": {
+                "description": "the data returned from the REST-call.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 412,
+            "description": "The function will execute a DELETE request to the REST-API.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The type of entity that will be removed"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity that will be removed"
+                }
+            ],
+            "return": {
+                "description": "the data returned from the REST-call.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
             "file": "js\\authManager.js",
             "line": 1,
             "description": "Created by matthias on 30/03/2015.",
@@ -587,6 +798,34 @@
         {
             "message": "replacing incorrect tag: returns with return",
             "line": " js\\adapter.js:190"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:207"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:267"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:289"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:328"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:376"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:394"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:412"
         },
         {
             "message": "Missing item type\nCreated by Eveline on 21/04/2015.",
