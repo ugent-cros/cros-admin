@@ -1,0 +1,943 @@
+{
+    "project": {
+        "name": "The cros-admin API",
+        "description": "The cros-admin API, The classes consist of an application to administrate the cros-core functionalities.",
+        "version": "1.0.0",
+        "url": "http://example.com/"
+    },
+    "files": {
+        "js\\components\\charts\\lineChart.js": {
+            "name": "js\\components\\charts\\lineChart.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\charts\\pieChart.js": {
+            "name": "js\\components\\charts\\pieChart.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\DroneMap.js": {
+            "name": "js\\components\\maps\\DroneMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\assignmentMap.js": {
+            "name": "js\\components\\maps\\assignmentMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\assignmentsAddMap.js": {
+            "name": "js\\components\\maps\\assignmentsAddMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\basestationAddMap.js": {
+            "name": "js\\components\\maps\\basestationAddMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\basestationMap.js": {
+            "name": "js\\components\\maps\\basestationMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\maps\\dashboardMap.js": {
+            "name": "js\\components\\maps\\dashboardMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\ManualControl.js": {
+            "name": "js\\components\\ManualControl.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\popupMap.js": {
+            "name": "js\\components\\popupMap.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\components\\tableController.js": {
+            "name": "js\\components\\tableController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\appcontroller.js": {
+            "name": "js\\controllers\\appcontroller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\assignmentController.js": {
+            "name": "js\\controllers\\assignmentController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\basestationController.js": {
+            "name": "js\\controllers\\basestationController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\dashboardController.js": {
+            "name": "js\\controllers\\dashboardController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\dronesController.js": {
+            "name": "js\\controllers\\dronesController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\listsController.js": {
+            "name": "js\\controllers\\listsController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\controllers\\userController.js": {
+            "name": "js\\controllers\\userController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\assignmentsRouter.js": {
+            "name": "js\\routers\\assignmentsRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\basestationsRouter.js": {
+            "name": "js\\routers\\basestationsRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\dronesRouter.js": {
+            "name": "js\\routers\\dronesRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\superRouter.js": {
+            "name": "js\\routers\\superRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\routers\\usersRouter.js": {
+            "name": "js\\routers\\usersRouter.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\adapter.js": {
+            "name": "js\\adapter.js",
+            "modules": {
+                "cros-admin": 1
+            },
+            "classes": {
+                "CustomAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "js\\authManager.js": {
+            "name": "js\\authManager.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "cros-admin": {
+            "name": "cros-admin",
+            "submodules": {},
+            "classes": {
+                "CustomAdapter": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "js\\adapter.js",
+            "line": 5
+        }
+    },
+    "classes": {
+        "CustomAdapter": {
+            "name": "CustomAdapter",
+            "shortname": "CustomAdapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cros-admin",
+            "namespace": "",
+            "file": "js\\adapter.js",
+            "line": 5,
+            "description": "This will create a new RestAdapter with support for HATEOAS.",
+            "is_constructor": 1,
+            "extends": "DS.RESTAdapter"
+        }
+    },
+    "classitems": [
+        {
+            "file": "js\\components\\charts\\lineChart.js",
+            "line": 1,
+            "description": "Created by Eveline on 21/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\charts\\pieChart.js",
+            "line": 1,
+            "description": "Created by Eveline on 21/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\DroneMap.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\assignmentMap.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\assignmentsAddMap.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\basestationAddMap.js",
+            "line": 1,
+            "description": "Created by matthias on 6/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\basestationMap.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\maps\\dashboardMap.js",
+            "line": 1,
+            "description": "Created by matthias on 14/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\ManualControl.js",
+            "line": 1,
+            "description": "Created by matthias on 25/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\popupMap.js",
+            "line": 1,
+            "description": "Created by matthias on 14/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 3,
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 121,
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 126,
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\components\\tableController.js",
+            "line": 131,
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\appcontroller.js",
+            "line": 1,
+            "description": "Created by matthias on 30/03/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\assignmentController.js",
+            "line": 1,
+            "description": "Created by matthias on 4/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\assignmentController.js",
+            "line": 5,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\basestationController.js",
+            "line": 1,
+            "description": "Created by matthias on 3/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\dashboardController.js",
+            "line": 1,
+            "description": "Created by matthias on 14/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\dronesController.js",
+            "line": 1,
+            "description": "Created by Eveline on 25/03/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\listsController.js",
+            "line": 1,
+            "description": "Created by Eveline on 5/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\userController.js",
+            "line": 1,
+            "description": "Created by Eveline on 9/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\assignmentsRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\basestationsRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\dronesRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\superRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\routers\\usersRouter.js",
+            "line": 1,
+            "description": "Created by matthias on 11/04/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 12,
+            "description": "The root url to the used REST-API",
+            "access": "public",
+            "tagname": "",
+            "required": 1,
+            "itemtype": "property",
+            "name": "host",
+            "type": "String",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 20,
+            "description": "The namespace of the REST-API (relative to the host url)",
+            "access": "public",
+            "tagname": "",
+            "default": "\"\"",
+            "itemtype": "property",
+            "name": "namespace",
+            "type": "String",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 28,
+            "description": "The key which will contain the HATEOAS links within json reponses",
+            "access": "public",
+            "tagname": "",
+            "default": "\"links\"",
+            "itemtype": "property",
+            "name": "linksKey",
+            "type": "String",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 36,
+            "description": "The delimiter used to build the keys in the linkLibrary",
+            "access": "public",
+            "tagname": "",
+            "default": "\"-\"",
+            "itemtype": "property",
+            "name": "delimiter",
+            "type": "String",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 44,
+            "description": "This object contains all links to REST calls. They are fetched from the REST responses and stored as a dictionary\nthat maps keys on urls.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "linkLibrary",
+            "type": "{object}",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 54,
+            "description": "This method will perform the initialization of the adapter. It will insert one link in the {{#crossLink \"CustomAdapter/linkLibrary:property\"}}{{/crossLink}},\nnamely to the root (+namespace) of the REST-API.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "init",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 67,
+            "description": "This property contains all the headers that should be sent with every request.\nThis now only contains the correct authentication token for the REST-API.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "headers",
+            "type": "Object",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 80,
+            "description": "This function will process a received links object and enter the links in the {{#crossLink \"CustomAdapter/linkLibrary:property\"}}{{/crossLink}}.\nThis is done by iterating over the links available and inserting them with the correct key (based on the provided root).",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "insertLinks",
+            "params": [
+                {
+                    "name": "linksObj",
+                    "description": "the object containing all the links"
+                },
+                {
+                    "name": "root",
+                    "description": "the root key that should be used for these links."
+                }
+            ],
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 104,
+            "description": "This function will search through the response json and search for objects with key {{#crossLink \"CustomAdapter/linksKey:property\"}}{{/crossLink}}.\nFor each object it finds, it will call {{#crossLink \"CustomAdapter/insertLinks:method\"}}{{/crossLink}} so that the contained links are added to the linkLibrary.\n\nIn current version the home link is treated separately. Since the links in the root of this specific REST-API are not contained within a linkskey object,\nthey are just added to the linkLibrary directly.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "processLinks",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "The response json"
+                },
+                {
+                    "name": "root",
+                    "description": "The root key of the links that should be added."
+                }
+            ],
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 138,
+            "description": "Progress of an ajax call can be tracked with nProgress library.\nStarting this tracking can be done with this function.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "progressTracker",
+            "return": {
+                "description": "",
+                "type": "XMLHttpRequest"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 167,
+            "description": "When any request made by the adapter fails, this function is called. It will do necessary checks of the errorstatus and\nthe error response. If necessary, the adapter will call the logout functionality of the authManager.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "onfailure",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "the response from the ajax call"
+                }
+            ],
+            "return": {
+                "description": "the response from the ajax call (for further chaining)",
+                "type": "Object"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 190,
+            "description": "This method will fetch any missing links in the linklibrary. It will call ajax and use {{#crossLink \"CustomAdapter/processLinks:method\"}}{{/crossLink}}\nto update the linksLibrary.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "recursiveFetch",
+            "params": [
+                {
+                    "name": "urlObj",
+                    "description": "the url to be fetched"
+                },
+                {
+                    "name": "store",
+                    "description": "the root key to use when inserting the links."
+                }
+            ],
+            "return": {
+                "description": "Any code executed after this promise will have the necessary links in the linkLibrary",
+                "type": "Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 207,
+            "description": "This function will return the correct url based on key parameters. This function has two part:\n     1) Using the input parameters, the correct key is assembled. This is done by concatenating\n        the the input parameters, separated with the specified {{#crossLink \"CustomAdapter/delimiter:property}}{{/crossLink}}.\n     2) Once the key has been constructed, the function will check whether or not this key is available in the linkLibrary. If not\n        it will recursively remove one part of the key (based on de delimiter) and check whether this key is available. It continues untill\n        a link is found or until no key is left (if this is the case, the home link will be fetched).\n        This implies that every url (linked to key 'k') should reply with links to all possible keys 'k' + delimiter + 't' (where 't' are all possible key parts after 'k').",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "resolveLinkInner",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "the type of entity that is request"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity requested"
+                },
+                {
+                    "name": "action",
+                    "description": "the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter)."
+                }
+            ],
+            "return": {
+                "description": "an object containing the url and the key.",
+                "type": "Object"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 267,
+            "description": "This function has the same functionality as {{#crossLink \"CustomAdapter/resolveLinkInner:method\"}}{{/crossLink}}. However, this method will chain\nthis call to any ongoing requests. This is necessary, if any of the previous requests is retrieving a link used in this function.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "resolveLink",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "the type of entity that is request"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity requested"
+                },
+                {
+                    "name": "action",
+                    "description": "the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter)."
+                }
+            ],
+            "return": {
+                "description": "a promise which will resolve in an object containing the requested url and the key used.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 289,
+            "description": "This function will execute the actual ajax call. It uses the functionality of jquery. For more explanation please checkout their documentation pages.\nThis function will set all properties in the ajax call. Extra properties can be given via the options paramter.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "ajax",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "The request url"
+                },
+                {
+                    "name": "method",
+                    "description": "The HTTP method"
+                },
+                {
+                    "name": "options",
+                    "description": "Extra options that should be set in the ajax call."
+                }
+            ],
+            "return": {
+                "description": "The response data from the REST-call.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 320,
+            "description": "The current promise being handled. If null, no request is busy.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "currentRequest",
+            "type": "Promise",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 328,
+            "description": "This function will resolve any request to the backend REST-api.\nIt will first resolve the link based on the input parameters (using {{#crossLink \"CustomAdapter/resolveLink:method\"}}{{/crossLink}}).\nUsing the correct link it will do a jquery ajax call (using {{#crossLink \"CustomAdapter/ajax:method\"}}{{/crossLink}}).\nFinally any links contained in the response data will be processed (using {{#crossLink \"CustomAdapter/processLinks:method\"}}{{/crossLink}}).\nThis function assumes all REST-calls return an object with root element \"store\". This root element will be removed from the returned value.\nAlso if the result contains multiple elements, this should be contained within an array with key \"resource\".\n\nNote: This request will be chained to any previous ongoing requests. Also, this request will be set as the new {{#crossLink \"CustomAdapter/currentRequest:property\"}}{{/crossLink}}.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "find",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "the type of the entity requested"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity requested"
+                },
+                {
+                    "name": "action",
+                    "description": "the actions called on this entity. This can be either a string or an array of strings. In case of an array, the elements are concatenated separated with the delimiter."
+                },
+                {
+                    "name": "params",
+                    "description": "Any extra ajax parameters can be set in this object. Also, if this object contains a query object, this will be used as query paramters after the url."
+                }
+            ],
+            "return": {
+                "description": "The response data from the REST-call",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 376,
+            "description": "This function will execute any post requests to the REST-API.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "post",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The type of entity that will be posted"
+                },
+                {
+                    "name": "postData",
+                    "description": "The data that will be posted."
+                }
+            ],
+            "return": {
+                "description": "the REST-call result in json.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 394,
+            "description": "This function will execute a PUT request to the REST-API.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "edit",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The type of entity that will be updated"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity that will be updated"
+                },
+                {
+                    "name": "editData",
+                    "description": "the data containing the updated entity"
+                }
+            ],
+            "return": {
+                "description": "the data returned from the REST-call.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 412,
+            "description": "The function will execute a DELETE request to the REST-API.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The type of entity that will be removed"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity that will be removed"
+                }
+            ],
+            "return": {
+                "description": "the data returned from the REST-call.",
+                "type": "Object|Promise"
+            },
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 1,
+            "description": "Created by matthias on 30/03/2015.",
+            "class": "",
+            "module": "cros-admin"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:138"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:167"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:190"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:207"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:267"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:289"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:328"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:376"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:394"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:412"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 21/04/2015.",
+            "line": " js\\components\\charts\\lineChart.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 21/04/2015.",
+            "line": " js\\components\\charts\\pieChart.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\components\\maps\\DroneMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\components\\maps\\assignmentMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\components\\maps\\assignmentsAddMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 6/04/2015.",
+            "line": " js\\components\\maps\\basestationAddMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\components\\maps\\basestationMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 14/04/2015.",
+            "line": " js\\components\\maps\\dashboardMap.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 25/04/2015.",
+            "line": " js\\components\\ManualControl.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 14/04/2015.",
+            "line": " js\\components\\popupMap.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:3"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:121"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:126"
+        },
+        {
+            "message": "Missing item type",
+            "line": " js\\components\\tableController.js:131"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 30/03/2015.",
+            "line": " js\\controllers\\appcontroller.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 4/04/2015.",
+            "line": " js\\controllers\\assignmentController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\controllers\\assignmentController.js:5"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 3/04/2015.",
+            "line": " js\\controllers\\basestationController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 14/04/2015.",
+            "line": " js\\controllers\\dashboardController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 25/03/2015.",
+            "line": " js\\controllers\\dronesController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 5/04/2015.",
+            "line": " js\\controllers\\listsController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by Eveline on 9/04/2015.",
+            "line": " js\\controllers\\userController.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\assignmentsRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\basestationsRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\dronesRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\superRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 11/04/2015.",
+            "line": " js\\routers\\usersRouter.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 30/03/2015.",
+            "line": " js\\authManager.js:1"
+        }
+    ]
+}

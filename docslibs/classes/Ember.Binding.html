@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ember.Binding - The cros-admin API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The cros-admin API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Backburner.html">Backburner</a></li>
+                                <li><a href="../classes/DAG.html">DAG</a></li>
+                                <li><a href="../classes/DS.html">DS</a></li>
+                                <li><a href="../classes/DS.ActiveModelAdapter.html">DS.ActiveModelAdapter</a></li>
+                                <li><a href="../classes/DS.ActiveModelSerializer.html">DS.ActiveModelSerializer</a></li>
+                                <li><a href="../classes/DS.Adapter.html">DS.Adapter</a></li>
+                                <li><a href="../classes/DS.AdapterPopulatedRecordArray.html">DS.AdapterPopulatedRecordArray</a></li>
+                                <li><a href="../classes/DS.BooleanTransform.html">DS.BooleanTransform</a></li>
+                                <li><a href="../classes/DS.ContainerProxy.html">DS.ContainerProxy</a></li>
+                                <li><a href="../classes/DS.DateTransform.html">DS.DateTransform</a></li>
+                                <li><a href="../classes/DS.DebugAdapter.html">DS.DebugAdapter</a></li>
+                                <li><a href="../classes/DS.EmbeddedRecordsMixin.html">DS.EmbeddedRecordsMixin</a></li>
+                                <li><a href="../classes/DS.Errors.html">DS.Errors</a></li>
+                                <li><a href="../classes/DS.FilteredRecordArray.html">DS.FilteredRecordArray</a></li>
+                                <li><a href="../classes/DS.FixtureAdapter.html">DS.FixtureAdapter</a></li>
+                                <li><a href="../classes/DS.InvalidError.html">DS.InvalidError</a></li>
+                                <li><a href="../classes/DS.JSONSerializer.html">DS.JSONSerializer</a></li>
+                                <li><a href="../classes/DS.ManyArray.html">DS.ManyArray</a></li>
+                                <li><a href="../classes/DS.Model.html">DS.Model</a></li>
+                                <li><a href="../classes/DS.NumberTransform.html">DS.NumberTransform</a></li>
+                                <li><a href="../classes/DS.PromiseArray.html">DS.PromiseArray</a></li>
+                                <li><a href="../classes/DS.PromiseObject.html">DS.PromiseObject</a></li>
+                                <li><a href="../classes/DS.RecordArray.html">DS.RecordArray</a></li>
+                                <li><a href="../classes/DS.RecordArrayManager.html">DS.RecordArrayManager</a></li>
+                                <li><a href="../classes/DS.RESTAdapter.html">DS.RESTAdapter</a></li>
+                                <li><a href="../classes/DS.RESTSerializer.html">DS.RESTSerializer</a></li>
+                                <li><a href="../classes/DS.RootState.html">DS.RootState</a></li>
+                                <li><a href="../classes/DS.Store.html">DS.Store</a></li>
+                                <li><a href="../classes/DS.StringTransform.html">DS.StringTransform</a></li>
+                                <li><a href="../classes/DS.Transform.html">DS.Transform</a></li>
+                                <li><a href="../classes/Ember.html">Ember</a></li>
+                                <li><a href="../classes/Ember._BoundView.html">Ember._BoundView</a></li>
+                                <li><a href="../classes/Ember._Metamorph.html">Ember._Metamorph</a></li>
+                                <li><a href="../classes/Ember._MetamorphView.html">Ember._MetamorphView</a></li>
+                                <li><a href="../classes/Ember._SimpleMetamorphView.html">Ember._SimpleMetamorphView</a></li>
+                                <li><a href="../classes/Ember.ActionHandler.html">Ember.ActionHandler</a></li>
+                                <li><a href="../classes/Ember.Application.html">Ember.Application</a></li>
+                                <li><a href="../classes/Ember.Array.html">Ember.Array</a></li>
+                                <li><a href="../classes/Ember.ArrayController.html">Ember.ArrayController</a></li>
+                                <li><a href="../classes/Ember.ArrayProxy.html">Ember.ArrayProxy</a></li>
+                                <li><a href="../classes/Ember.AutoLocation.html">Ember.AutoLocation</a></li>
+                                <li><a href="../classes/Ember.Binding.html">Ember.Binding</a></li>
+                                <li><a href="../classes/Ember.Checkbox.html">Ember.Checkbox</a></li>
+                                <li><a href="../classes/Ember.CollectionView.html">Ember.CollectionView</a></li>
+                                <li><a href="../classes/Ember.Comparable.html">Ember.Comparable</a></li>
+                                <li><a href="../classes/Ember.Component.html">Ember.Component</a></li>
+                                <li><a href="../classes/Ember.ComponentTemplateDeprecation.html">Ember.ComponentTemplateDeprecation</a></li>
+                                <li><a href="../classes/Ember.ComputedProperty.html">Ember.ComputedProperty</a></li>
+                                <li><a href="../classes/Ember.ContainerDebugAdapter.html">Ember.ContainerDebugAdapter</a></li>
+                                <li><a href="../classes/Ember.ContainerView.html">Ember.ContainerView</a></li>
+                                <li><a href="../classes/Ember.Controller.html">Ember.Controller</a></li>
+                                <li><a href="../classes/Ember.ControllerContentModelAliasDeprecation.html">Ember.ControllerContentModelAliasDeprecation</a></li>
+                                <li><a href="../classes/Ember.ControllerMixin.html">Ember.ControllerMixin</a></li>
+                                <li><a href="../classes/Ember.Copyable.html">Ember.Copyable</a></li>
+                                <li><a href="../classes/Ember.CoreObject.html">Ember.CoreObject</a></li>
+                                <li><a href="../classes/Ember.CoreView.html">Ember.CoreView</a></li>
+                                <li><a href="../classes/Ember.DataAdapter.html">Ember.DataAdapter</a></li>
+                                <li><a href="../classes/Ember.Date.html">Ember.Date</a></li>
+                                <li><a href="../classes/Ember.DefaultResolver.html">Ember.DefaultResolver</a></li>
+                                <li><a href="../classes/Ember.Deferred.html">Ember.Deferred</a></li>
+                                <li><a href="../classes/Ember.Descriptor.html">Ember.Descriptor</a></li>
+                                <li><a href="../classes/Ember.EachProxy.html">Ember.EachProxy</a></li>
+                                <li><a href="../classes/Ember.Ember.html">Ember.Ember</a></li>
+                                <li><a href="../classes/Ember.Enumerable.html">Ember.Enumerable</a></li>
+                                <li><a href="../classes/Ember.EnumerableUtils.html">Ember.EnumerableUtils</a></li>
+                                <li><a href="../classes/Ember.Error.html">Ember.Error</a></li>
+                                <li><a href="../classes/Ember.EventDispatcher.html">Ember.EventDispatcher</a></li>
+                                <li><a href="../classes/Ember.Evented.html">Ember.Evented</a></li>
+                                <li><a href="../classes/Ember.FEATURES.html">Ember.FEATURES</a></li>
+                                <li><a href="../classes/Ember.Freezable.html">Ember.Freezable</a></li>
+                                <li><a href="../classes/Ember.Handlebars.html">Ember.Handlebars</a></li>
+                                <li><a href="../classes/Ember.Handlebars.helpers.html">Ember.Handlebars.helpers</a></li>
+                                <li><a href="../classes/Ember.HashLocation.html">Ember.HashLocation</a></li>
+                                <li><a href="../classes/Ember.HistoryLocation.html">Ember.HistoryLocation</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.html">Ember.HTMLBars</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.Helper.html">Ember.HTMLBars.Helper</a></li>
+                                <li><a href="../classes/Ember.Inflector.html">Ember.Inflector</a></li>
+                                <li><a href="../classes/Ember.inject.html">Ember.inject</a></li>
+                                <li><a href="../classes/Ember.InjectedProperty.html">Ember.InjectedProperty</a></li>
+                                <li><a href="../classes/Ember.Instrumentation.html">Ember.Instrumentation</a></li>
+                                <li><a href="../classes/Ember.LinkView.html">Ember.LinkView</a></li>
+                                <li><a href="../classes/Ember.Location.html">Ember.Location</a></li>
+                                <li><a href="../classes/Ember.Logger.html">Ember.Logger</a></li>
+                                <li><a href="../classes/Ember.Map.html">Ember.Map</a></li>
+                                <li><a href="../classes/Ember.MapWithDefault.html">Ember.MapWithDefault</a></li>
+                                <li><a href="../classes/Ember.MutableArray.html">Ember.MutableArray</a></li>
+                                <li><a href="../classes/Ember.MutableEnumerable.html">Ember.MutableEnumerable</a></li>
+                                <li><a href="../classes/Ember.Namespace.html">Ember.Namespace</a></li>
+                                <li><a href="../classes/Ember.NativeArray.html">Ember.NativeArray</a></li>
+                                <li><a href="../classes/Ember.NoneLocation.html">Ember.NoneLocation</a></li>
+                                <li><a href="../classes/Ember.Object.html">Ember.Object</a></li>
+                                <li><a href="../classes/Ember.ObjectController.html">Ember.ObjectController</a></li>
+                                <li><a href="../classes/Ember.ObjectProxy.html">Ember.ObjectProxy</a></li>
+                                <li><a href="../classes/Ember.Observable.html">Ember.Observable</a></li>
+                                <li><a href="../classes/Ember.OrderedSet.html">Ember.OrderedSet</a></li>
+                                <li><a href="../classes/Ember.platform.html">Ember.platform</a></li>
+                                <li><a href="../classes/Ember.PromiseProxyMixin.html">Ember.PromiseProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ProxyMixin.html">Ember.ProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ReduceComputedProperty.html">Ember.ReduceComputedProperty</a></li>
+                                <li><a href="../classes/Ember.Route.html">Ember.Route</a></li>
+                                <li><a href="../classes/Ember.Router.html">Ember.Router</a></li>
+                                <li><a href="../classes/Ember.run.html">Ember.run</a></li>
+                                <li><a href="../classes/Ember.Select.html">Ember.Select</a></li>
+                                <li><a href="../classes/Ember.Service.html">Ember.Service</a></li>
+                                <li><a href="../classes/Ember.Set.html">Ember.Set</a></li>
+                                <li><a href="../classes/Ember.SortableMixin.html">Ember.SortableMixin</a></li>
+                                <li><a href="../classes/Ember.String.html">Ember.String</a></li>
+                                <li><a href="../classes/Ember.SubArray.html">Ember.SubArray</a></li>
+                                <li><a href="../classes/Ember.TargetActionSupport.html">Ember.TargetActionSupport</a></li>
+                                <li><a href="../classes/Ember.Test.html">Ember.Test</a></li>
+                                <li><a href="../classes/Ember.Test.Adapter.html">Ember.Test.Adapter</a></li>
+                                <li><a href="../classes/Ember.Test.QUnitAdapter.html">Ember.Test.QUnitAdapter</a></li>
+                                <li><a href="../classes/Ember.TextArea.html">Ember.TextArea</a></li>
+                                <li><a href="../classes/Ember.TextField.html">Ember.TextField</a></li>
+                                <li><a href="../classes/Ember.TextSupport.html">Ember.TextSupport</a></li>
+                                <li><a href="../classes/Ember.TrackedArray.html">Ember.TrackedArray</a></li>
+                                <li><a href="../classes/Ember.View.html">Ember.View</a></li>
+                                <li><a href="../classes/Ember.ViewTargetActionSupport.html">Ember.ViewTargetActionSupport</a></li>
+                                <li><a href="../classes/Function.html">Function</a></li>
+                                <li><a href="../classes/HandlebarsCompatibleHelper.html">HandlebarsCompatibleHelper</a></li>
+                                <li><a href="../classes/Libraries.html">Libraries</a></li>
+                                <li><a href="../classes/RSVP.html">RSVP</a></li>
+                                <li><a href="../classes/RSVP.EventTarget.html">RSVP.EventTarget</a></li>
+                                <li><a href="../classes/RSVP.Promise.html">RSVP.Promise</a></li>
+                                <li><a href="../classes/String.html">String</a></li>
+                                <li><a href="../classes/TransformEachInToHash.html">TransformEachInToHash</a></li>
+                                <li><a href="../classes/TransformWithAsToHash.html">TransformWithAsToHash</a></li>
+                                <li><a href="../classes/Vertex.html">Vertex</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ember.html">ember</a></li>
+                                <li><a href="../modules/ember-application.html">ember-application</a></li>
+                                <li><a href="../modules/ember-data.html">ember-data</a></li>
+                                <li><a href="../modules/ember-debug.html">ember-debug</a></li>
+                                <li><a href="../modules/ember-extension-support.html">ember-extension-support</a></li>
+                                <li><a href="../modules/ember-handlebars.html">ember-handlebars</a></li>
+                                <li><a href="../modules/ember-htmlbars.html">ember-htmlbars</a></li>
+                                <li><a href="../modules/ember-metal.html">ember-metal</a></li>
+                                <li><a href="../modules/ember-routing.html">ember-routing</a></li>
+                                <li><a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a></li>
+                                <li><a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a></li>
+                                <li><a href="../modules/ember-routing-views.html">ember-routing-views</a></li>
+                                <li><a href="../modules/ember-runtime.html">ember-runtime</a></li>
+                                <li><a href="../modules/ember-template-compiler.html">ember-template-compiler</a></li>
+                                <li><a href="../modules/ember-testing.html">ember-testing</a></li>
+                                <li><a href="../modules/ember-views.html">ember-views</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>Ember.Binding Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9868"><code>js\libs\ember-1.10.0.debug.js:9868</code></a>
+        </div>
+
+            Module: <a href="../modules/ember-metal.html">ember-metal</a>
+
+        <p>Available since Ember 0.9</p>
+</div>
+
+
+<div class="box intro">
+    <p>An <code>Ember.Binding</code> connects the properties of two objects so that whenever
+the value of one property changes, the other property will be changed also.</p>
+<h2>Automatic Creation of Bindings with <code>/^*Binding/</code>-named Properties</h2>
+<p>You do not usually create Binding objects directly but instead describe
+bindings in your class or object definition using automatic binding
+detection.</p>
+<p>Properties ending in a <code>Binding</code> suffix will be converted to <code>Ember.Binding</code>
+instances. The value of this property should be a string representing a path
+to another object or a custom binding instance created using Binding helpers
+(see &quot;One Way Bindings&quot;):</p>
+<pre class="code prettyprint"><code>valueBinding: &quot;MyApp.someController.title&quot;
+</code></pre>
+<p>This will create a binding from <code>MyApp.someController.title</code> to the <code>value</code>
+property of your object instance automatically. Now the two values will be
+kept in sync.</p>
+<h2>One Way Bindings</h2>
+<p>One especially useful binding customization you can use is the <code>oneWay()</code>
+helper. This helper tells Ember that you are only interested in
+receiving changes on the object you are binding from. For example, if you
+are binding to a preference and you want to be notified if the preference
+has changed, but your object will not be changing the preference itself, you
+could do:</p>
+<pre class="code prettyprint"><code>bigTitlesBinding: Ember.Binding.oneWay(&quot;MyApp.preferencesController.bigTitles&quot;)
+</code></pre>
+<p>This way if the value of <code>MyApp.preferencesController.bigTitles</code> changes the
+<code>bigTitles</code> property of your object will change also. However, if you
+change the value of your <code>bigTitles</code> property, it will not update the
+<code>preferencesController</code>.</p>
+<p>One way bindings are almost twice as fast to setup and twice as fast to
+execute because the binding only has to worry about changes to one side.</p>
+<p>You should consider using one way bindings anytime you have an object that
+may be created frequently and you do not intend to change a property; only
+to monitor it for changes (such as in the example above).</p>
+<h2>Adding Bindings Manually</h2>
+<p>All of the examples above show you how to configure a custom binding, but the
+result of these customizations will be a binding template, not a fully active
+Binding instance. The binding will actually become active only when you
+instantiate the object the binding belongs to. It is useful however, to
+understand what actually happens when the binding is activated.</p>
+<p>For a binding to function it must have at least a <code>from</code> property and a <code>to</code>
+property. The <code>from</code> property path points to the object/key that you want to
+bind from while the <code>to</code> path points to the object/key you want to bind to.</p>
+<p>When you define a custom binding, you are usually describing the property
+you want to bind from (such as <code>MyApp.someController.value</code> in the examples
+above). When your object is created, it will automatically assign the value
+you want to bind <code>to</code> based on the name of your binding key. In the
+examples above, during init, Ember objects will effectively call
+something like this on your binding:</p>
+<pre class="code prettyprint"><code class="language-javascript">binding = Ember.Binding.from(&quot;valueBinding&quot;).to(&quot;value&quot;);
+</code></pre>
+<p>This creates a new binding instance based on the template you provide, and
+sets the to path to the <code>value</code> property of the new object. Now that the
+binding is fully configured with a <code>from</code> and a <code>to</code>, it simply needs to be
+connected to become active. This is done through the <code>connect()</code> method:</p>
+<pre class="code prettyprint"><code class="language-javascript">binding.connect(this);
+</code></pre>
+<p>Note that when you connect a binding you pass the object you want it to be
+connected to. This object will be used as the root for both the from and
+to side of the binding when inspecting relative paths. This allows the
+binding to be automatically inherited by subclassed objects as well.</p>
+<p>This also allows you to bind between objects using the paths you declare in
+<code>from</code> and <code>to</code>:</p>
+<pre class="code prettyprint"><code class="language-javascript">// Example 1
+binding = Ember.Binding.from(&quot;App.someObject.value&quot;).to(&quot;value&quot;);
+binding.connect(this);
+
+// Example 2
+binding = Ember.Binding.from(&quot;parentView.value&quot;).to(&quot;App.someObject.value&quot;);
+binding.connect(this);
+</code></pre>
+<p>Now that the binding is connected, it will observe both the from and to side
+and relay changes.</p>
+<p>If you ever needed to do so (you almost never will, but it is useful to
+understand this anyway), you could manually create an active binding by
+using the <code>Ember.bind()</code> helper method. (This is the same method used by
+to setup your bindings on objects):</p>
+<pre class="code prettyprint"><code class="language-javascript">Ember.bind(MyApp.anotherObject, &quot;value&quot;, &quot;MyApp.someController.value&quot;);
+</code></pre>
+<p>Both of these code fragments have the same effect as doing the most friendly
+form of binding creation like so:</p>
+<pre class="code prettyprint"><code class="language-javascript">MyApp.anotherObject = Ember.Object.create({
+  valueBinding: &quot;MyApp.someController.value&quot;,
+
+  // OTHER CODE FOR THIS OBJECT...
+});
+</code></pre>
+<p>Ember's built in binding creation method makes it easy to automatically
+create bindings for you. You should always use the highest-level APIs
+available, even if you understand how it works underneath.</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_connect">connect</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_copy">copy</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_disconnect">disconnect</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_from">from</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_oneWay">oneWay</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_oneWay">oneWay</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_to">to</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_toString">toString</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_connect" class="method item">
+    <h3 class="name"><code>connect</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9687"><code>js\libs\ember-1.10.0.debug.js:9687</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Attempts to connect this binding instance so that it can receive and relay
+changes. This method will raise an exception if you have not set the
+from/to properties yet.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>The root object for this binding.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>:
+                    <p><code>this</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_copy" class="method item">
+    <h3 class="name"><code>copy</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9608"><code>js\libs\ember-1.10.0.debug.js:9608</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This copies the Binding so it can be connected to another object.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>:
+                    <p><code>this</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_disconnect" class="method item">
+    <h3 class="name"><code>disconnect</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9716"><code>js\libs\ember-1.10.0.debug.js:9716</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Disconnects the binding instance. Changes will no longer be relayed. You
+will not usually need to call this method.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>The root object you passed when connecting the binding.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>:
+                    <p><code>this</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_from" class="method item">
+    <h3 class="name"><code>from</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>path</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9624"><code>js\libs\ember-1.10.0.debug.js:9624</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This will set <code>from</code> property path to the specified value. It will not
+attempt to resolve this property path to an actual object until you
+connect the binding.</p>
+<p>The binding will search for the property path starting at the root object
+you pass when you <code>connect()</code> the binding. It follows the same rules as
+<code>get()</code> - see that method for more information.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>the property path to connect to</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>:
+                    <p><code>this</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_oneWay" class="method item">
+    <h3 class="name"><code>oneWay</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9660"><code>js\libs\ember-1.10.0.debug.js:9660</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Configures the binding as one way. A one-way binding will relay changes
+on the <code>from</code> side to the <code>to</code> side, but not the other way around. This
+means that if you change the <code>to</code> side directly, the <code>from</code> side may have
+a different value.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>:
+                    <p><code>this</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_oneWay" class="method item">
+    <h3 class="name"><code>oneWay</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>from</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[flag]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9846"><code>js\libs\ember-1.10.0.debug.js:9846</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Creates a new Binding instance and makes it apply in a single direction.
+A one-way binding will relay changes on the <code>from</code> side object (supplied
+as the <code>from</code> argument) the <code>to</code> side, but not the other way around.
+This means that if you change the &quot;to&quot; side directly, the &quot;from&quot; side may have
+a different value.</p>
+<p>See <code>Binding.oneWay</code>.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">from</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>from path.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[flag]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>(Optional) passing nothing here will make the
+binding <code>oneWay</code>. You can instead pass <code>false</code> to disable <code>oneWay</code>, making the
+binding two way again.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>:
+                    <p><code>this</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_to" class="method item">
+    <h3 class="name"><code>to</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>path</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9642"><code>js\libs\ember-1.10.0.debug.js:9642</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This will set the <code>to</code> property path to the specified value. It will not
+attempt to resolve this property path to an actual object until you
+connect the binding.</p>
+<p>The binding will search for the property path starting at the root object
+you pass when you <code>connect()</code> the binding. It follows the same rules as
+<code>get()</code> - see that method for more information.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a> | Tuple</span>
+
+
+                    <div class="param-description">
+                        <p>A property path or tuple</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Binding.html" class="crosslink">Ember.Binding</a></span>:
+                    <p><code>this</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_toString" class="method item">
+    <h3 class="name"><code>toString</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l9674"><code>js\libs\ember-1.10.0.debug.js:9674</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>string representation of binding</p>
+
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

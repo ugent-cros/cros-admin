@@ -1,0 +1,4872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ember.ArrayController - The cros-admin API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The cros-admin API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Backburner.html">Backburner</a></li>
+                                <li><a href="../classes/DAG.html">DAG</a></li>
+                                <li><a href="../classes/DS.html">DS</a></li>
+                                <li><a href="../classes/DS.ActiveModelAdapter.html">DS.ActiveModelAdapter</a></li>
+                                <li><a href="../classes/DS.ActiveModelSerializer.html">DS.ActiveModelSerializer</a></li>
+                                <li><a href="../classes/DS.Adapter.html">DS.Adapter</a></li>
+                                <li><a href="../classes/DS.AdapterPopulatedRecordArray.html">DS.AdapterPopulatedRecordArray</a></li>
+                                <li><a href="../classes/DS.BooleanTransform.html">DS.BooleanTransform</a></li>
+                                <li><a href="../classes/DS.ContainerProxy.html">DS.ContainerProxy</a></li>
+                                <li><a href="../classes/DS.DateTransform.html">DS.DateTransform</a></li>
+                                <li><a href="../classes/DS.DebugAdapter.html">DS.DebugAdapter</a></li>
+                                <li><a href="../classes/DS.EmbeddedRecordsMixin.html">DS.EmbeddedRecordsMixin</a></li>
+                                <li><a href="../classes/DS.Errors.html">DS.Errors</a></li>
+                                <li><a href="../classes/DS.FilteredRecordArray.html">DS.FilteredRecordArray</a></li>
+                                <li><a href="../classes/DS.FixtureAdapter.html">DS.FixtureAdapter</a></li>
+                                <li><a href="../classes/DS.InvalidError.html">DS.InvalidError</a></li>
+                                <li><a href="../classes/DS.JSONSerializer.html">DS.JSONSerializer</a></li>
+                                <li><a href="../classes/DS.ManyArray.html">DS.ManyArray</a></li>
+                                <li><a href="../classes/DS.Model.html">DS.Model</a></li>
+                                <li><a href="../classes/DS.NumberTransform.html">DS.NumberTransform</a></li>
+                                <li><a href="../classes/DS.PromiseArray.html">DS.PromiseArray</a></li>
+                                <li><a href="../classes/DS.PromiseObject.html">DS.PromiseObject</a></li>
+                                <li><a href="../classes/DS.RecordArray.html">DS.RecordArray</a></li>
+                                <li><a href="../classes/DS.RecordArrayManager.html">DS.RecordArrayManager</a></li>
+                                <li><a href="../classes/DS.RESTAdapter.html">DS.RESTAdapter</a></li>
+                                <li><a href="../classes/DS.RESTSerializer.html">DS.RESTSerializer</a></li>
+                                <li><a href="../classes/DS.RootState.html">DS.RootState</a></li>
+                                <li><a href="../classes/DS.Store.html">DS.Store</a></li>
+                                <li><a href="../classes/DS.StringTransform.html">DS.StringTransform</a></li>
+                                <li><a href="../classes/DS.Transform.html">DS.Transform</a></li>
+                                <li><a href="../classes/Ember.html">Ember</a></li>
+                                <li><a href="../classes/Ember._BoundView.html">Ember._BoundView</a></li>
+                                <li><a href="../classes/Ember._Metamorph.html">Ember._Metamorph</a></li>
+                                <li><a href="../classes/Ember._MetamorphView.html">Ember._MetamorphView</a></li>
+                                <li><a href="../classes/Ember._SimpleMetamorphView.html">Ember._SimpleMetamorphView</a></li>
+                                <li><a href="../classes/Ember.ActionHandler.html">Ember.ActionHandler</a></li>
+                                <li><a href="../classes/Ember.Application.html">Ember.Application</a></li>
+                                <li><a href="../classes/Ember.Array.html">Ember.Array</a></li>
+                                <li><a href="../classes/Ember.ArrayController.html">Ember.ArrayController</a></li>
+                                <li><a href="../classes/Ember.ArrayProxy.html">Ember.ArrayProxy</a></li>
+                                <li><a href="../classes/Ember.AutoLocation.html">Ember.AutoLocation</a></li>
+                                <li><a href="../classes/Ember.Binding.html">Ember.Binding</a></li>
+                                <li><a href="../classes/Ember.Checkbox.html">Ember.Checkbox</a></li>
+                                <li><a href="../classes/Ember.CollectionView.html">Ember.CollectionView</a></li>
+                                <li><a href="../classes/Ember.Comparable.html">Ember.Comparable</a></li>
+                                <li><a href="../classes/Ember.Component.html">Ember.Component</a></li>
+                                <li><a href="../classes/Ember.ComponentTemplateDeprecation.html">Ember.ComponentTemplateDeprecation</a></li>
+                                <li><a href="../classes/Ember.ComputedProperty.html">Ember.ComputedProperty</a></li>
+                                <li><a href="../classes/Ember.ContainerDebugAdapter.html">Ember.ContainerDebugAdapter</a></li>
+                                <li><a href="../classes/Ember.ContainerView.html">Ember.ContainerView</a></li>
+                                <li><a href="../classes/Ember.Controller.html">Ember.Controller</a></li>
+                                <li><a href="../classes/Ember.ControllerContentModelAliasDeprecation.html">Ember.ControllerContentModelAliasDeprecation</a></li>
+                                <li><a href="../classes/Ember.ControllerMixin.html">Ember.ControllerMixin</a></li>
+                                <li><a href="../classes/Ember.Copyable.html">Ember.Copyable</a></li>
+                                <li><a href="../classes/Ember.CoreObject.html">Ember.CoreObject</a></li>
+                                <li><a href="../classes/Ember.CoreView.html">Ember.CoreView</a></li>
+                                <li><a href="../classes/Ember.DataAdapter.html">Ember.DataAdapter</a></li>
+                                <li><a href="../classes/Ember.Date.html">Ember.Date</a></li>
+                                <li><a href="../classes/Ember.DefaultResolver.html">Ember.DefaultResolver</a></li>
+                                <li><a href="../classes/Ember.Deferred.html">Ember.Deferred</a></li>
+                                <li><a href="../classes/Ember.Descriptor.html">Ember.Descriptor</a></li>
+                                <li><a href="../classes/Ember.EachProxy.html">Ember.EachProxy</a></li>
+                                <li><a href="../classes/Ember.Ember.html">Ember.Ember</a></li>
+                                <li><a href="../classes/Ember.Enumerable.html">Ember.Enumerable</a></li>
+                                <li><a href="../classes/Ember.EnumerableUtils.html">Ember.EnumerableUtils</a></li>
+                                <li><a href="../classes/Ember.Error.html">Ember.Error</a></li>
+                                <li><a href="../classes/Ember.EventDispatcher.html">Ember.EventDispatcher</a></li>
+                                <li><a href="../classes/Ember.Evented.html">Ember.Evented</a></li>
+                                <li><a href="../classes/Ember.FEATURES.html">Ember.FEATURES</a></li>
+                                <li><a href="../classes/Ember.Freezable.html">Ember.Freezable</a></li>
+                                <li><a href="../classes/Ember.Handlebars.html">Ember.Handlebars</a></li>
+                                <li><a href="../classes/Ember.Handlebars.helpers.html">Ember.Handlebars.helpers</a></li>
+                                <li><a href="../classes/Ember.HashLocation.html">Ember.HashLocation</a></li>
+                                <li><a href="../classes/Ember.HistoryLocation.html">Ember.HistoryLocation</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.html">Ember.HTMLBars</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.Helper.html">Ember.HTMLBars.Helper</a></li>
+                                <li><a href="../classes/Ember.Inflector.html">Ember.Inflector</a></li>
+                                <li><a href="../classes/Ember.inject.html">Ember.inject</a></li>
+                                <li><a href="../classes/Ember.InjectedProperty.html">Ember.InjectedProperty</a></li>
+                                <li><a href="../classes/Ember.Instrumentation.html">Ember.Instrumentation</a></li>
+                                <li><a href="../classes/Ember.LinkView.html">Ember.LinkView</a></li>
+                                <li><a href="../classes/Ember.Location.html">Ember.Location</a></li>
+                                <li><a href="../classes/Ember.Logger.html">Ember.Logger</a></li>
+                                <li><a href="../classes/Ember.Map.html">Ember.Map</a></li>
+                                <li><a href="../classes/Ember.MapWithDefault.html">Ember.MapWithDefault</a></li>
+                                <li><a href="../classes/Ember.MutableArray.html">Ember.MutableArray</a></li>
+                                <li><a href="../classes/Ember.MutableEnumerable.html">Ember.MutableEnumerable</a></li>
+                                <li><a href="../classes/Ember.Namespace.html">Ember.Namespace</a></li>
+                                <li><a href="../classes/Ember.NativeArray.html">Ember.NativeArray</a></li>
+                                <li><a href="../classes/Ember.NoneLocation.html">Ember.NoneLocation</a></li>
+                                <li><a href="../classes/Ember.Object.html">Ember.Object</a></li>
+                                <li><a href="../classes/Ember.ObjectController.html">Ember.ObjectController</a></li>
+                                <li><a href="../classes/Ember.ObjectProxy.html">Ember.ObjectProxy</a></li>
+                                <li><a href="../classes/Ember.Observable.html">Ember.Observable</a></li>
+                                <li><a href="../classes/Ember.OrderedSet.html">Ember.OrderedSet</a></li>
+                                <li><a href="../classes/Ember.platform.html">Ember.platform</a></li>
+                                <li><a href="../classes/Ember.PromiseProxyMixin.html">Ember.PromiseProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ProxyMixin.html">Ember.ProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ReduceComputedProperty.html">Ember.ReduceComputedProperty</a></li>
+                                <li><a href="../classes/Ember.Route.html">Ember.Route</a></li>
+                                <li><a href="../classes/Ember.Router.html">Ember.Router</a></li>
+                                <li><a href="../classes/Ember.run.html">Ember.run</a></li>
+                                <li><a href="../classes/Ember.Select.html">Ember.Select</a></li>
+                                <li><a href="../classes/Ember.Service.html">Ember.Service</a></li>
+                                <li><a href="../classes/Ember.Set.html">Ember.Set</a></li>
+                                <li><a href="../classes/Ember.SortableMixin.html">Ember.SortableMixin</a></li>
+                                <li><a href="../classes/Ember.String.html">Ember.String</a></li>
+                                <li><a href="../classes/Ember.SubArray.html">Ember.SubArray</a></li>
+                                <li><a href="../classes/Ember.TargetActionSupport.html">Ember.TargetActionSupport</a></li>
+                                <li><a href="../classes/Ember.Test.html">Ember.Test</a></li>
+                                <li><a href="../classes/Ember.Test.Adapter.html">Ember.Test.Adapter</a></li>
+                                <li><a href="../classes/Ember.Test.QUnitAdapter.html">Ember.Test.QUnitAdapter</a></li>
+                                <li><a href="../classes/Ember.TextArea.html">Ember.TextArea</a></li>
+                                <li><a href="../classes/Ember.TextField.html">Ember.TextField</a></li>
+                                <li><a href="../classes/Ember.TextSupport.html">Ember.TextSupport</a></li>
+                                <li><a href="../classes/Ember.TrackedArray.html">Ember.TrackedArray</a></li>
+                                <li><a href="../classes/Ember.View.html">Ember.View</a></li>
+                                <li><a href="../classes/Ember.ViewTargetActionSupport.html">Ember.ViewTargetActionSupport</a></li>
+                                <li><a href="../classes/Function.html">Function</a></li>
+                                <li><a href="../classes/HandlebarsCompatibleHelper.html">HandlebarsCompatibleHelper</a></li>
+                                <li><a href="../classes/Libraries.html">Libraries</a></li>
+                                <li><a href="../classes/RSVP.html">RSVP</a></li>
+                                <li><a href="../classes/RSVP.EventTarget.html">RSVP.EventTarget</a></li>
+                                <li><a href="../classes/RSVP.Promise.html">RSVP.Promise</a></li>
+                                <li><a href="../classes/String.html">String</a></li>
+                                <li><a href="../classes/TransformEachInToHash.html">TransformEachInToHash</a></li>
+                                <li><a href="../classes/TransformWithAsToHash.html">TransformWithAsToHash</a></li>
+                                <li><a href="../classes/Vertex.html">Vertex</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ember.html">ember</a></li>
+                                <li><a href="../modules/ember-application.html">ember-application</a></li>
+                                <li><a href="../modules/ember-data.html">ember-data</a></li>
+                                <li><a href="../modules/ember-debug.html">ember-debug</a></li>
+                                <li><a href="../modules/ember-extension-support.html">ember-extension-support</a></li>
+                                <li><a href="../modules/ember-handlebars.html">ember-handlebars</a></li>
+                                <li><a href="../modules/ember-htmlbars.html">ember-htmlbars</a></li>
+                                <li><a href="../modules/ember-metal.html">ember-metal</a></li>
+                                <li><a href="../modules/ember-routing.html">ember-routing</a></li>
+                                <li><a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a></li>
+                                <li><a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a></li>
+                                <li><a href="../modules/ember-routing-views.html">ember-routing-views</a></li>
+                                <li><a href="../modules/ember-runtime.html">ember-runtime</a></li>
+                                <li><a href="../modules/ember-template-compiler.html">ember-template-compiler</a></li>
+                                <li><a href="../modules/ember-testing.html">ember-testing</a></li>
+                                <li><a href="../modules/ember-views.html">ember-views</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>Ember.ArrayController Class</h1>
+<div class="box meta">
+        <div class="uses">
+            Uses
+            <ul class="inline commas">
+                    <li><a href="Ember.SortableMixin.html">Ember.SortableMixin</a></li>
+                    <li><a href="Ember.ControllerMixin.html">Ember.ControllerMixin</a></li>
+            </ul>
+        </div>
+
+        <div class="extends">
+            Extends <a href="../classes/Ember.ArrayProxy.html" class="crosslink">Ember.ArrayProxy</a>
+        </div>
+
+        <div class="foundat">
+            Defined in: <a href="../files/js_libs_ember-1.10.0.debug.js.html#l27810"><code>js\libs\ember-1.10.0.debug.js:27810</code></a>
+        </div>
+
+            Module: <a href="../modules/ember-runtime.html">ember-runtime</a><br>
+            Parent Module: <a href="../modules/ember.html">ember</a>
+
+</div>
+
+
+<div class="box intro">
+    <p><code>Ember.ArrayController</code> provides a way for you to publish a collection of
+objects so that you can easily bind to the collection from a Handlebars
+<code>#each</code> helper, an <code>Ember.CollectionView</code>, or other controllers.</p>
+<p>The advantage of using an <code>ArrayController</code> is that you only have to set up
+your view bindings once; to change what's displayed, simply swap out the
+<code>model</code> property on the controller.</p>
+<p>For example, imagine you wanted to display a list of items fetched via an XHR
+request. Create an <code>Ember.ArrayController</code> and set its <code>model</code> property:</p>
+<pre class="code prettyprint"><code class="language-javascript">MyApp.listController = Ember.ArrayController.create();
+
+$.get('people.json', function(data) {
+  MyApp.listController.set('model', data);
+});
+</code></pre>
+<p>Then, create a view that binds to your new controller:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#each person in MyApp.listController}}
+  {{person.firstName}} {{person.lastName}}
+{{/each}}
+</code></pre>
+<p>Although you are binding to the controller, the behavior of this controller
+is to pass through any methods or properties to the underlying array. This
+capability comes from <code>Ember.ArrayProxy</code>, which this class inherits from.</p>
+<p>Sometimes you want to display computed properties within the body of an
+<code>#each</code> helper that depend on the underlying items in <code>model</code>, but are not
+present on those items.   To do this, set <code>itemController</code> to the name of a
+controller (probably an <code>ObjectController</code>) that will wrap each individual item.</p>
+<p>For example:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#each post in controller}}
+  &lt;li&gt;{{post.title}} ({{post.titleLength}} characters)&lt;/li&gt;
+{{/each}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-javascript">App.PostsController = Ember.ArrayController.extend({
+  itemController: 'post'
+});
+
+App.PostController = Ember.ObjectController.extend({
+  // the <code>title</code> property will be proxied to the underlying post.
+  titleLength: function() {
+    return this.get('title').length;
+  }.property('title')
+});
+</code></pre>
+<p>In some cases it is helpful to return a different <code>itemController</code> depending
+on the particular item.  Subclasses can do this by overriding
+<code>lookupItemController</code>.</p>
+<p>For example:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.MyArrayController = Ember.ArrayController.extend({
+  lookupItemController: function( object ) {
+    if (object.get('isSpecial')) {
+      return &quot;special&quot;; // use App.SpecialController
+    } else {
+      return &quot;regular&quot;; // use App.RegularController
+    }
+  }
+});
+</code></pre>
+<p>The itemController instances will have a <code>parentController</code> property set to
+the <code>ArrayController</code> instance.</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                            <li class="index-item method private inherited">
+                                <a href="#method__contentDidChange">_contentDidChange</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method__contentWillChange">_contentWillChange</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method__finishDisconnections">_finishDisconnections</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method__hasEquivalentView">_hasEquivalentView</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method__lazyInjections">_lazyInjections</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method__onLookup">_onLookup</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method__scheduledDestroy">_scheduledDestroy</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_addObject">addObject</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_addObserver">addObserver</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_beginPropertyChanges">beginPropertyChanges</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_cacheFor">cacheFor</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_clear">clear</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_connectOutlet">connectOutlet</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_contentArrayDidChange">contentArrayDidChange</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_contentArrayWillChange">contentArrayWillChange</a>
+
+                            </li>
+                            <li class="index-item method deprecated inherited">
+                                <a href="#method_controllerFor">controllerFor</a>
+
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_decrementProperty">decrementProperty</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_destroy">destroy</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_disconnectOutlet">disconnectOutlet</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_endPropertyChanges">endPropertyChanges</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_get">get</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getProperties">getProperties</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_getWithDefault">getWithDefault</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_hasObserverFor">hasObserverFor</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_incrementProperty">incrementProperty</a>
+
+                            </li>
+                            <li class="index-item method inherited inherited">
+                                <a href="#method_init">init</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_insertAt">insertAt</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_lookupItemController">lookupItemController</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_notifyPropertyChange">notifyPropertyChange</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_objectAtContent">objectAtContent</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_popObject">popObject</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_propertyDidChange">propertyDidChange</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_propertyWillChange">propertyWillChange</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_pushObject">pushObject</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_pushObjects">pushObjects</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_removeAt">removeAt</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_removeObject">removeObject</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_removeObserver">removeObserver</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_reopen">reopen</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_reopenClass">reopenClass</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_replace">replace</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_replaceContent">replaceContent</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_replaceRoute">replaceRoute</a>
+
+                            </li>
+                            <li class="index-item method deprecated inherited">
+                                <a href="#method_replaceWith">replaceWith</a>
+
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_reverseObjects">reverseObjects</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_set">set</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_setObjects">setObjects</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_setProperties">setProperties</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_shiftObject">shiftObject</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_toggleProperty">toggleProperty</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_toString">toString</a>
+
+                            </li>
+                            <li class="index-item method deprecated inherited">
+                                <a href="#method_transitionTo">transitionTo</a>
+
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_transitionToRoute">transitionToRoute</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_unshiftObject">unshiftObject</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_unshiftObjects">unshiftObjects</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_willDestroy">willDestroy</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                            <li class="index-item property private">
+                                <a href="#property__isVirtual">_isVirtual</a>
+
+                            </li>
+                            <li class="index-item property inherited inherited">
+                                <a href="#property_arrangedContent">arrangedContent</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_concatenatedProperties">concatenatedProperties</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_content">content</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_controllers">controllers</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_isDestroyed">isDestroyed</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_isDestroying">isDestroying</a>
+
+                            </li>
+                            <li class="index-item property">
+                                <a href="#property_itemController">itemController</a>
+
+                            </li>
+                            <li class="index-item property public inherited">
+                                <a href="#property_model">model</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_needs">needs</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_sortAscending">sortAscending</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_sortFunction">sortFunction</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_sortProperties">sortProperties</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_target">target</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method__contentDidChange" class="method item private inherited">
+    <h3 class="name"><code>_contentDidChange</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ArrayProxy.html#method__contentDidChange">Ember.ArrayProxy</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33232"><code>js\libs\ember-1.10.0.debug.js:33232</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Invoked when the content property changes. Notifies observers that the
+entire array content has changed.
+    </div>
+
+
+
+
+</div>
+<div id="method__contentWillChange" class="method item private inherited">
+    <h3 class="name"><code>_contentWillChange</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ArrayProxy.html#method__contentWillChange">Ember.ArrayProxy</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33186"><code>js\libs\ember-1.10.0.debug.js:33186</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Invoked when the content property is about to change. Notifies observers that the
+entire array content will change.
+    </div>
+
+
+
+
+</div>
+<div id="method__finishDisconnections" class="method item private inherited">
+    <h3 class="name"><code>_finishDisconnections</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method__finishDisconnections">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l21208"><code>js\libs\ember-1.10.0.debug.js:21208</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Gets an outlet that is pending disconnection and then
+nullifys the object on the <code>_outlet</code> object.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method__hasEquivalentView" class="method item private inherited">
+    <h3 class="name"><code>_hasEquivalentView</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>outletName</code>
+                </li>
+                <li class="arg">
+                        <code>view</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method__hasEquivalentView">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l21149"><code>js\libs\ember-1.10.0.debug.js:21149</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Determines if the view has already been created by checking if
+the view has the same constructor, template, and context as the
+view in the <code>_outlets</code> object.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">outletName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>The name of the outlet we are checking</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">view</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>An Ember.View</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method__lazyInjections" class="method item inherited">
+    <h3 class="name"><code>_lazyInjections</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method__lazyInjections">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l34327"><code>js\libs\ember-1.10.0.debug.js:34327</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Returns a hash of property names and container names that injected
+properties will lookup on the container lazily.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    Hash of all lazy injected property keys to container names
+            </div>
+        </div>
+
+
+</div>
+<div id="method__onLookup" class="method item private inherited">
+    <h3 class="name"><code>_onLookup</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method__onLookup">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l34314"><code>js\libs\ember-1.10.0.debug.js:34314</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Provides lookup-time type validation for injected properties.
+    </div>
+
+
+
+
+</div>
+<div id="method__scheduledDestroy" class="method item private inherited">
+    <h3 class="name"><code>_scheduledDestroy</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method__scheduledDestroy">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33846"><code>js\libs\ember-1.10.0.debug.js:33846</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Invoked by the run loop to actually destroy the object. This is
+scheduled for execution by the <code>destroy</code> method.
+    </div>
+
+
+
+
+</div>
+<div id="method_addObject" class="method item inherited">
+    <h3 class="name"><code>addObject</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_addObject">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31735"><code>js\libs\ember-1.10.0.debug.js:31735</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Push the object onto the end of the array if it is not already
+present in the array.
+
+<code>&#x60;</code>javascript
+var cities = ["Chicago", "Berlin"];
+cities.addObject("Lima");    // ["Chicago", "Berlin", "Lima"]
+cities.addObject("Berlin");  // ["Chicago", "Berlin", "Lima"]
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type"></span>
+
+
+                    <div class="param-description">
+                        object to add, if not already present
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver
+            </div>
+        </div>
+
+
+</div>
+<div id="method_addObserver" class="method item inherited">
+    <h3 class="name"><code>addObserver</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>target</code>
+                </li>
+                <li class="arg">
+                        <code>method</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_addObserver">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32215"><code>js\libs\ember-1.10.0.debug.js:32215</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Adds an observer on a property.
+
+This is the core method used to register an observer for a property.
+
+Once you call this method, any time the key's value is set, your observer
+will be notified. Note that the observers are triggered any time the
+value is set, regardless of whether it has actually changed. Your
+observer should be prepared to handle that.
+
+You can also pass an optional context parameter to this method. The
+context will be passed to your observer method whenever it is triggered.
+Note that if you add the same target/method pair on a key multiple times
+with different context parameters, your observer will only be called once
+with the last context you passed.
+
+### Observer Methods
+
+Observer methods you pass should generally have the following signature if
+you do not pass a <code>context</code> parameter:
+
+<code>&#x60;</code>javascript
+fooDidChange: function(sender, key, value, rev) { };
+<code>&#x60;</code>
+
+The sender is the object that changed. The key is the property that
+changes. The value property is currently reserved and unused. The rev
+is the last property revision of the object when it changed, which you can
+use to detect if the key value has really changed or not.
+
+If you pass a <code>context</code> parameter, the context will be passed before the
+revision like so:
+
+<code>&#x60;</code>javascript
+fooDidChange: function(sender, key, value, context, rev) { };
+<code>&#x60;</code>
+
+Usually you will not need the value, context or revision parameters at
+the end. In this case, it is common to write observer methods that take
+only a sender and key value as parameters or, if you aren't interested in
+any of these values, to write an observer that has no parameters at all.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The key to observer
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">target</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        The target object to invoke
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">method</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a> | <a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        The method to invoke.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_beginPropertyChanges" class="method item inherited">
+    <h3 class="name"><code>beginPropertyChanges</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_beginPropertyChanges">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32113"><code>js\libs\ember-1.10.0.debug.js:32113</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Begins a grouping of property changes.
+
+You can use this method to group property changes so that notifications
+will not be sent until the changes are finished. If you plan to make a
+large number of changes to an object at one time, you should call this
+method at the beginning of the changes to begin deferring change
+notifications. When you are done making changes, call
+<code>endPropertyChanges()</code> to deliver the deferred change notifications and end
+deferring.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_cacheFor" class="method item inherited">
+    <h3 class="name"><code>cacheFor</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_cacheFor">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32368"><code>js\libs\ember-1.10.0.debug.js:32368</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Returns the cached value of a computed property, if it exists.
+This allows you to inspect the value of a computed property
+without accidentally invoking it if it is intended to be
+generated lazily.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    The cached value of the computed property, if any
+            </div>
+        </div>
+
+
+</div>
+<div id="method_clear" class="method item inherited">
+    <h3 class="name"><code>clear</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_clear">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31474"><code>js\libs\ember-1.10.0.debug.js:31474</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Remove all elements from the array. This is useful if you
+want to reuse an existing array without having to recreate it.
+
+<code>&#x60;</code>javascript
+var colors = ["red", "green", "blue"];
+color.length();   //  3
+colors.clear();   //  []
+colors.length();  //  0
+<code>&#x60;</code>
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    An empty Array.
+            </div>
+        </div>
+
+
+</div>
+<div id="method_connectOutlet" class="method item inherited">
+    <h3 class="name"><code>connectOutlet</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>outletName</code>
+                </li>
+                <li class="arg">
+                        <code>view</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method_connectOutlet">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l21098"><code>js\libs\ember-1.10.0.debug.js:21098</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Manually fill any of a view's <code>{{outlet}}</code> areas with the
+supplied view.</p>
+<p>Example</p>
+<pre class="code prettyprint"><code class="language-javascript">var MyView = Ember.View.extend({
+  template: Ember.Handlebars.compile('Child view: {{outlet &quot;main&quot;}} ')
+});
+var myView = MyView.create();
+myView.appendTo('body');
+// The html for myView now looks like:
+// &lt;div id=&quot;ember228&quot; class=&quot;ember-view&quot;&gt;Child view: &lt;/div&gt;
+
+var FooView = Ember.View.extend({
+  template: Ember.Handlebars.compile('&lt;h1&gt;Foo&lt;/h1&gt; ')
+});
+var fooView = FooView.create();
+myView.connectOutlet('main', fooView);
+// The html for myView now looks like:
+// &lt;div id=&quot;ember228&quot; class=&quot;ember-view&quot;&gt;Child view:
+//   &lt;div id=&quot;ember234&quot; class=&quot;ember-view&quot;&gt;&lt;h1&gt;Foo&lt;/h1&gt; &lt;/div&gt;
+// &lt;/div&gt;
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">outletName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>A unique name for the outlet</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">view</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>An Ember.View</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_contentArrayDidChange" class="method item inherited">
+    <h3 class="name"><code>contentArrayDidChange</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>contentArray</code>
+                </li>
+                <li class="arg">
+                        <code>start</code>
+                </li>
+                <li class="arg">
+                        <code>removeCount</code>
+                </li>
+                <li class="arg">
+                        <code>addCount</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ArrayProxy.html#method_contentArrayDidChange">Ember.ArrayProxy</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33220"><code>js\libs\ember-1.10.0.debug.js:33220</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Override to implement content array <code>didChange</code> observer.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">contentArray</code>
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+
+
+                    <div class="param-description">
+                        the content array
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">start</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        starting index of the change
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">removeCount</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        count of items removed
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">addCount</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        count of items added
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_contentArrayWillChange" class="method item inherited">
+    <h3 class="name"><code>contentArrayWillChange</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>contentArray</code>
+                </li>
+                <li class="arg">
+                        <code>start</code>
+                </li>
+                <li class="arg">
+                        <code>removeCount</code>
+                </li>
+                <li class="arg">
+                        <code>addCount</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ArrayProxy.html#method_contentArrayWillChange">Ember.ArrayProxy</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33208"><code>js\libs\ember-1.10.0.debug.js:33208</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Override to implement content array <code>willChange</code> observer.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">contentArray</code>
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+
+
+                    <div class="param-description">
+                        the content array
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">start</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        starting index of the change
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">removeCount</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        count of items removed
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">addCount</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        count of items added
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_controllerFor" class="method item deprecated inherited">
+    <h3 class="name"><code>controllerFor</code></h3>
+
+        <span class="paren">()</span>
+
+
+        <span class="flag deprecated" title="Use &#x60;needs&#x60; instead">deprecated</span>
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method_controllerFor">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l2386"><code>js\libs\ember-1.10.0.debug.js:2386</code></a>
+        </p>
+
+
+            <p>Deprecated: Use &#x60;needs&#x60; instead</p>
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+<div id="method_decrementProperty" class="method item inherited">
+    <h3 class="name"><code>decrementProperty</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+                <li class="arg">
+                        <code>decrement</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_decrementProperty">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32331"><code>js\libs\ember-1.10.0.debug.js:32331</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Set the value of a property to the current value minus some amount.
+
+<code>&#x60;</code>javascript
+player.decrementProperty('lives');
+orc.decrementProperty('health', 5);
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The name of the property to decrement
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">decrement</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        The amount to decrement by. Defaults to 1
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>:
+                    The new property value
+            </div>
+        </div>
+
+
+</div>
+<div id="method_destroy" class="method item inherited">
+    <h3 class="name"><code>destroy</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Object.html" class="crosslink">Ember.Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method_destroy">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33817"><code>js\libs\ember-1.10.0.debug.js:33817</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Destroys an object by setting the <code>isDestroyed</code> flag and removing its
+metadata, which effectively destroys observers and bindings.
+
+If you try to set a property on a destroyed object, an exception will be
+raised.
+
+Note that destruction is scheduled for the end of the run loop and does not
+happen immediately.  It will set an isDestroying flag immediately.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Object.html" class="crosslink">Ember.Object</a></span>:
+                    <p>receiver</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_disconnectOutlet" class="method item inherited">
+    <h3 class="name"><code>disconnectOutlet</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>outletName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method_disconnectOutlet">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l21168"><code>js\libs\ember-1.10.0.debug.js:21168</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Removes an outlet from the view.</p>
+<p>Example</p>
+<pre class="code prettyprint"><code class="language-javascript">var MyView = Ember.View.extend({
+  template: Ember.Handlebars.compile('Child view: {{outlet &quot;main&quot;}} ')
+});
+var myView = MyView.create();
+myView.appendTo('body');
+// myView's html:
+// &lt;div id=&quot;ember228&quot; class=&quot;ember-view&quot;&gt;Child view: &lt;/div&gt;
+
+var FooView = Ember.View.extend({
+  template: Ember.Handlebars.compile('&lt;h1&gt;Foo&lt;/h1&gt; ')
+});
+var fooView = FooView.create();
+myView.connectOutlet('main', fooView);
+// myView's html:
+// &lt;div id=&quot;ember228&quot; class=&quot;ember-view&quot;&gt;Child view:
+//   &lt;div id=&quot;ember234&quot; class=&quot;ember-view&quot;&gt;&lt;h1&gt;Foo&lt;/h1&gt; &lt;/div&gt;
+// &lt;/div&gt;
+
+myView.disconnectOutlet('main');
+// myView's html:
+// &lt;div id=&quot;ember228&quot; class=&quot;ember-view&quot;&gt;Child view: &lt;/div&gt;
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">outletName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>The name of the outlet to be removed</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_endPropertyChanges" class="method item inherited">
+    <h3 class="name"><code>endPropertyChanges</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_endPropertyChanges">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32132"><code>js\libs\ember-1.10.0.debug.js:32132</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Ends a grouping of property changes.
+
+You can use this method to group property changes so that notifications
+will not be sent until the changes are finished. If you plan to make a
+large number of changes to an object at one time, you should call
+<code>beginPropertyChanges()</code> at the beginning of the changes to defer change
+notifications. When you are done making changes, call this method to
+deliver the deferred change notifications and end deferring.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_get" class="method item inherited">
+    <h3 class="name"><code>get</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_get">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31976"><code>js\libs\ember-1.10.0.debug.js:31976</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Retrieves the value of a property from the object.
+
+This method is usually similar to using <code>object[keyName]</code> or <code>object.keyName</code>,
+however it supports both computed properties and the unknownProperty
+handler.
+
+Because <code>get</code> unifies the syntax for accessing all these kinds
+of properties, it can make many refactorings easier, such as replacing a
+simple property with a computed property, or vice versa.
+
+### Computed Properties
+
+Computed properties are methods defined with the <code>property</code> modifier
+declared at the end, such as:
+
+<code>&#x60;</code>javascript
+fullName: function() {
+  return this.get('firstName') + ' ' + this.get('lastName');
+}.property('firstName', 'lastName')
+<code>&#x60;</code>
+
+When you call <code>get</code> on a computed property, the function will be
+called and the return value will be returned instead of the function
+itself.
+
+### Unknown Properties
+
+Likewise, if you try to call <code>get</code> on a property whose value is
+<code>undefined</code>, the <code>unknownProperty()</code> method will be called on the object.
+If this method returns any value other than <code>undefined</code>, it will be returned
+instead. This allows you to implement "virtual" properties that are
+not defined upfront.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The property to retrieve
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    The property value or undefined.
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getProperties" class="method item inherited">
+    <h3 class="name"><code>getProperties</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>list</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Hash</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_getProperties">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32018"><code>js\libs\ember-1.10.0.debug.js:32018</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        To get the values of multiple properties at once, call <code>getProperties</code>
+with a list of strings or an array:
+
+<code>&#x60;</code>javascript
+record.getProperties('firstName', 'lastName', 'zipCode');
+// { firstName: 'John', lastName: 'Doe', zipCode: '10011' }
+<code>&#x60;</code>
+
+is equivalent to:
+
+<code>&#x60;</code>javascript
+record.getProperties(['firstName', 'lastName', 'zipCode']);
+// { firstName: 'John', lastName: 'Doe', zipCode: '10011' }
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">list</code>
+                        <span class="type">String... | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                        of keys to get
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Hash</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getWithDefault" class="method item inherited">
+    <h3 class="name"><code>getWithDefault</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+                <li class="arg">
+                        <code>defaultValue</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_getWithDefault">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32294"><code>js\libs\ember-1.10.0.debug.js:32294</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Retrieves the value of a property, or a default value in the case that the
+property returns <code>undefined</code>.
+
+<code>&#x60;</code>javascript
+person.getWithDefault('lastName', 'Doe');
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The name of the property to retrieve
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">defaultValue</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        The value to return if the property value is undefined
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    The property value or the defaultValue.
+            </div>
+        </div>
+
+
+</div>
+<div id="method_hasObserverFor" class="method item inherited">
+    <h3 class="name"><code>hasObserverFor</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_hasObserverFor">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32280"><code>js\libs\ember-1.10.0.debug.js:32280</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Returns <code>true</code> if the object currently has observers registered for a
+particular key. You can use this method to potentially defer performing
+an expensive action until someone begins observing a particular property
+on the object.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        Key to check
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_incrementProperty" class="method item inherited">
+    <h3 class="name"><code>incrementProperty</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+                <li class="arg">
+                        <code>increment</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_incrementProperty">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32311"><code>js\libs\ember-1.10.0.debug.js:32311</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Set the value of a property to the current value plus some amount.
+
+<code>&#x60;</code>javascript
+person.incrementProperty('age');
+team.incrementProperty('score', 2);
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The name of the property to increment
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">increment</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        The amount to increment by. Defaults to 1
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>:
+                    The new property value
+            </div>
+        </div>
+
+
+</div>
+<div id="method_init" class="method item inherited">
+    <h3 class="name"><code>init</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/Ember.CoreObject.html#method_init">
+                Ember.CoreObject
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l21088"><code>js\libs\ember-1.10.0.debug.js:21088</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets the private <code>_outlets</code> object on the view.</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_insertAt" class="method item inherited">
+    <h3 class="name"><code>insertAt</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>idx</code>
+                </li>
+                <li class="arg">
+                        <code>object</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_insertAt">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31495"><code>js\libs\ember-1.10.0.debug.js:31495</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        This will use the primitive <code>replace()</code> method to insert an object at the
+specified index.
+
+<code>&#x60;</code>javascript
+var colors = ["red", "green", "blue"];
+colors.insertAt(2, "yellow");  // ["red", "green", "yellow", "blue"]
+colors.insertAt(5, "orange");  // Error: Index out of range
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">idx</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        index of insert the object at.
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">object</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        object to insert
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver
+            </div>
+        </div>
+
+
+</div>
+<div id="method_lookupItemController" class="method item">
+    <h3 class="name"><code>lookupItemController</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>object</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l27915"><code>js\libs\ember-1.10.0.debug.js:27915</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Return the name of the controller to wrap items, or <code>null</code> if items should
+be returned directly.  The default implementation simply returns the
+<code>itemController</code> property, but subclasses can override this method to return
+different controllers for different objects.</p>
+<p>For example:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.MyArrayController = Ember.ArrayController.extend({
+  lookupItemController: function( object ) {
+    if (object.get('isSpecial')) {
+      return &quot;special&quot;; // use App.SpecialController
+    } else {
+      return &quot;regular&quot;; // use App.RegularController
+    }
+  }
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">object</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_notifyPropertyChange" class="method item inherited">
+    <h3 class="name"><code>notifyPropertyChange</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_notifyPropertyChange">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32196"><code>js\libs\ember-1.10.0.debug.js:32196</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Convenience method to call <code>propertyWillChange</code> and <code>propertyDidChange</code> in
+succession.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The property key to be notified about.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_objectAtContent" class="method item inherited">
+    <h3 class="name"><code>objectAtContent</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>idx</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ArrayProxy.html#method_objectAtContent">Ember.ArrayProxy</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33153"><code>js\libs\ember-1.10.0.debug.js:33153</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Should actually retrieve the object at the specified index from the
+content. You can override this method in subclasses to transform the
+content item to something new.
+
+This method will only be called if content is non-<code>null</code>.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">idx</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        The index to retrieve.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    the value or undefined if none found
+            </div>
+        </div>
+
+
+</div>
+<div id="method_popObject" class="method item inherited">
+    <h3 class="name"><code>popObject</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_popObject">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31590"><code>js\libs\ember-1.10.0.debug.js:31590</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Pop object from array or nil if none are left. Works just like <code>pop()</code> but
+it is KVO-compliant.
+
+<code>&#x60;</code>javascript
+var colors = ["red", "green", "blue"];
+colors.popObject();   // "blue"
+console.log(colors);  // ["red", "green"]
+<code>&#x60;</code>
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    object
+            </div>
+        </div>
+
+
+</div>
+<div id="method_propertyDidChange" class="method item inherited">
+    <h3 class="name"><code>propertyDidChange</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_propertyDidChange">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32173"><code>js\libs\ember-1.10.0.debug.js:32173</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Notify the observer system that a property has just changed.
+
+Sometimes you need to change a value directly or indirectly without
+actually calling <code>get()</code> or <code>set()</code> on it. In this case, you can use this
+method and <code>propertyWillChange()</code> instead. Calling these two methods
+together will notify all observers that the property has potentially
+changed value.
+
+Note that you must always call <code>propertyWillChange</code> and <code>propertyDidChange</code>
+as a pair. If you do not, it may get the property change groups out of
+order and cause notifications to be delivered more often than you would
+like.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The property key that has just changed.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_propertyWillChange" class="method item inherited">
+    <h3 class="name"><code>propertyWillChange</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_propertyWillChange">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32150"><code>js\libs\ember-1.10.0.debug.js:32150</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Notify the observer system that a property is about to change.
+
+Sometimes you need to change a value directly or indirectly without
+actually calling <code>get()</code> or <code>set()</code> on it. In this case, you can use this
+method and <code>propertyDidChange()</code> instead. Calling these two methods
+together will notify all observers that the property has potentially
+changed value.
+
+Note that you must always call <code>propertyWillChange</code> and <code>propertyDidChange</code>
+as a pair. If you do not, it may get the property change groups out of
+order and cause notifications to be delivered more often than you would
+like.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The property key that is about to change.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_pushObject" class="method item inherited">
+    <h3 class="name"><code>pushObject</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_pushObject">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31550"><code>js\libs\ember-1.10.0.debug.js:31550</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Push the object onto the end of the array. Works just like <code>push()</code> but it
+is KVO-compliant.
+
+<code>&#x60;</code>javascript
+var colors = ["red", "green"];
+colors.pushObject("black");     // ["red", "green", "black"]
+colors.pushObject(["yellow"]);  // ["red", "green", ["yellow"]]
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type"></span>
+
+
+                    <div class="param-description">
+                        object to push
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    object same object passed as a param
+            </div>
+        </div>
+
+
+</div>
+<div id="method_pushObjects" class="method item inherited">
+    <h3 class="name"><code>pushObjects</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>objects</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_pushObjects">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31569"><code>js\libs\ember-1.10.0.debug.js:31569</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Add the objects in the passed numerable to the end of the array. Defers
+notifying observers of the change until all objects are added.
+
+<code>&#x60;</code>javascript
+var colors = ["red"];
+colors.pushObjects(["yellow", "orange"]);  // ["red", "yellow", "orange"]
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">objects</code>
+                        <span class="type"><a href="../classes/Ember.Enumerable.html" class="crosslink">Ember.Enumerable</a></span>
+
+
+                    <div class="param-description">
+                        the objects to add
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver
+            </div>
+        </div>
+
+
+</div>
+<div id="method_removeAt" class="method item inherited">
+    <h3 class="name"><code>removeAt</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>start</code>
+                </li>
+                <li class="arg">
+                        <code>len</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_removeAt">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31516"><code>js\libs\ember-1.10.0.debug.js:31516</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Remove an object at the specified index using the <code>replace()</code> primitive
+method. You can pass either a single index, or a start and a length.
+
+If you pass a start and length that is beyond the
+length this method will throw an <code>OUT_OF_RANGE_EXCEPTION</code>.
+
+<code>&#x60;</code>javascript
+var colors = ["red", "green", "blue", "yellow", "orange"];
+colors.removeAt(0);     // ["green", "blue", "yellow", "orange"]
+colors.removeAt(2, 2);  // ["green", "blue"]
+colors.removeAt(4, 2);  // Error: Index out of range
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">start</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        index, start of range
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">len</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        length of passing range
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver
+            </div>
+        </div>
+
+
+</div>
+<div id="method_removeObject" class="method item inherited">
+    <h3 class="name"><code>removeObject</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_removeObject">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31712"><code>js\libs\ember-1.10.0.debug.js:31712</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Remove all occurrences of an object in the array.
+
+<code>&#x60;</code>javascript
+var cities = ["Chicago", "Berlin", "Lima", "Chicago"];
+cities.removeObject("Chicago");  // ["Berlin", "Lima"]
+cities.removeObject("Lima");     // ["Berlin"]
+cities.removeObject("Tokyo")     // ["Berlin"]
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type"></span>
+
+
+                    <div class="param-description">
+                        object to remove
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver
+            </div>
+        </div>
+
+
+</div>
+<div id="method_removeObserver" class="method item inherited">
+    <h3 class="name"><code>removeObserver</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>target</code>
+                </li>
+                <li class="arg">
+                        <code>method</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_removeObserver">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32266"><code>js\libs\ember-1.10.0.debug.js:32266</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Remove an observer you have previously registered on this object. Pass
+the same key, target, and method you passed to <code>addObserver()</code> and your
+target will no longer receive notifications.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The key to observer
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">target</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        The target object to invoke
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">method</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a> | <a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        The method to invoke.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_reopen" class="method item inherited">
+    <h3 class="name"><code>reopen</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method_reopen">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l34103"><code>js\libs\ember-1.10.0.debug.js:34103</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Augments a constructor's prototype with additional
+properties and functions:
+
+<code>&#x60;</code>javascript
+MyObject = Ember.Object.extend({
+  name: 'an object'
+});
+
+o = MyObject.create();
+o.get('name'); // 'an object'
+
+MyObject.reopen({
+  say: function(msg){
+    console.log(msg);
+  }
+})
+
+o2 = MyObject.create();
+o2.say("hello"); // logs "hello"
+
+o.say("goodbye"); // logs "goodbye"
+<code>&#x60;</code>
+
+To add functions and properties to the constructor itself,
+see <code>reopenClass</code>
+    </div>
+
+
+
+
+</div>
+<div id="method_reopenClass" class="method item inherited">
+    <h3 class="name"><code>reopenClass</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method_reopenClass">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l34147"><code>js\libs\ember-1.10.0.debug.js:34147</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Augments a constructor's own properties and functions:
+
+<code>&#x60;</code>javascript
+MyObject = Ember.Object.extend({
+  name: 'an object'
+});
+
+MyObject.reopenClass({
+  canBuild: false
+});
+
+MyObject.canBuild; // false
+o = MyObject.create();
+<code>&#x60;</code>
+
+In other words, this creates static properties and functions for the class. These are only available on the class
+and not on any instance of that class.
+
+<code>&#x60;</code>javascript
+App.Person = Ember.Object.extend({
+  name : "",
+  sayHello : function(){
+    alert("Hello. My name is " + this.get('name'));
+  }
+});
+
+App.Person.reopenClass({
+  species : "Homo sapiens",
+  createPerson: function(newPersonsName){
+    return App.Person.create({
+      name:newPersonsName
+    });
+  }
+});
+
+var tom = App.Person.create({
+  name : "Tom Dale"
+});
+var yehuda = App.Person.createPerson("Yehuda Katz");
+
+tom.sayHello(); // "Hello. My name is Tom Dale"
+yehuda.sayHello(); // "Hello. My name is Yehuda Katz"
+alert(App.Person.species); // "Homo sapiens"
+<code>&#x60;</code>
+
+Note that <code>species</code> and <code>createPerson</code> are *not* valid on the <code>tom</code> and <code>yehuda</code>
+variables. They are only valid on <code>App.Person</code>.
+
+To add functions and properties to instances of
+a constructor by extending the constructor's prototype
+see <code>reopen</code>
+    </div>
+
+
+
+
+</div>
+<div id="method_replace" class="method item inherited">
+    <h3 class="name"><code>replace</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>idx</code>
+                </li>
+                <li class="arg">
+                        <code>amt</code>
+                </li>
+                <li class="arg">
+                        <code>objects</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_replace">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31457"><code>js\libs\ember-1.10.0.debug.js:31457</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        __Required.__ You must implement this method to apply this mixin.
+
+This is one of the primitives you must implement to support <code>Ember.Array</code>.
+You should replace amt objects started at idx with the objects in the
+passed array. You should also call <code>this.enumerableContentDidChange()</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">idx</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        Starting index in the array to replace. If
+  idx >= length, then append to the end of the array.
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">amt</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        Number of elements that should be removed from
+  the array, starting at *idx*.
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">objects</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                        An array of zero or more objects that should be
+  inserted into the array at *idx*
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_replaceContent" class="method item inherited">
+    <h3 class="name"><code>replaceContent</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>idx</code>
+                </li>
+                <li class="arg">
+                        <code>amt</code>
+                </li>
+                <li class="arg">
+                        <code>objects</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Void</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ArrayProxy.html#method_replaceContent">Ember.ArrayProxy</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33168"><code>js\libs\ember-1.10.0.debug.js:33168</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Should actually replace the specified objects on the content array.
+You can override this method in subclasses to transform the content item
+into something new.
+
+This method will only be called if content is non-<code>null</code>.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">idx</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        The starting index
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">amt</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a></span>
+
+
+                    <div class="param-description">
+                        The number of items to remove from the content.
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">objects</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                        Optional array of objects to insert or null if no
+  objects.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Void</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_replaceRoute" class="method item inherited">
+    <h3 class="name"><code>replaceRoute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>models</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method_replaceRoute">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l20945"><code>js\libs\ember-1.10.0.debug.js:20945</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Transition into another route while replacing the current URL, if possible.
+This will replace the current history entry instead of adding a new one.
+Beside that, it is identical to <code>transitionToRoute</code> in all other respects.</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.replaceRoute('blogPosts');
+aController.replaceRoute('blogPosts.recentEntries');
+</code></pre>
+<p>Optionally supply a model for the route in question. The model
+will be serialized into the URL using the <code>serialize</code> hook of
+the route:</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.replaceRoute('blogPost', aPost);
+</code></pre>
+<p>If a literal is passed (such as a number or a string), it will
+be treated as an identifier instead. In this case, the <code>model</code>
+hook of the route will be triggered:</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.replaceRoute('blogPost', 1);
+</code></pre>
+<p>Multiple models will be applied last to first recursively up the
+resource tree.</p>
+<pre class="code prettyprint"><code class="language-javascript">App.Router.map(function() {
+  this.resource('blogPost', {path:':blogPostId'}, function(){
+    this.resource('blogComment', {path: ':blogCommentId'});
+  });
+});
+
+aController.replaceRoute('blogComment', aPost, aComment);
+aController.replaceRoute('blogComment', 1, 13);
+</code></pre>
+<p>It is also possible to pass a URL (a string that starts with a
+<code>/</code>). This is intended for testing and debugging purposes and
+should rarely be used in production code.</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.replaceRoute('/');
+aController.replaceRoute('/blog/post/1/comment/13');
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>the name of the route or a URL</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">models</code>
+                        <span class="type">...Object</span>
+
+
+                    <div class="param-description">
+                        <p>the model(s) or identifier(s) to be used
+while transitioning to the route.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_replaceWith" class="method item deprecated inherited">
+    <h3 class="name"><code>replaceWith</code></h3>
+
+        <span class="paren">()</span>
+
+
+        <span class="flag deprecated">deprecated</span>
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method_replaceWith">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l21007"><code>js\libs\ember-1.10.0.debug.js:21007</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+<div id="method_reverseObjects" class="method item inherited">
+    <h3 class="name"><code>reverseObjects</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_reverseObjects">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31670"><code>js\libs\ember-1.10.0.debug.js:31670</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Reverse objects in the array. Works just like <code>reverse()</code> but it is
+KVO-compliant.
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver
+            </div>
+        </div>
+
+
+</div>
+<div id="method_set" class="method item inherited">
+    <h3 class="name"><code>set</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+                <li class="arg">
+                        <code>value</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_set">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32042"><code>js\libs\ember-1.10.0.debug.js:32042</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Sets the provided key or path to the value.
+
+This method is generally very similar to calling <code>object[key] = value</code> or
+<code>object.key = value</code>, except that it provides support for computed
+properties, the <code>setUnknownProperty()</code> method and property observers.
+
+### Computed Properties
+
+If you try to set a value on a key that has a computed property handler
+defined (see the <code>get()</code> method for an example), then <code>set()</code> will call
+that method, passing both the value and key instead of simply changing
+the value itself. This is useful for those times when you need to
+implement a property that is composed of one or more member
+properties.
+
+### Unknown Properties
+
+If you try to set a value on a key that is undefined in the target
+object, then the <code>setUnknownProperty()</code> handler will be called instead. This
+gives you an opportunity to implement complex "virtual" properties that
+are not predefined on the object. If <code>setUnknownProperty()</code> returns
+undefined, then <code>set()</code> will simply set the value on the object.
+
+### Property Observers
+
+In addition to changing the property, <code>set()</code> will also register a property
+change with the object. Unless you have placed this call inside of a
+<code>beginPropertyChanges()</code> and <code>endPropertyChanges(),</code> any "local" observers
+(i.e. observer methods declared on the same object), will be called
+immediately. Any "remote" observers (i.e. observer methods declared on
+another object) will be placed in a queue and called at a later time in a
+coalesced manner.
+
+### Chaining
+
+In addition to property changes, <code>set()</code> returns the value of the object
+itself so you can do chaining like this:
+
+<code>&#x60;</code>javascript
+record.set('firstName', 'Charles').set('lastName', 'Jolley');
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The property to set
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        The value to set or <code>null</code>.
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_setObjects" class="method item inherited">
+    <h3 class="name"><code>setObjects</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>objects</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_setObjects">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31685"><code>js\libs\ember-1.10.0.debug.js:31685</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Replace all the receiver's content with content of the argument.
+If argument is an empty array receiver will be cleared.
+
+<code>&#x60;</code>javascript
+var colors = ["red", "green", "blue"];
+colors.setObjects(["black", "white"]);  // ["black", "white"]
+colors.setObjects([]);                  // []
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">objects</code>
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+
+
+                    <div class="param-description">
+                        array whose content will be used for replacing
+    the content of the receiver
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver with the new content
+            </div>
+        </div>
+
+
+</div>
+<div id="method_setProperties" class="method item inherited">
+    <h3 class="name"><code>setProperties</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>hash</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_setProperties">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32096"><code>js\libs\ember-1.10.0.debug.js:32096</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Sets a list of properties at once. These properties are set inside
+a single <code>beginPropertyChanges</code> and <code>endPropertyChanges</code> batch, so
+observers will be buffered.
+
+<code>&#x60;</code>javascript
+record.setProperties({ firstName: 'Charles', lastName: 'Jolley' });
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">hash</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                        the hash of keys and values to set
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Observable.html" class="crosslink">Ember.Observable</a></span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_shiftObject" class="method item inherited">
+    <h3 class="name"><code>shiftObject</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_shiftObject">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31612"><code>js\libs\ember-1.10.0.debug.js:31612</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Shift an object from start of array or nil if none are left. Works just
+like <code>shift()</code> but it is KVO-compliant.
+
+<code>&#x60;</code>javascript
+var colors = ["red", "green", "blue"];
+colors.shiftObject();  // "red"
+console.log(colors);   // ["green", "blue"]
+<code>&#x60;</code>
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    object
+            </div>
+        </div>
+
+
+</div>
+<div id="method_toggleProperty" class="method item inherited">
+    <h3 class="name"><code>toggleProperty</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>keyName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.Observable.html#method_toggleProperty">Ember.Observable</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32351"><code>js\libs\ember-1.10.0.debug.js:32351</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Set the value of a boolean property to the opposite of its
+current value.
+
+<code>&#x60;</code>javascript
+starship.toggleProperty('warpDriveEngaged');
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">keyName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        The name of the property to toggle
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    The new property value
+            </div>
+        </div>
+
+
+</div>
+<div id="method_toString" class="method item inherited">
+    <h3 class="name"><code>toString</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method_toString">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33865"><code>js\libs\ember-1.10.0.debug.js:33865</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Returns a string representation which attempts to provide more information
+than Javascript's <code>toString</code> typically does, in a generic way for all Ember
+objects.
+
+<code>&#x60;</code>javascript
+App.Person = Em.Object.extend()
+person = App.Person.create()
+person.toString() //=> "<App.Person:ember1024>"
+<code>&#x60;</code>
+
+If the object's class is not defined on an Ember namespace, it will
+indicate it is a subclass of the registered superclass:
+
+       <code>&#x60;</code>javascript
+Student = App.Person.extend()
+student = Student.create()
+student.toString() //=> "<(subclass of App.Person):ember1025>"
+<code>&#x60;</code>
+
+If the method <code>toStringExtension</code> is defined, its return value will be
+included in the output.
+
+<code>&#x60;</code>javascript
+App.Teacher = App.Person.extend({
+  toStringExtension: function() {
+    return this.get('fullName');
+  }
+});
+teacher = App.Teacher.create()
+teacher.toString(); //=> "<App.Teacher:ember1026:Tom Dale>"
+<code>&#x60;</code>
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    string representation
+            </div>
+        </div>
+
+
+</div>
+<div id="method_transitionTo" class="method item deprecated inherited">
+    <h3 class="name"><code>transitionTo</code></h3>
+
+        <span class="paren">()</span>
+
+
+        <span class="flag deprecated">deprecated</span>
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method_transitionTo">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l20935"><code>js\libs\ember-1.10.0.debug.js:20935</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+<div id="method_transitionToRoute" class="method item inherited">
+    <h3 class="name"><code>transitionToRoute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>models</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[options]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.ControllerMixin.html#method_transitionToRoute">Ember.ControllerMixin</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l20857"><code>js\libs\ember-1.10.0.debug.js:20857</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Transition the application into another route. The route may
+be either a single route or route path:</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.transitionToRoute('blogPosts');
+aController.transitionToRoute('blogPosts.recentEntries');
+</code></pre>
+<p>Optionally supply a model for the route in question. The model
+will be serialized into the URL using the <code>serialize</code> hook of
+the route:</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.transitionToRoute('blogPost', aPost);
+</code></pre>
+<p>If a literal is passed (such as a number or a string), it will
+be treated as an identifier instead. In this case, the <code>model</code>
+hook of the route will be triggered:</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.transitionToRoute('blogPost', 1);
+</code></pre>
+<p>Multiple models will be applied last to first recursively up the
+resource tree.</p>
+<pre class="code prettyprint"><code class="language-javascript">App.Router.map(function() {
+  this.resource('blogPost', {path:':blogPostId'}, function(){
+    this.resource('blogComment', {path: ':blogCommentId'});
+  });
+});
+
+aController.transitionToRoute('blogComment', aPost, aComment);
+aController.transitionToRoute('blogComment', 1, 13);
+</code></pre>
+<p>It is also possible to pass a URL (a string that starts with a
+<code>/</code>). This is intended for testing and debugging purposes and
+should rarely be used in production code.</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.transitionToRoute('/');
+aController.transitionToRoute('/blog/post/1/comment/13');
+aController.transitionToRoute('/blog/posts?sort=title');
+</code></pre>
+<p>An options hash with a <code>queryParams</code> property may be provided as
+the final argument to add query parameters to the destination URL.</p>
+<pre class="code prettyprint"><code class="language-javascript">aController.transitionToRoute('blogPost', 1, {
+  queryParams: {showComments: 'true'}
+});
+
+// if you just want to transition the query parameters without changing the route
+aController.transitionToRoute({queryParams: {sort: 'date'}});
+</code></pre>
+<p>See also <a href="/api/classes/Ember.ControllerMixin.html#method_replaceRoute">replaceRoute</a>.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>the name of the route or a URL</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">models</code>
+                        <span class="type">...Object</span>
+
+
+                    <div class="param-description">
+                        <p>the model(s) or identifier(s) to be used
+while transitioning to the route.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[options]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>optional hash with a queryParams property
+containing a mapping of query parameters</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_unshiftObject" class="method item inherited">
+    <h3 class="name"><code>unshiftObject</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_unshiftObject">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31632"><code>js\libs\ember-1.10.0.debug.js:31632</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Unshift an object to start of array. Works just like <code>unshift()</code> but it is
+KVO-compliant.
+
+<code>&#x60;</code>javascript
+var colors = ["red"];
+colors.unshiftObject("yellow");    // ["yellow", "red"]
+colors.unshiftObject(["black"]);   // [["black"], "yellow", "red"]
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type"></span>
+
+
+                    <div class="param-description">
+                        object to unshift
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    object same object passed as a param
+            </div>
+        </div>
+
+
+</div>
+<div id="method_unshiftObjects" class="method item inherited">
+    <h3 class="name"><code>unshiftObjects</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>objects</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.MutableArray.html#method_unshiftObjects">Ember.MutableArray</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l31651"><code>js\libs\ember-1.10.0.debug.js:31651</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Adds the named objects to the beginning of the array. Defers notifying
+observers until all objects have been added.
+
+<code>&#x60;</code>javascript
+var colors = ["red"];
+colors.unshiftObjects(["black", "white"]);   // ["black", "white", "red"]
+colors.unshiftObjects("yellow"); // Type Error: 'undefined' is not a function
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">objects</code>
+                        <span class="type"><a href="../classes/Ember.Enumerable.html" class="crosslink">Ember.Enumerable</a></span>
+
+
+                    <div class="param-description">
+                        the objects to add
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>:
+                    receiver
+            </div>
+        </div>
+
+
+</div>
+<div id="method_willDestroy" class="method item inherited">
+    <h3 class="name"><code>willDestroy</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.CoreObject.html#method_willDestroy">Ember.CoreObject</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33839"><code>js\libs\ember-1.10.0.debug.js:33839</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Override to implement teardown.
+    </div>
+
+
+
+
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                    <div id="property__isVirtual" class="property item private">
+                        <h3 class="name"><code>_isVirtual</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+                    
+                            <span class="flag private">private</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l28001"><code>js\libs\ember-1.10.0.debug.js:28001</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Flag to mark as being &quot;virtual&quot;. Used to keep this instance
+                    from participating in the parentController hierarchy.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_arrangedContent" class="property item inherited">
+                        <h3 class="name"><code>arrangedContent</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                <p>Inherited from
+                                <a href="../classes/Ember.ArrayProxy.html#property_arrangedContent">
+                                    Ember.ArrayProxy
+                                </a>
+                                but overwritten in
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32760"><code>js\libs\ember-1.10.0.debug.js:32760</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Overrides the default <code>arrangedContent</code> from <code>ArrayProxy</code> in order to sort by <code>sortFunction</code>.
+                    Also sets up observers for each <code>sortProperty</code> on each item in the content Array.
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_concatenatedProperties" class="property item inherited">
+                        <h3 class="name"><code>concatenatedProperties</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.CoreObject.html#property_concatenatedProperties">Ember.CoreObject</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33727"><code>js\libs\ember-1.10.0.debug.js:33727</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Defines the properties that will be concatenated from the superclass
+                    (instead of overridden).
+                    
+                    By default, when you extend an Ember class a property defined in
+                    the subclass overrides a property with the same name that is defined
+                    in the superclass. However, there are some cases where it is preferable
+                    to build up a property's value by combining the superclass' property
+                    value with the subclass' value. An example of this in use within Ember
+                    is the <code>classNames</code> property of <code>Ember.View</code>.
+                    
+                    Here is some sample code showing the difference between a concatenated
+                    property and a normal one:
+                    
+                    <code>&#x60;</code>javascript
+                    App.BarView = Ember.View.extend({
+                      someNonConcatenatedProperty: ['bar'],
+                      classNames: ['bar']
+                    });
+                    
+                    App.FooBarView = App.BarView.extend({
+                      someNonConcatenatedProperty: ['foo'],
+                      classNames: ['foo']
+                    });
+                    
+                    var fooBarView = App.FooBarView.create();
+                    fooBarView.get('someNonConcatenatedProperty'); // ['foo']
+                    fooBarView.get('classNames'); // ['ember-view', 'bar', 'foo']
+                    <code>&#x60;</code>
+                    
+                    This behavior extends to object creation as well. Continuing the
+                    above example:
+                    
+                    <code>&#x60;</code>javascript
+                    var view = App.FooBarView.create({
+                      someNonConcatenatedProperty: ['baz'],
+                      classNames: ['baz']
+                    })
+                    view.get('someNonConcatenatedProperty'); // ['baz']
+                    view.get('classNames'); // ['ember-view', 'bar', 'foo', 'baz']
+                    <code>&#x60;</code>
+                    Adding a single property that is not an array will just add it in the array:
+                    
+                    <code>&#x60;</code>javascript
+                    var view = App.FooBarView.create({
+                      classNames: 'baz'
+                    })
+                    view.get('classNames'); // ['ember-view', 'bar', 'foo', 'baz']
+                    <code>&#x60;</code>
+                    
+                    Using the <code>concatenatedProperties</code> property, we can tell Ember to mix the
+                    content of the properties.
+                    
+                    In <code>Ember.View</code> the <code>classNameBindings</code> and <code>attributeBindings</code> properties
+                    are also concatenated, in addition to <code>classNames</code>.
+                    
+                    This feature is available for you to use throughout the Ember object model,
+                    although typical app developers are likely to use it infrequently. Since
+                    it changes expectations about behavior of properties, you should properly
+                    document its usage in each individual concatenated property (to not
+                    mislead your users to think they can override the property in a subclass).
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_content" class="property item inherited">
+                        <h3 class="name"><code>content</code></h3>
+                        <span class="type"><a href="../classes/Ember.Array.html" class="crosslink">Ember.Array</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.ArrayProxy.html#property_content">Ember.ArrayProxy</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33135"><code>js\libs\ember-1.10.0.debug.js:33135</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            The content array. Must be an object that implements <code>Ember.Array</code> and/or
+                    <code>Ember.MutableArray.</code>
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_controllers" class="property item inherited">
+                        <h3 class="name"><code>controllers</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.ControllerMixin.html#property_controllers">Ember.ControllerMixin</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l2396"><code>js\libs\ember-1.10.0.debug.js:2396</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>Stores the instances of other controllers available from within
+                    this controller. Any controller listed by name in the <code>needs</code>
+                    property will be accessible by name through this property.</p>
+                    <pre class="code prettyprint"><code class="language-javascript">App.CommentsController = Ember.ArrayController.extend({
+                      needs: ['post'],
+                      postTitle: function(){
+                        var currentPost = this.get('controllers.post'); // instance of App.PostController
+                        return currentPost.get('title');
+                      }.property('controllers.post.title')
+                    });
+                    </code></pre>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_isDestroyed" class="property item inherited">
+                        <h3 class="name"><code>isDestroyed</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.CoreObject.html#property_isDestroyed">Ember.CoreObject</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33795"><code>js\libs\ember-1.10.0.debug.js:33795</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Destroyed object property flag.
+                    
+                    if this property is <code>true</code> the observers and bindings were already
+                    removed by the effect of calling the <code>destroy()</code> method.
+                        </div>
+                    
+                            <p><strong>Default:</strong> false</p>
+                    
+                    
+                    </div>
+                    <div id="property_isDestroying" class="property item inherited">
+                        <h3 class="name"><code>isDestroying</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.CoreObject.html#property_isDestroying">Ember.CoreObject</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l33806"><code>js\libs\ember-1.10.0.debug.js:33806</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Destruction scheduled flag. The <code>destroy()</code> method has been called.
+                    
+                    The object stays intact until the end of the run loop at which point
+                    the <code>isDestroyed</code> flag is set.
+                        </div>
+                    
+                            <p><strong>Default:</strong> false</p>
+                    
+                    
+                    </div>
+                    <div id="property_itemController" class="property item">
+                        <h3 class="name"><code>itemController</code></h3>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>
+                                    Defined in
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l27898"><code>js\libs\ember-1.10.0.debug.js:27898</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>A string containing the controller name used to wrap items.</p>
+                    <p>For example:</p>
+                    <pre class="code prettyprint"><code class="language-javascript">App.MyArrayController = Ember.ArrayController.extend({
+                      itemController: 'myItem' // use App.MyItemController
+                    });
+                    </code></pre>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_model" class="property item public inherited">
+                        <h3 class="name"><code>model</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                            <span class="flag public">public</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.ControllerMixin.html#property_model">Ember.ControllerMixin</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l29749"><code>js\libs\ember-1.10.0.debug.js:29749</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>The controller's current model. When retrieving or modifying a controller's
+                    model, this property should be used instead of the <code>content</code> property.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_needs" class="property item inherited">
+                        <h3 class="name"><code>needs</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.ControllerMixin.html#property_needs">Ember.ControllerMixin</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l2316"><code>js\libs\ember-1.10.0.debug.js:2316</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>An array of other controller objects available inside
+                    instances of this controller via the <code>controllers</code>
+                    property:</p>
+                    <p>For example, when you define a controller:</p>
+                    <pre class="code prettyprint"><code class="language-javascript">App.CommentsController = Ember.ArrayController.extend({
+                      needs: ['post']
+                    });
+                    </code></pre>
+                    <p>The application's single instance of these other
+                    controllers are accessible by name through the
+                    <code>controllers</code> property:</p>
+                    <pre class="code prettyprint"><code class="language-javascript">this.get('controllers.post'); // instance of App.PostController
+                    </code></pre>
+                    <p>Given that you have a nested controller (nested resource):</p>
+                    <pre class="code prettyprint"><code class="language-javascript">App.CommentsNewController = Ember.ObjectController.extend({
+                    });
+                    </code></pre>
+                    <p>When you define a controller that requires access to a nested one:</p>
+                    <pre class="code prettyprint"><code class="language-javascript">App.IndexController = Ember.ObjectController.extend({
+                      needs: ['commentsNew']
+                    });
+                    </code></pre>
+                    <p>You will be able to get access to it:</p>
+                    <pre class="code prettyprint"><code class="language-javascript">this.get('controllers.commentsNew'); // instance of App.CommentsNewController
+                    </code></pre>
+                    <p>This is only available for singleton controllers.</p>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> []</p>
+                    
+                    
+                    </div>
+                    <div id="property_sortAscending" class="property item inherited">
+                        <h3 class="name"><code>sortAscending</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.SortableMixin.html#property_sortAscending">Ember.SortableMixin</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32690"><code>js\libs\ember-1.10.0.debug.js:32690</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Specifies the <code>arrangedContent</code>'s sort direction.
+                    Sorts the content in ascending order by default. Set to <code>false</code> to
+                    use descending order.
+                        </div>
+                    
+                            <p><strong>Default:</strong> true</p>
+                    
+                    
+                    </div>
+                    <div id="property_sortFunction" class="property item inherited">
+                        <h3 class="name"><code>sortFunction</code></h3>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.SortableMixin.html#property_sortFunction">Ember.SortableMixin</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32700"><code>js\libs\ember-1.10.0.debug.js:32700</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            The function used to compare two values. You can override this if you
+                    want to do custom comparisons. Functions must be of the type expected by
+                    Array#sort, i.e.,
+                    
+                    *  return 0 if the two parameters are equal,
+                    *  return a negative value if the first parameter is smaller than the second or
+                    *  return a positive value otherwise:
+                    
+                    <code>&#x60;</code>javascript
+                    function(x, y) { // These are assumed to be integers
+                      if (x === y)
+                        return 0;
+                      return x < y ? -1 : 1;
+                    }
+                    <code>&#x60;</code>
+                        </div>
+                    
+                            <p><strong>Default:</strong> Ember.compare</p>
+                    
+                    
+                    </div>
+                    <div id="property_sortProperties" class="property item inherited">
+                        <h3 class="name"><code>sortProperties</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.SortableMixin.html#property_sortProperties">Ember.SortableMixin</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l32680"><code>js\libs\ember-1.10.0.debug.js:32680</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            Specifies which properties dictate the <code>arrangedContent</code>'s sort order.
+                    
+                    When specifying multiple properties the sorting will use properties
+                    from the <code>sortProperties</code> array prioritized from first to last.
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_target" class="property item inherited">
+                        <h3 class="name"><code>target</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.ControllerMixin.html#property_target">Ember.ControllerMixin</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l29723"><code>js\libs\ember-1.10.0.debug.js:29723</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            <p>The object to which actions from the view should be sent.</p>
+                    <p>For example, when a Handlebars template uses the <code>{{action}}</code> helper,
+                    it will attempt to send the action to the view's controller's <code>target</code>.</p>
+                    <p>By default, the value of the target property is set to the router, and
+                    is injected when a controller is instantiated. This injection is defined
+                    in Ember.Application#buildContainer, and is applied as part of the
+                    applications initialization process. It can also be set after a controller
+                    has been instantiated, for instance when using the render helper in a
+                    template, or when a controller is used as an <code>itemController</code>. In most
+                    cases the <code>target</code> property will automatically be set to the logical
+                    consumer of actions for the controller.</p>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+            </div>
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

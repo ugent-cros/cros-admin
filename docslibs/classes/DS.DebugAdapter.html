@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DS.DebugAdapter - The cros-admin API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The cros-admin API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Backburner.html">Backburner</a></li>
+                                <li><a href="../classes/DAG.html">DAG</a></li>
+                                <li><a href="../classes/DS.html">DS</a></li>
+                                <li><a href="../classes/DS.ActiveModelAdapter.html">DS.ActiveModelAdapter</a></li>
+                                <li><a href="../classes/DS.ActiveModelSerializer.html">DS.ActiveModelSerializer</a></li>
+                                <li><a href="../classes/DS.Adapter.html">DS.Adapter</a></li>
+                                <li><a href="../classes/DS.AdapterPopulatedRecordArray.html">DS.AdapterPopulatedRecordArray</a></li>
+                                <li><a href="../classes/DS.BooleanTransform.html">DS.BooleanTransform</a></li>
+                                <li><a href="../classes/DS.ContainerProxy.html">DS.ContainerProxy</a></li>
+                                <li><a href="../classes/DS.DateTransform.html">DS.DateTransform</a></li>
+                                <li><a href="../classes/DS.DebugAdapter.html">DS.DebugAdapter</a></li>
+                                <li><a href="../classes/DS.EmbeddedRecordsMixin.html">DS.EmbeddedRecordsMixin</a></li>
+                                <li><a href="../classes/DS.Errors.html">DS.Errors</a></li>
+                                <li><a href="../classes/DS.FilteredRecordArray.html">DS.FilteredRecordArray</a></li>
+                                <li><a href="../classes/DS.FixtureAdapter.html">DS.FixtureAdapter</a></li>
+                                <li><a href="../classes/DS.InvalidError.html">DS.InvalidError</a></li>
+                                <li><a href="../classes/DS.JSONSerializer.html">DS.JSONSerializer</a></li>
+                                <li><a href="../classes/DS.ManyArray.html">DS.ManyArray</a></li>
+                                <li><a href="../classes/DS.Model.html">DS.Model</a></li>
+                                <li><a href="../classes/DS.NumberTransform.html">DS.NumberTransform</a></li>
+                                <li><a href="../classes/DS.PromiseArray.html">DS.PromiseArray</a></li>
+                                <li><a href="../classes/DS.PromiseObject.html">DS.PromiseObject</a></li>
+                                <li><a href="../classes/DS.RecordArray.html">DS.RecordArray</a></li>
+                                <li><a href="../classes/DS.RecordArrayManager.html">DS.RecordArrayManager</a></li>
+                                <li><a href="../classes/DS.RESTAdapter.html">DS.RESTAdapter</a></li>
+                                <li><a href="../classes/DS.RESTSerializer.html">DS.RESTSerializer</a></li>
+                                <li><a href="../classes/DS.RootState.html">DS.RootState</a></li>
+                                <li><a href="../classes/DS.Store.html">DS.Store</a></li>
+                                <li><a href="../classes/DS.StringTransform.html">DS.StringTransform</a></li>
+                                <li><a href="../classes/DS.Transform.html">DS.Transform</a></li>
+                                <li><a href="../classes/Ember.html">Ember</a></li>
+                                <li><a href="../classes/Ember._BoundView.html">Ember._BoundView</a></li>
+                                <li><a href="../classes/Ember._Metamorph.html">Ember._Metamorph</a></li>
+                                <li><a href="../classes/Ember._MetamorphView.html">Ember._MetamorphView</a></li>
+                                <li><a href="../classes/Ember._SimpleMetamorphView.html">Ember._SimpleMetamorphView</a></li>
+                                <li><a href="../classes/Ember.ActionHandler.html">Ember.ActionHandler</a></li>
+                                <li><a href="../classes/Ember.Application.html">Ember.Application</a></li>
+                                <li><a href="../classes/Ember.Array.html">Ember.Array</a></li>
+                                <li><a href="../classes/Ember.ArrayController.html">Ember.ArrayController</a></li>
+                                <li><a href="../classes/Ember.ArrayProxy.html">Ember.ArrayProxy</a></li>
+                                <li><a href="../classes/Ember.AutoLocation.html">Ember.AutoLocation</a></li>
+                                <li><a href="../classes/Ember.Binding.html">Ember.Binding</a></li>
+                                <li><a href="../classes/Ember.Checkbox.html">Ember.Checkbox</a></li>
+                                <li><a href="../classes/Ember.CollectionView.html">Ember.CollectionView</a></li>
+                                <li><a href="../classes/Ember.Comparable.html">Ember.Comparable</a></li>
+                                <li><a href="../classes/Ember.Component.html">Ember.Component</a></li>
+                                <li><a href="../classes/Ember.ComponentTemplateDeprecation.html">Ember.ComponentTemplateDeprecation</a></li>
+                                <li><a href="../classes/Ember.ComputedProperty.html">Ember.ComputedProperty</a></li>
+                                <li><a href="../classes/Ember.ContainerDebugAdapter.html">Ember.ContainerDebugAdapter</a></li>
+                                <li><a href="../classes/Ember.ContainerView.html">Ember.ContainerView</a></li>
+                                <li><a href="../classes/Ember.Controller.html">Ember.Controller</a></li>
+                                <li><a href="../classes/Ember.ControllerContentModelAliasDeprecation.html">Ember.ControllerContentModelAliasDeprecation</a></li>
+                                <li><a href="../classes/Ember.ControllerMixin.html">Ember.ControllerMixin</a></li>
+                                <li><a href="../classes/Ember.Copyable.html">Ember.Copyable</a></li>
+                                <li><a href="../classes/Ember.CoreObject.html">Ember.CoreObject</a></li>
+                                <li><a href="../classes/Ember.CoreView.html">Ember.CoreView</a></li>
+                                <li><a href="../classes/Ember.DataAdapter.html">Ember.DataAdapter</a></li>
+                                <li><a href="../classes/Ember.Date.html">Ember.Date</a></li>
+                                <li><a href="../classes/Ember.DefaultResolver.html">Ember.DefaultResolver</a></li>
+                                <li><a href="../classes/Ember.Deferred.html">Ember.Deferred</a></li>
+                                <li><a href="../classes/Ember.Descriptor.html">Ember.Descriptor</a></li>
+                                <li><a href="../classes/Ember.EachProxy.html">Ember.EachProxy</a></li>
+                                <li><a href="../classes/Ember.Ember.html">Ember.Ember</a></li>
+                                <li><a href="../classes/Ember.Enumerable.html">Ember.Enumerable</a></li>
+                                <li><a href="../classes/Ember.EnumerableUtils.html">Ember.EnumerableUtils</a></li>
+                                <li><a href="../classes/Ember.Error.html">Ember.Error</a></li>
+                                <li><a href="../classes/Ember.EventDispatcher.html">Ember.EventDispatcher</a></li>
+                                <li><a href="../classes/Ember.Evented.html">Ember.Evented</a></li>
+                                <li><a href="../classes/Ember.FEATURES.html">Ember.FEATURES</a></li>
+                                <li><a href="../classes/Ember.Freezable.html">Ember.Freezable</a></li>
+                                <li><a href="../classes/Ember.Handlebars.html">Ember.Handlebars</a></li>
+                                <li><a href="../classes/Ember.Handlebars.helpers.html">Ember.Handlebars.helpers</a></li>
+                                <li><a href="../classes/Ember.HashLocation.html">Ember.HashLocation</a></li>
+                                <li><a href="../classes/Ember.HistoryLocation.html">Ember.HistoryLocation</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.html">Ember.HTMLBars</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.Helper.html">Ember.HTMLBars.Helper</a></li>
+                                <li><a href="../classes/Ember.Inflector.html">Ember.Inflector</a></li>
+                                <li><a href="../classes/Ember.inject.html">Ember.inject</a></li>
+                                <li><a href="../classes/Ember.InjectedProperty.html">Ember.InjectedProperty</a></li>
+                                <li><a href="../classes/Ember.Instrumentation.html">Ember.Instrumentation</a></li>
+                                <li><a href="../classes/Ember.LinkView.html">Ember.LinkView</a></li>
+                                <li><a href="../classes/Ember.Location.html">Ember.Location</a></li>
+                                <li><a href="../classes/Ember.Logger.html">Ember.Logger</a></li>
+                                <li><a href="../classes/Ember.Map.html">Ember.Map</a></li>
+                                <li><a href="../classes/Ember.MapWithDefault.html">Ember.MapWithDefault</a></li>
+                                <li><a href="../classes/Ember.MutableArray.html">Ember.MutableArray</a></li>
+                                <li><a href="../classes/Ember.MutableEnumerable.html">Ember.MutableEnumerable</a></li>
+                                <li><a href="../classes/Ember.Namespace.html">Ember.Namespace</a></li>
+                                <li><a href="../classes/Ember.NativeArray.html">Ember.NativeArray</a></li>
+                                <li><a href="../classes/Ember.NoneLocation.html">Ember.NoneLocation</a></li>
+                                <li><a href="../classes/Ember.Object.html">Ember.Object</a></li>
+                                <li><a href="../classes/Ember.ObjectController.html">Ember.ObjectController</a></li>
+                                <li><a href="../classes/Ember.ObjectProxy.html">Ember.ObjectProxy</a></li>
+                                <li><a href="../classes/Ember.Observable.html">Ember.Observable</a></li>
+                                <li><a href="../classes/Ember.OrderedSet.html">Ember.OrderedSet</a></li>
+                                <li><a href="../classes/Ember.platform.html">Ember.platform</a></li>
+                                <li><a href="../classes/Ember.PromiseProxyMixin.html">Ember.PromiseProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ProxyMixin.html">Ember.ProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ReduceComputedProperty.html">Ember.ReduceComputedProperty</a></li>
+                                <li><a href="../classes/Ember.Route.html">Ember.Route</a></li>
+                                <li><a href="../classes/Ember.Router.html">Ember.Router</a></li>
+                                <li><a href="../classes/Ember.run.html">Ember.run</a></li>
+                                <li><a href="../classes/Ember.Select.html">Ember.Select</a></li>
+                                <li><a href="../classes/Ember.Service.html">Ember.Service</a></li>
+                                <li><a href="../classes/Ember.Set.html">Ember.Set</a></li>
+                                <li><a href="../classes/Ember.SortableMixin.html">Ember.SortableMixin</a></li>
+                                <li><a href="../classes/Ember.String.html">Ember.String</a></li>
+                                <li><a href="../classes/Ember.SubArray.html">Ember.SubArray</a></li>
+                                <li><a href="../classes/Ember.TargetActionSupport.html">Ember.TargetActionSupport</a></li>
+                                <li><a href="../classes/Ember.Test.html">Ember.Test</a></li>
+                                <li><a href="../classes/Ember.Test.Adapter.html">Ember.Test.Adapter</a></li>
+                                <li><a href="../classes/Ember.Test.QUnitAdapter.html">Ember.Test.QUnitAdapter</a></li>
+                                <li><a href="../classes/Ember.TextArea.html">Ember.TextArea</a></li>
+                                <li><a href="../classes/Ember.TextField.html">Ember.TextField</a></li>
+                                <li><a href="../classes/Ember.TextSupport.html">Ember.TextSupport</a></li>
+                                <li><a href="../classes/Ember.TrackedArray.html">Ember.TrackedArray</a></li>
+                                <li><a href="../classes/Ember.View.html">Ember.View</a></li>
+                                <li><a href="../classes/Ember.ViewTargetActionSupport.html">Ember.ViewTargetActionSupport</a></li>
+                                <li><a href="../classes/Function.html">Function</a></li>
+                                <li><a href="../classes/HandlebarsCompatibleHelper.html">HandlebarsCompatibleHelper</a></li>
+                                <li><a href="../classes/Libraries.html">Libraries</a></li>
+                                <li><a href="../classes/RSVP.html">RSVP</a></li>
+                                <li><a href="../classes/RSVP.EventTarget.html">RSVP.EventTarget</a></li>
+                                <li><a href="../classes/RSVP.Promise.html">RSVP.Promise</a></li>
+                                <li><a href="../classes/String.html">String</a></li>
+                                <li><a href="../classes/TransformEachInToHash.html">TransformEachInToHash</a></li>
+                                <li><a href="../classes/TransformWithAsToHash.html">TransformWithAsToHash</a></li>
+                                <li><a href="../classes/Vertex.html">Vertex</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ember.html">ember</a></li>
+                                <li><a href="../modules/ember-application.html">ember-application</a></li>
+                                <li><a href="../modules/ember-data.html">ember-data</a></li>
+                                <li><a href="../modules/ember-debug.html">ember-debug</a></li>
+                                <li><a href="../modules/ember-extension-support.html">ember-extension-support</a></li>
+                                <li><a href="../modules/ember-handlebars.html">ember-handlebars</a></li>
+                                <li><a href="../modules/ember-htmlbars.html">ember-htmlbars</a></li>
+                                <li><a href="../modules/ember-metal.html">ember-metal</a></li>
+                                <li><a href="../modules/ember-routing.html">ember-routing</a></li>
+                                <li><a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a></li>
+                                <li><a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a></li>
+                                <li><a href="../modules/ember-routing-views.html">ember-routing-views</a></li>
+                                <li><a href="../modules/ember-runtime.html">ember-runtime</a></li>
+                                <li><a href="../modules/ember-template-compiler.html">ember-template-compiler</a></li>
+                                <li><a href="../modules/ember-testing.html">ember-testing</a></li>
+                                <li><a href="../modules/ember-views.html">ember-views</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>DS.DebugAdapter Class</h1>
+<div class="box meta">
+
+        <div class="extends">
+            Extends <a href="../classes/Ember.DataAdapter.html" class="crosslink">Ember.DataAdapter</a>
+        </div>
+
+        <div class="foundat">
+            Defined in: <a href="../files/js_libs_ember-data.js.html#l5061"><code>js\libs\ember-data.js:5061</code></a>
+        </div>
+
+            Module: <a href="../modules/ember-data.html">ember-data</a>
+
+</div>
+
+
+<div class="box intro">
+    <p>Extend <code>Ember.DataAdapter</code> with ED specific code.</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                            <li class="index-item method private inherited">
+                                <a href="#method__getObjectsOnNamespaces">_getObjectsOnNamespaces</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_columnsForType">columnsForType</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_detect">detect</a>
+
+                            </li>
+                            <li class="index-item method public inherited">
+                                <a href="#method_getFilters">getFilters</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_getModelTypes">getModelTypes</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_getRecordColor">getRecordColor</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_getRecordColumnValues">getRecordColumnValues</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_getRecordFilterValues">getRecordFilterValues</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_getRecordKeywords">getRecordKeywords</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_getRecords">getRecords</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_observeModelType">observeModelType</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_observerRecord">observerRecord</a>
+
+                            </li>
+                            <li class="index-item method public inherited">
+                                <a href="#method_watchModelTypes">watchModelTypes</a>
+
+                            </li>
+                            <li class="index-item method public inherited">
+                                <a href="#method_watchRecords">watchRecords</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_willDestroy">willDestroy</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_wrapModelType">wrapModelType</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_wrapRecord">wrapRecord</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                            <li class="index-item property private inherited">
+                                <a href="#property_attributeLimit">attributeLimit</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_container">container</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_containerDebugAdapter">containerDebugAdapter</a>
+
+                            </li>
+                            <li class="index-item property private inherited">
+                                <a href="#property_releaseMethods">releaseMethods</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method__getObjectsOnNamespaces" class="method item private inherited">
+    <h3 class="name"><code>_getObjectsOnNamespaces</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method__getObjectsOnNamespaces">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4655"><code>js\libs\ember-1.10.0.debug.js:4655</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Loops over all namespaces and all objects
+attached to them</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>Array of model type strings</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_columnsForType" class="method item private inherited">
+    <h3 class="name"><code>columnsForType</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_columnsForType">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4542"><code>js\libs\ember-1.10.0.debug.js:4542</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Get the columns for a given model type.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">Class</span>
+
+
+                    <div class="param-description">
+                        <p>The model type</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>An array of columns of the following format:
+name: {String} name of the column
+desc: {String} Humanized description (what would show in a table column name)</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_detect" class="method item private inherited">
+    <h3 class="name"><code>detect</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>klass</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_detect">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4527"><code>js\libs\ember-1.10.0.debug.js:4527</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Detect whether a class is a model.</p>
+<p>Test that against the model class
+of your persistence library</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">klass</code>
+                        <span class="type">Class</span>
+
+
+                    <div class="param-description">
+                        <p>The class to test</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    <p>boolean Whether the class is a model class or not</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getFilters" class="method item public inherited">
+    <h3 class="name"><code>getFilters</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+        <span class="flag public">public</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_getFilters">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4394"><code>js\libs\ember-1.10.0.debug.js:4394</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Specifies how records can be filtered.
+Records returned will need to have a <code>filterValues</code>
+property with a key for every name in the returned array.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>List of objects defining filters.
+The object should have a <code>name</code> and <code>desc</code> property.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getModelTypes" class="method item private inherited">
+    <h3 class="name"><code>getModelTypes</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_getModelTypes">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4623"><code>js\libs\ember-1.10.0.debug.js:4623</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Fetches all models defined in the application.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>Array of model types</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getRecordColor" class="method item private inherited">
+    <h3 class="name"><code>getRecordColor</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_getRecordColor">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4754"><code>js\libs\ember-1.10.0.debug.js:4754</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Each record can have a color that represents its state.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>The record instance</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>The record's color
+Possible options: black, red, blue, green</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getRecordColumnValues" class="method item private inherited">
+    <h3 class="name"><code>getRecordColumnValues</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_getRecordColumnValues">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4719"><code>js\libs\ember-1.10.0.debug.js:4719</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Gets the values for each column.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    <p>Keys should match column names defined
+by the model type.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getRecordFilterValues" class="method item private inherited">
+    <h3 class="name"><code>getRecordFilterValues</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_getRecordFilterValues">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4742"><code>js\libs\ember-1.10.0.debug.js:4742</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns the values of filters defined by <code>getFilters</code>.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>The record instance</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    <p>The filter values</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getRecordKeywords" class="method item private inherited">
+    <h3 class="name"><code>getRecordKeywords</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_getRecordKeywords">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4731"><code>js\libs\ember-1.10.0.debug.js:4731</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Returns keywords to match when searching records.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>Relevant keywords for search.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_getRecords" class="method item private inherited">
+    <h3 class="name"><code>getRecords</code></h3>
+
+        <span class="paren">()</span>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_getRecords">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4685"><code>js\libs\ember-1.10.0.debug.js:4685</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Fetches all loaded records for a given type.</p>
+
+    </div>
+
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    <p>An array of records.
+This array will be observed for changes,
+so it should update when new records are added/removed.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_observeModelType" class="method item private inherited">
+    <h3 class="name"><code>observeModelType</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>typesUpdated</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_observeModelType">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4556"><code>js\libs\ember-1.10.0.debug.js:4556</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Adds observers to a model type class.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">Class</span>
+
+
+                    <div class="param-description">
+                        <p>The model type class</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">typesUpdated</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Called when a type is modified.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>:
+                    <p>The function to call to remove observers</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_observerRecord" class="method item private inherited">
+    <h3 class="name"><code>observerRecord</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+                <li class="arg">
+                        <code>recordUpdated</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_observerRecord">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4767"><code>js\libs\ember-1.10.0.debug.js:4767</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Observes all relevant properties and re-sends the wrapped record
+when a change occurs.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>The record instance</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">recordUpdated</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>The callback to call when a record is updated.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>:
+                    <p>The function to call to remove all observers.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_watchModelTypes" class="method item public inherited">
+    <h3 class="name"><code>watchModelTypes</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>typesAdded</code>
+                </li>
+                <li class="arg">
+                        <code>typesUpdated</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+        </span>
+
+
+        <span class="flag public">public</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_watchModelTypes">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4408"><code>js\libs\ember-1.10.0.debug.js:4408</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Fetch the model types and observe them for changes.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">typesAdded</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Callback to call to add types.
+Takes an array of objects containing wrapped types (returned from <code>wrapModelType</code>).</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">typesUpdated</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Callback to call when a type has changed.
+Takes an array of objects containing wrapped types.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>:
+                    <p>Method to call to remove all observers</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_watchRecords" class="method item public inherited">
+    <h3 class="name"><code>watchRecords</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>recordsAdded</code>
+                </li>
+                <li class="arg">
+                        <code>recordsUpdated</code>
+                </li>
+                <li class="arg">
+                        <code>recordsRemoved</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+        </span>
+
+
+        <span class="flag public">public</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_watchRecords">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4452"><code>js\libs\ember-1.10.0.debug.js:4452</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Fetch the records of a given type and observe them for changes.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">recordsAdded</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Callback to call to add records.
+Takes an array of objects containing wrapped records.
+The object should have the following properties:
+columnValues: {Object} key and value of a table cell
+object: {Object} the actual record object</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">recordsUpdated</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Callback to call when a record has changed.
+Takes an array of objects containing wrapped records.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">recordsRemoved</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Callback to call when a record has removed.
+Takes the following parameters:
+index: the array index where the records were removed
+count: the number of records removed</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>:
+                    <p>Method to call to remove all observers</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_willDestroy" class="method item private inherited">
+    <h3 class="name"><code>willDestroy</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_willDestroy">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4515"><code>js\libs\ember-1.10.0.debug.js:4515</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Clear all observers before destruction</p>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_wrapModelType" class="method item private inherited">
+    <h3 class="name"><code>wrapModelType</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>Optional</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_wrapModelType">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4590"><code>js\libs\ember-1.10.0.debug.js:4590</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Wraps a given model type and observes changes to it.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">Class</span>
+
+
+                    <div class="param-description">
+                        <p>A model class</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">Optional</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>name of the class</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    <p>contains the wrapped type and the function to remove observers
+Format:
+type: {Object} the wrapped type
+The wrapped type has the following format:
+name: {String} name of the type
+count: {Integer} number of records available
+columns: {Columns} array of columns to describe the record
+object: {Class} the actual Model type class
+release: {Function} The function to remove observers</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_wrapRecord" class="method item private inherited">
+    <h3 class="name"><code>wrapRecord</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/Ember.DataAdapter.html#method_wrapRecord">Ember.DataAdapter</a>:
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4698"><code>js\libs\ember-1.10.0.debug.js:4698</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Wraps a record and observers changes to it.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>The record instance.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    <p>The wrapped record. Format:
+columnValues: {Array}
+searchKeywords: {Array}</p>
+
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                    <div id="property_attributeLimit" class="property item private inherited">
+                        <h3 class="name"><code>attributeLimit</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                            <span class="flag private">private</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.DataAdapter.html#property_attributeLimit">Ember.DataAdapter</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4372"><code>js\libs\ember-1.10.0.debug.js:4372</code></a>
+                            </p>
+                    
+                    
+                                <p>Available since 1.3.0</p>
+                        </div>
+                    
+                        <div class="description">
+                            <p>Number of attributes to send
+                    as columns. (Enough to make the record
+                    identifiable).</p>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> 3</p>
+                    
+                    
+                    </div>
+                    <div id="property_container" class="property item inherited">
+                        <h3 class="name"><code>container</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.DataAdapter.html#property_container">Ember.DataAdapter</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4350"><code>js\libs\ember-1.10.0.debug.js:4350</code></a>
+                            </p>
+                    
+                    
+                                <p>Available since 1.3.0</p>
+                        </div>
+                    
+                        <div class="description">
+                            <p>The container of the application being debugged.
+                    This property will be injected
+                    on creation.</p>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> null</p>
+                    
+                    
+                    </div>
+                    <div id="property_containerDebugAdapter" class="property item inherited">
+                        <h3 class="name"><code>containerDebugAdapter</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.DataAdapter.html#property_containerDebugAdapter">Ember.DataAdapter</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4362"><code>js\libs\ember-1.10.0.debug.js:4362</code></a>
+                            </p>
+                    
+                    
+                                <p>Available since 1.5.0</p>
+                        </div>
+                    
+                        <div class="description">
+                            <p>The container-debug-adapter which is used
+                    to list all models.</p>
+                    
+                        </div>
+                    
+                            <p><strong>Default:</strong> undefined</p>
+                    
+                    
+                    </div>
+                    <div id="property_releaseMethods" class="property item private inherited">
+                        <h3 class="name"><code>releaseMethods</code></h3>
+                        <span class="type">Unknown</span>
+                    
+                    
+                            <span class="flag private">private</span>
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/Ember.DataAdapter.html#property_releaseMethods">Ember.DataAdapter</a>:
+                            <a href="../files/js_libs_ember-1.10.0.debug.js.html#l4384"><code>js\libs\ember-1.10.0.debug.js:4384</code></a>
+                            </p>
+                    
+                    
+                                <p>Available since 1.3.0</p>
+                        </div>
+                    
+                        <div class="description">
+                            <p>Stores all methods that clear observers.
+                    These methods will be called on destruction.</p>
+                    
+                        </div>
+                    
+                    
+                    
+                    </div>
+            </div>
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
