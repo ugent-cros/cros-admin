@@ -1,11 +1,38 @@
+/**
+ * This will create a new controller for a list of assingments
+ * @class AssignmentsController
+ * @constructor
+ * @extends ListSuperController
+ */
 App.AssignmentsController = App.ListSuperController.extend({
+
+    /**
+     * List representing the columns in the table
+     *
+     * @property columns
+     * @property columns.label - Title of the column
+     * @property columns.value - Representing name for rest objects
+     * @property columns.sortable - expresses if the column is sortable for that parameter
+     */
     columns : [{label:'#', value:"id", sortable:1},
         {label:'Priority', value: "priority", sortable:1},
         {label:'Creator', value:"creator", sortable:1},
         {label:'Drone', value: "assignedDrone", sortable:1},
         {label:'Actions', sortable:0}
     ],
+
+    /**
+     * Type of the elements
+     *
+     * @property {string} element
+     */
     element : "assignment",
+
+    /**
+     * List of the possible parameters where a user can search on
+     *
+     * @property searchFields
+     */
     searchFields : ["creator","drone"]
 });
 

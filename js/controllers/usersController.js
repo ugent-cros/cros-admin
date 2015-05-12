@@ -1,11 +1,38 @@
+/**
+ * This will create a new controller for a list of users
+ * @class UsersController
+ * @constructor
+ * @extends ListSuperController
+ */
 App.UsersController = App.ListSuperController.extend({
+
+    /**
+     * List representing the columns in the table
+     *
+     * @property columns
+     * @property columns.label - Title of the column
+     * @property columns.value - Representing name for rest objects
+     * @property columns.sortable - expresses if the column is sortable for that parameter
+     */
     columns : [{label:'#', value:"id", sortable:1},
         {label:'Name', value: "firstName", sortable:1},
         {label:'E-mail', value:"email", sortable:1},
         {label:'Role', value: "role", sortable:1},
         {label:'Actions', sortable:0}
     ],
+
+    /**
+     * Type of the elements
+     *
+     * @property {string} element
+     */
     element : 'user',
+
+    /**
+     * List of the possible parameters where a user can search on
+     *
+     * @property searchFields
+     */
     searchFields : ["firstName", "lastName"]
 });
 

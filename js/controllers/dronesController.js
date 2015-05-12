@@ -1,18 +1,43 @@
 /**
- * Created by Eveline on 25/03/2015.
+ * This will create a new controller for a list of drones
+ * @class ListSuperController
+ * @constructor
+ * @extends ListSuperController
  */
 App.DronesController = App.ListSuperController.extend({
+
+    /**
+     * List representing the columns in the table
+     *
+     * @property columns
+     * @property columns.label - Title of the column
+     * @property columns.value - Representing name for rest objects
+     * @property columns.sortable - expresses if the column is sortable for that parameter
+     */
     columns : [{label:'#', value:"id", sortable:1},
                 {label:'Name', value: "name", sortable:1},
                 {label:'Status', value:"status", sortable:1},
                 {label:'Emergency', sortable:0},
                 {label:'Actions', sortable:0}
     ],
+
+    /**
+     * Type of the elements
+     *
+     * @property {string} element
+     */
     element : "drone",
+
+    /**List of the possible parameters where a user can search on*/
     searchFields : ["name"],
-    total: null,
+
+    total: null, // is still used?
 
     actions:{
+        /**
+         * Perform an emergency call to the drone with the given id
+         * @param {number} id - id of the drone
+         */
         emergency: function(id){
             this.adapter.find('drone',id,"emergency").then(function(data){
                 console.log(data);

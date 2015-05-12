@@ -59,7 +59,10 @@ App.DroneController = Ember.ObjectController.extend({
     manual : function() {
         return !this.get("automatic");
     }.property("automatic"),
-    
+
+    /**
+     * Determine the color of the label
+     */
     getModelClass: function(){
         var label = "label "
         var status = this.get('model.status');
@@ -76,7 +79,10 @@ App.DroneController = Ember.ObjectController.extend({
         else
             return label + "label-default";
     }.property('model.status'),
-    
+
+    /**
+     * Check if a drone can be deleted or not, since a flying drone cannot be deleted
+     */
     isNotDeletable: function(){
         return this.get("model.status") !== "AVAILABLE"
     }.property("model.status"),
@@ -165,6 +171,10 @@ App.DroneController = Ember.ObjectController.extend({
             this.closeStream();
         },
 
+        /**
+         * Perform an emergency call to the drone with the given id
+         * @param {number} id - id of the drone
+         */
         emergency: function(id){
             this.adapter.find('drone',id,"emergency").then(function(data){
                 console.log(data);
