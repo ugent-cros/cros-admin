@@ -83,6 +83,13 @@
             "fors": {},
             "namespaces": {}
         },
+        "js\\controllers\\ManualController.js": {
+            "name": "js\\controllers\\ManualController.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
         "js\\controllers\\appcontroller.js": {
             "name": "js\\controllers\\appcontroller.js",
             "modules": {},
@@ -184,6 +191,15 @@
             "classes": {},
             "fors": {},
             "namespaces": {}
+        },
+        "js\\socketmanager.js": {
+            "name": "js\\socketmanager.js",
+            "modules": {},
+            "classes": {
+                "SocketManager": 1
+            },
+            "fors": {},
+            "namespaces": {}
         }
     },
     "modules": {
@@ -191,12 +207,13 @@
             "name": "cros-admin",
             "submodules": {},
             "classes": {
-                "CustomAdapter": 1
+                "CustomAdapter": 1,
+                "SocketManager": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "js\\adapter.js",
+            "file": "js\\socketmanager.js",
             "line": 5
         }
     },
@@ -216,6 +233,22 @@
             "description": "This will create a new RestAdapter with support for HATEOAS.",
             "is_constructor": 1,
             "extends": "DS.RESTAdapter"
+        },
+        "SocketManager": {
+            "name": "SocketManager",
+            "shortname": "SocketManager",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "cros-admin",
+            "namespace": "",
+            "file": "js\\socketmanager.js",
+            "line": 5,
+            "description": "This class will manage the connection with a socketmanager and the incomming data.\nFor now this socketManager does not support sending data over the websocket to the server. Data can only be received.\nThe socketmanager will connect to the websocket, it will try to reconnect to the socket automatically.\nIt will also inform listeners of new messages arriving.",
+            "is_constructor": 1,
+            "extends": "Ember.Object"
         }
     },
     "classitems": [
@@ -297,6 +330,18 @@
         {
             "file": "js\\components\\tableController.js",
             "line": 131,
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\ManualController.js",
+            "line": 1,
+            "description": "Created by matthias on 10/05/2015.",
+            "class": "CustomAdapter"
+        },
+        {
+            "file": "js\\controllers\\ManualController.js",
+            "line": 114,
+            "description": "This function will close the active videowebsocket.\nIf no video websocket is active, this will do nothing.",
             "class": "CustomAdapter"
         },
         {
@@ -544,7 +589,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 190,
+            "line": 192,
             "description": "This method will fetch any missing links in the linklibrary. It will call ajax and use {{#crossLink \"CustomAdapter/processLinks:method\"}}{{/crossLink}}\nto update the linksLibrary.",
             "access": "private",
             "tagname": "",
@@ -569,7 +614,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 207,
+            "line": 209,
             "description": "This function will return the correct url based on key parameters. This function has two part:\n     1) Using the input parameters, the correct key is assembled. This is done by concatenating\n        the the input parameters, separated with the specified {{#crossLink \"CustomAdapter/delimiter:property}}{{/crossLink}}.\n     2) Once the key has been constructed, the function will check whether or not this key is available in the linkLibrary. If not\n        it will recursively remove one part of the key (based on de delimiter) and check whether this key is available. It continues untill\n        a link is found or until no key is left (if this is the case, the home link will be fetched).\n        This implies that every url (linked to key 'k') should reply with links to all possible keys 'k' + delimiter + 't' (where 't' are all possible key parts after 'k').",
             "access": "private",
             "tagname": "",
@@ -598,7 +643,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 267,
+            "line": 269,
             "description": "This function has the same functionality as {{#crossLink \"CustomAdapter/resolveLinkInner:method\"}}{{/crossLink}}. However, this method will chain\nthis call to any ongoing requests. This is necessary, if any of the previous requests is retrieving a link used in this function.",
             "access": "public",
             "tagname": "",
@@ -627,7 +672,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 289,
+            "line": 291,
             "description": "This function will execute the actual ajax call. It uses the functionality of jquery. For more explanation please checkout their documentation pages.\nThis function will set all properties in the ajax call. Extra properties can be given via the options paramter.",
             "access": "private",
             "tagname": "",
@@ -656,7 +701,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 320,
+            "line": 322,
             "description": "The current promise being handled. If null, no request is busy.",
             "access": "private",
             "tagname": "",
@@ -668,7 +713,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 328,
+            "line": 330,
             "description": "This function will resolve any request to the backend REST-api.\nIt will first resolve the link based on the input parameters (using {{#crossLink \"CustomAdapter/resolveLink:method\"}}{{/crossLink}}).\nUsing the correct link it will do a jquery ajax call (using {{#crossLink \"CustomAdapter/ajax:method\"}}{{/crossLink}}).\nFinally any links contained in the response data will be processed (using {{#crossLink \"CustomAdapter/processLinks:method\"}}{{/crossLink}}).\nThis function assumes all REST-calls return an object with root element \"store\". This root element will be removed from the returned value.\nAlso if the result contains multiple elements, this should be contained within an array with key \"resource\".\n\nNote: This request will be chained to any previous ongoing requests. Also, this request will be set as the new {{#crossLink \"CustomAdapter/currentRequest:property\"}}{{/crossLink}}.",
             "access": "public",
             "tagname": "",
@@ -701,7 +746,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 376,
+            "line": 378,
             "description": "This function will execute any post requests to the REST-API.",
             "access": "public",
             "tagname": "",
@@ -726,7 +771,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 394,
+            "line": 397,
             "description": "This function will execute a PUT request to the REST-API.",
             "access": "public",
             "tagname": "",
@@ -755,7 +800,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 412,
+            "line": 416,
             "description": "The function will execute a DELETE request to the REST-API.",
             "access": "public",
             "tagname": "",
@@ -782,7 +827,210 @@
             "file": "js\\authManager.js",
             "line": 1,
             "description": "Created by matthias on 30/03/2015.",
-            "class": "",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 17,
+            "description": "This object will keep track of all registered listeners. When a message arrives, the correct listeners will be notified.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "listeners",
+            "type": "Object",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 24,
+            "description": "This object is the websocket that is currently in use.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "socket",
+            "type": "Object",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 31,
+            "description": "This boolean will be true is the connection with the server is open. If not, it is false.",
+            "access": "public",
+            "tagname": "",
+            "readonly": "",
+            "itemtype": "property",
+            "name": "connection",
+            "type": "Boolean",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 39,
+            "description": "This boolean will represents whether the socketManager will try to reconnect when connection is lost.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "reconnect",
+            "type": "Boolean",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 46,
+            "description": "If this property is set, the socketmanager will try to connect to a websocket on this url.\nIf this property is not set, it will fetch the url from the adapter using the key \"datasocket\".",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "defaultUrl",
+            "type": "String",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 55,
+            "description": "This method will initiate the connection with the server.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "initConnection",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 66,
+            "description": "This method will setup the connection with the socket. Note that it will first check if any connection is already setup.\nIf no connection is setup (and {{#crossLink \"SocketManager/reconnect:property\"}}{{/crossLink}} is set to true), the connection will be setup.\n\nFirst of all, the url is fetched, either from {{#crossLink \"SocketManager/defaultUrl:property\"}}{{/crossLink}} or from the available adapter.\nThis function will also change the protocol of the url from http(s) to ws, if necessary.\n\nConnection will be setup with the websocket using the authentication token from {{#crossLink \"AuthManager\"}}{{/crossLink}}. If connection is set up,\nthe mechanisms to notify listeners are set.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "connect",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 110,
+            "description": "This method will handle the loss of connection.\nIt will send a notification message to listeners with the information that the connection has been lost.\n\nAlso, after a delay of 1 second, it set the {{#crossLink \"SocketManager/connection:property\"}}{{/crossLink}} property to false. This will automatically  initiate the\n{{#crossLink \"SocketManager/connect:method\"}}{{/crossLink}} method. (Note that this will not reconnect the socket if {{#crossLink \"SocketManager/reconnect:property\"}}{{/crossLink}} has not been set).",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "onClose",
+            "params": [
+                {
+                    "name": "self",
+                    "description": "the SocketManager itself"
+                }
+            ],
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 129,
+            "description": "This method will do the correct action if the websocket has been opened.\nIn this implementation it will only send a notification to the correct listeners.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "onOpen",
+            "params": [
+                {
+                    "name": "self",
+                    "description": "the SocketManager itself"
+                }
+            ],
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 141,
+            "description": "This function will close the socket connection. It will automatically set {{#crossLink \"SocketManager/reconnect:property\"}}{{/crossLink}} to false.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "disconnect",
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 153,
+            "description": "This method will handle an incoming message from the server.\nThis mainly involves notifying the correct listeners.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "onMessage",
+            "params": [
+                {
+                    "name": "event",
+                    "description": ""
+                },
+                {
+                    "name": "self",
+                    "description": ""
+                }
+            ],
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 175,
+            "description": "If an object wants to receive a particular message from the websocket, it can register itself here.\nTherefore several parameters should be set. First of which is off course the type of message. Each message has a type which is a string.\nNext, an id can be set. If one is only interested in the messages of one specific entity this can be set via the id. However if this is not set (or set to 0), messages of all entities will be received.\nNote also, that all messages contain the id of the entity (even if the listener is registered with id 0).\nThe following parameter \"controllerName\" is an identification of the listener. This can be any unique string. It is used to avoid having duplicate listeners.\n\nLastly an callback method should be set. Whenever a message arrives, this specific method will be called.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "register",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "The type of message that you want to receive"
+                },
+                {
+                    "name": "id",
+                    "description": "the id of the entity that you are interessted in"
+                },
+                {
+                    "name": "controllerName",
+                    "description": "the controllerName of the caller"
+                },
+                {
+                    "name": "callback",
+                    "description": "the method to execute when a message arrived"
+                }
+            ],
+            "class": "SocketManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\socketmanager.js",
+            "line": 204,
+            "description": "If you are registered for a message and no longer want to receive any messages for it, you can unregister with this method.\nIf you are regstered with id 0, it is not possible to unregister for any specific id.\nIf you are not registered and call this function, nothing will happen.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "unregister",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "The type of message that you no longer want to receive."
+                },
+                {
+                    "name": "id",
+                    "description": "The id of the entity you no longer need"
+                },
+                {
+                    "name": "controllerName",
+                    "description": "The controllerName of the caller"
+                }
+            ],
+            "class": "SocketManager",
             "module": "cros-admin"
         }
     ],
@@ -797,35 +1045,35 @@
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:190"
+            "line": " js\\adapter.js:192"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:207"
+            "line": " js\\adapter.js:209"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:267"
+            "line": " js\\adapter.js:269"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:289"
+            "line": " js\\adapter.js:291"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:328"
+            "line": " js\\adapter.js:330"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:376"
+            "line": " js\\adapter.js:378"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:394"
+            "line": " js\\adapter.js:397"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:412"
+            "line": " js\\adapter.js:416"
         },
         {
             "message": "Missing item type\nCreated by Eveline on 21/04/2015.",
@@ -882,6 +1130,14 @@
         {
             "message": "Missing item type",
             "line": " js\\components\\tableController.js:131"
+        },
+        {
+            "message": "Missing item type\nCreated by matthias on 10/05/2015.",
+            "line": " js\\controllers\\ManualController.js:1"
+        },
+        {
+            "message": "Missing item type\nThis function will close the active videowebsocket.\nIf no video websocket is active, this will do nothing.",
+            "line": " js\\controllers\\ManualController.js:114"
         },
         {
             "message": "Missing item type\nCreated by matthias on 30/03/2015.",
