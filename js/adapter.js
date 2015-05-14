@@ -60,7 +60,16 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      */
     init : function() {
         this._super();
+        this.clearLinks();
+    },
 
+    /**
+     * This function will clear all links from the linkLibrary
+     *
+     * @public
+     * @method clearLinks
+     */
+    clearLinks : function() {
         this.get("linkLibrary")["home"] = this.get("host") + this.get("namespace");
     },
 
