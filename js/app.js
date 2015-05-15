@@ -59,7 +59,7 @@ EmberENV = {
 };
 
 $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
-    if (thrownError.code && thrownError.code === thrownError.NETWORK_ERR) {
+    if (jqxhr && jqxhr.status == 0) {
         var url = window.location.href;
         var index = url.lastIndexOf("#");
         if (index === -1)
