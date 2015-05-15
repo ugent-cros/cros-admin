@@ -1,8 +1,42 @@
+/**
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
+ * This component will display maps using openstreetmaps.
+ * It is possbile to display markers with specific icons on it.
+ * It uses leaflet.js for the map functionality.
+ *
+ * @class MyMapComponent
+ * @namespace App
+ * @constructor
+ * @extends Ember.Component
+ */
 App.MyMapComponent = Ember.Component.extend({
     layoutName : 'components/my-map',
 
+    /**
+     * This object is either an array of Leaflet icons or just one.
+     * It contains all markers that should be displayed on the map.
+     *
+     * @protected
+     * @property marker {Object|Array}
+     */
     marker : null,
+    /**
+     * This object is the leaflet map.
+     *
+     * @protected
+     * @property map {L.Map}
+     */
     map : null,
+    /**
+     * This is the default icon for a marker
+     *
+     * @protected
+     * @property defaultIcon {L.Icon}
+     */
     defaultIcon : L.icon({
         iconUrl: 'img/marker-icon.png',
         shadowUrl: 'img/marker-shadow.png',
@@ -13,8 +47,22 @@ App.MyMapComponent = Ember.Component.extend({
         shadowAnchor: [12, 41],  // the same for the shadow
         popupAnchor:  [0, -41] // point from which the popup should open relative to the iconAnchor
     }),
+    /**
+     * Whether the map should be centered on the markers.
+     *
+     * @public
+     * @property centered {boolean}
+     */
     centered : true,
 
+    /**
+     * This method will return the icon used for markers. If an icon has been set, this will be returned.
+     * If no icon has been set, the {{#crossLink "MyMapComponent/defaultIcon:property"}}{{/crossLink}} will be used.
+     *
+     * @public
+     * @method currentIcon
+     * @returns {L.Icon}
+     */
     currentIcon : function() {
         var i = this.get('icon');
         if (!i) {
@@ -23,10 +71,28 @@ App.MyMapComponent = Ember.Component.extend({
         return i;
     },
 
+    /**
+     * This function will create a new marker object.
+     *
+     * @protected
+     * @method createMarker
+     * @param location The gps location of this marker.
+     * @param i A unique id to identify this marker.
+     * @returns {L.Marker} The new marker
+     */
     createMarker : function(location, i) {
         return L.marker(location, {id: i, icon: this.currentIcon()}).addTo(this.get('map'));
     },
 
+    /**
+     * This function will update all current markers. This will be done based on the current Locations available.
+     * If new locations are added, new markers will be created.
+     * If locations are removed, markers will also be removed.
+     * Locations that were changed, will result in updated marker locations.
+     *
+     * @protected
+     * @method updateMarker
+     */
     updateMarker : function() {
         var loc = this.get('location');
         var markers = this.get('marker') || [];
@@ -73,6 +139,13 @@ App.MyMapComponent = Ember.Component.extend({
         }
     },
 
+    /**
+     * This function will update the viewpoint of the map. This can be done according to all available markers.
+     *
+     * @protected
+     * @method updateMap
+     * @param updateZoom whether to update the zoomlevel of the map
+     */
     updateMap : function(updateZoom) {
         if (!this.get("centered"))
             return;
@@ -93,6 +166,12 @@ App.MyMapComponent = Ember.Component.extend({
         }
     },
 
+    /**
+     * This function will initialize the map and it's markers.
+     *
+     * @protected
+     * @method initialization
+     */
     initialization : function(){
         this._super();
         var self = this;
@@ -121,6 +200,7 @@ App.MyMapComponent = Ember.Component.extend({
         // init markers
         self.updateMarker();
 
+        // Set up listeners for changes
         self.addObserver('location.@each.lon',self,self.updateMarker);
         self.addObserver('location.@each.lat',self,self.updateMarker);
         self.addObserver('location.@each.lon',self,self.updateMap);
@@ -135,19 +215,48 @@ App.MyMapComponent = Ember.Component.extend({
 
 });
 
+/**
+ * This class represents the button on a map to center on the current markers.
+ *
+ * @class Center
+ * @namespace Control
+ * @constructor
+ * @extends L.Control
+ */
 L.Control.Center = L.Control.extend({
     options: {
         position: 'bottomleft'
     },
 
+    /**
+     * This is the html element which contains the button.
+     *
+     * @private
+     * @property controlUI {html}
+     */
     controlUI : undefined,
 
+    /**
+     * This sets whether or not the map should be centering on the markers.
+     *
+     * @public
+     * @method setCenter
+     * @param value boolean value whether or not to center.
+     */
     setCenter : function(value) {
         this.options.centered = typeof(value) === "undefined" ? !this.options.centered : value;
         this.options.update(this.options.centered);
         this.controlUI.className = 'leaflet-control-center-interior' + (this.options.centered ? " leaflet-control-center-active" : "");
     },
 
+    /**
+     * This method will initiate the functionality to set the centering.
+     *
+     * @public
+     * @method onAdd
+     * @param map The current map
+     * @returns {div} The html element which contains the button
+     */
     onAdd: function (map) {
         var self = this;
         var controlDiv = L.DomUtil.create('div', 'leaflet-control-center');
