@@ -5,6 +5,7 @@
 /**
  * This will create a new RestAdapter with support for HATEOAS.
  * @class CustomAdapter
+ * @namespace App
  * @constructor
  * @extends DS.RESTAdapter
  */

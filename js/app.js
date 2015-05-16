@@ -1,5 +1,9 @@
 window.App = Ember.Application.create();
 
+/**
+ * All initializer functions in this method are intended for dependency injection.
+ * It allows us to inject a reference to the adapter, the authmanager and the socketmanager in each instance of a controller,router and component.
+ */
 App.initializer({
     name: "joinManagers",
     after:['adapter', 'authmanager', 'socketmanager'],
@@ -32,7 +36,7 @@ App.initializer({
     name: "adapter",
 
     initialize: function (container, application) {
-        application.register("my:adapter", application.CustomAdapter);
+        application.register("my:adapter", application.CustomAdapter, { singleton: true });
     }
 });
 
@@ -40,7 +44,7 @@ App.initializer({
     name: "authmanager",
 
     initialize: function (container, application) {
-        application.register("my:authmanager", window.AuthManager); // TODO: singleton
+        application.register("my:authmanager", window.AuthManager, { singleton: true });
     }
 });
 
@@ -48,7 +52,7 @@ App.initializer({
     name: "socketmanager",
 
     initialize: function (container, application) {
-        application.register("my:socketmanager", window.SocketManager);
+        application.register("my:socketmanager", window.SocketManager, { singleton: true });
     }
 });
 
@@ -58,6 +62,10 @@ EmberENV = {
     }
 };
 
+/**
+ * If any ajax request fails, this function will be called. It allows centralized error handling.
+ * This is useful for checking whether the server can be reached.
+ */
 $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
     if (jqxhr && jqxhr.status == 0) {
         var url = window.location.href;

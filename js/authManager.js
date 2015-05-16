@@ -12,6 +12,7 @@
  *
  * @class AuthManager
  * @constructor
+ * @namespace window
  * @extends Ember.Object
  */
 window.AuthManager = Ember.Object.extend({
