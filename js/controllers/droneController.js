@@ -6,6 +6,7 @@
 /**
  * This will create a new controller for a drone object
  * @class DroneController
+ * @namespace App
  * @constructor
  * @extends ObjectController
  */

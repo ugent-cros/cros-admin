@@ -6,6 +6,7 @@
 /**
  * This will create a new list controller
  * @class ListSuperController
+ * @namespace App
  * @constructor
  * @extends Controller
  */

@@ -6,6 +6,7 @@
 /**
  * This will create a new controller for a user object
  * @class UserController
+ * @namespace App
  * @constructor
  * @extends ObjectController
  */

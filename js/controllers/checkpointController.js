@@ -6,6 +6,7 @@
 /**
  * This will create a new controller for a checkpoint object
  * @class CheckpointController
+ * @namespace App
  * @constructor
  * @extends ObjectController
  */

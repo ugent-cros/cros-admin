@@ -6,6 +6,7 @@
 /**
  * This will create a new controller for a basestation object
  * @class BasestationController
+ * @namespace App
  * @constructor
  * @extends Controller
  */

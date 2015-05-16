@@ -6,6 +6,7 @@
 /**
  * This will create a new controller for a list of basestations
  * @class BasestationsController
+ * @namespace App
  * @constructor
  * @extends ListSuperController
  */

@@ -6,6 +6,7 @@
 /**
  * This will create a new controller for a assignment object
  * @class AssignmentController
+ * @namespace App
  * @constructor
  * @extends Controller
  */

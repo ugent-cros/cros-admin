@@ -6,6 +6,7 @@
 /**
  * This will create a new controller for a list of drones
  * @class ListSuperController
+ * @namespace App
  * @constructor
  * @extends ListSuperController
  */
