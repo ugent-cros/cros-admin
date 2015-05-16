@@ -150,7 +150,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      *
      * @private
      * @method progressTracker
-     * @returns {XMLHttpRequest}
+     * @return {XMLHttpRequest}
      */
 	progressTracker: function()
 	{
@@ -180,7 +180,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @private
      * @method onfailure
      * @param data the response from the ajax call
-     * @returns {object} the response from the ajax call (for further chaining)
+     * @return {object} the response from the ajax call (for further chaining)
      */
     onfailure : function(data) {
         this.set("currentRequest", null);
@@ -206,7 +206,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @method recursiveFetch
      * @param urlObj the url to be fetched
      * @param store the root key to use when inserting the links.
-     * @returns {Promise} Any code executed after this promise will have the necessary links in the linkLibrary
+     * @return {Promise} Any code executed after this promise will have the necessary links in the linkLibrary
      */
 	recursiveFetch : function(urlObj, store) {
 		var self = this;
@@ -229,7 +229,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @param store the type of entity that is request
      * @param id the id of the entity requested
      * @param action the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter).
-     * @returns {object} an object containing the url and the key.
+     * @return {object} an object containing the url and the key.
      */
     resolveLinkInner : function(store,id,action) {
         var key = store;
@@ -284,7 +284,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @param store the type of entity that is request
      * @param id the id of the entity requested
      * @param action the action that is called on this entity. This action can be a string or an array. If it is an array, all elements will be concatenated (seperated by the delimiter).
-     * @returns {object|Promise} a promise which will resolve in an object containing the requested url and the key used.
+     * @return {object|Promise} a promise which will resolve in an object containing the requested url and the key used.
      */
 	resolveLink : function(store, id, action) {
         var self = this;
@@ -306,7 +306,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @param url The request url
      * @param method The HTTP method
      * @param options Extra options that should be set in the ajax call.
-     * @returns {object|Promise} The response data from the REST-call.
+     * @return {object|Promise} The response data from the REST-call.
      */
 	ajax : function(url, method, options) {
 		hash = options || {};
@@ -352,7 +352,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @param id the id of the entity requested
      * @param action the actions called on this entity. This can be either a string or an array of strings. In case of an array, the elements are concatenated separated with the delimiter.
      * @param params Any extra ajax parameters can be set in this object. Also, if this object contains a query object, this will be used as query paramters after the url.
-     * @returns {object|Promise} The response data from the REST-call
+     * @return {object|Promise} The response data from the REST-call
      */
     find : function(store, id, action, params) {
         var self = this;
@@ -391,7 +391,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @method post
      * @param store The type of entity that will be posted
      * @param postData The data that will be posted.
-     * @returns {object|Promise} the REST-call result in json.
+     * @return {object|Promise} the REST-call result in json.
      */
     post : function(store, postData) {
 		var self = this;
@@ -411,7 +411,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @param store The type of entity that will be updated
      * @param id the id of the entity that will be updated
      * @param editData the data containing the updated entity
-     * @returns {object|Promise} the data returned from the REST-call.
+     * @return {object|Promise} the data returned from the REST-call.
      */
 	edit : function(store, id, editData) {
 		var self = this;
@@ -429,7 +429,7 @@ App.CustomAdapter = DS.RESTAdapter.extend({
      * @method remove
      * @param store The type of entity that will be removed
      * @param id the id of the entity that will be removed
-     * @returns {object|Promise} the data returned from the REST-call.
+     * @return {object|Promise} the data returned from the REST-call.
      */
 	remove : function(store, id) {
 		var self = this;
