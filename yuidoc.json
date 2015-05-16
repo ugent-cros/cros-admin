@@ -9,6 +9,6 @@
         "outdir": "docs/",
 		"external": {
 			"data": "../docslibs/data.json"
-		},
+		}
     }
 }
