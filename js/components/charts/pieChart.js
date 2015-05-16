@@ -1,6 +1,12 @@
 /**
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
  * This will create a new pie chart component
  * @class LineGraphComponent
+ * @namespace App
  * @constructor
  * @extends Component
  */

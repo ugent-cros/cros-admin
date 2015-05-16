@@ -1,13 +1,19 @@
 /**
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
  * This will create a new gauge graph component
  * @class GaugeGraphComponent
+ * @namespace App
  * @constructor
  * @extends Component
  */
 App.GaugeGraphComponent = Ember.Component.extend({
 
     /**
-     * This function draws the piechart
+     * This function draws the gauge graph
      *
      * @method
      */
