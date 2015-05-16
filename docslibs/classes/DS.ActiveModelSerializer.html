@@ -1,0 +1,4131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DS.ActiveModelSerializer - The cros-admin API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The cros-admin API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Backburner.html">Backburner</a></li>
+                                <li><a href="../classes/DAG.html">DAG</a></li>
+                                <li><a href="../classes/DS.html">DS</a></li>
+                                <li><a href="../classes/DS.ActiveModelAdapter.html">DS.ActiveModelAdapter</a></li>
+                                <li><a href="../classes/DS.ActiveModelSerializer.html">DS.ActiveModelSerializer</a></li>
+                                <li><a href="../classes/DS.Adapter.html">DS.Adapter</a></li>
+                                <li><a href="../classes/DS.AdapterPopulatedRecordArray.html">DS.AdapterPopulatedRecordArray</a></li>
+                                <li><a href="../classes/DS.BooleanTransform.html">DS.BooleanTransform</a></li>
+                                <li><a href="../classes/DS.ContainerProxy.html">DS.ContainerProxy</a></li>
+                                <li><a href="../classes/DS.DateTransform.html">DS.DateTransform</a></li>
+                                <li><a href="../classes/DS.DebugAdapter.html">DS.DebugAdapter</a></li>
+                                <li><a href="../classes/DS.EmbeddedRecordsMixin.html">DS.EmbeddedRecordsMixin</a></li>
+                                <li><a href="../classes/DS.Errors.html">DS.Errors</a></li>
+                                <li><a href="../classes/DS.FilteredRecordArray.html">DS.FilteredRecordArray</a></li>
+                                <li><a href="../classes/DS.FixtureAdapter.html">DS.FixtureAdapter</a></li>
+                                <li><a href="../classes/DS.InvalidError.html">DS.InvalidError</a></li>
+                                <li><a href="../classes/DS.JSONSerializer.html">DS.JSONSerializer</a></li>
+                                <li><a href="../classes/DS.ManyArray.html">DS.ManyArray</a></li>
+                                <li><a href="../classes/DS.Model.html">DS.Model</a></li>
+                                <li><a href="../classes/DS.NumberTransform.html">DS.NumberTransform</a></li>
+                                <li><a href="../classes/DS.PromiseArray.html">DS.PromiseArray</a></li>
+                                <li><a href="../classes/DS.PromiseObject.html">DS.PromiseObject</a></li>
+                                <li><a href="../classes/DS.RecordArray.html">DS.RecordArray</a></li>
+                                <li><a href="../classes/DS.RecordArrayManager.html">DS.RecordArrayManager</a></li>
+                                <li><a href="../classes/DS.RESTAdapter.html">DS.RESTAdapter</a></li>
+                                <li><a href="../classes/DS.RESTSerializer.html">DS.RESTSerializer</a></li>
+                                <li><a href="../classes/DS.RootState.html">DS.RootState</a></li>
+                                <li><a href="../classes/DS.Store.html">DS.Store</a></li>
+                                <li><a href="../classes/DS.StringTransform.html">DS.StringTransform</a></li>
+                                <li><a href="../classes/DS.Transform.html">DS.Transform</a></li>
+                                <li><a href="../classes/Ember.html">Ember</a></li>
+                                <li><a href="../classes/Ember._BoundView.html">Ember._BoundView</a></li>
+                                <li><a href="../classes/Ember._Metamorph.html">Ember._Metamorph</a></li>
+                                <li><a href="../classes/Ember._MetamorphView.html">Ember._MetamorphView</a></li>
+                                <li><a href="../classes/Ember._SimpleMetamorphView.html">Ember._SimpleMetamorphView</a></li>
+                                <li><a href="../classes/Ember.ActionHandler.html">Ember.ActionHandler</a></li>
+                                <li><a href="../classes/Ember.Application.html">Ember.Application</a></li>
+                                <li><a href="../classes/Ember.Array.html">Ember.Array</a></li>
+                                <li><a href="../classes/Ember.ArrayController.html">Ember.ArrayController</a></li>
+                                <li><a href="../classes/Ember.ArrayProxy.html">Ember.ArrayProxy</a></li>
+                                <li><a href="../classes/Ember.AutoLocation.html">Ember.AutoLocation</a></li>
+                                <li><a href="../classes/Ember.Binding.html">Ember.Binding</a></li>
+                                <li><a href="../classes/Ember.Checkbox.html">Ember.Checkbox</a></li>
+                                <li><a href="../classes/Ember.CollectionView.html">Ember.CollectionView</a></li>
+                                <li><a href="../classes/Ember.Comparable.html">Ember.Comparable</a></li>
+                                <li><a href="../classes/Ember.Component.html">Ember.Component</a></li>
+                                <li><a href="../classes/Ember.ComponentTemplateDeprecation.html">Ember.ComponentTemplateDeprecation</a></li>
+                                <li><a href="../classes/Ember.ComputedProperty.html">Ember.ComputedProperty</a></li>
+                                <li><a href="../classes/Ember.ContainerDebugAdapter.html">Ember.ContainerDebugAdapter</a></li>
+                                <li><a href="../classes/Ember.ContainerView.html">Ember.ContainerView</a></li>
+                                <li><a href="../classes/Ember.Controller.html">Ember.Controller</a></li>
+                                <li><a href="../classes/Ember.ControllerContentModelAliasDeprecation.html">Ember.ControllerContentModelAliasDeprecation</a></li>
+                                <li><a href="../classes/Ember.ControllerMixin.html">Ember.ControllerMixin</a></li>
+                                <li><a href="../classes/Ember.Copyable.html">Ember.Copyable</a></li>
+                                <li><a href="../classes/Ember.CoreObject.html">Ember.CoreObject</a></li>
+                                <li><a href="../classes/Ember.CoreView.html">Ember.CoreView</a></li>
+                                <li><a href="../classes/Ember.DataAdapter.html">Ember.DataAdapter</a></li>
+                                <li><a href="../classes/Ember.Date.html">Ember.Date</a></li>
+                                <li><a href="../classes/Ember.DefaultResolver.html">Ember.DefaultResolver</a></li>
+                                <li><a href="../classes/Ember.Deferred.html">Ember.Deferred</a></li>
+                                <li><a href="../classes/Ember.Descriptor.html">Ember.Descriptor</a></li>
+                                <li><a href="../classes/Ember.EachProxy.html">Ember.EachProxy</a></li>
+                                <li><a href="../classes/Ember.Ember.html">Ember.Ember</a></li>
+                                <li><a href="../classes/Ember.Enumerable.html">Ember.Enumerable</a></li>
+                                <li><a href="../classes/Ember.EnumerableUtils.html">Ember.EnumerableUtils</a></li>
+                                <li><a href="../classes/Ember.Error.html">Ember.Error</a></li>
+                                <li><a href="../classes/Ember.EventDispatcher.html">Ember.EventDispatcher</a></li>
+                                <li><a href="../classes/Ember.Evented.html">Ember.Evented</a></li>
+                                <li><a href="../classes/Ember.FEATURES.html">Ember.FEATURES</a></li>
+                                <li><a href="../classes/Ember.Freezable.html">Ember.Freezable</a></li>
+                                <li><a href="../classes/Ember.Handlebars.html">Ember.Handlebars</a></li>
+                                <li><a href="../classes/Ember.Handlebars.helpers.html">Ember.Handlebars.helpers</a></li>
+                                <li><a href="../classes/Ember.HashLocation.html">Ember.HashLocation</a></li>
+                                <li><a href="../classes/Ember.HistoryLocation.html">Ember.HistoryLocation</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.html">Ember.HTMLBars</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.Helper.html">Ember.HTMLBars.Helper</a></li>
+                                <li><a href="../classes/Ember.Inflector.html">Ember.Inflector</a></li>
+                                <li><a href="../classes/Ember.inject.html">Ember.inject</a></li>
+                                <li><a href="../classes/Ember.InjectedProperty.html">Ember.InjectedProperty</a></li>
+                                <li><a href="../classes/Ember.Instrumentation.html">Ember.Instrumentation</a></li>
+                                <li><a href="../classes/Ember.LinkView.html">Ember.LinkView</a></li>
+                                <li><a href="../classes/Ember.Location.html">Ember.Location</a></li>
+                                <li><a href="../classes/Ember.Logger.html">Ember.Logger</a></li>
+                                <li><a href="../classes/Ember.Map.html">Ember.Map</a></li>
+                                <li><a href="../classes/Ember.MapWithDefault.html">Ember.MapWithDefault</a></li>
+                                <li><a href="../classes/Ember.MutableArray.html">Ember.MutableArray</a></li>
+                                <li><a href="../classes/Ember.MutableEnumerable.html">Ember.MutableEnumerable</a></li>
+                                <li><a href="../classes/Ember.Namespace.html">Ember.Namespace</a></li>
+                                <li><a href="../classes/Ember.NativeArray.html">Ember.NativeArray</a></li>
+                                <li><a href="../classes/Ember.NoneLocation.html">Ember.NoneLocation</a></li>
+                                <li><a href="../classes/Ember.Object.html">Ember.Object</a></li>
+                                <li><a href="../classes/Ember.ObjectController.html">Ember.ObjectController</a></li>
+                                <li><a href="../classes/Ember.ObjectProxy.html">Ember.ObjectProxy</a></li>
+                                <li><a href="../classes/Ember.Observable.html">Ember.Observable</a></li>
+                                <li><a href="../classes/Ember.OrderedSet.html">Ember.OrderedSet</a></li>
+                                <li><a href="../classes/Ember.platform.html">Ember.platform</a></li>
+                                <li><a href="../classes/Ember.PromiseProxyMixin.html">Ember.PromiseProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ProxyMixin.html">Ember.ProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ReduceComputedProperty.html">Ember.ReduceComputedProperty</a></li>
+                                <li><a href="../classes/Ember.Route.html">Ember.Route</a></li>
+                                <li><a href="../classes/Ember.Router.html">Ember.Router</a></li>
+                                <li><a href="../classes/Ember.run.html">Ember.run</a></li>
+                                <li><a href="../classes/Ember.Select.html">Ember.Select</a></li>
+                                <li><a href="../classes/Ember.Service.html">Ember.Service</a></li>
+                                <li><a href="../classes/Ember.Set.html">Ember.Set</a></li>
+                                <li><a href="../classes/Ember.SortableMixin.html">Ember.SortableMixin</a></li>
+                                <li><a href="../classes/Ember.String.html">Ember.String</a></li>
+                                <li><a href="../classes/Ember.SubArray.html">Ember.SubArray</a></li>
+                                <li><a href="../classes/Ember.TargetActionSupport.html">Ember.TargetActionSupport</a></li>
+                                <li><a href="../classes/Ember.Test.html">Ember.Test</a></li>
+                                <li><a href="../classes/Ember.Test.Adapter.html">Ember.Test.Adapter</a></li>
+                                <li><a href="../classes/Ember.Test.QUnitAdapter.html">Ember.Test.QUnitAdapter</a></li>
+                                <li><a href="../classes/Ember.TextArea.html">Ember.TextArea</a></li>
+                                <li><a href="../classes/Ember.TextField.html">Ember.TextField</a></li>
+                                <li><a href="../classes/Ember.TextSupport.html">Ember.TextSupport</a></li>
+                                <li><a href="../classes/Ember.TrackedArray.html">Ember.TrackedArray</a></li>
+                                <li><a href="../classes/Ember.View.html">Ember.View</a></li>
+                                <li><a href="../classes/Ember.ViewTargetActionSupport.html">Ember.ViewTargetActionSupport</a></li>
+                                <li><a href="../classes/Function.html">Function</a></li>
+                                <li><a href="../classes/HandlebarsCompatibleHelper.html">HandlebarsCompatibleHelper</a></li>
+                                <li><a href="../classes/Libraries.html">Libraries</a></li>
+                                <li><a href="../classes/RSVP.html">RSVP</a></li>
+                                <li><a href="../classes/RSVP.EventTarget.html">RSVP.EventTarget</a></li>
+                                <li><a href="../classes/RSVP.Promise.html">RSVP.Promise</a></li>
+                                <li><a href="../classes/String.html">String</a></li>
+                                <li><a href="../classes/TransformEachInToHash.html">TransformEachInToHash</a></li>
+                                <li><a href="../classes/TransformWithAsToHash.html">TransformWithAsToHash</a></li>
+                                <li><a href="../classes/Vertex.html">Vertex</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ember.html">ember</a></li>
+                                <li><a href="../modules/ember-application.html">ember-application</a></li>
+                                <li><a href="../modules/ember-data.html">ember-data</a></li>
+                                <li><a href="../modules/ember-debug.html">ember-debug</a></li>
+                                <li><a href="../modules/ember-extension-support.html">ember-extension-support</a></li>
+                                <li><a href="../modules/ember-handlebars.html">ember-handlebars</a></li>
+                                <li><a href="../modules/ember-htmlbars.html">ember-htmlbars</a></li>
+                                <li><a href="../modules/ember-metal.html">ember-metal</a></li>
+                                <li><a href="../modules/ember-routing.html">ember-routing</a></li>
+                                <li><a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a></li>
+                                <li><a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a></li>
+                                <li><a href="../modules/ember-routing-views.html">ember-routing-views</a></li>
+                                <li><a href="../modules/ember-runtime.html">ember-runtime</a></li>
+                                <li><a href="../modules/ember-template-compiler.html">ember-template-compiler</a></li>
+                                <li><a href="../modules/ember-testing.html">ember-testing</a></li>
+                                <li><a href="../modules/ember-views.html">ember-views</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>DS.ActiveModelSerializer Class</h1>
+<div class="box meta">
+
+        <div class="extends">
+            Extends <a href="../classes/DS.RESTSerializer.html" class="crosslink">DS.RESTSerializer</a>
+        </div>
+
+        <div class="foundat">
+            Defined in: <a href="../files/js_libs_ember-data.js.html#l336"><code>js\libs\ember-data.js:336</code></a>
+        </div>
+
+            Module: <a href="../modules/ember-data.html">ember-data</a>
+
+</div>
+
+
+<div class="box intro">
+    <p>The ActiveModelSerializer is a subclass of the RESTSerializer designed to integrate
+with a JSON API that uses an underscored naming convention instead of camelCasing.
+It has been designed to work out of the box with the
+<a href="http://github.com/rails-api/active_model_serializers">active_model_serializers</a>
+Ruby gem. This Serializer expects specific settings using ActiveModel::Serializers,
+<code>embed :ids, include: true</code> which sideloads the records.</p>
+<p>This serializer extends the DS.RESTSerializer by making consistent
+use of the camelization, decamelization and pluralization methods to
+normalize the serialized JSON into a format that is compatible with
+a conventional Rails backend and Ember Data.</p>
+<h2>JSON Structure</h2>
+<p>The ActiveModelSerializer expects the JSON returned from your server
+to follow the REST adapter conventions substituting underscored keys
+for camelcased ones.</p>
+<h3>Conventional Names</h3>
+<p>Attribute names in your JSON payload should be the underscored versions of
+the attributes in your Ember.js models.</p>
+<p>For example, if you have a <code>Person</code> model:</p>
+<pre class="code prettyprint"><code class="language-js">App.FamousPerson = DS.Model.extend({
+  firstName: DS.attr('string'),
+  lastName: DS.attr('string'),
+  occupation: DS.attr('string')
+});
+</code></pre>
+<p>The JSON returned should look like this:</p>
+<pre class="code prettyprint"><code class="language-js">{
+  &quot;famous_person&quot;: {
+    &quot;id&quot;: 1,
+    &quot;first_name&quot;: &quot;Barack&quot;,
+    &quot;last_name&quot;: &quot;Obama&quot;,
+    &quot;occupation&quot;: &quot;President&quot;
+  }
+}
+</code></pre>
+<p>Let's imagine that <code>Occupation</code> is just another model:</p>
+<pre class="code prettyprint"><code class="language-js">App.Person = DS.Model.extend({
+  firstName: DS.attr('string'),
+  lastName: DS.attr('string'),
+  occupation: DS.belongsTo('occupation')
+});
+
+App.Occupation = DS.Model.extend({
+  name: DS.attr('string'),
+  salary: DS.attr('number'),
+  people: DS.hasMany('person')
+});
+</code></pre>
+<p>The JSON needed to avoid extra server calls, should look like this:</p>
+<pre class="code prettyprint"><code class="language-js">{
+  &quot;people&quot;: [{
+    &quot;id&quot;: 1,
+    &quot;first_name&quot;: &quot;Barack&quot;,
+    &quot;last_name&quot;: &quot;Obama&quot;,
+    &quot;occupation_id&quot;: 1
+  }],
+
+  &quot;occupations&quot;: [{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;President&quot;,
+    &quot;salary&quot;: 100000,
+    &quot;person_ids&quot;: [1]
+  }]
+}
+</code></pre>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods extends">
+                            <li class="index-item method private inherited">
+                                <a href="#method__canSerialize">_canSerialize</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method__getMappedKey">_getMappedKey</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_applyTransforms">applyTransforms</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extract">extract</a>
+
+                            </li>
+                            <li class="index-item method inherited inherited">
+                                <a href="#method_extractArray">extractArray</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractCreateRecord">extractCreateRecord</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractDeleteRecord">extractDeleteRecord</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractFind">extractFind</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractFindAll">extractFindAll</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractFindBelongsTo">extractFindBelongsTo</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractFindHasMany">extractFindHasMany</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractFindMany">extractFindMany</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractFindQuery">extractFindQuery</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractMeta">extractMeta</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractSave">extractSave</a>
+
+                            </li>
+                            <li class="index-item method inherited inherited">
+                                <a href="#method_extractSingle">extractSingle</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_extractUpdateRecord">extractUpdateRecord</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_keyForAttribute">keyForAttribute</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_keyForRelationship">keyForRelationship</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_normalize">normalize</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_normalizeAttributes">normalizeAttributes</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_normalizeId">normalizeId</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_normalizeLinks">normalizeLinks</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_normalizePayload">normalizePayload</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_normalizeRelationships">normalizeRelationships</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_normalizeUsingDeclaredMapping">normalizeUsingDeclaredMapping</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_pushPayload">pushPayload</a>
+
+                            </li>
+                            <li class="index-item method inherited inherited">
+                                <a href="#method_serialize">serialize</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_serializeAttribute">serializeAttribute</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_serializeBelongsTo">serializeBelongsTo</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_serializeHasMany">serializeHasMany</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_serializeIntoHash">serializeIntoHash</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_serializePolymorphicType">serializePolymorphicType</a>
+
+                            </li>
+                            <li class="index-item method private inherited">
+                                <a href="#method_transformFor">transformFor</a>
+
+                            </li>
+                            <li class="index-item method inherited">
+                                <a href="#method_typeForRoot">typeForRoot</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties extends">
+                            <li class="index-item property inherited">
+                                <a href="#property_attrs">attrs</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_normalizeHash">normalizeHash</a>
+
+                            </li>
+                            <li class="index-item property inherited">
+                                <a href="#property_primaryKey">primaryKey</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method__canSerialize" class="method item private inherited">
+    <h3 class="name"><code>_canSerialize</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method__canSerialize">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l2990"><code>js\libs\ember-data.js:2990</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Check attrs.key.serialize property to inform if the <code>key</code>
+can be serialized
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>:
+                    true if the key can be serialized
+            </div>
+        </div>
+
+
+</div>
+<div id="method__getMappedKey" class="method item private inherited">
+    <h3 class="name"><code>_getMappedKey</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method__getMappedKey">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l2963"><code>js\libs\ember-data.js:2963</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Looks up the property key that was set by the custom <code>attr</code> mapping
+passed to the serializer.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    key
+            </div>
+        </div>
+
+
+</div>
+<div id="method_applyTransforms" class="method item private inherited">
+    <h3 class="name"><code>applyTransforms</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>data</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_applyTransforms">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l2797"><code>js\libs\ember-data.js:2797</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Given a subclass of <code>DS.Model</code> and a JSON object this method will
+iterate through each attribute of the <code>DS.Model</code> and invoke the
+<code>DS.Transform#deserialize</code> method on the matching property of the
+JSON object.  This method is typically called after the
+serializer's <code>normalize</code> method.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">data</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        The data to transform
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    data The transformed data object
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extract" class="method item inherited">
+    <h3 class="name"><code>extract</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extract">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3378"><code>js\libs\ember-data.js:3378</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        The <code>extract</code> method is used to deserialize payload data from the
+server. By default the <code>JSONSerializer</code> does not push the records
+into the store. However records that subclass <code>JSONSerializer</code>
+such as the <code>RESTSerializer</code> may push records into the store as
+part of the extract call.
+
+This method delegates to a more specific extract method based on
+the <code>requestType</code>.
+
+Example
+
+<code>&#x60;</code>javascript
+var get = Ember.get;
+socket.on('message', function(message) {
+  var modelName = message.model;
+  var data = message.data;
+  var type = store.modelFor(modelName);
+  var serializer = store.serializerFor(type.typeKey);
+  var record = serializer.extract(store, type, data, get(data, 'id'), 'single');
+  store.push(modelName, record);
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json The deserialized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractArray" class="method item inherited">
+    <h3 class="name"><code>extractArray</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>primaryType</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_extractArray">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l4051"><code>js\libs\ember-data.js:4051</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Called when the server has returned a payload representing
+multiple records, such as in response to a <code>findAll</code> or <code>findQuery</code>.
+
+It is your opportunity to clean up the server's response into the normalized
+form expected by Ember Data.
+
+If you want, you can just restructure the top-level of your payload, and
+do more fine-grained normalization in the <code>normalize</code> method.
+
+For example, if you have a payload like this in response to a request for
+all posts:
+
+<code>&#x60;</code>js
+{
+  "_embedded": {
+    "post": [{
+      "id": 1,
+      "title": "Rails is omakase"
+    }, {
+      "id": 2,
+      "title": "The Parley Letter"
+    }],
+    "comment": [{
+      "_id": 1,
+      "comment_title": "Rails is unagi"
+      "post_id": 1
+    }, {
+      "_id": 2,
+      "comment_title": "Don't tread on me",
+      "post_id": 2
+    }]
+  }
+}
+<code>&#x60;</code>
+
+You could implement a serializer that looks like this to get your payload
+into shape:
+
+<code>&#x60;</code>js
+App.PostSerializer = DS.RESTSerializer.extend({
+  // First, restructure the top-level so it's organized by type
+  // and the comments are listed under a post's <code>comments</code> key.
+  extractArray: function(store, type, payload) {
+    var posts = payload._embedded.post;
+    var comments = [];
+    var postCache = {};
+
+    posts.forEach(function(post) {
+      post.comments = [];
+      postCache[post.id] = post;
+    });
+
+    payload._embedded.comment.forEach(function(comment) {
+      comments.push(comment);
+      postCache[comment.post_id].comments.push(comment);
+      delete comment.post_id;
+    });
+
+    payload = { comments: comments, posts: payload };
+
+    return this._super(store, type, payload);
+  },
+
+  normalizeHash: {
+    // Next, normalize individual comments, which (after <code>extract</code>)
+    // are now located under <code>comments</code>
+    comments: function(hash) {
+      hash.id = hash._id;
+      hash.title = hash.comment_title;
+      delete hash._id;
+      delete hash.comment_title;
+      return hash;
+    }
+  }
+})
+<code>&#x60;</code>
+
+When you call super from your own implementation of <code>extractArray</code>, the
+built-in implementation will find the primary array in your normalized
+payload and push the remaining records into the store.
+
+The primary array is the array found under <code>posts</code>.
+
+The primary record has special meaning when responding to <code>findQuery</code>
+or <code>findHasMany</code>. In particular, the primary array will become the
+list of records in the record array that kicked off the request.
+
+If your primary array contains secondary (embedded) records of the same type,
+you cannot place these into the primary array <code>posts</code>. Instead, place the
+secondary items into an underscore prefixed property <code>_posts</code>, which will
+push these items into the store and will not affect the resulting query.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">primaryType</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    The primary array that was returned in response
+  to the original query.
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractCreateRecord" class="method item inherited">
+    <h3 class="name"><code>extractCreateRecord</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractCreateRecord">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3482"><code>js\libs\ember-data.js:3482</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractCreateRecord</code> is a hook into the extract method used when a
+call is made to <code>DS.Store#createRecord</code>. By default this method is
+alias for [extractSave](#method_extractSave).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json The deserialized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractDeleteRecord" class="method item inherited">
+    <h3 class="name"><code>extractDeleteRecord</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractDeleteRecord">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3514"><code>js\libs\ember-data.js:3514</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractDeleteRecord</code> is a hook into the extract method used when
+a call is made to <code>DS.Store#deleteRecord</code>. By default this method is
+alias for [extractSave](#method_extractSave).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json The deserialized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractFind" class="method item inherited">
+    <h3 class="name"><code>extractFind</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractFind">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3531"><code>js\libs\ember-data.js:3531</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractFind</code> is a hook into the extract method used when
+a call is made to <code>DS.Store#find</code>. By default this method is
+alias for [extractSingle](#method_extractSingle).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json The deserialized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractFindAll" class="method item inherited">
+    <h3 class="name"><code>extractFindAll</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractFindAll">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3417"><code>js\libs\ember-data.js:3417</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractFindAll</code> is a hook into the extract method used when a
+call is made to <code>DS.Store#findAll</code>. By default this method is an
+alias for [extractArray](#method_extractArray).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    array An array of deserialized objects
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractFindBelongsTo" class="method item inherited">
+    <h3 class="name"><code>extractFindBelongsTo</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractFindBelongsTo">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3547"><code>js\libs\ember-data.js:3547</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractFindBelongsTo</code> is a hook into the extract method used when
+a call is made to <code>DS.Store#findBelongsTo</code>. By default this method is
+alias for [extractSingle](#method_extractSingle).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json The deserialized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractFindHasMany" class="method item inherited">
+    <h3 class="name"><code>extractFindHasMany</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractFindHasMany">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3465"><code>js\libs\ember-data.js:3465</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractFindHasMany</code> is a hook into the extract method used when a
+call is made to <code>DS.Store#findHasMany</code>. By default this method is
+alias for [extractArray](#method_extractArray).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    array An array of deserialized objects
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractFindMany" class="method item inherited">
+    <h3 class="name"><code>extractFindMany</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractFindMany">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3449"><code>js\libs\ember-data.js:3449</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractFindMany</code> is a hook into the extract method used when a
+call is made to <code>DS.Store#findMany</code>. By default this method is
+alias for [extractArray](#method_extractArray).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    array An array of deserialized objects
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractFindQuery" class="method item inherited">
+    <h3 class="name"><code>extractFindQuery</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractFindQuery">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3433"><code>js\libs\ember-data.js:3433</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractFindQuery</code> is a hook into the extract method used when a
+call is made to <code>DS.Store#findQuery</code>. By default this method is an
+alias for [extractArray](#method_extractArray).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>:
+                    array An array of deserialized objects
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractMeta" class="method item inherited">
+    <h3 class="name"><code>extractMeta</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractMeta">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3643"><code>js\libs\ember-data.js:3643</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractMeta</code> is used to deserialize any meta information in the
+adapter payload. By default Ember Data expects meta information to
+be located on the <code>meta</code> property of the payload object.
+
+Example
+
+<code>&#x60;</code>javascript
+App.PostSerializer = DS.JSONSerializer.extend({
+  extractMeta: function(store, type, payload) {
+    if (payload && payload._pagination) {
+      store.metaForType(type, payload._pagination);
+      delete payload._pagination;
+    }
+  }
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_extractSave" class="method item inherited">
+    <h3 class="name"><code>extractSave</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractSave">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3563"><code>js\libs\ember-data.js:3563</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractSave</code> is a hook into the extract method used when a call
+is made to <code>DS.Model#save</code>. By default this method is alias
+for [extractSingle](#method_extractSingle).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json The deserialized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractSingle" class="method item inherited">
+    <h3 class="name"><code>extractSingle</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>primaryType</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>recordId</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_extractSingle">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l3926"><code>js\libs\ember-data.js:3926</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Called when the server has returned a payload representing
+a single record, such as in response to a <code>find</code> or <code>save</code>.
+
+It is your opportunity to clean up the server's response into the normalized
+form expected by Ember Data.
+
+If you want, you can just restructure the top-level of your payload, and
+do more fine-grained normalization in the <code>normalize</code> method.
+
+For example, if you have a payload like this in response to a request for
+post 1:
+
+<code>&#x60;</code>js
+{
+  "id": 1,
+  "title": "Rails is omakase",
+
+  "_embedded": {
+    "comment": [{
+      "_id": 1,
+      "comment_title": "FIRST"
+    }, {
+      "_id": 2,
+      "comment_title": "Rails is unagi"
+    }]
+  }
+}
+<code>&#x60;</code>
+
+You could implement a serializer that looks like this to get your payload
+into shape:
+
+<code>&#x60;</code>js
+App.PostSerializer = DS.RESTSerializer.extend({
+  // First, restructure the top-level so it's organized by type
+  extractSingle: function(store, type, payload, id) {
+    var comments = payload._embedded.comment;
+    delete payload._embedded;
+
+    payload = { comments: comments, post: payload };
+    return this._super(store, type, payload, id);
+  },
+
+  normalizeHash: {
+    // Next, normalize individual comments, which (after <code>extract</code>)
+    // are now located under <code>comments</code>
+    comments: function(hash) {
+      hash.id = hash._id;
+      hash.title = hash.comment_title;
+      delete hash._id;
+      delete hash.comment_title;
+      return hash;
+    }
+  }
+})
+<code>&#x60;</code>
+
+When you call super from your own implementation of <code>extractSingle</code>, the
+built-in implementation will find the primary record in your normalized
+payload and push the remaining records into the store.
+
+The primary record is the single hash found under <code>post</code> or the first
+element of the <code>posts</code> array.
+
+The primary record has special meaning when the record is being created
+for the first time or updated (<code>createRecord</code> or <code>updateRecord</code>). In
+particular, it will update the properties of the record that was saved.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">primaryType</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">recordId</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    the primary response to the original request
+            </div>
+        </div>
+
+
+</div>
+<div id="method_extractUpdateRecord" class="method item inherited">
+    <h3 class="name"><code>extractUpdateRecord</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+                <li class="arg">
+                        <code>id</code>
+                </li>
+                <li class="arg">
+                        <code>requestType</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_extractUpdateRecord">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3498"><code>js\libs\ember-data.js:3498</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>extractUpdateRecord</code> is a hook into the extract method used when
+a call is made to <code>DS.Store#update</code>. By default this method is alias
+for [extractSave](#method_extractSave).
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">id</code>
+                        <span class="type">String or Number</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">requestType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json The deserialized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_keyForAttribute" class="method item">
+    <h3 class="name"><code>keyForAttribute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>attribute</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_keyForAttribute">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l426"><code>js\libs\ember-data.js:426</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Converts camelCased attributes to underscored when serializing.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">attribute</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    <p>String</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_keyForRelationship" class="method item">
+    <h3 class="name"><code>keyForRelationship</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>kind</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_keyForRelationship">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l437"><code>js\libs\ember-data.js:437</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Underscores relationship names and appends &quot;_id&quot; or &quot;_ids&quot; when serializing
+relationship keys.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">kind</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    <p>String</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_normalize" class="method item">
+    <h3 class="name"><code>normalize</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>hash</code>
+                </li>
+                <li class="arg">
+                        <code>prop</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_normalize">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l498"><code>js\libs\ember-data.js:498</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Add extra step to <code>DS.RESTSerializer.normalize</code> so links are normalized.</p>
+<p>If your payload looks like:</p>
+<pre class="code prettyprint"><code class="language-js">{
+  &quot;post&quot;: {
+    &quot;id&quot;: 1,
+    &quot;title&quot;: &quot;Rails is omakase&quot;,
+    &quot;links&quot;: { &quot;flagged_comments&quot;: &quot;api/comments/flagged&quot; }
+  }
+}
+</code></pre>
+<p>The normalized version would look like this</p>
+<pre class="code prettyprint"><code class="language-js">{
+  &quot;post&quot;: {
+    &quot;id&quot;: 1,
+    &quot;title&quot;: &quot;Rails is omakase&quot;,
+    &quot;links&quot;: { &quot;flaggedComments&quot;: &quot;api/comments/flagged&quot; }
+  }
+}
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">hash</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">prop</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                    <p>Object</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_normalizeAttributes" class="method item private inherited">
+    <h3 class="name"><code>normalizeAttributes</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_normalizeAttributes">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l2892"><code>js\libs\ember-data.js:2892</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+<div id="method_normalizeId" class="method item private inherited">
+    <h3 class="name"><code>normalizeId</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_normalizeId">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l2950"><code>js\libs\ember-data.js:2950</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+<div id="method_normalizeLinks" class="method item">
+    <h3 class="name"><code>normalizeLinks</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>data</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-data.js.html#l538"><code>js\libs\ember-data.js:538</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Convert <code>snake_cased</code> links  to <code>camelCase</code></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">data</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_normalizePayload" class="method item inherited">
+    <h3 class="name"><code>normalizePayload</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_normalizePayload">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l2868"><code>js\libs\ember-data.js:2868</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        You can use this method to normalize all payloads, regardless of whether they
+represent single records or an array.
+
+For example, you might want to remove some extraneous data from the payload:
+
+<code>&#x60;</code>js
+App.ApplicationSerializer = DS.JSONSerializer.extend({
+  normalizePayload: function(payload) {
+    delete payload.version;
+    delete payload.status;
+    return payload;
+  }
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    the normalized payload
+            </div>
+        </div>
+
+
+</div>
+<div id="method_normalizeRelationships" class="method item private">
+    <h3 class="name"><code>normalizeRelationships</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_normalizeRelationships">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l560"><code>js\libs\ember-data.js:560</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Normalize the polymorphic type from the JSON.</p>
+<p>Normalize:</p>
+<pre class="code prettyprint"><code class="language-js">  {
+    id: &quot;1&quot;
+    minion: { type: &quot;evil_minion&quot;, id: &quot;12&quot;}
+  }
+</code></pre>
+<p>To:</p>
+<pre class="code prettyprint"><code class="language-js">  {
+    id: &quot;1&quot;
+    minion: { type: &quot;evilMinion&quot;, id: &quot;12&quot;}
+  }
+</code></pre>
+
+    </div>
+
+
+
+
+</div>
+<div id="method_normalizeUsingDeclaredMapping" class="method item private inherited">
+    <h3 class="name"><code>normalizeUsingDeclaredMapping</code></h3>
+
+        <span class="paren">()</span>
+
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_normalizeUsingDeclaredMapping">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l2930"><code>js\libs\ember-data.js:2930</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+
+
+
+</div>
+<div id="method_pushPayload" class="method item inherited">
+    <h3 class="name"><code>pushPayload</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>store</code>
+                </li>
+                <li class="arg">
+                        <code>payload</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.RESTSerializer.html#method_pushPayload">DS.RESTSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l4189"><code>js\libs\ember-data.js:4189</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        This method allows you to push a payload containing top-level
+collections of records organized per type.
+
+<code>&#x60;</code>js
+{
+  "posts": [{
+    "id": "1",
+    "title": "Rails is omakase",
+    "author", "1",
+    "comments": [ "1" ]
+  }],
+  "comments": [{
+    "id": "1",
+    "body": "FIRST"
+  }],
+  "users": [{
+    "id": "1",
+    "name": "@d2h"
+  }]
+}
+<code>&#x60;</code>
+
+It will first normalize the payload, so you can use this to push
+in data streaming in from your server structured the same way
+that fetches and saves are structured.
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">store</code>
+                        <span class="type"><a href="../classes/DS.Store.html" class="crosslink">DS.Store</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">payload</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_serialize" class="method item inherited">
+    <h3 class="name"><code>serialize</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_serialize">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l4290"><code>js\libs\ember-data.js:4290</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        Called when a record is saved in order to convert the
+record into JSON.
+
+By default, it creates a JSON object with a key for
+each attribute and belongsTo relationship.
+
+For example, consider this model:
+
+<code>&#x60;</code>js
+App.Comment = DS.Model.extend({
+  title: DS.attr(),
+  body: DS.attr(),
+
+  author: DS.belongsTo('user')
+});
+<code>&#x60;</code>
+
+The default serialization would create a JSON object like:
+
+<code>&#x60;</code>js
+{
+  "title": "Rails is unagi",
+  "body": "Rails? Omakase? O_O",
+  "author": 12
+}
+<code>&#x60;</code>
+
+By default, attributes are passed through as-is, unless
+you specified an attribute type (<code>DS.attr(&#x27;date&#x27;)</code>). If
+you specify a transform, the JavaScript value will be
+serialized when inserted into the JSON hash.
+
+By default, belongs-to relationships are converted into
+IDs when inserted into the JSON hash.
+
+## IDs
+
+<code>serialize</code> takes an options hash with a single option:
+<code>includeId</code>. If this option is <code>true</code>, <code>serialize</code> will,
+by default include the ID in the JSON object it builds.
+
+The adapter passes in <code>includeId: true</code> when serializing
+a record for <code>createRecord</code>, but not for <code>updateRecord</code>.
+
+## Customization
+
+Your server may expect a different JSON format than the
+built-in serialization format.
+
+In that case, you can implement <code>serialize</code> yourself and
+return a JSON hash of your choosing.
+
+<code>&#x60;</code>js
+App.PostSerializer = DS.RESTSerializer.extend({
+  serialize: function(post, options) {
+    var json = {
+      POST_TTL: post.get('title'),
+      POST_BDY: post.get('body'),
+      POST_CMS: post.get('comments').mapBy('id')
+    }
+
+    if (options.includeId) {
+      json.POST_ID_ = post.get('id');
+    }
+
+    return json;
+  }
+});
+<code>&#x60;</code>
+
+## Customizing an App-Wide Serializer
+
+If you want to define a serializer for your entire
+application, you'll probably want to use <code>eachAttribute</code>
+and <code>eachRelationship</code> on the record.
+
+<code>&#x60;</code>js
+App.ApplicationSerializer = DS.RESTSerializer.extend({
+  serialize: function(record, options) {
+    var json = {};
+
+    record.eachAttribute(function(name) {
+      json[serverAttributeName(name)] = record.get(name);
+    })
+
+    record.eachRelationship(function(name, relationship) {
+      if (relationship.kind === 'hasMany') {
+        json[serverHasManyName(name)] = record.get(name).mapBy('id');
+      }
+    });
+
+    if (options.includeId) {
+      json.ID_ = record.get('id');
+    }
+
+    return json;
+  }
+});
+
+function serverAttributeName(attribute) {
+  return attribute.underscore().toUpperCase();
+}
+
+function serverHasManyName(name) {
+  return serverAttributeName(name.singularize()) + "_IDS";
+}
+<code>&#x60;</code>
+
+This serializer will generate JSON that looks like this:
+
+<code>&#x60;</code>js
+{
+  "TITLE": "Rails is omakase",
+  "BODY": "Yep. Omakase.",
+  "COMMENT_IDS": [ 1, 2, 3 ]
+}
+<code>&#x60;</code>
+
+## Tweaking the Default JSON
+
+If you just want to do some small tweaks on the default JSON,
+you can call super first and make the tweaks on the returned
+JSON.
+
+<code>&#x60;</code>js
+App.PostSerializer = DS.RESTSerializer.extend({
+  serialize: function(record, options) {
+    var json = this._super(record, options);
+
+    json.subject = json.title;
+    delete json.title;
+
+    return json;
+  }
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>:
+                    json
+            </div>
+        </div>
+
+
+</div>
+<div id="method_serializeAttribute" class="method item inherited">
+    <h3 class="name"><code>serializeAttribute</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+                <li class="arg">
+                        <code>json</code>
+                </li>
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>attribute</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_serializeAttribute">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3203"><code>js\libs\ember-data.js:3203</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>serializeAttribute</code> can be used to customize how <code>DS.attr</code>
+properties are serialized
+
+For example if you wanted to ensure all your attributes were always
+serialized as properties on an <code>attributes</code> object you could
+write:
+
+<code>&#x60;</code>javascript
+App.ApplicationSerializer = DS.JSONSerializer.extend({
+  serializeAttribute: function(record, json, key, attributes) {
+    json.attributes = json.attributes || {};
+    this._super(record, json.attributes, key, attributes);
+  }
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="../classes/DS.Model.html" class="crosslink">DS.Model</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">json</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">attribute</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_serializeBelongsTo" class="method item inherited">
+    <h3 class="name"><code>serializeBelongsTo</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+                <li class="arg">
+                        <code>json</code>
+                </li>
+                <li class="arg">
+                        <code>relationship</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_serializeBelongsTo">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3248"><code>js\libs\ember-data.js:3248</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>serializeBelongsTo</code> can be used to customize how <code>DS.belongsTo</code>
+properties are serialized.
+
+Example
+
+<code>&#x60;</code>javascript
+App.PostSerializer = DS.JSONSerializer.extend({
+  serializeBelongsTo: function(record, json, relationship) {
+    var key = relationship.key;
+
+    var belongsTo = get(record, key);
+
+    key = this.keyForRelationship ? this.keyForRelationship(key, "belongsTo") : key;
+
+    json[key] = Ember.isNone(belongsTo) ? belongsTo : belongsTo.toJSON();
+  }
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="../classes/DS.Model.html" class="crosslink">DS.Model</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">json</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">relationship</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_serializeHasMany" class="method item inherited">
+    <h3 class="name"><code>serializeHasMany</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+                <li class="arg">
+                        <code>json</code>
+                </li>
+                <li class="arg">
+                        <code>relationship</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_serializeHasMany">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3299"><code>js\libs\ember-data.js:3299</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <code>serializeHasMany</code> can be used to customize how <code>DS.hasMany</code>
+properties are serialized.
+
+Example
+
+<code>&#x60;</code>javascript
+App.PostSerializer = DS.JSONSerializer.extend({
+  serializeHasMany: function(record, json, relationship) {
+    var key = relationship.key;
+    if (key === 'comments') {
+      return;
+    } else {
+      this._super.apply(this, arguments);
+    }
+  }
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="../classes/DS.Model.html" class="crosslink">DS.Model</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">json</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">relationship</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_serializeIntoHash" class="method item">
+    <h3 class="name"><code>serializeIntoHash</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>hash</code>
+                </li>
+                <li class="arg">
+                        <code>type</code>
+                </li>
+                <li class="arg">
+                        <code>record</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_serializeIntoHash">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l462"><code>js\libs\ember-data.js:462</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Underscores the JSON root keys when serializing.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">hash</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">type</code>
+                        <span class="type">subclass of DS.Model</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="../classes/DS.Model.html" class="crosslink">DS.Model</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_serializePolymorphicType" class="method item">
+    <h3 class="name"><code>serializePolymorphicType</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>record</code>
+                </li>
+                <li class="arg">
+                        <code>json</code>
+                </li>
+                <li class="arg">
+                        <code>relationship</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+            <p>Inherited from
+            <a href="../classes/DS.JSONSerializer.html#method_serializePolymorphicType">
+                DS.JSONSerializer
+            </a>
+            but overwritten in
+        <a href="../files/js_libs_ember-data.js.html#l476"><code>js\libs\ember-data.js:476</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Serializes a polymorphic type as a fully capitalized model name.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">record</code>
+                        <span class="type"><a href="../classes/DS.Model.html" class="crosslink">DS.Model</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">json</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">relationship</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_transformFor" class="method item private inherited">
+    <h3 class="name"><code>transformFor</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>attributeType</code>
+                </li>
+                <li class="arg">
+                        <code>skipAssertion</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/DS.Transform.html" class="crosslink">DS.Transform</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.JSONSerializer.html#method_transformFor">DS.JSONSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l3722"><code>js\libs\ember-data.js:3722</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">attributeType</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">skipAssertion</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/DS.Transform.html" class="crosslink">DS.Transform</a></span>:
+                    transform
+            </div>
+        </div>
+
+
+</div>
+<div id="method_typeForRoot" class="method item inherited">
+    <h3 class="name"><code>typeForRoot</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>Inherited from
+                <a href="../classes/DS.RESTSerializer.html#method_typeForRoot">DS.RESTSerializer</a>:
+        <a href="../files/js_libs_ember-data.js.html#l4241"><code>js\libs\ember-data.js:4241</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        This method is used to convert each JSON root key in the payload
+into a typeKey that it can use to look up the appropriate model for
+that part of the payload. By default the typeKey for a model is its
+name in camelCase, so if your JSON root key is 'fast-car' you would
+use typeForRoot to convert it to 'fastCar' so that Ember Data finds
+the <code>FastCar</code> model.
+
+If you diverge from this norm you should also consider changes to
+store._normalizeTypeKey as well.
+
+For example, your server may return prefixed root keys like so:
+
+<code>&#x60;</code>js
+{
+  "response-fast-car": {
+    "id": "1",
+    "name": "corvette"
+  }
+}
+<code>&#x60;</code>
+
+In order for Ember Data to know that the model corresponding to
+the 'response-fast-car' hash is <code>FastCar</code> (typeKey: 'fastCar'),
+you can override typeForRoot to convert 'response-fast-car' to
+'fastCar' like so:
+
+<code>&#x60;</code>js
+App.ApplicationSerializer = DS.RESTSerializer.extend({
+  typeForRoot: function(root) {
+    // 'response-fast-car' should become 'fast-car'
+    var subRoot = root.substring(9);
+
+    // _super normalizes 'fast-car' to 'fastCar'
+    return this._super(subRoot);
+  }
+});
+<code>&#x60;</code>
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    the model's typeKey
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                    <div id="property_attrs" class="property item inherited">
+                        <h3 class="name"><code>attrs</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/DS.JSONSerializer.html#property_attrs">DS.JSONSerializer</a>:
+                            <a href="../files/js_libs_ember-data.js.html#l2744"><code>js\libs\ember-data.js:2744</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            The <code>attrs</code> object can be used to declare a simple mapping between
+                    property names on <code>DS.Model</code> records and payload keys in the
+                    serialized JSON object representing the record. An object with the
+                    property <code>key</code> can also be used to designate the attribute's key on
+                    the response payload.
+                    
+                    Example
+                    
+                    <code>&#x60;</code>javascript
+                    App.Person = DS.Model.extend({
+                      firstName: DS.attr('string'),
+                      lastName: DS.attr('string'),
+                      occupation: DS.attr('string'),
+                      admin: DS.attr('boolean')
+                    });
+                    
+                    App.PersonSerializer = DS.JSONSerializer.extend({
+                      attrs: {
+                        admin: 'is_admin',
+                        occupation: {key: 'career'}
+                      }
+                    });
+                    <code>&#x60;</code>
+                    
+                    You can also remove attributes by setting the <code>serialize</code> key to
+                    false in your mapping object.
+                    
+                    Example
+                    
+                    <code>&#x60;</code>javascript
+                    App.PersonSerializer = DS.JSONSerializer.extend({
+                      attrs: {
+                        admin: {serialize: false},
+                        occupation: {key: 'career'}
+                      }
+                    });
+                    <code>&#x60;</code>
+                    
+                    When serialized:
+                    
+                    <code>&#x60;</code>javascript
+                    {
+                      "career": "magician"
+                    }
+                    <code>&#x60;</code>
+                    
+                    Note that the <code>admin</code> is now not included in the payload.
+                        </div>
+                    
+                    
+                    
+                    </div>
+                    <div id="property_normalizeHash" class="property item inherited">
+                        <h3 class="name"><code>normalizeHash</code></h3>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/DS.RESTSerializer.html#property_normalizeHash">DS.RESTSerializer</a>:
+                            <a href="../files/js_libs_ember-data.js.html#l3797"><code>js\libs\ember-data.js:3797</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            If you want to do normalizations specific to some part of the payload, you
+                    can specify those under <code>normalizeHash</code>.
+                    
+                    For example, given the following json where the the <code>IDs</code> under
+                    <code>&quot;comments&quot;</code> are provided as <code>_id</code> instead of <code>id</code>.
+                    
+                    <code>&#x60;</code>javascript
+                    {
+                      "post": {
+                        "id": 1,
+                        "title": "Rails is omakase",
+                        "comments": [ 1, 2 ]
+                      },
+                      "comments": [{
+                        "_id": 1,
+                        "body": "FIRST"
+                      }, {
+                        "_id": 2,
+                        "body": "Rails is unagi"
+                      }]
+                    }
+                    <code>&#x60;</code>
+                    
+                    You use <code>normalizeHash</code> to normalize just the comments:
+                    
+                    <code>&#x60;</code>javascript
+                    App.PostSerializer = DS.RESTSerializer.extend({
+                      normalizeHash: {
+                        comments: function(hash) {
+                          hash.id = hash._id;
+                          delete hash._id;
+                          return hash;
+                        }
+                      }
+                    });
+                    <code>&#x60;</code>
+                    
+                    The key under <code>normalizeHash</code> is usually just the original key
+                    that was in the original payload. However, key names will be
+                    impacted by any modifications done in the <code>normalizePayload</code>
+                    method. The <code>DS.RESTSerializer</code>'s default implementation makes no
+                    changes to the payload keys.
+                        </div>
+                    
+                            <p><strong>Default:</strong> undefined</p>
+                    
+                    
+                    </div>
+                    <div id="property_primaryKey" class="property item inherited">
+                        <h3 class="name"><code>primaryKey</code></h3>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+                    
+                    
+                    
+                    
+                    
+                        <div class="meta">
+                                    <p>Inherited from
+                                    <a href="../classes/DS.JSONSerializer.html#property_primaryKey">DS.JSONSerializer</a>:
+                            <a href="../files/js_libs_ember-data.js.html#l2722"><code>js\libs\ember-data.js:2722</code></a>
+                            </p>
+                    
+                    
+                        </div>
+                    
+                        <div class="description">
+                            The primaryKey is used when serializing and deserializing
+                    data. Ember Data always uses the <code>id</code> property to store the id of
+                    the record. The external source may not always follow this
+                    convention. In these cases it is useful to override the
+                    primaryKey property to match the primaryKey of your external
+                    store.
+                    
+                    Example
+                    
+                    <code>&#x60;</code>javascript
+                    App.ApplicationSerializer = DS.JSONSerializer.extend({
+                      primaryKey: '_id'
+                    });
+                    <code>&#x60;</code>
+                        </div>
+                    
+                            <p><strong>Default:</strong> &#x27;id&#x27;</p>
+                    
+                    
+                    </div>
+            </div>
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

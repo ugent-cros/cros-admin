@@ -22,19 +22,32 @@ App.DroneRoute = App.PopupRoute.extend({
 
     renderTemplate: function() {
         this._super('drone', 'drones');
+    }
+});
+
+App.ManualControlRoute = App.PopupRoute.extend({
+    controllerName: 'manual',
+
+    setupController: function(controller, model) {
+        this._super(controller,model);
+    },
+
+    model: function(params) {
+        var self = this;
+        return this.fetch({store:'drone', id: params.drone_id});
+    },
+
+    renderTemplate: function() {
+        this._super('manualControl', 'drones');
     },
 
     actions : {
-        willTransition : function() {
-            if (this.get("currentModel.status") !== this.get("controller.originalDroneStatus")) {
-                this.set("currentModel.status", this.get("controller.originalDroneStatus"));
-                this.adapter.edit('drone', this.get("currentModel.id"), {drone : this.get("currentModel")});
+        willTransition : function(transition) {
+            if (this.get("controller").beforeClose()) {
+                return true;
+            } else {
+                transition.abort();
             }
-
-            if (this.get("controller.streamingVideo"))
-                this.get("controller").closeStream();
-
-            this.set("controller.originalDroneStatus", undefined);
         }
     }
 });

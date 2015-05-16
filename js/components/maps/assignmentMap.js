@@ -2,8 +2,26 @@
  * Created by matthias on 3/04/2015.
  */
 
+/**
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
+ * This map is intended to display assignments.
+ *
+ * @class AssignmentMapComponent
+ * @namespace App
+ * @constructor
+ * @extends App.PopupMapComponent
+ */
 App.AssignmentMapComponent = App.PopupMapComponent.extend({
 
+    /**
+     * The icon to use for checkpoint markers.
+     * @private
+     * @property icon {L.Icon}
+     */
     icon : L.icon({
         iconUrl: 'img/checkpointMarker.png',
         shadowUrl: 'img/marker-shadow.png',
@@ -14,6 +32,12 @@ App.AssignmentMapComponent = App.PopupMapComponent.extend({
         shadowAnchor: [0 , 0 ],  // the same for the shadow
         popupAnchor:  [0,  0 ] // point from which the popup should open relative to the iconAnchor
     }),
+
+    /**
+     * The icon to use for drone markers
+     * @private
+     * @property droneIcon {L.Icon}
+     */
     droneIcon : L.icon({
         iconUrl: 'img/droneMarker.png',
         shadowUrl: 'img/marker-shadow.png',
@@ -24,8 +48,19 @@ App.AssignmentMapComponent = App.PopupMapComponent.extend({
         shadowAnchor: [0 , 0 ],  // the same for the shadow
         popupAnchor:  [0,  0 ] // point from which the popup should open relative to the iconAnchor
     }),
+    /**
+     * The line that connects all the checkpoints
+     * @private
+     * @property polyline {L.Polyline}
+     */
     polyline : null,
 
+    /**
+     * This method will initialize the functionalities of this map.
+     *
+     * @protected
+     * @method initialization
+     */
     initialization : function(){
         this._super();
         this.updatepolyLine();
@@ -39,6 +74,12 @@ App.AssignmentMapComponent = App.PopupMapComponent.extend({
         this.addObserver('droneLocation.lat',this,this.updateMap);
     },
 
+    /**
+     * This method will update the polyline if any of the markers were changed.
+     *
+     * @protected
+     * @method updatepolyLine
+     */
     updatepolyLine : function() {
         if (this.get("polyline")) {
             var pos = this.get("polyline").getLatLngs();
