@@ -3,7 +3,8 @@
         "name": "The cros-admin API",
         "description": "The cros-admin API, The classes consist of an application to administrate the cros-core functionalities.",
         "version": "1.0.0",
-        "url": "http://example.com/"
+        "url": "http://example.com/",
+        "logo": "../img/logoWithText_small.png"
     },
     "files": {
         "js\\components\\charts\\lineChart.js": {
@@ -188,7 +189,9 @@
         "js\\authManager.js": {
             "name": "js\\authManager.js",
             "modules": {},
-            "classes": {},
+            "classes": {
+                "AuthManager": 1
+            },
             "fors": {},
             "namespaces": {}
         },
@@ -208,13 +211,22 @@
             "submodules": {},
             "classes": {
                 "CustomAdapter": 1,
+<<<<<<< HEAD
                 "SocketManager": 1
+=======
+                "AuthManager": 1
+>>>>>>> dev
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
+<<<<<<< HEAD
             "file": "js\\socketmanager.js",
             "line": 5
+=======
+            "file": "js\\authManager.js",
+            "line": 9
+>>>>>>> dev
         }
     },
     "classes": {
@@ -234,9 +246,15 @@
             "is_constructor": 1,
             "extends": "DS.RESTAdapter"
         },
+<<<<<<< HEAD
         "SocketManager": {
             "name": "SocketManager",
             "shortname": "SocketManager",
+=======
+        "AuthManager": {
+            "name": "AuthManager",
+            "shortname": "AuthManager",
+>>>>>>> dev
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -244,9 +262,15 @@
             "extension_for": [],
             "module": "cros-admin",
             "namespace": "",
+<<<<<<< HEAD
             "file": "js\\socketmanager.js",
             "line": 5,
             "description": "This class will manage the connection with a socketmanager and the incomming data.\nFor now this socketManager does not support sending data over the websocket to the server. Data can only be received.\nThe socketmanager will connect to the websocket, it will try to reconnect to the socket automatically.\nIt will also inform listeners of new messages arriving.",
+=======
+            "file": "js\\authManager.js",
+            "line": 9,
+            "description": "This class will manage the authentication with the REST-API. This consists of keeping track of the authentication token,\nthe cookie with the authentication token, the current user,...",
+>>>>>>> dev
             "is_constructor": 1,
             "extends": "Ember.Object"
         }
@@ -499,7 +523,18 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 67,
+            "line": 66,
+            "description": "This function will clear all links from the linkLibrary",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "clearLinks",
+            "class": "CustomAdapter",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\adapter.js",
+            "line": 76,
             "description": "This property contains all the headers that should be sent with every request.\nThis now only contains the correct authentication token for the REST-API.",
             "access": "private",
             "tagname": "",
@@ -511,7 +546,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 80,
+            "line": 89,
             "description": "This function will process a received links object and enter the links in the {{#crossLink \"CustomAdapter/linkLibrary:property\"}}{{/crossLink}}.\nThis is done by iterating over the links available and inserting them with the correct key (based on the provided root).",
             "access": "private",
             "tagname": "",
@@ -532,7 +567,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 104,
+            "line": 113,
             "description": "This function will search through the response json and search for objects with key {{#crossLink \"CustomAdapter/linksKey:property\"}}{{/crossLink}}.\nFor each object it finds, it will call {{#crossLink \"CustomAdapter/insertLinks:method\"}}{{/crossLink}} so that the contained links are added to the linkLibrary.\n\nIn current version the home link is treated separately. Since the links in the root of this specific REST-API are not contained within a linkskey object,\nthey are just added to the linkLibrary directly.",
             "access": "private",
             "tagname": "",
@@ -553,7 +588,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 138,
+            "line": 147,
             "description": "Progress of an ajax call can be tracked with nProgress library.\nStarting this tracking can be done with this function.",
             "access": "private",
             "tagname": "",
@@ -568,7 +603,7 @@
         },
         {
             "file": "js\\adapter.js",
-            "line": 167,
+            "line": 176,
             "description": "When any request made by the adapter fails, this function is called. It will do necessary checks of the errorstatus and\nthe error response. If necessary, the adapter will call the logout functionality of the authManager.",
             "access": "private",
             "tagname": "",
@@ -589,7 +624,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 192,
+=======
+            "line": 201,
+>>>>>>> dev
             "description": "This method will fetch any missing links in the linklibrary. It will call ajax and use {{#crossLink \"CustomAdapter/processLinks:method\"}}{{/crossLink}}\nto update the linksLibrary.",
             "access": "private",
             "tagname": "",
@@ -614,7 +653,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 209,
+=======
+            "line": 218,
+>>>>>>> dev
             "description": "This function will return the correct url based on key parameters. This function has two part:\n     1) Using the input parameters, the correct key is assembled. This is done by concatenating\n        the the input parameters, separated with the specified {{#crossLink \"CustomAdapter/delimiter:property}}{{/crossLink}}.\n     2) Once the key has been constructed, the function will check whether or not this key is available in the linkLibrary. If not\n        it will recursively remove one part of the key (based on de delimiter) and check whether this key is available. It continues untill\n        a link is found or until no key is left (if this is the case, the home link will be fetched).\n        This implies that every url (linked to key 'k') should reply with links to all possible keys 'k' + delimiter + 't' (where 't' are all possible key parts after 'k').",
             "access": "private",
             "tagname": "",
@@ -643,7 +686,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 269,
+=======
+            "line": 278,
+>>>>>>> dev
             "description": "This function has the same functionality as {{#crossLink \"CustomAdapter/resolveLinkInner:method\"}}{{/crossLink}}. However, this method will chain\nthis call to any ongoing requests. This is necessary, if any of the previous requests is retrieving a link used in this function.",
             "access": "public",
             "tagname": "",
@@ -672,7 +719,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 291,
+=======
+            "line": 300,
+>>>>>>> dev
             "description": "This function will execute the actual ajax call. It uses the functionality of jquery. For more explanation please checkout their documentation pages.\nThis function will set all properties in the ajax call. Extra properties can be given via the options paramter.",
             "access": "private",
             "tagname": "",
@@ -701,7 +752,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 322,
+=======
+            "line": 331,
+>>>>>>> dev
             "description": "The current promise being handled. If null, no request is busy.",
             "access": "private",
             "tagname": "",
@@ -713,7 +768,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 330,
+=======
+            "line": 339,
+>>>>>>> dev
             "description": "This function will resolve any request to the backend REST-api.\nIt will first resolve the link based on the input parameters (using {{#crossLink \"CustomAdapter/resolveLink:method\"}}{{/crossLink}}).\nUsing the correct link it will do a jquery ajax call (using {{#crossLink \"CustomAdapter/ajax:method\"}}{{/crossLink}}).\nFinally any links contained in the response data will be processed (using {{#crossLink \"CustomAdapter/processLinks:method\"}}{{/crossLink}}).\nThis function assumes all REST-calls return an object with root element \"store\". This root element will be removed from the returned value.\nAlso if the result contains multiple elements, this should be contained within an array with key \"resource\".\n\nNote: This request will be chained to any previous ongoing requests. Also, this request will be set as the new {{#crossLink \"CustomAdapter/currentRequest:property\"}}{{/crossLink}}.",
             "access": "public",
             "tagname": "",
@@ -746,7 +805,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 378,
+=======
+            "line": 387,
+>>>>>>> dev
             "description": "This function will execute any post requests to the REST-API.",
             "access": "public",
             "tagname": "",
@@ -771,7 +834,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 397,
+=======
+            "line": 406,
+>>>>>>> dev
             "description": "This function will execute a PUT request to the REST-API.",
             "access": "public",
             "tagname": "",
@@ -800,7 +867,11 @@
         },
         {
             "file": "js\\adapter.js",
+<<<<<<< HEAD
             "line": 416,
+=======
+            "line": 425,
+>>>>>>> dev
             "description": "The function will execute a DELETE request to the REST-API.",
             "access": "public",
             "tagname": "",
@@ -827,6 +898,7 @@
             "file": "js\\authManager.js",
             "line": 1,
             "description": "Created by matthias on 30/03/2015.",
+<<<<<<< HEAD
             "class": "SocketManager",
             "module": "cros-admin"
         },
@@ -1031,20 +1103,162 @@
                 }
             ],
             "class": "SocketManager",
+=======
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 19,
+            "description": "Is the name of the cookie in which the current authentication token will be stored.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "cookieName",
+            "type": "String",
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 26,
+            "description": "After login, the user will be redirected to this route.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "redirectRoute",
+            "type": "String",
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 33,
+            "description": "The token which is used to authenticate all calls to the REST-API.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "authToken",
+            "type": "String",
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 40,
+            "description": "Contains the current logged in user.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "_private_user",
+            "type": "Object",
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 47,
+            "description": "Contains the current logged in user.\nIf no user information is available, this will be fetched by from the REST-API.\nIf you observe this property, it will automatically update when the user information is available.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "user",
+            "type": "Object",
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 61,
+            "description": "Whether or not a user is logged in.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "isLoggedIn",
+            "type": "Boolean",
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 71,
+            "description": "Removes any data from this class. Will also clear the linkLibrary from the adapter",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "logout",
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 84,
+            "description": "Will process the login. It will store the correct authentication token  and fetch the user info.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "login",
+            "params": [
+                {
+                    "name": "email",
+                    "description": "the email address of the user"
+                },
+                {
+                    "name": "password",
+                    "description": "the password of the user"
+                }
+            ],
+            "return": {
+                "description": "When this promise resolves, the user info will be available and the authentication token will be stored.",
+                "type": "Promise"
+            },
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 104,
+            "description": "Get the user information from the REST-API.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "fetchUserInfo",
+            "return": {
+                "description": "When this promise resolves, the user information will be fetched.",
+                "type": "Promise"
+            },
+            "class": "AuthManager",
+            "module": "cros-admin"
+        },
+        {
+            "file": "js\\authManager.js",
+            "line": 118,
+            "description": "This will return the authentication token.\nIf it is not available in memory it will be fetched from the cookie.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "",
+            "return": {
+                "description": "Authentication token",
+                "type": "String"
+            },
+            "class": "AuthManager",
+>>>>>>> dev
             "module": "cros-admin"
         }
     ],
     "warnings": [
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:138"
+            "line": " js\\adapter.js:147"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " js\\adapter.js:167"
+            "line": " js\\adapter.js:176"
         },
         {
             "message": "replacing incorrect tag: returns with return",
+<<<<<<< HEAD
             "line": " js\\adapter.js:192"
         },
         {
@@ -1074,6 +1288,49 @@
         {
             "message": "replacing incorrect tag: returns with return",
             "line": " js\\adapter.js:416"
+=======
+            "line": " js\\adapter.js:201"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:218"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:278"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:300"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:339"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:387"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:406"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\adapter.js:425"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\authManager.js:84"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\authManager.js:104"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " js\\authManager.js:118"
+>>>>>>> dev
         },
         {
             "message": "Missing item type\nCreated by Eveline on 21/04/2015.",
