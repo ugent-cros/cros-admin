@@ -1,4 +1,9 @@
 /**
+ * @module cros-admin
+ * @submodule controllers
+ */
+
+/**
  * This will create a new controller for a list of assingments
  * @class AssignmentsController
  * @constructor

@@ -1,3 +1,14 @@
+/**
+ * @module cros-admin
+ * @submodule controllers
+ */
+
+/**
+ * This will create a new controller for a drone object
+ * @class DroneController
+ * @constructor
+ * @extends ObjectController
+ */
 App.DroneController = Ember.ObjectController.extend({
   
 	battery : "N/A",

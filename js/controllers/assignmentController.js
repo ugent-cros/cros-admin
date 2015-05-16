@@ -1,11 +1,14 @@
 /**
- * Created by matthias on 4/04/2015.
+ * @module cros-admin
+ * @submodule controllers
  */
 
 /**
- * Created by matthias on 3/04/2015.
+ * This will create a new controller for a assignment object
+ * @class AssignmentController
+ * @constructor
+ * @extends Controller
  */
-
 App.AssignmentController = Ember.Controller.extend({
 	
 	init : function() {

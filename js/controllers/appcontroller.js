@@ -1,5 +1,6 @@
 /**
- * Created by matthias on 30/03/2015.
+ * @module cros-admin
+ * @submodule controllers
  */
 
 App.AppController = Ember.Controller.extend({

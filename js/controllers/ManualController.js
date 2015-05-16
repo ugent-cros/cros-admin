@@ -1,5 +1,6 @@
 /**
- * Created by matthias on 10/05/2015.
+ * @module cros-admin
+ * @submodule controllers
  */
 
 App.ManualController = Ember.ObjectController.extend({

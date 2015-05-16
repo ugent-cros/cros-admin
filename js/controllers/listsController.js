@@ -1,4 +1,9 @@
 /**
+ * @module cros-admin
+ * @submodule controllers
+ */
+
+/**
  * This will create a new list controller
  * @class ListSuperController
  * @constructor

@@ -1,5 +1,13 @@
 /**
- * Created by Eveline on 9/04/2015.
+ * @module cros-admin
+ * @submodule controllers
+ */
+
+/**
+ * This will create a new controller for a user object
+ * @class UserController
+ * @constructor
+ * @extends ObjectController
  */
 App.UserController = Ember.ObjectController.extend({
 

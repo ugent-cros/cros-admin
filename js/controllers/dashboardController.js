@@ -1,5 +1,6 @@
 /**
- * Created by matthias on 14/04/2015.
+ * @module cros-admin
+ * @submodule controllers
  */
 
 App.DashboardController = Ember.Controller.extend({

@@ -1,7 +1,14 @@
 /**
- * Created by matthias on 3/04/2015.
+ * @module cros-admin
+ * @submodule controllers
  */
 
+/**
+ * This will create a new controller for a basestation object
+ * @class BasestationController
+ * @constructor
+ * @extends Controller
+ */
 App.BasestationController = Ember.Controller.extend({
 
     basestationLocation : function() {

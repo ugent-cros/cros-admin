@@ -1,3 +1,8 @@
+/**
+ * @module cros-admin
+ * @submodule controllers
+ */
+
 App.LoginController = Ember.Controller.extend({
   
 	emailError : "",
