@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>RSVP.Promise - The cros-admin API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The cros-admin API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Backburner.html">Backburner</a></li>
+                                <li><a href="../classes/DAG.html">DAG</a></li>
+                                <li><a href="../classes/DS.html">DS</a></li>
+                                <li><a href="../classes/DS.ActiveModelAdapter.html">DS.ActiveModelAdapter</a></li>
+                                <li><a href="../classes/DS.ActiveModelSerializer.html">DS.ActiveModelSerializer</a></li>
+                                <li><a href="../classes/DS.Adapter.html">DS.Adapter</a></li>
+                                <li><a href="../classes/DS.AdapterPopulatedRecordArray.html">DS.AdapterPopulatedRecordArray</a></li>
+                                <li><a href="../classes/DS.BooleanTransform.html">DS.BooleanTransform</a></li>
+                                <li><a href="../classes/DS.ContainerProxy.html">DS.ContainerProxy</a></li>
+                                <li><a href="../classes/DS.DateTransform.html">DS.DateTransform</a></li>
+                                <li><a href="../classes/DS.DebugAdapter.html">DS.DebugAdapter</a></li>
+                                <li><a href="../classes/DS.EmbeddedRecordsMixin.html">DS.EmbeddedRecordsMixin</a></li>
+                                <li><a href="../classes/DS.Errors.html">DS.Errors</a></li>
+                                <li><a href="../classes/DS.FilteredRecordArray.html">DS.FilteredRecordArray</a></li>
+                                <li><a href="../classes/DS.FixtureAdapter.html">DS.FixtureAdapter</a></li>
+                                <li><a href="../classes/DS.InvalidError.html">DS.InvalidError</a></li>
+                                <li><a href="../classes/DS.JSONSerializer.html">DS.JSONSerializer</a></li>
+                                <li><a href="../classes/DS.ManyArray.html">DS.ManyArray</a></li>
+                                <li><a href="../classes/DS.Model.html">DS.Model</a></li>
+                                <li><a href="../classes/DS.NumberTransform.html">DS.NumberTransform</a></li>
+                                <li><a href="../classes/DS.PromiseArray.html">DS.PromiseArray</a></li>
+                                <li><a href="../classes/DS.PromiseObject.html">DS.PromiseObject</a></li>
+                                <li><a href="../classes/DS.RecordArray.html">DS.RecordArray</a></li>
+                                <li><a href="../classes/DS.RecordArrayManager.html">DS.RecordArrayManager</a></li>
+                                <li><a href="../classes/DS.RESTAdapter.html">DS.RESTAdapter</a></li>
+                                <li><a href="../classes/DS.RESTSerializer.html">DS.RESTSerializer</a></li>
+                                <li><a href="../classes/DS.RootState.html">DS.RootState</a></li>
+                                <li><a href="../classes/DS.Store.html">DS.Store</a></li>
+                                <li><a href="../classes/DS.StringTransform.html">DS.StringTransform</a></li>
+                                <li><a href="../classes/DS.Transform.html">DS.Transform</a></li>
+                                <li><a href="../classes/Ember.html">Ember</a></li>
+                                <li><a href="../classes/Ember._BoundView.html">Ember._BoundView</a></li>
+                                <li><a href="../classes/Ember._Metamorph.html">Ember._Metamorph</a></li>
+                                <li><a href="../classes/Ember._MetamorphView.html">Ember._MetamorphView</a></li>
+                                <li><a href="../classes/Ember._SimpleMetamorphView.html">Ember._SimpleMetamorphView</a></li>
+                                <li><a href="../classes/Ember.ActionHandler.html">Ember.ActionHandler</a></li>
+                                <li><a href="../classes/Ember.Application.html">Ember.Application</a></li>
+                                <li><a href="../classes/Ember.Array.html">Ember.Array</a></li>
+                                <li><a href="../classes/Ember.ArrayController.html">Ember.ArrayController</a></li>
+                                <li><a href="../classes/Ember.ArrayProxy.html">Ember.ArrayProxy</a></li>
+                                <li><a href="../classes/Ember.AutoLocation.html">Ember.AutoLocation</a></li>
+                                <li><a href="../classes/Ember.Binding.html">Ember.Binding</a></li>
+                                <li><a href="../classes/Ember.Checkbox.html">Ember.Checkbox</a></li>
+                                <li><a href="../classes/Ember.CollectionView.html">Ember.CollectionView</a></li>
+                                <li><a href="../classes/Ember.Comparable.html">Ember.Comparable</a></li>
+                                <li><a href="../classes/Ember.Component.html">Ember.Component</a></li>
+                                <li><a href="../classes/Ember.ComponentTemplateDeprecation.html">Ember.ComponentTemplateDeprecation</a></li>
+                                <li><a href="../classes/Ember.ComputedProperty.html">Ember.ComputedProperty</a></li>
+                                <li><a href="../classes/Ember.ContainerDebugAdapter.html">Ember.ContainerDebugAdapter</a></li>
+                                <li><a href="../classes/Ember.ContainerView.html">Ember.ContainerView</a></li>
+                                <li><a href="../classes/Ember.Controller.html">Ember.Controller</a></li>
+                                <li><a href="../classes/Ember.ControllerContentModelAliasDeprecation.html">Ember.ControllerContentModelAliasDeprecation</a></li>
+                                <li><a href="../classes/Ember.ControllerMixin.html">Ember.ControllerMixin</a></li>
+                                <li><a href="../classes/Ember.Copyable.html">Ember.Copyable</a></li>
+                                <li><a href="../classes/Ember.CoreObject.html">Ember.CoreObject</a></li>
+                                <li><a href="../classes/Ember.CoreView.html">Ember.CoreView</a></li>
+                                <li><a href="../classes/Ember.DataAdapter.html">Ember.DataAdapter</a></li>
+                                <li><a href="../classes/Ember.Date.html">Ember.Date</a></li>
+                                <li><a href="../classes/Ember.DefaultResolver.html">Ember.DefaultResolver</a></li>
+                                <li><a href="../classes/Ember.Deferred.html">Ember.Deferred</a></li>
+                                <li><a href="../classes/Ember.Descriptor.html">Ember.Descriptor</a></li>
+                                <li><a href="../classes/Ember.EachProxy.html">Ember.EachProxy</a></li>
+                                <li><a href="../classes/Ember.Ember.html">Ember.Ember</a></li>
+                                <li><a href="../classes/Ember.Enumerable.html">Ember.Enumerable</a></li>
+                                <li><a href="../classes/Ember.EnumerableUtils.html">Ember.EnumerableUtils</a></li>
+                                <li><a href="../classes/Ember.Error.html">Ember.Error</a></li>
+                                <li><a href="../classes/Ember.EventDispatcher.html">Ember.EventDispatcher</a></li>
+                                <li><a href="../classes/Ember.Evented.html">Ember.Evented</a></li>
+                                <li><a href="../classes/Ember.FEATURES.html">Ember.FEATURES</a></li>
+                                <li><a href="../classes/Ember.Freezable.html">Ember.Freezable</a></li>
+                                <li><a href="../classes/Ember.Handlebars.html">Ember.Handlebars</a></li>
+                                <li><a href="../classes/Ember.Handlebars.helpers.html">Ember.Handlebars.helpers</a></li>
+                                <li><a href="../classes/Ember.HashLocation.html">Ember.HashLocation</a></li>
+                                <li><a href="../classes/Ember.HistoryLocation.html">Ember.HistoryLocation</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.html">Ember.HTMLBars</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.Helper.html">Ember.HTMLBars.Helper</a></li>
+                                <li><a href="../classes/Ember.Inflector.html">Ember.Inflector</a></li>
+                                <li><a href="../classes/Ember.inject.html">Ember.inject</a></li>
+                                <li><a href="../classes/Ember.InjectedProperty.html">Ember.InjectedProperty</a></li>
+                                <li><a href="../classes/Ember.Instrumentation.html">Ember.Instrumentation</a></li>
+                                <li><a href="../classes/Ember.LinkView.html">Ember.LinkView</a></li>
+                                <li><a href="../classes/Ember.Location.html">Ember.Location</a></li>
+                                <li><a href="../classes/Ember.Logger.html">Ember.Logger</a></li>
+                                <li><a href="../classes/Ember.Map.html">Ember.Map</a></li>
+                                <li><a href="../classes/Ember.MapWithDefault.html">Ember.MapWithDefault</a></li>
+                                <li><a href="../classes/Ember.MutableArray.html">Ember.MutableArray</a></li>
+                                <li><a href="../classes/Ember.MutableEnumerable.html">Ember.MutableEnumerable</a></li>
+                                <li><a href="../classes/Ember.Namespace.html">Ember.Namespace</a></li>
+                                <li><a href="../classes/Ember.NativeArray.html">Ember.NativeArray</a></li>
+                                <li><a href="../classes/Ember.NoneLocation.html">Ember.NoneLocation</a></li>
+                                <li><a href="../classes/Ember.Object.html">Ember.Object</a></li>
+                                <li><a href="../classes/Ember.ObjectController.html">Ember.ObjectController</a></li>
+                                <li><a href="../classes/Ember.ObjectProxy.html">Ember.ObjectProxy</a></li>
+                                <li><a href="../classes/Ember.Observable.html">Ember.Observable</a></li>
+                                <li><a href="../classes/Ember.OrderedSet.html">Ember.OrderedSet</a></li>
+                                <li><a href="../classes/Ember.platform.html">Ember.platform</a></li>
+                                <li><a href="../classes/Ember.PromiseProxyMixin.html">Ember.PromiseProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ProxyMixin.html">Ember.ProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ReduceComputedProperty.html">Ember.ReduceComputedProperty</a></li>
+                                <li><a href="../classes/Ember.Route.html">Ember.Route</a></li>
+                                <li><a href="../classes/Ember.Router.html">Ember.Router</a></li>
+                                <li><a href="../classes/Ember.run.html">Ember.run</a></li>
+                                <li><a href="../classes/Ember.Select.html">Ember.Select</a></li>
+                                <li><a href="../classes/Ember.Service.html">Ember.Service</a></li>
+                                <li><a href="../classes/Ember.Set.html">Ember.Set</a></li>
+                                <li><a href="../classes/Ember.SortableMixin.html">Ember.SortableMixin</a></li>
+                                <li><a href="../classes/Ember.String.html">Ember.String</a></li>
+                                <li><a href="../classes/Ember.SubArray.html">Ember.SubArray</a></li>
+                                <li><a href="../classes/Ember.TargetActionSupport.html">Ember.TargetActionSupport</a></li>
+                                <li><a href="../classes/Ember.Test.html">Ember.Test</a></li>
+                                <li><a href="../classes/Ember.Test.Adapter.html">Ember.Test.Adapter</a></li>
+                                <li><a href="../classes/Ember.Test.QUnitAdapter.html">Ember.Test.QUnitAdapter</a></li>
+                                <li><a href="../classes/Ember.TextArea.html">Ember.TextArea</a></li>
+                                <li><a href="../classes/Ember.TextField.html">Ember.TextField</a></li>
+                                <li><a href="../classes/Ember.TextSupport.html">Ember.TextSupport</a></li>
+                                <li><a href="../classes/Ember.TrackedArray.html">Ember.TrackedArray</a></li>
+                                <li><a href="../classes/Ember.View.html">Ember.View</a></li>
+                                <li><a href="../classes/Ember.ViewTargetActionSupport.html">Ember.ViewTargetActionSupport</a></li>
+                                <li><a href="../classes/Function.html">Function</a></li>
+                                <li><a href="../classes/HandlebarsCompatibleHelper.html">HandlebarsCompatibleHelper</a></li>
+                                <li><a href="../classes/Libraries.html">Libraries</a></li>
+                                <li><a href="../classes/RSVP.html">RSVP</a></li>
+                                <li><a href="../classes/RSVP.EventTarget.html">RSVP.EventTarget</a></li>
+                                <li><a href="../classes/RSVP.Promise.html">RSVP.Promise</a></li>
+                                <li><a href="../classes/String.html">String</a></li>
+                                <li><a href="../classes/TransformEachInToHash.html">TransformEachInToHash</a></li>
+                                <li><a href="../classes/TransformWithAsToHash.html">TransformWithAsToHash</a></li>
+                                <li><a href="../classes/Vertex.html">Vertex</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ember.html">ember</a></li>
+                                <li><a href="../modules/ember-application.html">ember-application</a></li>
+                                <li><a href="../modules/ember-data.html">ember-data</a></li>
+                                <li><a href="../modules/ember-debug.html">ember-debug</a></li>
+                                <li><a href="../modules/ember-extension-support.html">ember-extension-support</a></li>
+                                <li><a href="../modules/ember-handlebars.html">ember-handlebars</a></li>
+                                <li><a href="../modules/ember-htmlbars.html">ember-htmlbars</a></li>
+                                <li><a href="../modules/ember-metal.html">ember-metal</a></li>
+                                <li><a href="../modules/ember-routing.html">ember-routing</a></li>
+                                <li><a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a></li>
+                                <li><a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a></li>
+                                <li><a href="../modules/ember-routing-views.html">ember-routing-views</a></li>
+                                <li><a href="../modules/ember-runtime.html">ember-runtime</a></li>
+                                <li><a href="../modules/ember-template-compiler.html">ember-template-compiler</a></li>
+                                <li><a href="../modules/ember-testing.html">ember-testing</a></li>
+                                <li><a href="../modules/ember-views.html">ember-views</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>RSVP.Promise Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/js_libs_ember-1.10.0.debug.js.html#l51992"><code>js\libs\ember-1.10.0.debug.js:51992</code></a>
+        </div>
+
+            Module: <a href="../modules/ember.html">ember</a>
+
+</div>
+
+
+<div class="box intro">
+    <p>Promise objects represent the eventual result of an asynchronous operation. The
+primary way of interacting with a promise is through its <code>then</code> method, which
+registers callbacks to receive either a promise’s eventual value or the reason
+why the promise cannot be fulfilled.</p>
+<h2>Terminology</h2>
+<ul>
+<li><code>promise</code> is an object or function with a <code>then</code> method whose behavior conforms to this specification.</li>
+<li><code>thenable</code> is an object or function that defines a <code>then</code> method.</li>
+<li><code>value</code> is any legal JavaScript value (including undefined, a thenable, or a promise).</li>
+<li><code>exception</code> is a value that is thrown using the throw statement.</li>
+<li><code>reason</code> is a value that indicates why a promise was rejected.</li>
+<li><code>settled</code> the final resting state of a promise, fulfilled or rejected.</li>
+</ul>
+<p>A promise can be in one of three states: pending, fulfilled, or rejected.</p>
+<p>Promises that are fulfilled have a fulfillment value and are in the fulfilled
+state.  Promises that are rejected have a rejection reason and are in the
+rejected state.  A fulfillment value is never a thenable.</p>
+<p>Promises can also be said to <em>resolve</em> a value.  If this value is also a
+promise, then the original promise's settled state will match the value's
+settled state.  So a promise that <em>resolves</em> a promise that rejects will
+itself reject, and a promise that <em>resolves</em> a promise that fulfills will
+itself fulfill.</p>
+<h2>Basic Usage:</h2>
+<pre class="code prettyprint"><code class="language-js">var promise = new Promise(function(resolve, reject) {
+  // on success
+  resolve(value);
+
+  // on failure
+  reject(reason);
+});
+
+promise.then(function(value) {
+  // on fulfillment
+}, function(reason) {
+  // on rejection
+});
+</code></pre>
+<h2>Advanced Usage:</h2>
+<p>Promises shine when abstracting away asynchronous interactions such as
+<code>XMLHttpRequest</code>s.</p>
+<pre class="code prettyprint"><code class="language-js">function getJSON(url) {
+  return new Promise(function(resolve, reject){
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', url);
+    xhr.onreadystatechange = handler;
+    xhr.responseType = 'json';
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.send();
+
+    function handler() {
+      if (this.readyState === this.DONE) {
+        if (this.status === 200) {
+          resolve(this.response);
+        } else {
+          reject(new Error('getJSON: <code>&#x27; + url + &#x27;</code> failed with status: [' + this.status + ']'));
+        }
+      }
+    };
+  });
+}
+
+getJSON('/posts.json').then(function(json) {
+  // on fulfillment
+}, function(reason) {
+  // on rejection
+});
+</code></pre>
+<p>Unlike callbacks, promises are great composable primitives.</p>
+<pre class="code prettyprint"><code class="language-js">Promise.all([
+  getJSON('/posts'),
+  getJSON('/comments')
+]).then(function(values){
+  values[0] // =&gt; postsJSON
+  values[1] // =&gt; commentsJSON
+
+  return values;
+});
+</code></pre>
+
+</div>
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+<div id="method_RSVP.Promise" class="method item">
+    <h3 class="name"><code>RSVP.Promise</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>resolver</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l51992"><code>js\libs\ember-1.10.0.debug.js:51992</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">resolver</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for labeling the promise.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+    </div>
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_all">all</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_catch">catch</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_finally">finally</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_race">race</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_reject">reject</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_resolve">resolve</a>
+
+                                    <span class="flag static">static</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_then">then</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_all" class="method item">
+    <h3 class="name"><code>all</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>entries</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l52454"><code>js\libs\ember-1.10.0.debug.js:52454</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>RSVP.Promise.all</code> accepts an array of promises, and returns a new promise which
+is fulfilled with an array of fulfillment values for the passed promises, or
+rejected with the reason of the first passed promise to be rejected. It casts all
+elements of the passed iterable to promises as it runs this algorithm.</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise1 = RSVP.resolve(1);
+var promise2 = RSVP.resolve(2);
+var promise3 = RSVP.resolve(3);
+var promises = [ promise1, promise2, promise3 ];
+
+RSVP.Promise.all(promises).then(function(array){
+  // The array here would be [ 1, 2, 3 ];
+});
+</code></pre>
+<p>If any of the <code>promises</code> given to <code>RSVP.all</code> are rejected, the first promise
+that is rejected will be given as an argument to the returned promises's
+rejection handler. For example:</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise1 = RSVP.resolve(1);
+var promise2 = RSVP.reject(new Error(&quot;2&quot;));
+var promise3 = RSVP.reject(new Error(&quot;3&quot;));
+var promises = [ promise1, promise2, promise3 ];
+
+RSVP.Promise.all(promises).then(function(array){
+  // Code here never runs because there are rejected promises!
+}, function(error) {
+  // error.message === &quot;2&quot;
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">entries</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                        <p>array of promises</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for labeling the promise.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>promise that is fulfilled when all <code>promises</code> have been
+fulfilled, or rejected if any of them become rejected.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_catch" class="method item">
+    <h3 class="name"><code>catch</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>onRejection</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l52361"><code>js\libs\ember-1.10.0.debug.js:52361</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>catch</code> is simply sugar for <code>then(undefined, onRejection)</code> which makes it the same
+as the catch block of a try/catch statement.</p>
+<pre class="code prettyprint"><code class="language-js">function findAuthor(){
+  throw new Error('couldn't find that author');
+}
+
+// synchronous
+try {
+  findAuthor();
+} catch(reason) {
+  // something went wrong
+}
+
+// async with promises
+findAuthor().catch(function(reason){
+  // something went wrong
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">onRejection</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for labeling the promise.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_finally" class="method item">
+    <h3 class="name"><code>finally</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>callback</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l52393"><code>js\libs\ember-1.10.0.debug.js:52393</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>finally</code> will be invoked regardless of the promise's fate just as native
+try/catch/finally behaves</p>
+<p>Synchronous example:</p>
+<pre class="code prettyprint"><code class="language-js">findAuthor() {
+  if (Math.random() &gt; 0.5) {
+    throw new Error();
+  }
+  return new Author();
+}
+
+try {
+  return findAuthor(); // succeed or fail
+} catch(error) {
+  return findOtherAuther();
+} finally {
+  // always runs
+  // doesn't affect the return value
+}
+</code></pre>
+<p>Asynchronous example:</p>
+<pre class="code prettyprint"><code class="language-js">findAuthor().catch(function(reason){
+  return findOtherAuther();
+}).finally(function(){
+  // author was either found, or not
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">callback</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for labeling the promise.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+</div>
+<div id="method_race" class="method item">
+    <h3 class="name"><code>race</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>promises</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l52517"><code>js\libs\ember-1.10.0.debug.js:52517</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>RSVP.Promise.race</code> returns a new promise which is settled in the same way as the
+first passed promise to settle.</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise1 = new RSVP.Promise(function(resolve, reject){
+  setTimeout(function(){
+    resolve('promise 1');
+  }, 200);
+});
+
+var promise2 = new RSVP.Promise(function(resolve, reject){
+  setTimeout(function(){
+    resolve('promise 2');
+  }, 100);
+});
+
+RSVP.Promise.race([promise1, promise2]).then(function(result){
+  // result === 'promise 2' because it was resolved before promise1
+  // was resolved.
+});
+</code></pre>
+<p><code>RSVP.Promise.race</code> is deterministic in that only the state of the first
+settled promise matters. For example, even if other promises given to the
+<code>promises</code> array argument are resolved, but the first settled promise has
+become rejected before the other promises became fulfilled, the returned
+promise will become rejected:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise1 = new RSVP.Promise(function(resolve, reject){
+  setTimeout(function(){
+    resolve('promise 1');
+  }, 200);
+});
+
+var promise2 = new RSVP.Promise(function(resolve, reject){
+  setTimeout(function(){
+    reject(new Error('promise 2'));
+  }, 100);
+});
+
+RSVP.Promise.race([promise1, promise2]).then(function(result){
+  // Code here never runs
+}, function(reason){
+  // reason.message === 'promise 2' because promise 2 became rejected before
+  // promise 1 became fulfilled
+});
+</code></pre>
+<p>An example real-world use case is implementing timeouts:</p>
+<pre class="code prettyprint"><code class="language-javascript">RSVP.Promise.race([ajax('foo.json'), timeout(5000)])
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">promises</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a></span>
+
+
+                    <div class="param-description">
+                        <p>array of promises to observe</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for describing the promise returned.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>a promise which settles in the same way as the first passed
+promise to settle.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_reject" class="method item">
+    <h3 class="name"><code>reject</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>reason</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l52618"><code>js\libs\ember-1.10.0.debug.js:52618</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>RSVP.Promise.reject</code> returns a promise rejected with the passed <code>reason</code>.
+It is shorthand for the following:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise = new RSVP.Promise(function(resolve, reject){
+  reject(new Error('WHOOPS'));
+});
+
+promise.then(function(value){
+  // Code here doesn't run because the promise is rejected!
+}, function(reason){
+  // reason.message === 'WHOOPS'
+});
+</code></pre>
+<p>Instead of writing the above, your code now simply becomes the following:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise = RSVP.Promise.reject(new Error('WHOOPS'));
+
+promise.then(function(value){
+  // Code here doesn't run because the promise is rejected!
+}, function(reason){
+  // reason.message === 'WHOOPS'
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">reason</code>
+                        <span class="type">Any</span>
+
+
+                    <div class="param-description">
+                        <p>value that the returned promise will be rejected with.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for identifying the returned promise.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>a promise rejected with the given <code>reason</code>.</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_resolve" class="method item">
+    <h3 class="name"><code>resolve</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>value</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+        <span class="flag static">static</span>
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l52668"><code>js\libs\ember-1.10.0.debug.js:52668</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>RSVP.Promise.resolve</code> returns a promise that will become resolved with the
+passed <code>value</code>. It is shorthand for the following:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise = new RSVP.Promise(function(resolve, reject){
+  resolve(1);
+});
+
+promise.then(function(value){
+  // value === 1
+});
+</code></pre>
+<p>Instead of writing the above, your code now simply becomes the following:</p>
+<pre class="code prettyprint"><code class="language-javascript">var promise = RSVP.Promise.resolve(1);
+
+promise.then(function(value){
+  // value === 1
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">value</code>
+                        <span class="type">Any</span>
+
+
+                    <div class="param-description">
+                        <p>value that the returned promise will be resolved with</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for identifying the returned promise.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+                    <p>a promise that will become fulfilled with the given
+<code>value</code></p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_then" class="method item">
+    <h3 class="name"><code>then</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>onFulfilled</code>
+                </li>
+                <li class="arg">
+                        <code>onRejected</code>
+                </li>
+                <li class="arg">
+                        <code>label</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Promise</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l52135"><code>js\libs\ember-1.10.0.debug.js:52135</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>The primary way of interacting with a promise is through its <code>then</code> method,
+which registers callbacks to receive either a promise's eventual value or the
+reason why the promise cannot be fulfilled.</p>
+<pre class="code prettyprint"><code class="language-js">findUser().then(function(user){
+  // user is available
+}, function(reason){
+  // user is unavailable, and you are given the reason why
+});
+</code></pre>
+<h2>Chaining</h2>
+<p>The return value of <code>then</code> is itself a promise.  This second, 'downstream'
+promise is resolved with the return value of the first promise's fulfillment
+or rejection handler, or rejected if the handler throws an exception.</p>
+<pre class="code prettyprint"><code class="language-js">findUser().then(function (user) {
+  return user.name;
+}, function (reason) {
+  return 'default name';
+}).then(function (userName) {
+  // If <code>findUser</code> fulfilled, <code>userName</code> will be the user's name, otherwise it
+  // will be <code>&#x27;default name&#x27;</code>
+});
+
+findUser().then(function (user) {
+  throw new Error('Found user, but still unhappy');
+}, function (reason) {
+  throw new Error('<code>findUser</code> rejected and we're unhappy');
+}).then(function (value) {
+  // never reached
+}, function (reason) {
+  // if <code>findUser</code> fulfilled, <code>reason</code> will be 'Found user, but still unhappy'.
+  // If <code>findUser</code> rejected, <code>reason</code> will be '<code>findUser</code> rejected and we're unhappy'.
+});
+</code></pre>
+<p>If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.</p>
+<pre class="code prettyprint"><code class="language-js">findUser().then(function (user) {
+  throw new PedagogicalException('Upstream error');
+}).then(function (value) {
+  // never reached
+}).then(function (value) {
+  // never reached
+}, function (reason) {
+  // The <code>PedgagocialException</code> is propagated all the way down to here
+});
+</code></pre>
+<h2>Assimilation</h2>
+<p>Sometimes the value you want to propagate to a downstream promise can only be
+retrieved asynchronously. This can be achieved by returning a promise in the
+fulfillment or rejection handler. The downstream promise will then be pending
+until the returned promise is settled. This is called <em>assimilation</em>.</p>
+<pre class="code prettyprint"><code class="language-js">findUser().then(function (user) {
+  return findCommentsByAuthor(user);
+}).then(function (comments) {
+  // The user's comments are now available
+});
+</code></pre>
+<p>If the assimliated promise rejects, then the downstream promise will also reject.</p>
+<pre class="code prettyprint"><code class="language-js">findUser().then(function (user) {
+  return findCommentsByAuthor(user);
+}).then(function (comments) {
+  // If <code>findCommentsByAuthor</code> fulfills, we'll have the value here
+}, function (reason) {
+  // If <code>findCommentsByAuthor</code> rejects, we'll have the reason here
+});
+</code></pre>
+<h2>Simple Example</h2>
+<p>Synchronous Example</p>
+<pre class="code prettyprint"><code class="language-javascript">var result;
+
+try {
+  result = findResult();
+  // success
+} catch(reason) {
+  // failure
+}
+</code></pre>
+<p>Errback Example</p>
+<pre class="code prettyprint"><code class="language-js">findResult(function(result, err){
+  if (err) {
+    // failure
+  } else {
+    // success
+  }
+});
+</code></pre>
+<p>Promise Example;</p>
+<pre class="code prettyprint"><code class="language-javascript">findResult().then(function(result){
+  // success
+}, function(reason){
+  // failure
+});
+</code></pre>
+<h2>Advanced Example</h2>
+<p>Synchronous Example</p>
+<pre class="code prettyprint"><code class="language-javascript">var author, books;
+
+try {
+  author = findAuthor();
+  books  = findBooksByAuthor(author);
+  // success
+} catch(reason) {
+  // failure
+}
+</code></pre>
+<p>Errback Example</p>
+<pre class="code prettyprint"><code class="language-js">
+function foundBooks(books) {
+
+}
+
+function failure(reason) {
+
+}
+
+findAuthor(function(author, err){
+  if (err) {
+    failure(err);
+    // failure
+  } else {
+    try {
+      findBoooksByAuthor(author, function(books, err) {
+        if (err) {
+          failure(err);
+        } else {
+          try {
+            foundBooks(books);
+          } catch(reason) {
+            failure(reason);
+          }
+        }
+      });
+    } catch(error) {
+      failure(err);
+    }
+    // success
+  }
+});
+</code></pre>
+<p>Promise Example;</p>
+<pre class="code prettyprint"><code class="language-javascript">findAuthor().
+  then(findBooksByAuthor).
+  then(function(books){
+    // found books
+}).catch(function(reason){
+  // something went wrong
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">onFulfilled</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">onRejected</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">label</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>optional string for labeling the promise.
+Useful for tooling.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Promise</span>:
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -2,6 +2,19 @@
  * Created by matthias on 3/04/2015.
  */
 
+/**
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
+ * This map is used to display a basestation.
+ *
+ * @class BasestationMapComponent
+ * @namespace App
+ * @constructor
+ * @extends App.PopupMapComponent
+ */
 App.BasestationMapComponent = App.PopupMapComponent.extend({
 
     icon : L.icon({

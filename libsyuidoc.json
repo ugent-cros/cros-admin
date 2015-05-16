@@ -1,0 +1,10 @@
+{
+    "name": "The cros-admin API",
+    "description": "The cros-admin API, The classes consist of an application to administrate the cros-core functionalities.",
+    "version": "1.0.0",
+    "url": "http://example.com/",
+    "options": {
+		"linkNatives": "true",
+        "outdir": "docslibs/"
+    }
+}

@@ -124,7 +124,7 @@
                         <td class='action'>
                             <div class="btn-group">
                                 {{#link-to 'drone' item.id class='btn btn-success'}}
-                                <i class="fa fa-search"></i>
+                                    <i class="fa fa-search"></i>
                                 {{/link-to}}
                                 {{#link-to 'drone-edit' item.id class='btn btn-info' tag="button" disabled=userCantEdit}}
                                     <i class="fa fa-pencil"></i>
@@ -133,6 +133,9 @@
                                     <i class="fa fa-trash-o"></i>
                                 </button>
                             </div>
+                            {{#link-to 'manualControl' item.id class='btn btn-primary' disabled=item.cantControl}}
+                                <i class="fa fa-gamepad"></i>
+                            {{/link-to}}
                         </td>
                     </tr>
                 {{/each}}
@@ -237,7 +240,7 @@
 		</script>
 
 		<script type="text/x-handlebars" id="drone">
-			{{#popup-window title=model.name size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
+			{{#popup-window contr=this title=model.name modalName="droneModal" size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
                 <div class="row">
                     <div class="col-xs-2"></div>
                     <div class="col-xs-8 text-center whitespaceBottom">
@@ -246,33 +249,40 @@
                             <label class="control-label">{{ controlError }}</label>
                         </div>
                         {{/if}}
-                        <div class="btn-group" data-toggle="buttons">
-                            <label {{bind-attr class=":btn :btn-success automatic:active"}} {{action 'setAutomatic'}}>
-                                <input type="radio" name="automatic" id="automatic" autocomplete="off" {{bind-attr checked="automatic"}}>
-                                <i class="fa fa-magic"></i> Automagic
-                            </label>
-                            <label {{bind-attr class=":btn :btn-success manual:active"}}  {{action 'setManual'}}>
-                                <input type="radio" name="manual" id="manual" autocomplete="off" {{bind-attr checked="manual"}}>
-                                <i class="fa fa-gamepad"></i> Manual Control
-                            </label>
-                        </div>
                     </div>
-                    <div class="col-xs-2">
+                    <div class="col-xs-2 whitespaceBottom">
                         <a class='btn-sm btn-warning' href='#' {{action 'emergency' model.id}}>
                             EMERGENCY
                         </a>
                     </div>
                 </div>
-				{{#if automatic}}
-					{{partial "droneAutomatic" }}
-				{{else}}
-					{{partial "droneManual" }}
-				{{/if}}
+                {{partial "droneAutomatic" }}
 			{{/popup-window}}
 		</script>
 
+        <script type="text/x-handlebars" id="manualControl">
+            {{#popup-window title=model.name modalName="controlModal" size="80%" footer='<div class="battery"><div class="batteryStatus"></div></div>' link='drones' saveButton=false}}
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8 text-center whitespaceBottom">
+                        {{#if hasControlError}}
+                            <div {{bind-attr class="hasControlError:has-error"}}>
+                                <label class="control-label">{{ controlError }}</label>
+                            </div>
+                        {{/if}}
+                    </div>
+                    <div class="col-xs-2 whitespaceBottom">
+                        <a class='btn-sm btn-warning' href='#' {{action 'emergency' model.id}}>
+                            EMERGENCY
+                        </a>
+                    </div>
+                </div>
+                {{partial 'droneManual' }}
+            {{/popup-window}}
+        </script>
+
         <script type="text/x-handlebars" id="_droneAutomatic">
-            <div {{bind-attr class=":row automatic:show:hidden"}}>
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="well">
                         <div class="row">
@@ -313,13 +323,13 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    {{#drone-map mapName="droneMap" location=location updateSize=automatic}}{{/drone-map}}
+                    {{#drone-map mapName="droneMap" location=location}}{{/drone-map}}
                 </div>
             </div>
         </script>
 
         <script type="text/x-handlebars" id="_droneManual">
-            <div {{bind-attr class=":row :manualController automatic:hidden:show"}}>
+            <div class="row manualController">
                 <div class="col-xs-12">
                     <div class="row whitespaceBottom">
                         <div class="col-md-6">
@@ -338,7 +348,7 @@
 
                         </div>
                         <div class="col-md-6">
-                            {{#drone-map mapName="droneControlMap" location=location updateSize=automatic}}{{/drone-map}}
+                            {{#drone-map mapName="droneControlMap" location=location}}{{/drone-map}}
                         </div>
                     </div>
                     <div class="row text-center">
@@ -748,7 +758,7 @@
 						</div>
 					</div>
 					<div class="col-xs-offset-2 col-xs-3">
-						<img src="profile.png" class="img-rounded" alt="Cinque Terre" width="100%">
+						<img src="img/profile.png" class="img-rounded" alt="Cinque Terre" width="100%">
 					</div>
 				</div>
 			{{/popup-window}}
@@ -919,7 +929,7 @@
         </script>
 
 		<script type="text/x-handlebars" data-template-name="components/popup-window">
-			<div class="modal fade">
+			<div class="modal fade" {{bind-attr id=modalName }}>
 				<div class="modal-dialog" {{ bind-attr style=sizeStyle }}>
 					<div class="modal-content">
 						<div class="modal-header">
@@ -1021,14 +1031,12 @@
 		<script src="js/app.js"></script>
 		<script src="js/adapter.js"></script>
 		<script src="js/socketmanager.js"></script>
-		<script src="js/test.js"></script>
         <script src="js/routers/superRouter.js"></script>
 		<script src="js/router.js"></script>
         <script src="js/routers/assignmentsRouter.js"></script>
         <script src="js/routers/basestationsRouter.js"></script>
         <script src="js/routers/dronesRouter.js"></script>
         <script src="js/routers/usersRouter.js"></script>
-		<script src="js/models/drone.js"></script>
         <script src="js/controllers/listsController.js"></script>
         <script src="js/controllers/appcontroller.js"></script>
         <script src="js/controllers/dashboardController.js"></script>
@@ -1039,6 +1047,7 @@
         <script src="js/controllers/assignmentsController.js"></script>
         <script src="js/controllers/basestationController.js"></script>
         <script src="js/controllers/basestationsController.js"></script>
+        <script src="js/controllers/ManualController.js"></script>
         <script src="js/controllers/usersController.js"></script>
         <script src="js/controllers/userController.js"></script>
         <script src="js/controllers/checkpointController.js"></script>

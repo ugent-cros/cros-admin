@@ -1,0 +1,3605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ember.Handlebars.helpers - The cros-admin API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="The cros-admin API" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Backburner.html">Backburner</a></li>
+                                <li><a href="../classes/DAG.html">DAG</a></li>
+                                <li><a href="../classes/DS.html">DS</a></li>
+                                <li><a href="../classes/DS.ActiveModelAdapter.html">DS.ActiveModelAdapter</a></li>
+                                <li><a href="../classes/DS.ActiveModelSerializer.html">DS.ActiveModelSerializer</a></li>
+                                <li><a href="../classes/DS.Adapter.html">DS.Adapter</a></li>
+                                <li><a href="../classes/DS.AdapterPopulatedRecordArray.html">DS.AdapterPopulatedRecordArray</a></li>
+                                <li><a href="../classes/DS.BooleanTransform.html">DS.BooleanTransform</a></li>
+                                <li><a href="../classes/DS.ContainerProxy.html">DS.ContainerProxy</a></li>
+                                <li><a href="../classes/DS.DateTransform.html">DS.DateTransform</a></li>
+                                <li><a href="../classes/DS.DebugAdapter.html">DS.DebugAdapter</a></li>
+                                <li><a href="../classes/DS.EmbeddedRecordsMixin.html">DS.EmbeddedRecordsMixin</a></li>
+                                <li><a href="../classes/DS.Errors.html">DS.Errors</a></li>
+                                <li><a href="../classes/DS.FilteredRecordArray.html">DS.FilteredRecordArray</a></li>
+                                <li><a href="../classes/DS.FixtureAdapter.html">DS.FixtureAdapter</a></li>
+                                <li><a href="../classes/DS.InvalidError.html">DS.InvalidError</a></li>
+                                <li><a href="../classes/DS.JSONSerializer.html">DS.JSONSerializer</a></li>
+                                <li><a href="../classes/DS.ManyArray.html">DS.ManyArray</a></li>
+                                <li><a href="../classes/DS.Model.html">DS.Model</a></li>
+                                <li><a href="../classes/DS.NumberTransform.html">DS.NumberTransform</a></li>
+                                <li><a href="../classes/DS.PromiseArray.html">DS.PromiseArray</a></li>
+                                <li><a href="../classes/DS.PromiseObject.html">DS.PromiseObject</a></li>
+                                <li><a href="../classes/DS.RecordArray.html">DS.RecordArray</a></li>
+                                <li><a href="../classes/DS.RecordArrayManager.html">DS.RecordArrayManager</a></li>
+                                <li><a href="../classes/DS.RESTAdapter.html">DS.RESTAdapter</a></li>
+                                <li><a href="../classes/DS.RESTSerializer.html">DS.RESTSerializer</a></li>
+                                <li><a href="../classes/DS.RootState.html">DS.RootState</a></li>
+                                <li><a href="../classes/DS.Store.html">DS.Store</a></li>
+                                <li><a href="../classes/DS.StringTransform.html">DS.StringTransform</a></li>
+                                <li><a href="../classes/DS.Transform.html">DS.Transform</a></li>
+                                <li><a href="../classes/Ember.html">Ember</a></li>
+                                <li><a href="../classes/Ember._BoundView.html">Ember._BoundView</a></li>
+                                <li><a href="../classes/Ember._Metamorph.html">Ember._Metamorph</a></li>
+                                <li><a href="../classes/Ember._MetamorphView.html">Ember._MetamorphView</a></li>
+                                <li><a href="../classes/Ember._SimpleMetamorphView.html">Ember._SimpleMetamorphView</a></li>
+                                <li><a href="../classes/Ember.ActionHandler.html">Ember.ActionHandler</a></li>
+                                <li><a href="../classes/Ember.Application.html">Ember.Application</a></li>
+                                <li><a href="../classes/Ember.Array.html">Ember.Array</a></li>
+                                <li><a href="../classes/Ember.ArrayController.html">Ember.ArrayController</a></li>
+                                <li><a href="../classes/Ember.ArrayProxy.html">Ember.ArrayProxy</a></li>
+                                <li><a href="../classes/Ember.AutoLocation.html">Ember.AutoLocation</a></li>
+                                <li><a href="../classes/Ember.Binding.html">Ember.Binding</a></li>
+                                <li><a href="../classes/Ember.Checkbox.html">Ember.Checkbox</a></li>
+                                <li><a href="../classes/Ember.CollectionView.html">Ember.CollectionView</a></li>
+                                <li><a href="../classes/Ember.Comparable.html">Ember.Comparable</a></li>
+                                <li><a href="../classes/Ember.Component.html">Ember.Component</a></li>
+                                <li><a href="../classes/Ember.ComponentTemplateDeprecation.html">Ember.ComponentTemplateDeprecation</a></li>
+                                <li><a href="../classes/Ember.ComputedProperty.html">Ember.ComputedProperty</a></li>
+                                <li><a href="../classes/Ember.ContainerDebugAdapter.html">Ember.ContainerDebugAdapter</a></li>
+                                <li><a href="../classes/Ember.ContainerView.html">Ember.ContainerView</a></li>
+                                <li><a href="../classes/Ember.Controller.html">Ember.Controller</a></li>
+                                <li><a href="../classes/Ember.ControllerContentModelAliasDeprecation.html">Ember.ControllerContentModelAliasDeprecation</a></li>
+                                <li><a href="../classes/Ember.ControllerMixin.html">Ember.ControllerMixin</a></li>
+                                <li><a href="../classes/Ember.Copyable.html">Ember.Copyable</a></li>
+                                <li><a href="../classes/Ember.CoreObject.html">Ember.CoreObject</a></li>
+                                <li><a href="../classes/Ember.CoreView.html">Ember.CoreView</a></li>
+                                <li><a href="../classes/Ember.DataAdapter.html">Ember.DataAdapter</a></li>
+                                <li><a href="../classes/Ember.Date.html">Ember.Date</a></li>
+                                <li><a href="../classes/Ember.DefaultResolver.html">Ember.DefaultResolver</a></li>
+                                <li><a href="../classes/Ember.Deferred.html">Ember.Deferred</a></li>
+                                <li><a href="../classes/Ember.Descriptor.html">Ember.Descriptor</a></li>
+                                <li><a href="../classes/Ember.EachProxy.html">Ember.EachProxy</a></li>
+                                <li><a href="../classes/Ember.Ember.html">Ember.Ember</a></li>
+                                <li><a href="../classes/Ember.Enumerable.html">Ember.Enumerable</a></li>
+                                <li><a href="../classes/Ember.EnumerableUtils.html">Ember.EnumerableUtils</a></li>
+                                <li><a href="../classes/Ember.Error.html">Ember.Error</a></li>
+                                <li><a href="../classes/Ember.EventDispatcher.html">Ember.EventDispatcher</a></li>
+                                <li><a href="../classes/Ember.Evented.html">Ember.Evented</a></li>
+                                <li><a href="../classes/Ember.FEATURES.html">Ember.FEATURES</a></li>
+                                <li><a href="../classes/Ember.Freezable.html">Ember.Freezable</a></li>
+                                <li><a href="../classes/Ember.Handlebars.html">Ember.Handlebars</a></li>
+                                <li><a href="../classes/Ember.Handlebars.helpers.html">Ember.Handlebars.helpers</a></li>
+                                <li><a href="../classes/Ember.HashLocation.html">Ember.HashLocation</a></li>
+                                <li><a href="../classes/Ember.HistoryLocation.html">Ember.HistoryLocation</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.html">Ember.HTMLBars</a></li>
+                                <li><a href="../classes/Ember.HTMLBars.Helper.html">Ember.HTMLBars.Helper</a></li>
+                                <li><a href="../classes/Ember.Inflector.html">Ember.Inflector</a></li>
+                                <li><a href="../classes/Ember.inject.html">Ember.inject</a></li>
+                                <li><a href="../classes/Ember.InjectedProperty.html">Ember.InjectedProperty</a></li>
+                                <li><a href="../classes/Ember.Instrumentation.html">Ember.Instrumentation</a></li>
+                                <li><a href="../classes/Ember.LinkView.html">Ember.LinkView</a></li>
+                                <li><a href="../classes/Ember.Location.html">Ember.Location</a></li>
+                                <li><a href="../classes/Ember.Logger.html">Ember.Logger</a></li>
+                                <li><a href="../classes/Ember.Map.html">Ember.Map</a></li>
+                                <li><a href="../classes/Ember.MapWithDefault.html">Ember.MapWithDefault</a></li>
+                                <li><a href="../classes/Ember.MutableArray.html">Ember.MutableArray</a></li>
+                                <li><a href="../classes/Ember.MutableEnumerable.html">Ember.MutableEnumerable</a></li>
+                                <li><a href="../classes/Ember.Namespace.html">Ember.Namespace</a></li>
+                                <li><a href="../classes/Ember.NativeArray.html">Ember.NativeArray</a></li>
+                                <li><a href="../classes/Ember.NoneLocation.html">Ember.NoneLocation</a></li>
+                                <li><a href="../classes/Ember.Object.html">Ember.Object</a></li>
+                                <li><a href="../classes/Ember.ObjectController.html">Ember.ObjectController</a></li>
+                                <li><a href="../classes/Ember.ObjectProxy.html">Ember.ObjectProxy</a></li>
+                                <li><a href="../classes/Ember.Observable.html">Ember.Observable</a></li>
+                                <li><a href="../classes/Ember.OrderedSet.html">Ember.OrderedSet</a></li>
+                                <li><a href="../classes/Ember.platform.html">Ember.platform</a></li>
+                                <li><a href="../classes/Ember.PromiseProxyMixin.html">Ember.PromiseProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ProxyMixin.html">Ember.ProxyMixin</a></li>
+                                <li><a href="../classes/Ember.ReduceComputedProperty.html">Ember.ReduceComputedProperty</a></li>
+                                <li><a href="../classes/Ember.Route.html">Ember.Route</a></li>
+                                <li><a href="../classes/Ember.Router.html">Ember.Router</a></li>
+                                <li><a href="../classes/Ember.run.html">Ember.run</a></li>
+                                <li><a href="../classes/Ember.Select.html">Ember.Select</a></li>
+                                <li><a href="../classes/Ember.Service.html">Ember.Service</a></li>
+                                <li><a href="../classes/Ember.Set.html">Ember.Set</a></li>
+                                <li><a href="../classes/Ember.SortableMixin.html">Ember.SortableMixin</a></li>
+                                <li><a href="../classes/Ember.String.html">Ember.String</a></li>
+                                <li><a href="../classes/Ember.SubArray.html">Ember.SubArray</a></li>
+                                <li><a href="../classes/Ember.TargetActionSupport.html">Ember.TargetActionSupport</a></li>
+                                <li><a href="../classes/Ember.Test.html">Ember.Test</a></li>
+                                <li><a href="../classes/Ember.Test.Adapter.html">Ember.Test.Adapter</a></li>
+                                <li><a href="../classes/Ember.Test.QUnitAdapter.html">Ember.Test.QUnitAdapter</a></li>
+                                <li><a href="../classes/Ember.TextArea.html">Ember.TextArea</a></li>
+                                <li><a href="../classes/Ember.TextField.html">Ember.TextField</a></li>
+                                <li><a href="../classes/Ember.TextSupport.html">Ember.TextSupport</a></li>
+                                <li><a href="../classes/Ember.TrackedArray.html">Ember.TrackedArray</a></li>
+                                <li><a href="../classes/Ember.View.html">Ember.View</a></li>
+                                <li><a href="../classes/Ember.ViewTargetActionSupport.html">Ember.ViewTargetActionSupport</a></li>
+                                <li><a href="../classes/Function.html">Function</a></li>
+                                <li><a href="../classes/HandlebarsCompatibleHelper.html">HandlebarsCompatibleHelper</a></li>
+                                <li><a href="../classes/Libraries.html">Libraries</a></li>
+                                <li><a href="../classes/RSVP.html">RSVP</a></li>
+                                <li><a href="../classes/RSVP.EventTarget.html">RSVP.EventTarget</a></li>
+                                <li><a href="../classes/RSVP.Promise.html">RSVP.Promise</a></li>
+                                <li><a href="../classes/String.html">String</a></li>
+                                <li><a href="../classes/TransformEachInToHash.html">TransformEachInToHash</a></li>
+                                <li><a href="../classes/TransformWithAsToHash.html">TransformWithAsToHash</a></li>
+                                <li><a href="../classes/Vertex.html">Vertex</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/ember.html">ember</a></li>
+                                <li><a href="../modules/ember-application.html">ember-application</a></li>
+                                <li><a href="../modules/ember-data.html">ember-data</a></li>
+                                <li><a href="../modules/ember-debug.html">ember-debug</a></li>
+                                <li><a href="../modules/ember-extension-support.html">ember-extension-support</a></li>
+                                <li><a href="../modules/ember-handlebars.html">ember-handlebars</a></li>
+                                <li><a href="../modules/ember-htmlbars.html">ember-htmlbars</a></li>
+                                <li><a href="../modules/ember-metal.html">ember-metal</a></li>
+                                <li><a href="../modules/ember-routing.html">ember-routing</a></li>
+                                <li><a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a></li>
+                                <li><a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a></li>
+                                <li><a href="../modules/ember-routing-views.html">ember-routing-views</a></li>
+                                <li><a href="../modules/ember-runtime.html">ember-runtime</a></li>
+                                <li><a href="../modules/ember-template-compiler.html">ember-template-compiler</a></li>
+                                <li><a href="../modules/ember-testing.html">ember-testing</a></li>
+                                <li><a href="../modules/ember-views.html">ember-views</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>Ember.Handlebars.helpers Class</h1>
+<div class="box meta">
+
+
+
+            Module: <a href="../modules/ember-routing-views.html">ember-routing-views</a><br>
+            Parent Module: <a href="../modules/ember.html">ember</a>
+
+</div>
+
+
+<div class="box intro">
+    
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_action">action</a>
+
+                            </li>
+                            <li class="index-item method private">
+                                <a href="#method_bind">bind</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_bind-attr">bind-attr</a>
+
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_bindAttr">bindAttr</a>
+
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method private">
+                                <a href="#method_boundIf">boundIf</a>
+
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_collection">collection</a>
+
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_debugger">debugger</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_each">each</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_if">if</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_input">input</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_link-to">link-to</a>
+
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_linkTo">linkTo</a>
+
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_loc">loc</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_log">log</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_outlet">outlet</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_partial">partial</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_pluralize">pluralize</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_query-params">query-params</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_render">render</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_singularize">singularize</a>
+
+                            </li>
+                            <li class="index-item method deprecated">
+                                <a href="#method_template">template</a>
+
+                                    <span class="flag deprecated">deprecated</span>
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_textarea">textarea</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_unbound">unbound</a>
+
+                            </li>
+                            <li class="index-item method private">
+                                <a href="#method_unboundIf">unboundIf</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_unless">unless</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_view">view</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_with">with</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_yield">yield</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_action" class="method item">
+    <h3 class="name"><code>action</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>actionName</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[context]</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l19082"><code>js\libs\ember-1.10.0.debug.js:19082</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>The <code>{{action}}</code> helper provides a useful shortcut for registering an HTML
+element within a template for a single DOM event and forwarding that
+interaction to the template's controller or specified <code>target</code> option.</p>
+<p>If the controller does not implement the specified action, the event is sent
+to the current route, and it bubbles up the route hierarchy from there.</p>
+<p>For more advanced event handling see <a href="/api/classes/Ember.Component.html">Ember.Component</a></p>
+<h3>Use</h3>
+<p>Given the following application Handlebars template on the page</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div {{action 'anActionName'}}&gt;
+  click me
+&lt;/div&gt;
+</code></pre>
+<p>And application code</p>
+<pre class="code prettyprint"><code class="language-javascript">App.ApplicationController = Ember.Controller.extend({
+  actions: {
+    anActionName: function() {
+    }
+  }
+});
+</code></pre>
+<p>Will result in the following rendered HTML</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div class=&quot;ember-view&quot;&gt;
+  &lt;div data-ember-action=&quot;1&quot;&gt;
+    click me
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Clicking &quot;click me&quot; will trigger the <code>anActionName</code> action of the
+<code>App.ApplicationController</code>. In this case, no additional parameters will be passed.</p>
+<p>If you provide additional parameters to the helper:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;button {{action 'edit' post}}&gt;Edit&lt;/button&gt;
+</code></pre>
+<p>Those parameters will be passed along as arguments to the JavaScript
+function implementing the action.</p>
+<h3>Event Propagation</h3>
+<p>Events triggered through the action helper will automatically have
+<code>.preventDefault()</code> called on them. You do not need to do so in your event
+handlers. If you need to allow event propagation (to handle file inputs for
+example) you can supply the <code>preventDefault=false</code> option to the <code>{{action}}</code> helper:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div {{action &quot;sayHello&quot; preventDefault=false}}&gt;
+  &lt;input type=&quot;file&quot; /&gt;
+  &lt;input type=&quot;checkbox&quot; /&gt;
+&lt;/div&gt;
+</code></pre>
+<p>To disable bubbling, pass <code>bubbles=false</code> to the helper:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;button {{action 'edit' post bubbles=false}}&gt;Edit&lt;/button&gt;
+</code></pre>
+<p>If you need the default handler to trigger you should either register your
+own event handler, or use event methods on your view class. See <a href="/api/classes/Ember.View.html">Ember.View</a>
+'Responding to Browser Events' for more information.</p>
+<h3>Specifying DOM event type</h3>
+<p>By default the <code>{{action}}</code> helper registers for DOM <code>click</code> events. You can
+supply an <code>on</code> option to the helper to specify a different DOM event name:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div {{action &quot;anActionName&quot; on=&quot;doubleClick&quot;}}&gt;
+  click me
+&lt;/div&gt;
+</code></pre>
+<p>See <code>Ember.View</code> 'Responding to Browser Events' for a list of
+acceptable DOM event names.</p>
+<h3>Specifying whitelisted modifier keys</h3>
+<p>By default the <code>{{action}}</code> helper will ignore click event with pressed modifier
+keys. You can supply an <code>allowedKeys</code> option to specify which keys should not be ignored.</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div {{action &quot;anActionName&quot; allowedKeys=&quot;alt&quot;}}&gt;
+  click me
+&lt;/div&gt;
+</code></pre>
+<p>This way the <code>{{action}}</code> will fire when clicking with the alt key pressed down.</p>
+<p>Alternatively, supply &quot;any&quot; to the <code>allowedKeys</code> option to accept any combination of modifier keys.</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div {{action &quot;anActionName&quot; allowedKeys=&quot;any&quot;}}&gt;
+  click me with any key pressed
+&lt;/div&gt;
+</code></pre>
+<h3>Specifying a Target</h3>
+<p>There are several possible target objects for <code>{{action}}</code> helpers:</p>
+<p>In a typical Ember application, where templates are managed through use of the
+<code>{{outlet}}</code> helper, actions will bubble to the current controller, then
+to the current route, and then up the route hierarchy.</p>
+<p>Alternatively, a <code>target</code> option can be provided to the helper to change
+which object will receive the method call. This option must be a path
+to an object, accessible in the current context:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{! the application template }}
+&lt;div {{action &quot;anActionName&quot; target=view}}&gt;
+  click me
+&lt;/div&gt;
+</code></pre>
+<pre class="code prettyprint"><code class="language-javascript">App.ApplicationView = Ember.View.extend({
+  actions: {
+    anActionName: function(){}
+  }
+});
+
+</code></pre>
+<h3>Additional Parameters</h3>
+<p>You may specify additional parameters to the <code>{{action}}</code> helper. These
+parameters are passed along as the arguments to the JavaScript function
+implementing the action.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#each person in people}}
+  &lt;div {{action &quot;edit&quot; person}}&gt;
+    click me
+  &lt;/div&gt;
+{{/each}}
+</code></pre>
+<p>Clicking &quot;click me&quot; will trigger the <code>edit</code> method on the current controller
+with the value of <code>person</code> as a parameter.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">actionName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[context]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                        <span class="flag multiple" title="This argument may occur one or more times.">multiple</span>
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_bind" class="method item private">
+    <h3 class="name"><code>bind</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>property</code>
+                </li>
+                <li class="arg">
+                        <code>render</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l5695"><code>js\libs\ember-1.10.0.debug.js:5695</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>bind</code> can be used to display a value, then update that value if it
+changes. For example, if you wanted to print the <code>title</code> property of
+<code>content</code>:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{bind &quot;content.title&quot;}}
+</code></pre>
+<p>This will return the <code>title</code> property as a string, then create a new observer
+at the specified path. If it changes, it will update the value in DOM. Note
+that if you need to support IE7 and IE8 you must modify the model objects
+properties using <code>Ember.get()</code> and <code>Ember.set()</code> for this to work as it
+relies on Ember's KVO system. For all other browsers this will be handled for
+you automatically.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>Property to bind</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">render</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Context to provide for rendering</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_bind-attr" class="method item">
+    <h3 class="name"><code>bind-attr</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l5408"><code>js\libs\ember-1.10.0.debug.js:5408</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>bind-attr</code> allows you to create a binding between DOM element attributes and
+Ember objects. For example:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;img {{bind-attr src=imageUrl alt=imageTitle}}&gt;
+</code></pre>
+<p>The above handlebars template will fill the <code>&lt;img&gt;</code>'s <code>src</code> attribute with
+the value of the property referenced with <code>imageUrl</code> and its <code>alt</code>
+attribute with the value of the property referenced with <code>imageTitle</code>.</p>
+<p>If the rendering context of this template is the following object:</p>
+<pre class="code prettyprint"><code class="language-javascript">{
+  imageUrl: 'http://lolcats.info/haz-a-funny',
+  imageTitle: 'A humorous image of a cat'
+}
+</code></pre>
+<p>The resulting HTML output will be:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;img src=&quot;http://lolcats.info/haz-a-funny&quot; alt=&quot;A humorous image of a cat&quot;&gt;
+</code></pre>
+<p><code>bind-attr</code> cannot redeclare existing DOM element attributes. The use of <code>src</code>
+in the following <code>bind-attr</code> example will be ignored and the hard coded value
+of <code>src=&quot;/failwhale.gif&quot;</code> will take precedence:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;img src=&quot;/failwhale.gif&quot; {{bind-attr src=imageUrl alt=imageTitle}}&gt;
+</code></pre>
+<h3><code>bind-attr</code> and the <code>class</code> attribute</h3>
+<p><code>bind-attr</code> supports a special syntax for handling a number of cases unique
+to the <code>class</code> DOM element attribute. The <code>class</code> attribute combines
+multiple discrete values into a single attribute as a space-delimited
+list of strings. Each string can be:</p>
+<ul>
+<li>a string return value of an object's property.</li>
+<li>a boolean return value of an object's property</li>
+<li>a hard-coded value</li>
+</ul>
+<p>A string return value works identically to other uses of <code>bind-attr</code>. The
+return value of the property will become the value of the attribute. For
+example, the following view and template:</p>
+<pre class="code prettyprint"><code class="language-javascript">  AView = View.extend({
+    someProperty: function() {
+      return &quot;aValue&quot;;
+    }.property()
+  })
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;img {{bind-attr class=view.someProperty}}&gt;
+</code></pre>
+<p>Result in the following rendered output:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;img class=&quot;aValue&quot;&gt;
+</code></pre>
+<p>A boolean return value will insert a specified class name if the property
+returns <code>true</code> and remove the class name if the property returns <code>false</code>.</p>
+<p>A class name is provided via the syntax
+<code>somePropertyName:class-name-if-true</code>.</p>
+<pre class="code prettyprint"><code class="language-javascript">AView = View.extend({
+  someBool: true
+})
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;img {{bind-attr class=&quot;view.someBool:class-name-if-true&quot;}}&gt;
+</code></pre>
+<p>Result in the following rendered output:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;img class=&quot;class-name-if-true&quot;&gt;
+</code></pre>
+<p>An additional section of the binding can be provided if you want to
+replace the existing class instead of removing it when the boolean
+value changes:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;img {{bind-attr class=&quot;view.someBool:class-name-if-true:class-name-if-false&quot;}}&gt;
+</code></pre>
+<p>A hard-coded value can be used by prepending <code>:</code> to the desired
+class name: <code>:class-name-to-always-apply</code>.</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;img {{bind-attr class=&quot;:class-name-to-always-apply&quot;}}&gt;
+</code></pre>
+<p>Results in the following rendered output:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;img class=&quot;class-name-to-always-apply&quot;&gt;
+</code></pre>
+<p>All three strategies - string return value, boolean return value, and
+hard-coded value – can be combined in a single declaration:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;img {{bind-attr class=&quot;:class-name-to-always-apply view.someBool:class-name-if-true view.someProperty&quot;}}&gt;
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_bindAttr" class="method item deprecated">
+    <h3 class="name"><code>bindAttr</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>context</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+        <span class="flag deprecated">deprecated</span>
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l5598"><code>js\libs\ember-1.10.0.debug.js:5598</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>See <code>bind-attr</code></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">context</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_boundIf" class="method item private">
+    <h3 class="name"><code>boundIf</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>property</code>
+                </li>
+                <li class="arg">
+                        <code>fn</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6290"><code>js\libs\ember-1.10.0.debug.js:6290</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Use the <code>boundIf</code> helper to create a conditional that re-evaluates
+whenever the truthiness of the bound value changes.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#boundIf &quot;content.shouldDisplayTitle&quot;}}
+  {{content.title}}
+{{/boundIf}}
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>Property to bind</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Context to provide for rendering</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_collection" class="method item deprecated">
+    <h3 class="name"><code>collection</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>path</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+        <span class="flag deprecated" title="Use &#x60;{{each}}&#x60; helper instead.">deprecated</span>
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l5762"><code>js\libs\ember-1.10.0.debug.js:5762</code></a>
+        </p>
+
+
+            <p>Deprecated: Use &#x60;{{each}}&#x60; helper instead.</p>
+
+    </div>
+
+    <div class="description">
+        <p><code>{{collection}}</code> is a <code>Ember.Handlebars</code> helper for adding instances of
+<code>Ember.CollectionView</code> to a template. See <a href="/api/classes/Ember.CollectionView.html">Ember.CollectionView</a>
+for additional information on how a <code>CollectionView</code> functions.</p>
+<p><code>{{collection}}</code>'s primary use is as a block helper with a <code>contentBinding</code>
+option pointing towards an <code>Ember.Array</code>-compatible object. An <code>Ember.View</code>
+instance will be created for each item in its <code>content</code> property. Each view
+will have its own <code>content</code> property set to the appropriate item in the
+collection.</p>
+<p>The provided block will be applied as the template for each item's view.</p>
+<p>Given an empty <code>&lt;body&gt;</code> the following template:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{! application.hbs }}
+{{#collection content=model}}
+  Hi {{view.content.name}}
+{{/collection}}
+</code></pre>
+<p>And the following application code</p>
+<pre class="code prettyprint"><code class="language-javascript">App = Ember.Application.create();
+App.ApplicationRoute = Ember.Route.extend({
+  model: function(){
+    return [{name: 'Yehuda'},{name: 'Tom'},{name: 'Peter'}];
+  }
+});
+</code></pre>
+<p>The following HTML will result:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div class=&quot;ember-view&quot;&gt;
+  &lt;div class=&quot;ember-view&quot;&gt;Hi Yehuda&lt;/div&gt;
+  &lt;div class=&quot;ember-view&quot;&gt;Hi Tom&lt;/div&gt;
+  &lt;div class=&quot;ember-view&quot;&gt;Hi Peter&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>Non-block version of collection</h3>
+<p>If you provide an <code>itemViewClass</code> option that has its own <code>template</code> you may
+omit the block.</p>
+<p>The following template:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{! application.hbs }}
+{{collection content=model itemViewClass=&quot;an-item&quot;}}
+</code></pre>
+<p>And application code</p>
+<pre class="code prettyprint"><code class="language-javascript">App = Ember.Application.create();
+App.ApplicationRoute = Ember.Route.extend({
+  model: function(){
+    return [{name: 'Yehuda'},{name: 'Tom'},{name: 'Peter'}];
+  }
+});
+
+App.AnItemView = Ember.View.extend({
+  template: Ember.Handlebars.compile(&quot;Greetings {{view.content.name}}&quot;)
+});
+</code></pre>
+<p>Will result in the HTML structure below</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div class=&quot;ember-view&quot;&gt;
+  &lt;div class=&quot;ember-view&quot;&gt;Greetings Yehuda&lt;/div&gt;
+  &lt;div class=&quot;ember-view&quot;&gt;Greetings Tom&lt;/div&gt;
+  &lt;div class=&quot;ember-view&quot;&gt;Greetings Peter&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>Specifying a CollectionView subclass</h3>
+<p>By default the <code>{{collection}}</code> helper will create an instance of
+<code>Ember.CollectionView</code>. You can supply a <code>Ember.CollectionView</code> subclass to
+the helper by passing it as the first argument:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#collection &quot;my-custom-collection&quot; content=model}}
+  Hi {{view.content.name}}
+{{/collection}}
+</code></pre>
+<p>This example would look for the class <code>App.MyCustomCollection</code>.</p>
+<h3>Forwarded <code>item.*</code>-named Options</h3>
+<p>As with the <code>{{view}}</code>, helper options passed to the <code>{{collection}}</code> will be
+set on the resulting <code>Ember.CollectionView</code> as properties. Additionally,
+options prefixed with <code>item</code> will be applied to the views rendered for each
+item (note the camelcasing):</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#collection content=model
+              itemTagName=&quot;p&quot;
+              itemClassNames=&quot;greeting&quot;}}
+  Howdy {{view.content.name}}
+{{/collection}}
+</code></pre>
+<p>Will result in the following HTML structure:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div class=&quot;ember-view&quot;&gt;
+  &lt;p class=&quot;ember-view greeting&quot;&gt;Howdy Yehuda&lt;/p&gt;
+  &lt;p class=&quot;ember-view greeting&quot;&gt;Howdy Tom&lt;/p&gt;
+  &lt;p class=&quot;ember-view greeting&quot;&gt;Howdy Peter&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_debugger" class="method item">
+    <h3 class="name"><code>debugger</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>property</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6016"><code>js\libs\ember-1.10.0.debug.js:6016</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Execute the <code>debugger</code> statement in the current context.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{debugger}}
+</code></pre>
+<p>Before invoking the <code>debugger</code> statement, there
+are a few helpful variables defined in the
+body of this helper that you can inspect while
+debugging that describe how and where this
+helper was invoked:</p>
+<ul>
+<li>templateContext: this is most likely a controller
+from which this template looks up / displays properties</li>
+<li>typeOfTemplateContext: a string description of
+what the templateContext is</li>
+</ul>
+<p>For example, if you're wondering why a value <code>{{foo}}</code>
+isn't rendering as expected within a template, you
+could place a <code>{{debugger}}</code> statement, and when
+the <code>debugger;</code> breakpoint is hit, you can inspect
+<code>templateContext</code>, determine if it's the object you
+expect, and/or evaluate expressions in the console
+to perform property lookups on the <code>templateContext</code>:</p>
+<pre class="code prettyprint"><code>  &gt; templateContext.get('foo') // -&gt; &quot;&lt;value of {{foo}}&gt;&quot;
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_each" class="method item">
+    <h3 class="name"><code>each</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code class="optional">[name]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[path]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[options]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6075"><code>js\libs\ember-1.10.0.debug.js:6075</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>The <code>{{#each}}</code> helper loops over elements in a collection. It is an extension
+of the base Handlebars <code>{{#each}}</code> helper.</p>
+<p>The default behavior of <code>{{#each}}</code> is to yield its inner block once for every
+item in an array.</p>
+<pre class="code prettyprint"><code class="language-javascript">var developers = [{name: 'Yehuda'},{name: 'Tom'}, {name: 'Paul'}];
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{#each person in developers}}
+  {{person.name}}
+  {{! <code>this</code> is whatever it was outside the #each }}
+{{/each}}
+</code></pre>
+<p>The same rules apply to arrays of primitives, but the items may need to be
+references with <code>{{this}}</code>.</p>
+<pre class="code prettyprint"><code class="language-javascript">var developerNames = ['Yehuda', 'Tom', 'Paul']
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{#each name in developerNames}}
+  {{name}}
+{{/each}}
+</code></pre>
+<h3>{{else}} condition</h3>
+<p><code>{{#each}}</code> can have a matching <code>{{else}}</code>. The contents of this block will render
+if the collection is empty.</p>
+<pre class="code prettyprint"><code>{{#each person in developers}}
+  {{person.name}}
+{{else}}
+  &lt;p&gt;Sorry, nobody is available for this task.&lt;/p&gt;
+{{/each}}
+</code></pre>
+<h3>Specifying an alternative view for each item</h3>
+<p><code>itemViewClass</code> can control which view will be used during the render of each
+item's template.</p>
+<p>The following template:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;ul&gt;
+{{#each developer in developers itemViewClass="person"}}
+  {{developer.name}}
+{{/each}}
+&lt;/ul&gt;
+</code></pre>
+<p>Will use the following view for each item</p>
+<pre class="code prettyprint"><code class="language-javascript">App.PersonView = Ember.View.extend({
+  tagName: 'li'
+});
+</code></pre>
+<p>Resulting in HTML output that looks like the following:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;ul&gt;
+  &lt;li class="ember-view"&gt;Yehuda&lt;/li&gt;
+  &lt;li class="ember-view"&gt;Tom&lt;/li&gt;
+  &lt;li class="ember-view"&gt;Paul&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p><code>itemViewClass</code> also enables a non-block form of <code>{{each}}</code>. The view
+must {{#crossLink "Ember.View/toc_templates"}}provide its own template{{/crossLink}},
+and then the block should be dropped. An example that outputs the same HTML
+as the previous one:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.PersonView = Ember.View.extend({
+  tagName: 'li',
+  template: '{{developer.name}}'
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;ul&gt;
+  {{each developer in developers itemViewClass="person"}}
+&lt;/ul&gt;
+</code></pre>
+<h3>Specifying an alternative view for no items (else)</h3>
+<p>The <code>emptyViewClass</code> option provides the same flexibility to the <code>{{else}}</code>
+case of the each helper.</p>
+<pre class="code prettyprint"><code class="language-javascript">App.NoPeopleView = Ember.View.extend({
+  tagName: 'li',
+  template: 'No person is available, sorry'
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;ul&gt;
+{{#each developer in developers emptyViewClass="no-people"}}
+  &lt;li&gt;{{developer.name}}&lt;/li&gt;
+{{/each}}
+&lt;/ul&gt;
+</code></pre>
+<h3>Wrapping each item in a controller</h3>
+<p>Controllers in Ember manage state and decorate data. In many cases,
+providing a controller for each item in a list can be useful.
+Specifically, an {{#crossLink "Ember.ObjectController"}}Ember.ObjectController{{/crossLink}}
+should probably be used. Item controllers are passed the item they
+will present as a <code>model</code> property, and an object controller will
+proxy property lookups to <code>model</code> for us.</p>
+<p>This allows state and decoration to be added to the controller
+while any other property lookups are delegated to the model. An example:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.RecruitController = Ember.ObjectController.extend({
+  isAvailableForHire: function() {
+    return !this.get('isEmployed') &amp;&amp; this.get('isSeekingWork');
+  }.property('isEmployed', 'isSeekingWork')
+})
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{#each person in developers itemController="recruit"}}
+  {{person.name}} {{#if person.isAvailableForHire}}Hire me!{{/if}}
+{{/each}}
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name optional">[name]</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>name for item (used with <code>in</code>)</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[path]</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>path</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[options]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Handlebars key/value pairs of options</p>
+
+                    </div>
+
+                        <ul class="params-list">
+                            <li class="param">
+                                    <code class="param-name optional">[itemViewClass]</code>
+                                    <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                <div class="param-description">
+                                    <p>a path to a view class used for each item</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name optional">[emptyViewClass]</code>
+                                    <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                <div class="param-description">
+                                    <p>a path to a view class used for each item</p>
+
+                                </div>
+
+                            </li>
+                            <li class="param">
+                                    <code class="param-name optional">[itemController]</code>
+                                    <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+                                    <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                                <div class="param-description">
+                                    <p>name of a controller to be created for each item</p>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_if" class="method item">
+    <h3 class="name"><code>if</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>context</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6352"><code>js\libs\ember-1.10.0.debug.js:6352</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>See <a href="/api/classes/Ember.Handlebars.helpers.html#method_boundIf">boundIf</a>
+and <a href="/api/classes/Ember.Handlebars.helpers.html#method_unboundIf">unboundIf</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">context</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_input" class="method item">
+    <h3 class="name"><code>input</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6426"><code>js\libs\ember-1.10.0.debug.js:6426</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>The <code>{{input}}</code> helper inserts an HTML <code>&lt;input&gt;</code> tag into the template,
+with a <code>type</code> value of either <code>text</code> or <code>checkbox</code>. If no <code>type</code> is provided,
+<code>text</code> will be the default value applied. The attributes of <code>{{input}}</code>
+match those of the native HTML tag as closely as possible for these two types.</p>
+<h2>Use as text field</h2>
+<pre class="code prettyprint"><code>  An <code>{{input}}</code> with no <code>type</code> or a <code>type</code> of <code>text</code> will render an HTML text input.
+  The following HTML attributes can be set via the helper:
+
+ &lt;table&gt;
+  &lt;tr&gt;&lt;td&gt;<code>readonly</code>&lt;/td&gt;&lt;td&gt;<code>required</code>&lt;/td&gt;&lt;td&gt;<code>autofocus</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>value</code>&lt;/td&gt;&lt;td&gt;<code>placeholder</code>&lt;/td&gt;&lt;td&gt;<code>disabled</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>size</code>&lt;/td&gt;&lt;td&gt;<code>tabindex</code>&lt;/td&gt;&lt;td&gt;<code>maxlength</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>name</code>&lt;/td&gt;&lt;td&gt;<code>min</code>&lt;/td&gt;&lt;td&gt;<code>max</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>pattern</code>&lt;/td&gt;&lt;td&gt;<code>accept</code>&lt;/td&gt;&lt;td&gt;<code>autocomplete</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>autosave</code>&lt;/td&gt;&lt;td&gt;<code>formaction</code>&lt;/td&gt;&lt;td&gt;<code>formenctype</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>formmethod</code>&lt;/td&gt;&lt;td&gt;<code>formnovalidate</code>&lt;/td&gt;&lt;td&gt;<code>formtarget</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>height</code>&lt;/td&gt;&lt;td&gt;<code>inputmode</code>&lt;/td&gt;&lt;td&gt;<code>multiple</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>step</code>&lt;/td&gt;&lt;td&gt;<code>width</code>&lt;/td&gt;&lt;td&gt;<code>form</code>&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;<code>selectionDirection</code>&lt;/td&gt;&lt;td&gt;<code>spellcheck</code>&lt;/td&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+ &lt;/table&gt;
+</code></pre>
+<p>When set to a quoted string, these values will be directly applied to the HTML
+element. When left unquoted, these values will be bound to a property on the
+template's current rendering context (most typically a controller instance).</p>
+<h2>Unbound:</h2>
+<pre class="code prettyprint"><code class="language-handlebars">      {{input value=&quot;http://www.facebook.com&quot;}}
+      <code>&#x60;</code>
+
+<code>&#x60;</code>html
+      &lt;input type=&quot;text&quot; value=&quot;http://www.facebook.com&quot;/&gt;
+      <code>&#x60;</code>
+## Bound:
+<code>&#x60;</code>javascript
+      App.ApplicationController = Ember.Controller.extend({
+        firstName: &quot;Stanley&quot;,
+        entryNotAllowed: true
+      });
+      <code>&#x60;</code>
+
+<code>&#x60;</code>handlebars
+      {{input type=&quot;text&quot; value=firstName disabled=entryNotAllowed size=&quot;50&quot;}}
+      <code>&#x60;</code>
+
+<code>&#x60;</code>html
+      &lt;input type=&quot;text&quot; value=&quot;Stanley&quot; disabled=&quot;disabled&quot; size=&quot;50&quot;/&gt;
+      <code>&#x60;</code>
+## Actions
+The helper can send multiple actions based on user events.
+The action property defines the action which is sent when
+      the user presses the return key.
+<code>&#x60;</code>handlebars
+      {{input action=&quot;submit&quot;}}
+      <code>&#x60;</code>
+The helper allows some user events to send actions.
+
+    * <code>enter</code>
+    * <code>insert-newline</code>
+    * <code>escape-press</code>
+    * <code>focus-in</code>
+    * <code>focus-out</code>
+    * <code>key-press</code>
+
+For example, if you desire an action to be sent when the input is blurred,
+      you only need to setup the action name to the event name property.
+<code>&#x60;</code>handlebars
+      {{input focus-in=&quot;alertMessage&quot;}}
+      <code>&#x60;</code>
+See more about [Text Support Actions](/api/classes/Ember.TextField.html)
+## Extension
+Internally, <code>{{input type=&amp;quot;text&amp;quot;}}</code> creates an instance of <code>Ember.TextField</code>, passing
+      arguments from the helper to <code>Ember.TextField</code>'s <code>create</code> method. You can extend the
+      capabilities of text inputs in your applications by reopening this class. For example,
+      if you are building a Bootstrap project where <code>data-*</code> attributes are used, you
+      can add one to the <code>TextField</code>'s <code>attributeBindings</code> property:
+
+<code>&#x60;</code>javascript
+      Ember.TextField.reopen({
+        attributeBindings: ['data-error']
+      });
+      <code>&#x60;</code>
+Keep in mind when writing <code>Ember.TextField</code> subclasses that <code>Ember.TextField</code>
+      itself extends <code>Ember.Component</code>, meaning that it does NOT inherit
+      the <code>controller</code> of the parent view.
+See more about [Ember components](/api/classes/Ember.Component.html)
+
+## Use as checkbox
+An <code>{{input}}</code> with a <code>type</code> of <code>checkbox</code> will render an HTML checkbox input.
+      The following HTML attributes can be set via the helper:
+
+    * <code>checked</code>
+    * <code>disabled</code>
+    * <code>tabindex</code>
+    * <code>indeterminate</code>
+    * <code>name</code>
+    * <code>autofocus</code>
+    * <code>form</code>
+
+When set to a quoted string, these values will be directly applied to the HTML
+      element. When left unquoted, these values will be bound to a property on the
+      template's current rendering context (most typically a controller instance).
+## Unbound:
+<code>&#x60;</code>handlebars
+      {{input type=&quot;checkbox&quot; name=&quot;isAdmin&quot;}}
+      <code>&#x60;</code>
+<code>&#x60;</code>html
+      &lt;input type=&quot;checkbox&quot; name=&quot;isAdmin&quot; /&gt;
+      <code>&#x60;</code>
+## Bound:
+<code>&#x60;</code>javascript
+      App.ApplicationController = Ember.Controller.extend({
+        isAdmin: true
+      });
+      <code>&#x60;</code>
+
+<code>&#x60;</code>handlebars
+      {{input type=&quot;checkbox&quot; checked=isAdmin }}
+      <code>&#x60;</code>
+
+<code>&#x60;</code>html
+      &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot; /&gt;
+      <code>&#x60;</code>
+## Extension
+Internally, <code>{{input type=&amp;quot;checkbox&amp;quot;}}</code> creates an instance of <code>Ember.Checkbox</code>, passing
+      arguments from the helper to <code>Ember.Checkbox</code>'s <code>create</code> method. You can extend the
+      capablilties of checkbox inputs in your applications by reopening this class. For example,
+      if you wanted to add a css class to all checkboxes in your application:
+
+<code>&#x60;</code>javascript
+      Ember.Checkbox.reopen({
+        classNames: ['my-app-checkbox']
+      });
+      <code>&#x60;</code></code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_link-to" class="method item">
+    <h3 class="name"><code>link-to</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>routeName</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[context]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[options]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l19295"><code>js\libs\ember-1.10.0.debug.js:19295</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>The <code>{{link-to}}</code> helper renders a link to the supplied
+<code>routeName</code> passing an optionally supplied model to the
+route as its <code>model</code> context of the route. The block
+for <code>{{link-to}}</code> becomes the innerHTML of the rendered
+element:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery'}}
+  Great Hamster Photos
+{{/link-to}}
+</code></pre>
+<p>You can also use an inline form of <code>{{link-to}}</code> helper by
+passing the link text as the first argument
+to the helper:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{link-to 'Great Hamster Photos' 'photoGallery'}}
+</code></pre>
+<p>Both will result in:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;a href=&quot;/hamster-photos&quot;&gt;
+  Great Hamster Photos
+&lt;/a&gt;
+</code></pre>
+<h3>Supplying a tagName</h3>
+<p>By default <code>{{link-to}}</code> renders an <code>&lt;a&gt;</code> element. This can
+be overridden for a single use of <code>{{link-to}}</code> by supplying
+a <code>tagName</code> option:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery' tagName=&quot;li&quot;}}
+  Great Hamster Photos
+{{/link-to}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;li&gt;
+  Great Hamster Photos
+&lt;/li&gt;
+</code></pre>
+<p>To override this option for your entire application, see
+&quot;Overriding Application-wide Defaults&quot;.</p>
+<h3>Disabling the <code>link-to</code> helper</h3>
+<p>By default <code>{{link-to}}</code> is enabled.
+any passed value to <code>disabled</code> helper property will disable the <code>link-to</code> helper.</p>
+<p>static use: the <code>disabled</code> option:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery' disabled=true}}
+  Great Hamster Photos
+{{/link-to}}
+</code></pre>
+<p>dynamic use: the <code>disabledWhen</code> option:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery' disabledWhen=controller.someProperty}}
+  Great Hamster Photos
+{{/link-to}}
+</code></pre>
+<p>any passed value to <code>disabled</code> will disable it except <code>undefined</code>.
+to ensure that only <code>true</code> disable the <code>link-to</code> helper you can
+override the global behaviour of <code>Ember.LinkView</code>.</p>
+<pre class="code prettyprint"><code class="language-javascript">Ember.LinkView.reopen({
+  disabled: Ember.computed(function(key, value) {
+    if (value !== undefined) {
+      this.set('_isDisabled', value === true);
+    }
+    return value === true ? get(this, 'disabledClass') : false;
+  })
+});
+</code></pre>
+<p>see &quot;Overriding Application-wide Defaults&quot; for more.</p>
+<h3>Handling <code>href</code></h3>
+<p><code>{{link-to}}</code> will use your application's Router to
+fill the element's <code>href</code> property with a url that
+matches the path to the supplied <code>routeName</code> for your
+routers's configured <code>Location</code> scheme, which defaults
+to Ember.HashLocation.</p>
+<h3>Handling current route</h3>
+<p><code>{{link-to}}</code> will apply a CSS class name of 'active'
+when the application's current route matches
+the supplied routeName. For example, if the application's
+current route is 'photoGallery.recent' the following
+use of <code>{{link-to}}</code>:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery.recent'}}
+  Great Hamster Photos from the last week
+{{/link-to}}
+</code></pre>
+<p>will result in</p>
+<pre class="code prettyprint"><code class="language-html">&lt;a href=&quot;/hamster-photos/this-week&quot; class=&quot;active&quot;&gt;
+  Great Hamster Photos
+&lt;/a&gt;
+</code></pre>
+<p>The CSS class name used for active classes can be customized
+for a single use of <code>{{link-to}}</code> by passing an <code>activeClass</code>
+option:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery.recent' activeClass=&quot;current-url&quot;}}
+  Great Hamster Photos from the last week
+{{/link-to}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;a href=&quot;/hamster-photos/this-week&quot; class=&quot;current-url&quot;&gt;
+  Great Hamster Photos
+&lt;/a&gt;
+</code></pre>
+<p>To override this option for your entire application, see
+&quot;Overriding Application-wide Defaults&quot;.</p>
+<h3>Supplying a model</h3>
+<p>An optional model argument can be used for routes whose
+paths contain dynamic segments. This argument will become
+the model context of the linked route:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.Router.map(function() {
+  this.resource(&quot;photoGallery&quot;, {path: &quot;hamster-photos/:photo_id&quot;});
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery' aPhoto}}
+  {{aPhoto.title}}
+{{/link-to}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;a href=&quot;/hamster-photos/42&quot;&gt;
+  Tomster
+&lt;/a&gt;
+</code></pre>
+<h3>Supplying multiple models</h3>
+<p>For deep-linking to route paths that contain multiple
+dynamic segments, multiple model arguments can be used.
+As the router transitions through the route path, each
+supplied model argument will become the context for the
+route with the dynamic segments:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.Router.map(function() {
+  this.resource(&quot;photoGallery&quot;, {path: &quot;hamster-photos/:photo_id&quot;}, function() {
+    this.route(&quot;comment&quot;, {path: &quot;comments/:comment_id&quot;});
+  });
+});
+</code></pre>
+<p>This argument will become the model context of the linked route:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery.comment' aPhoto comment}}
+  {{comment.body}}
+{{/link-to}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;a href=&quot;/hamster-photos/42/comment/718&quot;&gt;
+  A+++ would snuggle again.
+&lt;/a&gt;
+</code></pre>
+<h3>Supplying an explicit dynamic segment value</h3>
+<p>If you don't have a model object available to pass to <code>{{link-to}}</code>,
+an optional string or integer argument can be passed for routes whose
+paths contain dynamic segments. This argument will become the value
+of the dynamic segment:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.Router.map(function() {
+  this.resource(&quot;photoGallery&quot;, {path: &quot;hamster-photos/:photo_id&quot;});
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery' aPhotoId}}
+  {{aPhoto.title}}
+{{/link-to}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;a href=&quot;/hamster-photos/42&quot;&gt;
+  Tomster
+&lt;/a&gt;
+</code></pre>
+<p>When transitioning into the linked route, the <code>model</code> hook will
+be triggered with parameters including this passed identifier.</p>
+<h3>Allowing Default Action</h3>
+<pre class="code prettyprint"><code> By default the <code>{{link-to}}</code> helper prevents the default browser action
+ by calling <code>preventDefault()</code> as this sort of action bubbling is normally
+ handled internally and we do not want to take the browser to a new URL (for
+ example).
+
+ If you need to override this behavior specify <code>preventDefault=false</code> in
+ your template:
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to 'photoGallery' aPhotoId preventDefault=false}}
+  {{aPhotoId.title}}
+{{/link-to}}
+</code></pre>
+<h3>Overriding attributes</h3>
+<p>You can override any given property of the Ember.LinkView
+that is generated by the <code>{{link-to}}</code> helper by passing
+key/value pairs, like so:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#link-to  aPhoto tagName='li' title='Following this link will change your life' classNames='pic sweet'}}
+  Uh-mazing!
+{{/link-to}}
+</code></pre>
+<p>See <a href="/api/classes/Ember.LinkView.html">Ember.LinkView</a> for a
+complete list of overrideable properties. Be sure to also
+check out inherited properties of <code>LinkView</code>.</p>
+<h3>Overriding Application-wide Defaults</h3>
+<p><code>{{link-to}}</code> creates an instance of Ember.LinkView
+for rendering. To override options for your entire
+application, reopen Ember.LinkView and supply the
+desired values:</p>
+<pre class="code prettyprint"><code class="language-javascript">Ember.LinkView.reopen({
+  activeClass: &quot;is-active&quot;,
+  tagName: 'li'
+})
+</code></pre>
+<p>It is also possible to override the default event in
+this manner:</p>
+<pre class="code prettyprint"><code class="language-javascript">Ember.LinkView.reopen({
+  eventName: 'customEventName'
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">routeName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[context]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                        <span class="flag multiple" title="This argument may occur one or more times.">multiple</span>
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[options]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Handlebars key/value pairs of options, you can override any property of Ember.LinkView</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_linkTo" class="method item deprecated">
+    <h3 class="name"><code>linkTo</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>routeName</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[context]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+        <span class="flag deprecated">deprecated</span>
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-routing-handlebars.html">ember-routing-handlebars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l19625"><code>js\libs\ember-1.10.0.debug.js:19625</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>See <a href="/api/classes/Ember.Handlebars.helpers.html#method_link-to">link-to</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">routeName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[context]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+                        <span class="flag multiple" title="This argument may occur one or more times.">multiple</span>
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_loc" class="method item">
+    <h3 class="name"><code>loc</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>str</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6640"><code>js\libs\ember-1.10.0.debug.js:6640</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Calls <a href="/api/classes/Ember.String.html#method_loc">Ember.String.loc</a> with the
+provided string.</p>
+<p>This is a convenient way to localize text within a template:</p>
+<pre class="code prettyprint"><code class="language-javascript">Ember.STRINGS = {
+  '_welcome_': 'Bonjour'
+};
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div class='message'&gt;
+  {{loc '_welcome_'}}
+&lt;/div&gt;
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;div class='message'&gt;
+  Bonjour
+&lt;/div&gt;
+</code></pre>
+<p>See <a href="/api/classes/Ember.String.html#method_loc">Ember.String.loc</a> for how to
+set up localized string references.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">str</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>The string to format</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_log" class="method item">
+    <h3 class="name"><code>log</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>property</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6698"><code>js\libs\ember-1.10.0.debug.js:6698</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>log</code> allows you to output the value of variables in the current rendering
+context. <code>log</code> also accepts primitive types such as strings or numbers.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{log &quot;myVariable:&quot; myVariable }}
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_outlet" class="method item">
+    <h3 class="name"><code>outlet</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>property</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l19658"><code>js\libs\ember-1.10.0.debug.js:19658</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>The <code>outlet</code> helper is a placeholder that the router will fill in with
+the appropriate template based on the current state of the application.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{outlet}}
+</code></pre>
+<p>By default, a template based on Ember's naming conventions will be rendered
+into the <code>outlet</code> (e.g. <code>App.PostsRoute</code> will render the <code>posts</code> template).</p>
+<p>You can render a different template by using the <code>render()</code> method in the
+route's <code>renderTemplate</code> hook. The following will render the <code>favoritePost</code>
+template into the <code>outlet</code>.</p>
+<pre class="code prettyprint"><code class="language-javascript">App.PostsRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render('favoritePost');
+  }
+});
+</code></pre>
+<p>You can create custom named outlets for more control.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{outlet 'favoritePost'}}
+{{outlet 'posts'}}
+</code></pre>
+<p>Then you can define what template is rendered into each outlet in your
+route.</p>
+<pre class="code prettyprint"><code class="language-javascript">App.PostsRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render('favoritePost', { outlet: 'favoritePost' });
+    this.render('posts', { outlet: 'posts' });
+  }
+});
+</code></pre>
+<p>You can specify the view that the outlet uses to contain and manage the
+templates rendered into it.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{outlet view='sectionContainer'}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-javascript">App.SectionContainer = Ember.ContainerView.extend({
+  tagName: 'section',
+  classNames: ['special']
+});
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>the property on the controller
+that holds the view for this outlet</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_partial" class="method item">
+    <h3 class="name"><code>partial</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>partialName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6739"><code>js\libs\ember-1.10.0.debug.js:6739</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>The <code>partial</code> helper renders another template without
+changing the template context:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{foo}}
+{{partial &quot;nav&quot;}}
+</code></pre>
+<p>The above example template will render a template named
+&quot;_nav&quot;, which has the same context as the parent template
+it's rendered into, so if the &quot;_nav&quot; template also referenced
+<code>{{foo}}</code>, it would print the same thing as the <code>{{foo}}</code>
+in the above example.</p>
+<p>If a &quot;_nav&quot; template isn't found, the <code>partial</code> helper will
+fall back to a template named &quot;nav&quot;.</p>
+<h2>Bound template names</h2>
+<p>The parameter supplied to <code>partial</code> can also be a path
+to a property containing a template name, e.g.:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{partial someTemplateName}}
+</code></pre>
+<p>The above example will look up the value of <code>someTemplateName</code>
+on the template context (e.g. a controller) and use that
+value as the name of the template to render. If the resolved
+value is falsy, nothing will be rendered. If <code>someTemplateName</code>
+changes, the partial will be re-rendered using the new template
+name.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">partialName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>the name of the template to render minus the leading underscore</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_pluralize" class="method item">
+    <h3 class="name"><code>pluralize</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>word</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-data.html">ember-data</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-data.js.html#l12310"><code>js\libs\ember-data.js:12310</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>If you have Ember Inflector (such as if Ember Data is present),
+pluralize a word. For example, turn &quot;ox&quot; into &quot;oxen&quot;.
+Example:
+{{pluralize myProperty}}
+{{pluralize &quot;oxen&quot;}}</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">word</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a> | Property</span>
+
+
+                    <div class="param-description">
+                        <p>word to pluralize</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_query-params" class="method item">
+    <h3 class="name"><code>query-params</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>hash</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l19780"><code>js\libs\ember-1.10.0.debug.js:19780</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>This is a sub-expression to be used in conjunction with the link-to helper.
+It will supply url query parameters to the target route.</p>
+<p>Example</p>
+<p>{{#link-to 'posts' (query-params direction=&quot;asc&quot;)}}Sort{{/link-to}}</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">hash</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+
+
+                    <div class="param-description">
+                        <p>takes a hash of query parameters</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_render" class="method item">
+    <h3 class="name"><code>render</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>name</code>
+                </li>
+                <li class="arg">
+                        <code>context</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-routing-htmlbars.html">ember-routing-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l19821"><code>js\libs\ember-1.10.0.debug.js:19821</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Calling <code>{{render}}</code> from within a template will insert another
+template that matches the provided name. The inserted template will
+access its properties on its own controller (rather than the controller
+of the parent template).</p>
+<p>If a view class with the same name exists, the view class also will be used.</p>
+<p>Note: A given controller may only be used <em>once</em> in your app in this manner.
+A singleton instance of the controller will be created for you.</p>
+<p>Example:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.NavigationController = Ember.Controller.extend({
+  who: &quot;world&quot;
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;!-- navigation.hbs --&gt;
+Hello, {{who}}.
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;!-- application.hbs --&gt;
+&lt;h1&gt;My great app&lt;/h1&gt;
+{{render &quot;navigation&quot;}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;h1&gt;My great app&lt;/h1&gt;
+&lt;div class='ember-view'&gt;
+  Hello, world.
+&lt;/div&gt;
+</code></pre>
+<p>Optionally you may provide a second argument: a property path
+that will be bound to the <code>model</code> property of the controller.</p>
+<p>If a <code>model</code> property path is specified, then a new instance of the
+controller will be created and <code>{{render}}</code> can be used multiple times
+with the same name.</p>
+<pre class="code prettyprint"><code> For example if you had this <code>author</code> template.
+
+ <code>&#x60;</code>handlebars
+&lt;div class=&quot;author&quot;&gt;
+Written by {{firstName}} {{lastName}}.
+Total Posts: {{postCount}}
+&lt;/div&gt;
+<code>&#x60;</code>
+
+You could render it inside the <code>post</code> template using the <code>render</code> helper.
+
+<code>&#x60;</code>handlebars
+&lt;div class=&quot;post&quot;&gt;
+&lt;h1&gt;{{title}}&lt;/h1&gt;
+&lt;div&gt;{{body}}&lt;/div&gt;
+{{render &quot;author&quot; author}}
+&lt;/div&gt;
+ <code>&#x60;</code></code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">context</code>
+                        <span class="type">Object?</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_singularize" class="method item">
+    <h3 class="name"><code>singularize</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>word</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-data.html">ember-data</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-data.js.html#l12294"><code>js\libs\ember-data.js:12294</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>If you have Ember Inflector (such as if Ember Data is present),
+singularize a word. For example, turn &quot;oxen&quot; into &quot;ox&quot;.
+Example:
+{{singularize myProperty}}
+{{singularize &quot;oxen&quot;}}</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">word</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a> | Property</span>
+
+
+                    <div class="param-description">
+                        <p>word to singularize</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_template" class="method item deprecated">
+    <h3 class="name"><code>template</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>templateName</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+        <span class="flag deprecated">deprecated</span>
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6839"><code>js\libs\ember-1.10.0.debug.js:6839</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">templateName</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>the template to render</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_textarea" class="method item">
+    <h3 class="name"><code>textarea</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6869"><code>js\libs\ember-1.10.0.debug.js:6869</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>{{textarea}}</code> inserts a new instance of <code>&lt;textarea&gt;</code> tag into the template.
+The attributes of <code>{{textarea}}</code> match those of the native HTML tags as
+closely as possible.</p>
+<p>The following HTML attributes can be set:</p>
+<ul>
+<li><code>value</code></li>
+<li><code>name</code></li>
+<li><code>rows</code></li>
+<li><code>cols</code></li>
+<li><code>placeholder</code></li>
+<li><code>disabled</code></li>
+<li><code>maxlength</code></li>
+<li><code>tabindex</code></li>
+<li><code>selectionEnd</code></li>
+<li><code>selectionStart</code></li>
+<li><code>selectionDirection</code></li>
+<li><code>wrap</code></li>
+<li><code>readonly</code></li>
+<li><code>autofocus</code></li>
+<li><code>form</code></li>
+<li><code>spellcheck</code></li>
+<li><code>required</code></li>
+</ul>
+<p>When set to a quoted string, these value will be directly applied to the HTML
+element. When left unquoted, these values will be bound to a property on the
+template's current rendering context (most typically a controller instance).</p>
+<p>Unbound:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{textarea value=&quot;Lots of static text that ISN'T bound&quot;}}
+</code></pre>
+<p>Would result in the following HTML:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;textarea class=&quot;ember-text-area&quot;&gt;
+  Lots of static text that ISN'T bound
+&lt;/textarea&gt;
+</code></pre>
+<p>Bound:</p>
+<p>In the following example, the <code>writtenWords</code> property on <code>App.ApplicationController</code>
+will be updated live as the user types 'Lots of text that IS bound' into
+the text area of their browser's window.</p>
+<pre class="code prettyprint"><code class="language-javascript">App.ApplicationController = Ember.Controller.extend({
+  writtenWords: &quot;Lots of text that IS bound&quot;
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{textarea value=writtenWords}}
+</code></pre>
+<p>Would result in the following HTML:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;textarea class=&quot;ember-text-area&quot;&gt;
+  Lots of text that IS bound
+&lt;/textarea&gt;
+</code></pre>
+<p>If you wanted a one way binding between the text area and a div tag
+somewhere else on your screen, you could use <code>Ember.computed.oneWay</code>:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.ApplicationController = Ember.Controller.extend({
+  writtenWords: &quot;Lots of text that IS bound&quot;,
+  outputWrittenWords: Ember.computed.oneWay(&quot;writtenWords&quot;)
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{textarea value=writtenWords}}
+
+&lt;div&gt;
+  {{outputWrittenWords}}
+&lt;/div&gt;
+</code></pre>
+<p>Would result in the following HTML:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;textarea class=&quot;ember-text-area&quot;&gt;
+  Lots of text that IS bound
+&lt;/textarea&gt;
+
+&lt;-- the following div will be updated in real time as you type --&gt;
+
+&lt;div&gt;
+  Lots of text that IS bound
+&lt;/div&gt;
+</code></pre>
+<p>Finally, this example really shows the power and ease of Ember when two
+properties are bound to eachother via <code>Ember.computed.alias</code>. Type into
+either text area box and they'll both stay in sync. Note that
+<code>Ember.computed.alias</code> costs more in terms of performance, so only use it when
+your really binding in both directions:</p>
+<pre class="code prettyprint"><code class="language-javascript">App.ApplicationController = Ember.Controller.extend({
+  writtenWords: &quot;Lots of text that IS bound&quot;,
+  twoWayWrittenWords: Ember.computed.alias(&quot;writtenWords&quot;)
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{textarea value=writtenWords}}
+{{textarea value=twoWayWrittenWords}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-html">&lt;textarea id=&quot;ember1&quot; class=&quot;ember-text-area&quot;&gt;
+  Lots of text that IS bound
+&lt;/textarea&gt;
+
+&lt;-- both updated in real time --&gt;
+
+&lt;textarea id=&quot;ember2&quot; class=&quot;ember-text-area&quot;&gt;
+  Lots of text that IS bound
+&lt;/textarea&gt;
+</code></pre>
+<h2>Actions</h2>
+<p>The helper can send multiple actions based on user events.</p>
+<p>The action property defines the action which is send when
+the user presses the return key.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{input action=&quot;submit&quot;}}
+</code></pre>
+<p>The helper allows some user events to send actions.</p>
+<pre class="code prettyprint"><code>* <code>enter</code>
+* <code>insert-newline</code>
+* <code>escape-press</code>
+* <code>focus-in</code>
+* <code>focus-out</code>
+* <code>key-press</code>
+</code></pre>
+<p>For example, if you desire an action to be sent when the input is blurred,
+you only need to setup the action name to the event name property.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{textarea focus-in=&quot;alertMessage&quot;}}
+</code></pre>
+<p>See more about <a href="/api/classes/Ember.TextArea.html">Text Support Actions</a></p>
+<h2>Extension</h2>
+<p>Internally, <code>{{textarea}}</code> creates an instance of <code>Ember.TextArea</code>, passing
+arguments from the helper to <code>Ember.TextArea</code>'s <code>create</code> method. You can
+extend the capabilities of text areas in your application by reopening this
+class. For example, if you are building a Bootstrap project where <code>data-*</code>
+attributes are used, you can globally add support for a <code>data-*</code> attribute
+on all <code>{{textarea}}</code>s' in your app by reopening <code>Ember.TextArea</code> or
+<code>Ember.TextSupport</code> and adding it to the <code>attributeBindings</code> concatenated
+property:</p>
+<pre class="code prettyprint"><code class="language-javascript">Ember.TextArea.reopen({
+  attributeBindings: ['data-error']
+});
+</code></pre>
+<p>Keep in mind when writing <code>Ember.TextArea</code> subclasses that <code>Ember.TextArea</code>
+itself extends <code>Ember.Component</code>, meaning that it does NOT inherit
+the <code>controller</code> of the parent view.</p>
+<p>See more about <a href="/api/classes/Ember.Component.html">Ember components</a></p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_unbound" class="method item">
+    <h3 class="name"><code>unbound</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>property</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l7075"><code>js\libs\ember-1.10.0.debug.js:7075</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>unbound</code> allows you to output a property without binding. <em>Important:</em> The
+output will not be updated if the property changes. Use with caution.</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div&gt;{{unbound somePropertyThatDoesntChange}}&lt;/div&gt;
+</code></pre>
+<p><code>unbound</code> can also be used in conjunction with a bound helper to
+render it in its unbound form:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;div&gt;{{unbound helperName somePropertyThatDoesntChange}}&lt;/div&gt;
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_unboundIf" class="method item private">
+    <h3 class="name"><code>unboundIf</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>property</code>
+                </li>
+                <li class="arg">
+                        <code>fn</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+        <span class="flag private">private</span>
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6315"><code>js\libs\ember-1.10.0.debug.js:6315</code></a>
+        </p>
+
+
+
+            <p>Available since 1.4.0</p>
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">property</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                        <p>Property to bind</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fn</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                        <p>Context to provide for rendering</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_unless" class="method item">
+    <h3 class="name"><code>unless</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>context</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l6377"><code>js\libs\ember-1.10.0.debug.js:6377</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">context</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_view" class="method item">
+    <h3 class="name"><code>view</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>path</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l7329"><code>js\libs\ember-1.10.0.debug.js:7329</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>{{view}}</code> inserts a new instance of an <code>Ember.View</code> into a template passing its
+options to the <code>Ember.View</code>'s <code>create</code> method and using the supplied block as
+the view's own template.</p>
+<p>An empty <code>&lt;body&gt;</code> and the following template:</p>
+<pre class="code prettyprint"><code class="language-handlebars">A span:
+{{#view tagName=&quot;span&quot;}}
+  hello.
+{{/view}}
+</code></pre>
+<p>Will result in HTML structure:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;body&gt;
+  &lt;!-- Note: the handlebars template script
+       also results in a rendered Ember.View
+       which is the outer &lt;div&gt; here --&gt;
+
+  &lt;div class=&quot;ember-view&quot;&gt;
+    A span:
+    &lt;span id=&quot;ember1&quot; class=&quot;ember-view&quot;&gt;
+      Hello.
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<h3><code>parentView</code> setting</h3>
+<p>The <code>parentView</code> property of the new <code>Ember.View</code> instance created through
+<code>{{view}}</code> will be set to the <code>Ember.View</code> instance of the template where
+<code>{{view}}</code> was called.</p>
+<pre class="code prettyprint"><code class="language-javascript">aView = Ember.View.create({
+  template: Ember.Handlebars.compile(&quot;{{#view}} my parent: {{parentView.elementId}} {{/view}}&quot;)
+});
+
+aView.appendTo('body');
+</code></pre>
+<p>Will result in HTML structure:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div id=&quot;ember1&quot; class=&quot;ember-view&quot;&gt;
+  &lt;div id=&quot;ember2&quot; class=&quot;ember-view&quot;&gt;
+    my parent: ember1
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>Setting CSS id and class attributes</h3>
+<p>The HTML <code>id</code> attribute can be set on the <code>{{view}}</code>'s resulting element with
+the <code>id</code> option. This option will <em>not</em> be passed to <code>Ember.View.create</code>.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#view tagName=&quot;span&quot; id=&quot;a-custom-id&quot;}}
+  hello.
+{{/view}}
+</code></pre>
+<p>Results in the following HTML structure:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div class=&quot;ember-view&quot;&gt;
+  &lt;span id=&quot;a-custom-id&quot; class=&quot;ember-view&quot;&gt;
+    hello.
+  &lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The HTML <code>class</code> attribute can be set on the <code>{{view}}</code>'s resulting element
+with the <code>class</code> or <code>classNameBindings</code> options. The <code>class</code> option will
+directly set the CSS <code>class</code> attribute and will not be passed to
+<code>Ember.View.create</code>. <code>classNameBindings</code> will be passed to <code>create</code> and use
+<code>Ember.View</code>'s class name binding functionality:</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#view tagName=&quot;span&quot; class=&quot;a-custom-class&quot;}}
+  hello.
+{{/view}}
+</code></pre>
+<p>Results in the following HTML structure:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div class=&quot;ember-view&quot;&gt;
+  &lt;span id=&quot;ember2&quot; class=&quot;ember-view a-custom-class&quot;&gt;
+    hello.
+  &lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>Supplying a different view class</h3>
+<p><code>{{view}}</code> can take an optional first argument before its supplied options to
+specify a path to a custom view class.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#view &quot;custom&quot;}}{{! will look up App.CustomView }}
+  hello.
+{{/view}}
+</code></pre>
+<p>The first argument can also be a relative path accessible from the current
+context.</p>
+<pre class="code prettyprint"><code class="language-javascript">MyApp = Ember.Application.create({});
+MyApp.OuterView = Ember.View.extend({
+  innerViewClass: Ember.View.extend({
+    classNames: ['a-custom-view-class-as-property']
+  }),
+  template: Ember.Handlebars.compile('{{#view view.innerViewClass}} hi {{/view}}')
+});
+
+MyApp.OuterView.create().appendTo('body');
+</code></pre>
+<p>Will result in the following HTML:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;div id=&quot;ember1&quot; class=&quot;ember-view&quot;&gt;
+  &lt;div id=&quot;ember2&quot; class=&quot;ember-view a-custom-view-class-as-property&quot;&gt;
+    hi
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3>Blockless use</h3>
+<p>If you supply a custom <code>Ember.View</code> subclass that specifies its own template
+or provide a <code>templateName</code> option to <code>{{view}}</code> it can be used without
+supplying a block. Attempts to use both a <code>templateName</code> option and supply a
+block will throw an error.</p>
+<pre class="code prettyprint"><code class="language-javascript">var App = Ember.Application.create();
+App.WithTemplateDefinedView = Ember.View.extend({
+  templateName: 'defined-template'
+});
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{! application.hbs }}
+{{view 'with-template-defined'}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">{{! defined-template.hbs }}
+Some content for the defined template view.
+</code></pre>
+<h3><code>viewName</code> property</h3>
+<p>You can supply a <code>viewName</code> option to <code>{{view}}</code>. The <code>Ember.View</code> instance
+will be referenced as a property of its parent view by this name.</p>
+<pre class="code prettyprint"><code class="language-javascript">aView = Ember.View.create({
+  template: Ember.Handlebars.compile('{{#view viewName=&quot;aChildByName&quot;}} hi {{/view}}')
+});
+
+aView.appendTo('body');
+aView.get('aChildByName') // the instance of Ember.View created by {{view}} helper
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">path</code>
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_with" class="method item">
+    <h3 class="name"><code>with</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>context</code>
+                </li>
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l7546"><code>js\libs\ember-1.10.0.debug.js:7546</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Use the <code>{{with}}</code> helper when you want to aliases the to a new name. It's helpful
+for semantic clarity and to retain default scope or to reference from another
+<code>{{with}}</code> block.</p>
+<pre class="code prettyprint"><code class="language-handlebars">// posts might not be
+{{#with user.posts as blogPosts}}
+  &lt;div class=&quot;notice&quot;&gt;
+    There are {{blogPosts.length}} blog posts written by {{user.name}}.
+  &lt;/div&gt;
+
+  {{#each post in blogPosts}}
+    &lt;li&gt;{{post.title}}&lt;/li&gt;
+  {{/each}}
+{{/with}}
+</code></pre>
+<p>Without the <code>as</code> operator, it would be impossible to reference <code>user.name</code> in the example above.</p>
+<p>NOTE: The alias should not reuse a name from the bound property path.
+For example: <code>{{#with foo.bar as foo}}</code> is not supported because it attempts to alias using
+the first part of the property path, <code>foo</code>. Instead, use <code>{{#with foo.bar as baz}}</code>.</p>
+<h3><code>controller</code> option</h3>
+<p>Adding <code>controller='something'</code> instructs the <code>{{with}}</code> helper to create and use an instance of
+the specified controller wrapping the aliased keyword.</p>
+<p>This is very similar to using an <code>itemController</code> option with the <code>{{each}}</code> helper.</p>
+<pre class="code prettyprint"><code class="language-handlebars">{{#with users.posts as posts controller='userBlogPosts'}}
+  {{!- <code>posts</code> is wrapped in our controller instance }}
+{{/with}}
+</code></pre>
+<p>In the above example, the <code>posts</code> keyword is now wrapped in the <code>userBlogPost</code> controller,
+which provides an elegant way to decorate the context with custom
+functions/properties.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">context</code>
+                        <span class="type"><a href="../classes/Function.html" class="crosslink">Function</a></span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_yield" class="method item">
+    <h3 class="name"><code>yield</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>options</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                    <p>Provided by the <a href="../modules/ember-htmlbars.html">ember-htmlbars</a> module.</p>
+                <p>
+                Defined in
+        <a href="../files/js_libs_ember-1.10.0.debug.js.html#l7639"><code>js\libs\ember-1.10.0.debug.js:7639</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p><code>{{yield}}</code> denotes an area of a template that will be rendered inside
+of another template. It has two main uses:</p>
+<h3>Use with <code>layout</code></h3>
+<p>When used in a Handlebars template that is assigned to an <code>Ember.View</code>
+instance's <code>layout</code> property Ember will render the layout template first,
+inserting the view's own rendered output at the <code>{{yield}}</code> location.</p>
+<p>An empty <code>&lt;body&gt;</code> and the following application code:</p>
+<pre class="code prettyprint"><code class="language-javascript">AView = Ember.View.extend({
+  classNames: ['a-view-with-layout'],
+  layout: Ember.Handlebars.compile('&lt;div class=&quot;wrapper&quot;&gt;{{yield}}&lt;/div&gt;'),
+  template: Ember.Handlebars.compile('&lt;span&gt;I am wrapped&lt;/span&gt;')
+});
+
+aView = AView.create();
+aView.appendTo('body');
+</code></pre>
+<p>Will result in the following HTML output:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;body&gt;
+  &lt;div class='ember-view a-view-with-layout'&gt;
+    &lt;div class=&quot;wrapper&quot;&gt;
+      &lt;span&gt;I am wrapped&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>The <code>yield</code> helper cannot be used outside of a template assigned to an
+<code>Ember.View</code>'s <code>layout</code> property and will throw an error if attempted.</p>
+<pre class="code prettyprint"><code class="language-javascript">BView = Ember.View.extend({
+  classNames: ['a-view-with-layout'],
+  template: Ember.Handlebars.compile('{{yield}}')
+});
+
+bView = BView.create();
+bView.appendTo('body');
+
+// throws
+// Uncaught Error: assertion failed:
+// You called yield in a template that was not a layout
+</code></pre>
+<h3>Use with Ember.Component</h3>
+<p>When designing components <code>{{yield}}</code> is used to denote where, inside the component's
+template, an optional block passed to the component should render:</p>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;!-- application.hbs --&gt;
+{{#labeled-textfield value=someProperty}}
+  First name:
+{{/labeled-textfield}}
+</code></pre>
+<pre class="code prettyprint"><code class="language-handlebars">&lt;!-- components/labeled-textfield.hbs --&gt;
+&lt;label&gt;
+  {{yield}} {{input value=value}}
+&lt;/label&gt;
+</code></pre>
+<p>Result:</p>
+<pre class="code prettyprint"><code class="language-html">&lt;label&gt;
+  First name: &lt;input type=&quot;text&quot; /&gt;
+&lt;/label&gt;
+</code></pre>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">options</code>
+                        <span class="type">Hash</span>
+
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type"><a href="../classes/String.html" class="crosslink">String</a></span>:
+                    <p>HTML string</p>
+
+            </div>
+        </div>
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
