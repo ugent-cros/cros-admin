@@ -2,8 +2,26 @@
  * Created by matthias on 3/04/2015.
  */
 
+/**
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
+ * This map is used to display a drones location an it's path.
+ *
+ * @class DroneMapComponent
+ * @namespace App
+ * @constructor
+ * @extends App.PopupMapComponent
+ */
 App.DroneMapComponent = App.PopupMapComponent.extend({
 
+    /**
+     * The icon used to represent a drone.
+     * @private
+     * @property icon {L.Icon}
+     */
     icon : L.icon({
         iconUrl: 'img/droneMarker.png',
         shadowUrl: 'img/marker-shadow.png',
@@ -14,6 +32,11 @@ App.DroneMapComponent = App.PopupMapComponent.extend({
         shadowAnchor: [0 , 0 ],  // the same for the shadow
         popupAnchor:  [0,  0 ] // point from which the popup should open relative to the iconAnchor
     }),
+    /**
+     * The line to represent the drones path
+     * @private
+     * @property polyline {L.Polyline}
+     */
     polyline : null,
 
     initialization : function(){
@@ -22,17 +45,6 @@ App.DroneMapComponent = App.PopupMapComponent.extend({
         var polyline = L.polyline([], {color: 'blue'}).addTo(this.get('map'));
         this.set('polyline', polyline);
     },
-
-    invalidateSize : function() {
-        var map = this.get("map");
-        Ember.run.scheduleOnce('afterRender', this, function() {
-            if (!map)
-                this.initialization();
-
-            if (map)
-                map.invalidateSize();
-        });
-    }.observes("updateSize"),
 
     updateMarker : function() {
         this._super();
