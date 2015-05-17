@@ -1,7 +1,34 @@
+/**
+ * @module cros-admin
+ * @submodule controllers
+ */
+
+/**
+ * This will create a new controller for a drone object
+ * @class DroneController
+ * @namespace App
+ * @constructor
+ * @extends Ember.ObjectController
+ */
 App.DroneController = Ember.ObjectController.extend({
-  
+
+    /**
+     * The current battery status of the drone
+     * @public
+     * @property battery {String}
+     */
 	battery : "N/A",
+    /**
+     * The current altitude of the drone
+     * @public
+     * @property altitude {integer}
+     */
 	altitude : -1,
+    /**
+     * the current location of the drone
+     * @public
+     * @property location {Object}
+     */
     location : [0,0],
 
     initialization : function() {
@@ -40,10 +67,20 @@ App.DroneController = Ember.ObjectController.extend({
         });
     }.observes("model"),
 
+    /**
+     * Whether the drone can not be controlled manually (depends on its current state).
+     * @public
+     * @property cantControl {boolean}
+     */
     cantControl : function() {
         return this.get("model.status") !== "AVAILABLE" && this.get("model.status") !== "MANUAL_CONTROL";
     }.property("model.status"),
-    
+
+    /**
+     * Determine the color of the label
+     * @public
+     * @property getModelClass {String}
+     */
     getModelClass: function(){
         var label = "label "
         var status = this.get('model.status');
@@ -60,18 +97,40 @@ App.DroneController = Ember.ObjectController.extend({
         else
             return label + "label-default";
     }.property('model.status'),
-    
+
+    /**
+     * Check if a drone can be deleted or not, since a flying drone cannot be deleted
+     *
+     * @public
+     * @property isNotDeletable {boolean}
+     */
     isNotDeletable: function(){
         return this.get("model.status") !== "AVAILABLE" && this.get("model.status") !== "MANUAL_CONTROL";
     }.property("model.status"),
 
+    /**
+     * the error message concerning the controls
+     * @public
+     * @property controlError {String}
+     */
     controlError : "",
+    /**
+     * Whether there is currently an error concerning the controls
+     * @public
+     * @property hasControlError {boolean}
+     */
     hasControlError : function() {
         return this.get("controlError") !== "";
     }.property("controlError"),
 
     actions: {
 
+        /**
+         * Perform an emergency call to the drone with the given id
+         * @public
+         * @method emergency
+         * @param {number} id - id of the drone
+         */
         emergency: function(id){
             this.adapter.find('drone',id,"emergency").then(function(data){
                 console.log(data);
@@ -80,6 +139,15 @@ App.DroneController = Ember.ObjectController.extend({
     }
 });
 
+/**
+ * This will create a new controller for editing a drone
+ * TODO: Is currently no longer used I think. Check usage and remove.
+ *
+ * @class DroneEditController
+ * @namespace App
+ * @constructor
+ * @extends Ember.Controller
+ */
 App.DroneEditController = Ember.Controller.extend({
 	actions: {
 		save: function(){

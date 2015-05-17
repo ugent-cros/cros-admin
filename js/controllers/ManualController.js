@@ -1,18 +1,69 @@
 /**
- * Created by matthias on 10/05/2015.
+ * @module cros-admin
+ * @submodule controllers
  */
 
+/**
+ * This will create a new controller for controlling a drone manually
+ * @class ManualController
+ * @namespace App
+ * @constructor
+ * @extends Ember.ObjectController
+ */
 App.ManualController = Ember.ObjectController.extend({
 
+    /**
+     * The current battery status of the drone
+     * @public
+     * @property battery {String}
+     */
     battery : "N/A",
+    /**
+     * The current altitude of the drone
+     * @public
+     * @property altitude {integer}
+     */
     altitude : -1,
+    /**
+     * The current location of the drone
+     * @public
+     * @property location {Object}
+     */
     location : [0,0],
+    /**
+     * The current speed of the drone
+     * @public
+     * @property speedvalue {double}
+     */
     speedvalue : 1,
+    /**
+     * Whether or not the drone is currently flying
+     * @public
+     * @property flying {boolean}
+     */
     flying : false,
+    /**
+     * The current video frame from the videowebsocket
+     * @public
+     * @property currentFrame {String}
+     */
     currentFrame : "",
+    /**
+     * The prefix for displaying image data base 64 in html
+     * @private
+     * @final
+     * @property videoPrefix {String}
+     */
     videoPrefix : "data:image/jpeg;base64, ",
 
     _originalDroneStatus : null,
+    /**
+     * The original status of the drone before taking manual control
+     * This will also make sure a copy of this value is in the cookies so it is not lost on refresh.
+     *
+     * @public
+     * @property originalDroneStatus {String}
+     */
     originalDroneStatus : function(key, value, previousValue) {
         if (arguments.length > 1) {
             this.set("_originalDroneStatus", value);
@@ -67,6 +118,12 @@ App.ManualController = Ember.ObjectController.extend({
         });
     }.observes("model"),
 
+    /**
+     * Functionality that should be executed before closing this controller.
+     * @public
+     * @method beforeClose
+     * @returns {boolean} Whether the controller is ready to be closed
+    */
     beforeClose : function() {
         if (this.get("flying")) {
             this.set("controlError", "You need to land the drone before closing.");
@@ -90,15 +147,35 @@ App.ManualController = Ember.ObjectController.extend({
         return true;
     },
 
+    /**
+     * The string to print for the speed
+     * @public
+     * @property speedString {String}
+     */
     speedString : function() {
         return parseFloat(this.get("speedvalue")).toFixed(2);
     }.property("speedvalue"),
 
+    /**
+     * the error message concerning the manual controls
+     * @public
+     * @property controlError {String}
+     */
     controlError : "",
+    /**
+     * Whether there is currently an error concerning the manual controls
+     * @public
+     * @property hasControlError {boolean}
+     */
     hasControlError : function() {
         return this.get("controlError") !== "";
     }.property("controlError"),
 
+    /**
+     * Whether or not there is currently a video stream setup.
+     * @public
+     * @property streamingVideo {boolean}
+     */
     streamingVideo : function() {
         if (this.get("videoSocket")) {
             return this.get("videoSocket.connection");
@@ -107,6 +184,11 @@ App.ManualController = Ember.ObjectController.extend({
         }
     }.property("videoSocket.connection"),
 
+    /**
+     * This function will update the image that is currently visible in the video
+     * @public
+     * @method videoProperty
+     */
     videoProperty : function() {
         $("#videoStream").attr('src', this.get("videoPrefix").concat(this.get("currentFrame")));
     }.observes("currentFrame"),
@@ -114,6 +196,9 @@ App.ManualController = Ember.ObjectController.extend({
     /**
      * This function will close the active videowebsocket.
      * If no video websocket is active, this will do nothing.
+     *
+     * @public
+     * @method closeStream
      */
     closeStream : function() {
         if (this.get("streamingVideo")) {
@@ -124,6 +209,11 @@ App.ManualController = Ember.ObjectController.extend({
     },
 
     actions: {
+        /**
+         * This will initialize the videosocket and make sure incoming frames are displayed on the videowindow.
+         * @public
+         * @method initVideo
+         */
         initVideo : function() {
             var self = this;
             this.adapter.find("drone", this.get("model.id"), "initVideo").then(function () {

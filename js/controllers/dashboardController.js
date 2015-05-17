@@ -1,9 +1,23 @@
 /**
- * Created by matthias on 14/04/2015.
+ * @module cros-admin
+ * @submodule controllers
  */
 
+/**
+ * This will create a new controller for the dashboard
+ * @class DashboardController
+ * @namespace App
+ * @constructor
+ * @extends Ember.ObjectController
+ */
 App.DashboardController = Ember.Controller.extend({
     v : false,
+    /**
+     * Contains all messages received
+     *
+     * @public
+     * @property notifications {Array|Object}
+     */
 	notifications: Ember.A([]),
 
     init : function() {
@@ -13,8 +27,20 @@ App.DashboardController = Ember.Controller.extend({
 		this.registerForEvents();
     },
 
+    /**
+     * Contains all locations of both drones and basestations in the system.
+     *
+     * @public
+     * @property locations {Array|Object}
+     */
     locations : undefined,
 
+    /**
+     * This function will fetch all locations from the REST-api and enter them in the list.
+     *
+     * @private
+     * @method fetchLocations
+     */
     fetchLocations : function() {
         var self = this;
 
@@ -123,12 +149,24 @@ App.DashboardController = Ember.Controller.extend({
         });
     },
 
+    /**
+     * This function returns the current time.
+     * @returns {string} The current time
+     */
 	getTime: function() {
 		var dt = new Date();
 		return '(' + dt.toLocaleTimeString() + ')';
 	},
 	
 	actions: {
+        /**
+         * Whenever one clicks on a notification in the dashboard this function will update the 'seen' status of these notifications.
+         * Afterwards it will make the transition to the correct route.
+         *
+         * @public
+         * @method notificationClicked
+         * @param item the notification on which has been clicked
+         */
 		notificationClicked: function(item) {
 			var notifications = this.get('notifications');
 			for(var i = 0; i < notifications.length; ++i) {
@@ -139,7 +177,13 @@ App.DashboardController = Ember.Controller.extend({
 			}
 			this.transitionToRoute(item.link, item.id);
 		},
-		
+
+        /**
+         * This method will remove all notifications which are marked as seen from the list.
+         *
+         * @public
+         * @method removeSeenNotifications
+         */
 		removeSeenNotifications: function() {
 			var removed = 0;
 			var notifications = this.get('notifications');
@@ -152,11 +196,22 @@ App.DashboardController = Ember.Controller.extend({
 			}
 		}
 	},
-	
+
+    /**
+     * Whether any notifications are currently in the list.
+     *
+     * @public
+     * @property notificationsAvailable {boolean}
+     */
 	notificationsAvailable: function() {
 		return this.notifications.length > 0;
 	}.property('notifications.@each'),
-	
+
+    /**
+     * Whether any of the notifications has been seen.
+     * @public
+     * @property isEnabled {boolean}
+     */
 	isEnabled: function() {
 		var enabled = false;
 		var notifications = this.get('notifications');

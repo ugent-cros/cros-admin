@@ -1,15 +1,46 @@
 /**
- * Created by Eveline on 5/04/2015.
+ * @module cros-admin
+ * @submodule controllers
+ */
+
+/**
+ * This will create a new list controller
+ * @class ListSuperController
+ * @namespace App
+ * @constructor
+ * @extends Controller
  */
 App.ListSuperController = Ember.Controller.extend({
 
+    /**
+     * Default value for number of elements in a table
+     *
+     * @property {number} DEFAULT
+     */
     DEFAULT: 10, //do not change
+
+    /**
+     * Last used parameters for a call to the REST api
+     *
+     * @property params
+     */
     params: null,
 
+    /**
+     * Logged in user
+     *
+     * @property {object} currentUser
+     */
     currentUser: function(){
         return this.authManager.get("user");
     }.property("authManager.user"),
 
+    /**
+     * This function determines if a user has write permissions
+     *
+     * @method userCanEdit
+     * @return {Boolean} True if the user has write permissions
+     */
     userCanEdit: function() {
         var user = this.get("currentUser");
         if(user) {
@@ -19,10 +50,28 @@ App.ListSuperController = Ember.Controller.extend({
         }
     }.property("currentUser"),
 
+    /**
+     * Determine if a user has only read permissions
+     *
+     * @method userCantEdit
+     * @return {Boolean} True if the user has only read permissions
+     */
     userCantEdit: function() {
         return !this.get("userCanEdit");
     }.property("userCanEdit"),
 
+    /**
+     * This function executes a call to the REST api to get elements for a specific page in the table,
+     * according to the search and ordering settings
+     *
+     * @method loadPage
+     * @param {string} search - Searchquery
+     * @param {string} searchField - The parameter where the user want to search on
+     * @param {number} page - Number of the current page in the table (counting from 1)
+     * @param {number} perPage - Total elements on a page in the table
+     * @param {string} orderBy - Parameter where the user want to sort on
+     * @param {string} order - "asc" or "desc"
+     */
     loadPage: function(search, searchField, page, perPage, orderBy, order) {
         var self = this;
         var elementClass = self.get('element');
@@ -51,6 +100,11 @@ App.ListSuperController = Ember.Controller.extend({
         });
     },
 
+    /**
+     * This function refreshes the current page, based on the last used parameters or default parameters
+     *
+     * @method refresh
+     */
     refresh: function(){
         var self = this;
         var elementClass = this.get('element');
@@ -69,6 +123,11 @@ App.ListSuperController = Ember.Controller.extend({
 
     //Actions
     actions: {
+        /**
+         * Delete an item
+         *
+         * @param {number} id - id of the item
+         */
         delete: function (id) {
             var elementClass = this.get('element');
             var result = this.adapter.remove(elementClass, id);
@@ -92,6 +151,16 @@ App.ListSuperController = Ember.Controller.extend({
             );
         },
 
+        /**
+         * Get elements for a specific page in the table, according to the search and ordering settings
+         *
+         * @param {string} search - Searchquery
+         * @param {string} searchField - The parameter where the user want to search on
+         * @param {number} page - Number of the current page in the table (counting from 1)
+         * @param {number} perPage - Total elements on a page in the table
+         * @param {string} orderBy - Parameter where the user want to sort on
+         * @param {string} order - "asc" or "desc"
+         */
         getPage: function (search, searchField, page, perPage, orderBy, order){
             this.loadPage(search, searchField, page,perPage, orderBy, order);
         }
