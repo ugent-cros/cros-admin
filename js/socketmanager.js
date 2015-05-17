@@ -10,6 +10,7 @@
  *
  * @class SocketManager
  * @constructor
+ * @namespace window
  * @extends Ember.Object
  */
 window.SocketManager = Ember.Object.extend({
