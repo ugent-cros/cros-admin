@@ -8,16 +8,32 @@
  * @class BasestationsController
  * @namespace App
  * @constructor
- * @extends ListSuperController
+ * @extends App.ListSuperController
  */
 App.BasestationsController = App.ListSuperController.extend({
     /**
      * List representing the columns in the table
      *
-     * @property columns
-     * @property columns.label - Title of the column
-     * @property columns.value - Representing name for rest objects
-     * @property columns.sortable - expresses if the column is sortable for that parameter
+     * @public
+     * @property columns {Array|Object}
+    */
+    /**
+     * Title of the column
+     *
+     * @public
+     * @property columns.label {String}
+    */
+    /**
+     * Representing name for rest objects
+     *
+     * @public
+     * @property columns.value {String}
+    */
+    /**
+     * expresses if the column is sortable for that parameter
+     *
+     * @public
+     * @property columns.sortable {Boolean}
      */
     columns : [{label:'#', value:"id", sortable:1},
         {label:'Name', value: "name", sortable:1},
@@ -39,15 +55,37 @@ App.BasestationsController = App.ListSuperController.extend({
     searchFields : ["name"]
 });
 
+/**
+ * This will create a new controller for a editing a basestation.
+ * @class BasestationEditController
+ * @namespace App
+ * @constructor
+ * @extends Ember.Controller
+ */
 App.BasestationEditController = Ember.Controller.extend({
     needs: 'basestations',
     index: Ember.computed.alias("controllers.basestations"),
 
+    /**
+     * the error message concerning the name
+     * @public
+     * @property nameError {String}
+     */
     nameError : "",
+    /**
+     * Whether there is currently an error concerning the name
+     * @public
+     * @property hasNameError {boolean}
+     */
     hasNameError : function() {
         return this.get('nameError') !== "";
     }.property('nameError'),
 
+    /**
+     * The location of the basestation
+     * @public
+     * @property location {Object}
+     */
     location : function(key,value,previousValue) {
         // setter
         if (arguments.length > 1) {
@@ -71,32 +109,82 @@ App.BasestationEditController = Ember.Controller.extend({
         else
             return null
     }.property("model.location.longitude", "model.location.latitude"),
+    /**
+     * the error message concerning the location
+     * @public
+     * @property locationError {String}
+     */
     locationError : "",
+    /**
+     * Whether there is currently an error concerning the location
+     * @public
+     * @property hasLocationError {boolean}
+     */
     hasLocationError : function() {
         return this.get("locationError") !== "";
     }.property("locationError"),
 
+    /**
+     * the error message concerning the longitude
+     * @public
+     * @property longitudeError {String}
+     */
     longitudeError : "",
+    /**
+     * Whether there is currently an error concerning the longitude
+     * @public
+     * @property hasLongitudeError {boolean}
+     */
     hasLongitudeError : function() {
         return this.get("longitudeError") !== "";
     }.property("longitudeError"),
 
+    /**
+     * the error message concerning the latitude
+     * @public
+     * @property latitudeError {String}
+     */
     latitudeError : "",
+    /**
+     * Whether there is currently an error concerning the latitude
+     * @public
+     * @property hasLatitudeError {boolean}
+     */
     hasLatitudeError : function() {
         return this.get("latitudeError") !== "";
     }.property("latitudeError"),
 
+    /**
+     * the error message concerning the altitude
+     * @public
+     * @property altitudeError {String}
+     */
     altitudeError : "",
+    /**
+     * Whether there is currently an error concerning the altitude
+     * @public
+     * @property hasAltitudeError {boolean}
+     */
     hasAltitudeError : function() {
         return this.get("altitudeError") !== "";
     }.property("altitudeError"),
 
+    /**
+     * Whether there is currently an error concerning anything other than the other properties.
+     * @public
+     * @property hasSomeError {boolean}
+     */
     hasSomeError : function() {
         return this.get("hasAltitudeError") || this.get("hasLatitudeError") || this.get("hasLongitudeError") || this.get("hasLocationError");
     }.property("hasAltitudeError", "hasLatitudeError", "hasLongitudeError", "hasLocationError"),
 
+    /**
+     * function called when save function fails
+     * @private
+     * @method failure
+     * @param result The error data
+     */
     failure : function(result) {
-        console.log("handle failure");
         this.set('nameError', result.responseJSON.name || "");
         this.set('locationError', result.responseJSON.location || "");
         this.set('longitudeError', result.responseJSON["location.longitude"] || "");
@@ -104,11 +192,24 @@ App.BasestationEditController = Ember.Controller.extend({
         this.set('altitudeError', result.responseJSON["location.altitude"] || "");
     },
 
+    /**
+     * function called when save call succeeds
+     *
+     * @private
+     * @method success
+     * @param result the result from the save call
+     */
     success : function(result) {
         this.transitionToRoute('basestation', result.basestation.id);
     },
 
     actions : {
+        /**
+         * function to save the new basestation.
+         *
+         * @public
+         * @method save
+         */
         save: function(){
 
             var jsonObject = {

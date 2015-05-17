@@ -8,7 +8,7 @@
  * @class ListSuperController
  * @namespace App
  * @constructor
- * @extends ListSuperController
+ * @extends App.ListSuperController
  */
 App.DronesController = App.ListSuperController.extend({
 
@@ -58,50 +58,139 @@ App.TypeController = Ember.ObjectController.extend({
     }.property()
 });
 
+/**
+ * This will create a new controller editing a drone
+ * @class TypeController
+ * @namespace App
+ * @constructor
+ * @extends Ember.ObjectController
+ */
 App.DroneEditController = Ember.Controller.extend({
     needs: 'drones',
     index: Ember.computed.alias("controllers.drones"),
+    /**
+     * the error message concerning the name
+     * @public
+     * @property nameError {String}
+     */
 	nameError: "",
+    /**
+     * the error message concerning the address
+     * @public
+     * @property addressError {String}
+     */
 	addressError: "",
+    /**
+     * the error message concerning the type
+     * @public
+     * @property typeError {String}
+     */
 	typeError: "",
+    /**
+     * the error message concerning the weight
+     * @public
+     * @property weightError {String}
+     */
 	weightError: "",
+    /**
+     * Whether there is currently an error concerning the name
+     * @public
+     * @property hasNameError {boolean}
+     */
     hasNameError : function() {
         return this.get('nameError') !== "";
     }.property('nameError'),
+    /**
+     * Whether there is currently an error concerning the address
+     * @public
+     * @property hasAddressError {boolean}
+     */
     hasAddressError : function() {
         return this.get('addressError') !== "";
     }.property('addressError'),
+    /**
+     * Whether there is currently an error concerning the type
+     * @public
+     * @property hasTypeError {boolean}
+     */
     hasTypeError : function() {
         return this.get('typeError') !== "";
     }.property('typeError'),
+    /**
+     * Whether there is currently an error concerning the weight
+     * @public
+     * @property hasWeightError {boolean}
+     */
     hasWeightError : function() {
         return this.get('weightError') !== "";
     }.property('weightError'),
 
+    /**
+     * This function will be called when the REST call succeeds
+     *
+     * @private
+     * @method success
+     * @param id the id of the new drone
+     */
 	success: function(id) {
 		this.transitionToRoute('drone', id);
 	},
 
+    /**
+     * Whether the current state is "AVAILABLE"
+     *
+     * @public
+     * @property isAvailableState
+     */
     isAvailableState : function() {
         return this.get("model.status") == "AVAILABLE";
     }.property("model.status"),
 
+    /**
+     * Whether the current state is "CHARGING"
+     *
+     * @public
+     * @property isChargingState
+     */
     isChargingState : function() {
         return this.get("model.status") == "CHARGING";
     }.property("model.status"),
 
+    /**
+     * Whether the current state is "INACTIVE"
+     *
+     * @public
+     * @property isInactiveState
+     */
     isInactiveState : function() {
         return this.get("model.status") == "INACTIVE";
     }.property("model.status"),
 
+    /**
+     * Whether the current state is "RETIRED"
+     *
+     * @public
+     * @property isRetiredState
+     */
     isRetiredState : function() {
         return this.get("model.status") == "RETIRED";
     }.property("model.status"),
 
+    /**
+     * Whether the current state is "MANUAL_CONTROL"
+     *
+     * @public
+     * @property isManualState
+     */
     isManualState : function() {
         return this.get("model.status") == "MANUAL_CONTROL";
     }.property("model.status"),
 
+    /**
+     * This function will update the status of the local model.
+     * @public
+     * @property updateSelected
+     */
     updateSelected : function() {
         var self = this;
         var types = this.get("types") || [];
@@ -113,9 +202,16 @@ App.DroneEditController = Ember.Controller.extend({
         });
         if (noneSelected && types[0]) {
             Ember.set(this.get("model"), "droneType", types[0]);
-        }
+    }
     }.observes("types", "model.droneType"),
 
+    /**
+     * This function will handle errors from the ajax calls.
+     *
+     * @private
+     * @method failure
+     * @param data the errordata
+     */
 	failure: function(data) {
         if(typeof data.responseJSON === 'string' || data.responseJSON.reason) {
 			if(!$('#droneAlert')[0]) {

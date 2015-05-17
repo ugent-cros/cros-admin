@@ -8,7 +8,7 @@
  * @class AssignmentController
  * @namespace App
  * @constructor
- * @extends Controller
+ * @extends Ember.Controller
  */
 App.AssignmentController = Ember.Controller.extend({
 	
@@ -17,6 +17,12 @@ App.AssignmentController = Ember.Controller.extend({
 		this.registerForEvents();
 	},
 
+    /**
+     * The string of the current progress status.
+     *
+     * @public
+     * @property progressText {String}
+     */
 	progressText: function() {
 		var model = this.get('model');
 		if(model.progress == model.route.length) {
@@ -27,7 +33,13 @@ App.AssignmentController = Ember.Controller.extend({
 			return 'in progress';
 		}
 	}.property('model.progress'),
-	
+
+    /**
+     * The css class to label the current progress
+     *
+     * @public
+     * @property progressLabel {String}
+     */
 	progressLabel: function() {
 		var model = this.get('model');
 		if(model.progress == model.route.length) {
@@ -39,6 +51,12 @@ App.AssignmentController = Ember.Controller.extend({
 		}
 	}.property('model.progress'),
 
+    /**
+     * A list of the checkpoint locations of this assignment.
+     *
+     * @public
+     * @property checkpointLocations {Array|Object}
+     */
     checkpointLocations : function() {
         var route = this.get('model').route;
         var result = [];
@@ -48,6 +66,13 @@ App.AssignmentController = Ember.Controller.extend({
         return result;
     }.property('model'),
 
+    /**
+     * This function will set the location of the drone that has been assigned to this assignment.
+     *
+     * @public
+     * @method updateDroneLocation
+     * @param location The new location of the drone
+     */
     updateDroneLocation : function(location) {
         this.set('droneLocation', Ember.Object.create({
             lat : location.latitude,

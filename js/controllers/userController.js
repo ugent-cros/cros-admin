@@ -8,7 +8,7 @@
  * @class UserController
  * @namespace App
  * @constructor
- * @extends ObjectController
+ * @extends Ember.ObjectController
  */
 App.UserController = Ember.ObjectController.extend({
 
@@ -29,6 +29,8 @@ App.UserController = Ember.ObjectController.extend({
 
     /**
      * Determine the color of the label
+     * @public
+     * @property getClass {String}
      */
     getClass: function(){
         var label = "label "

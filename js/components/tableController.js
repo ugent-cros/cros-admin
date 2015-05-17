@@ -1,6 +1,12 @@
 /**
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
  * This will create a new table controller
  * @class MyTableComponent
+ * @namespace App
  * @constructor
  * @extends Component
  */

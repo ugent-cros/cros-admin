@@ -3,9 +3,29 @@
  * @submodule controllers
  */
 
+/**
+ * This class is the general controller of this app.
+ *
+ * @class AppController
+ * @namespace App
+ * @constructor
+ * @extends Ember.Controller
+ */
 App.AppController = Ember.Controller.extend({
+    /**
+     * This property contains all notifications that have been received by the controller.
+     *
+     * @private
+     * @property notification {Object}
+     */
     notification : {},
-	
+
+    /**
+     * This property is the current css class that is assigned to the current notification.
+     *
+     * @public
+     * @property notificationType {String}
+     */
 	notificationType: function() {
 		if(this.get('notification').message) {
 			$('#notificationSlider').slideDown('slow');
@@ -19,6 +39,7 @@ App.AppController = Ember.Controller.extend({
 		this.registerForEvents();
 
         var self = this;
+        // create connection with socketmanager
         if(this.socketManager) {
             this.socketManager.register("notification",null, function(data) {
                 if (data.action === "clear") {
@@ -42,7 +63,13 @@ App.AppController = Ember.Controller.extend({
 			$('#notificationSlider').hide();
         }
     },
-	
+
+    /**
+     * This method will register this controller for all events it wants to display.
+     *
+     * @private
+     * @method registerForEvents
+     */
 	registerForEvents: function() {
 		var self = this;
 		this.socketManager.register("droneAssigned", 0, "application", function(data, id) {
@@ -74,7 +101,16 @@ App.AppController = Ember.Controller.extend({
 			});
 		});
 	},
-	
+
+    /**
+     * This function will make sure that the datat given is displayed in the notifications bar.
+     *
+     * @private
+     * @method handleEvent
+     * @param data the received message
+     * @param id the id of the concerning entity
+     * @param func the function to call for handling this event
+     */
 	handleEvent: function(data, id, func) {
 		var self = this;
 		$('#notificationSlider').slideUp('slow', function() {

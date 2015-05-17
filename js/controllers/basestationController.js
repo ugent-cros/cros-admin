@@ -8,10 +8,16 @@
  * @class BasestationController
  * @namespace App
  * @constructor
- * @extends Controller
+ * @extends Ember.Controller
  */
 App.BasestationController = Ember.Controller.extend({
 
+    /**
+     * This is the current location of the basestation.
+     *
+     * @public
+     * @property basestationLocation
+     */
     basestationLocation : function() {
         var loc = this.get('model').location;
         return Ember.Object.create({lat : loc.latitude, lon : loc.longitude});
