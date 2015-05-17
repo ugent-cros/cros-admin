@@ -4,7 +4,7 @@
  */
 
 /**
- * This will create a new controller for a list of assingments
+ * This will create a new controller for a list of assignments
  * @class AssignmentsController
  * @namespace App
  * @constructor
