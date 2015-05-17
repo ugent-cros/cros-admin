@@ -1,8 +1,22 @@
 /**
- * Created by Eveline on 21/04/2015.
+ * @module cros-admin
+ * @submodule components
+ */
+
+/**
+ * This will create a new line chart component
+ * @class LineGraphComponent
+ * @namespace App
+ * @constructor
+ * @extends Component
  */
 App.LineGraphComponent = Ember.Component.extend({
 
+    /**
+     * This function draws the line chart
+     *
+     * @method
+     */
     draw: function(){
         var self = this
         $('.modal').on('shown.bs.modal', function (e) {
