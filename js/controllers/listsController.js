@@ -8,7 +8,7 @@
  * @class ListSuperController
  * @namespace App
  * @constructor
- * @extends Controller
+ * @extends Ember.Controller
  */
 App.ListSuperController = Ember.Controller.extend({
 
