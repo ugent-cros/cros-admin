@@ -1,3 +1,7 @@
+Usage manual
+============
+This can be found [here](docs/usage.md)
+
 Dependencies
 ============
 Here we use nginx as a reverse proxy for both the frontend and backend application.
